@@ -2,7 +2,7 @@
 
 Community-contributed OLP downloaders, uploaders, technology plugins, and examples for FASTSUITE E2.
 
-This repository is used as a **git submodule** in the [fastsuite-copilot-starter](https://github.com/CBerauer/fastsuite-copilot-starter) template. VS Code Copilot references these files as working examples when helping you build new plugins.
+This repository is used as a **git submodule** in the [fastsuite-copilot-starter](https://github.com/cenit-dfs/fastsuite-copilot-starter) template. VS Code Copilot references these files as working examples when helping you build new plugins.
 
 ## Contents
 
