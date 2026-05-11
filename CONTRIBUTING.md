@@ -14,7 +14,7 @@ Thank you for contributing to the FASTSUITE E2 community! This guide explains ho
 
 ### Downloaders / Uploaders
 - Place in `OLPTranslators/<VENDOR>/`
-- Follow the coding conventions from the [starter repo](https://github.com/cenit-dfs/fastsuite-copilot-starter)
+- Follow the coding conventions from the [starter repo](https://github.com/CBerauer/fastsuite-copilot-starter)
 - Include a brief description in your PR of what robot controller the plugin targets
 
 ### Tree Dumps
