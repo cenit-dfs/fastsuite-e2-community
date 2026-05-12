@@ -1,6 +1,8 @@
 # Examples
 
-Place tree dumps and golden files here for reference and testing.
+Reference tree dumps and golden files for community downloaders. All files here are small text files — no binaries.
+
+> **Your own test data** (`.cendoc` scenarios, customer-specific golden files) belongs in your private repo under `OLPTranslators/<VENDOR>/tests/`. See the [starter repo OLPTranslators README](https://github.com/cenit-dfs/fastsuite-copilot-starter/blob/master/OLPTranslators/README.md) for the test folder structure.
 
 ## Tree Dumps
 
@@ -11,9 +13,17 @@ Place tree dumps in `tree_dumps/` with descriptive names:
 examples/tree_dumps/<vendor>_<description>.txt
 ```
 
+**Before committing:** Remove any customer names, proprietary information, or sensitive data from the dump.
+
 ## Golden Files
 
-Expected output files for comparison testing. Organized by vendor:
+Expected output files that show what a community downloader produces. Organized by vendor and controller:
+
 ```
-examples/golden_files/<VENDOR>/
+examples/golden_files/<VENDOR>_<CONTROLLER>/
+├── main.src          ← primary output file
+├── main.dat          ← data file (if applicable)
+└── README.txt        ← brief description of the scenario (optional)
 ```
+
+**Keep golden files small** — use a minimal scenario (2–3 motions, a tool change, one signal event) to demonstrate the output format. These serve as documentation, not exhaustive test suites.
