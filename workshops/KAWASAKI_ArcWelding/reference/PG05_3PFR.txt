@@ -1,0 +1,1550 @@
+Current language: en-US
+Controller: E0x_with_TrafoUnit
+Model: E0x_with_TrafoUnit
+Series: E-Series
+Manufacturer: Kawasaki
+Controller Type: Motion
+Active program: PG05_3PFR
+Controller connected joints: 
+  JointName = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg";
+  JointName = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg";
+  JointName = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg";
+  JointName = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg";
+  JointName = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg";
+  JointName = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg";
+  AuxJointName = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg";
+  AuxJointName = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg";
+ Tool profiles: 
+  ToolProfile = "TOOL1"; ProfileIndex = "notDefined"; ToolType = "OnRobot"; X = "0.002200"; Y = "0.141714"; Z = "0.431714"; Rx = "-45.000000"; Ry = "-0.000274"; Rz = "-0.000327";
+ Base profiles: 
+  BaseProfile = "World"; ProfileIndex = "notDefined"; ReferenceProfile = "None"; X = "0.000000"; Y = "0.000000"; Z = "0.000000"; Rx = "0.000000"; Ry = "0.000000"; Rz = "0.000000";
+  BaseProfile = "B0"; ProfileIndex = "notDefined"; ReferenceProfile = "None"; X = "0.812264"; Y = "0.486941"; Z = "1.817618"; Rx = "0.000000"; Ry = "-0.000000"; Rz = "-0.000000";
+ Accuracy profiles: 
+  AccuracyProfile = "Default"; AccuracyCriteria = "Distance"; FlyBy = "Off"; Value = "0.000000"; Unit = "m";
+  AccuracyProfile = "CP_ACCU_0.01m"; AccuracyCriteria = "Distance"; FlyBy = "On"; Value = "0.005000"; Unit = "m";
+ Motion profiles: 
+  MotionProfile = "CP_SP_0.50_ACC100.00%"; MotionProfileBasis = "Absolute"; ProfileType = "Contour"; SpeedValue = "0.500000"; SpeedUnit = ""; AccelerationValue = "100.000000"; AccelerationUnit = "%";
+  MotionProfile = "CP_SP_0.01_ACC100.00%"; MotionProfileBasis = "Absolute"; ProfileType = "Contour"; SpeedValue = "0.005833"; SpeedUnit = ""; AccelerationValue = "100.000000"; AccelerationUnit = "%";
+  MotionProfile = "PTP_SP_50%_ACC_100%"; MotionProfileBasis = "Percent"; ProfileType = "PointToPoint"; SpeedValue = "50.000000"; SpeedUnit = "%"; AccelerationValue = "100.000000"; AccelerationUnit = "%";
+  MotionProfile = "CP_SP_1m/s_ACC_100%"; MotionProfileBasis = "Absolute"; ProfileType = "Contour"; SpeedValue = "1.000000"; SpeedUnit = "%"; AccelerationValue = "100.000000"; AccelerationUnit = "%";
+ Controller attributes: 
+ End of Controller attributes
+ Controller resources list: 
+  ResourceName = "BA06L"; ItemType = "Production"; ItemSubType = "MachineRobot"; Manufacturer = "Kawasaki"; Model = "BA06L"; Series = "BA-Series";
+ Resource Attributes:
+    Name = "CENOlpDataOutputStyle"; Value = "Implicit"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+  ResourceName = "ZSB-V-RT3500H MIG-MAG"; ItemType = "Peripheral"; ItemSubType = "Tool"; Manufacturer = "OTC"; Model = ""; Series = "";
+  ResourceName = "PMU_Positionierer"; ItemType = "Production"; ItemSubType = "WorkpiecePositioner"; Manufacturer = "ASTOR"; Model = "PST500H1"; Series = "K-Positionier";
+
+Program: PG05_3PFR IsMainProgram = True
+  BaseProfile = "B0"; ProfileIndex = "notDefined"; ReferenceProfile = "None"; X = "0.812264"; Y = "0.486941"; Z = "1.817618"; Rx = "0.000000"; Ry = "-0.000000"; Rz = "-0.000000";
+  ToolProfile = "TOOL1"; ProfileIndex = "notDefined"; ToolType = "OnRobot"; X = "0.002200"; Y = "0.141714"; Z = "0.431714"; Rx = "-45.000000"; Ry = "-0.000274"; Rz = "-0.000327";
+  Program attributes
+     Name = "CONTROLLER_MANUFACTURER"; Value = "Kawasaki"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "ProcessAttribute | GlobalAttribute";
+     Name = "CONTROLLER_SERIES"; Value = "E-Series"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "ProcessAttribute | GlobalAttribute";
+     Name = "CONTROLLER_MODEL"; Value = "E0x_with_TrafoUnit"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "ProcessAttribute | GlobalAttribute";
+     Name = "RESOURCE_MANUFACTURER"; Value = "Kawasaki"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "ProcessAttribute | GlobalAttribute";
+     Name = "RESOURCE_SERIES"; Value = "BA-Series"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "ProcessAttribute | GlobalAttribute";
+     Name = "RESOURCE_MODEL"; Value = "BA06L"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "ProcessAttribute | GlobalAttribute";
+     Name = "P_SEARCH_CYC_EXPLODE"; Value = "forbidden"; Type = "LiteralAttribute"; Values = "forbidden, immediately"; Index = "0"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | GlobalAttribute";
+     Name = "TSConnectionType"; Value = "Frame3pConnect"; Type = "LiteralAttribute"; Values = "OperationConnect, StartEndConnect, ShortestDistanceConnect, Frame3pConnect"; Index = "3"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationGroupAttribute | GlobalAttribute";
+     Name = "GroupNumber"; Value = "0"; Type = "IntAttribute"; Min = "-1"; Max = "6"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | GlobalAttribute";
+     Name = "SensingLength"; Value = "0.030000"; Type = "DoubleAttribute"; Min = "0.000000"; Max = "1000.000000"; StepSize = "0.001000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Length"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute | OperationGroupAttribute | GlobalAttribute";
+     Name = "OvertravelLength"; Value = "0.030000"; Type = "DoubleAttribute"; Min = "0.000000"; Max = "1000.000000"; StepSize = "0.001000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Length"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute | OperationGroupAttribute | GlobalAttribute";
+     Name = "SensingSpeed"; Value = "0.015000"; Type = "DoubleAttribute"; Min = "0.001000"; Max = "0.200000"; StepSize = "0.005000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Speed"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute | OperationGroupAttribute | GlobalAttribute";
+     Name = "TouchApprRetrSpeed"; Value = "0.200000"; Type = "DoubleAttribute"; Min = "0.000000"; Max = "1.000000"; StepSize = "0.001000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Length"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute | OperationGroupAttribute | GlobalAttribute";
+     Name = "TouchApprFlyBy"; Value = "0.005000"; Type = "DoubleAttribute"; Min = "0.000000"; Max = "0.100000"; StepSize = "0.001000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Length"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute | OperationGroupAttribute | GlobalAttribute";
+     Name = "SeamSearchSensingLength"; Value = "0.030000"; Type = "DoubleAttribute"; Min = "0.000000"; Max = "1000.000000"; StepSize = "0.001000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Length"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute | OperationGroupAttribute | GlobalAttribute";
+     Name = "SeamSearchOvertravelLength"; Value = "0.030000"; Type = "DoubleAttribute"; Min = "0.000000"; Max = "1000.000000"; StepSize = "0.001000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Length"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute | OperationGroupAttribute | GlobalAttribute";
+     Name = "SeamSearchSensingSpeed"; Value = "0.015000"; Type = "DoubleAttribute"; Min = "0.001000"; Max = "0.200000"; StepSize = "0.005000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Speed"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute | OperationGroupAttribute | GlobalAttribute";
+  End of attributes for program
+
+Operation group:  GRP001
+   TechnologyName = "ArcWeldingTechnology";
+   BaseProfile = "B0"; ProfileIndex = "notDefined"; ReferenceProfile = "None"; X = "0.812264"; Y = "0.486941"; Z = "1.817618"; Rx = "0.000000"; Ry = "-0.000000"; Rz = "-0.000000";
+   ToolProfile = "TOOL1"; ProfileIndex = "notDefined"; ToolType = "OnRobot"; X = "0.002200"; Y = "0.141714"; Z = "0.431714"; Rx = "-45.000000"; Ry = "-0.000274"; Rz = "-0.000327";
+
+   Operation: WG1_Touch1 OperationType = Normal
+    Operation used base profile:
+    BaseProfile = "B0"; ProfileIndex = "notDefined"; ReferenceProfile = "None"; X = "0.812264"; Y = "0.486941"; Z = "1.817618"; Rx = "0.000000"; Ry = "-0.000000"; Rz = "-0.000000";
+    Operation used tool profile:
+    ToolProfile = "TOOL1"; ProfileIndex = "notDefined"; ToolType = "OnRobot"; X = "0.002200"; Y = "0.141714"; Z = "0.431714"; Rx = "-45.000000"; Ry = "-0.000274"; Rz = "-0.000327";
+ Operation Attributes:
+     Name = "TSLocationAtEnd"; Value = "False"; Type = "BoolAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "TSContourTpeUUID"; Value = "7e98301-fd07e156"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "TouchSensCycleExplode"; Value = "False"; Type = "BoolAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "TSWireCheckOperation"; Value = "False"; Type = "BoolAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "TouchId"; Value = "1"; Type = "IntAttribute"; Min = "0"; Max = "2147483647"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "Touch_Cntr"; Value = "6"; Type = "IntAttribute"; Min = "0"; Max = "2147483647"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "ProcessAttribute | OperationAttribute";
+     Name = "FramePt"; Value = "1"; Type = "IntAttribute"; Min = "0"; Max = "3"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "ArcWeldingOperationWorkMethodName"; Value = "TouchSensingWorkMethod"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+ End of attributes for operation
+     Events before PG05_P0006 motion
+      EventName = "BuiltInEvent"; EventGroupName = "BuiltInEvent"; InsertPosition = "InsertBefore"; EventType = "Insert";
+    Motion: PG05_P0001;  MotionType = "Pt2Pt";
+     PositionName = "PG05_P0001"; ProcessType = "TeachInsert"; TargetType = "Cartesian";
+     Cartesian target:
+       X = "0.002200"; Y = "0.906062"; X = "1.288894"; Rx = "175.000000"; Ry = "0.000000"; Rz = "0.000426";
+       Config = "RAD"; Turn = "0,0,0";
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg";
+       Value = "0.000000";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg";
+       Value = "-25.000000";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg";
+       Value = "-90.000000";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg";
+       Value = "0.000000";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg";
+       Value = "-75.000000";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg";
+       Value = "0.000000";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "180.000000";
+     EventEnd
+      EventName = "BuiltInEvent"; EventGroupName = "BuiltInEvent"; InsertPosition = "InsertBefore"; EventType = "Insert";
+    Motion: PG05_P0002;  MotionType = "Pt2Pt";
+     PositionName = "PG05_P0002"; ProcessType = "TeachInsert"; TargetType = "Cartesian";
+     Cartesian target:
+       X = "0.136761"; Y = "0.859241"; X = "1.051905"; Rx = "135.000000"; Ry = "0.000000"; Rz = "-90.000000";
+       Config = "RAD"; Turn = "0,0,0";
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg";
+       Value = "17.914289";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg";
+       Value = "-16.888133";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg";
+       Value = "-96.986793";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg";
+       Value = "-0.000086";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg";
+       Value = "-99.901601";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg";
+       Value = "72.086023";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "180.000000";
+     EventEnd
+      EventName = "TouchSensingEvent"; EventGroupName = "Unknown"; InsertPosition = "InsertBefore"; EventType = "Process";
+      Attributes set on event:
+         Name = "TSLocationAtEnd"; Value = "False"; Type = "BoolAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "TSContourTpeUUID"; Value = "7e98301-fd07e156"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "TSBaseFrameTouchAxis"; Value = "Undefined"; Type = "LiteralAttribute"; Values = "Undefined, +X, -X, +Y, -Y, +Z, -Z"; Index = "0"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+      End of attributes for event
+     Events before PG05_P0003 motion
+      EventName = "TouchPointStartAppEvent"; EventGroupName = "OlpEvent"; InsertPosition = "InsertBefore"; EventType = "Olp";
+     EventEnd
+      EventName = "Accuracy"; EventGroupName = "Motionprofile"; InsertPosition = "InsertBefore"; EventType = "Accuracy";
+      Attributes set on event:
+         Name = "Value"; Value = "0.005000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Length"; GetOlpProperty = "";
+         Name = "Criteria"; Value = "Distance"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+      EventName = "Speed"; EventGroupName = "Motionprofile"; InsertPosition = "InsertBefore"; EventType = "Speed";
+      Attributes set on event:
+         Name = "Value"; Value = "0.200000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Speed"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+     End Events before PG05_P0003 motion
+    Motion: PG05_P0003;  MotionType = "Linear";
+     PositionName = "PG05_P0003"; ProcessType = "Cycle"; TargetType = "Cartesian";
+     Cartesian target:
+       X = "0.137358"; Y = "0.859241"; X = "1.003406"; Rx = "135.000000"; Ry = "0.000000"; Rz = "-90.000000";
+       Config = "RAD"; Turn = "0,0,0";
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg";
+       Value = "17.950203";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg";
+       Value = "-18.045367";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg";
+       Value = "-100.671606";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg";
+       Value = "-0.000085";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg";
+       Value = "-97.374022";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg";
+       Value = "72.050112";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "180.000000";
+     Events before PG05_P0004 motion
+      EventName = "TouchPointCollisionEvent"; EventGroupName = "OlpEvent"; InsertPosition = "InsertBefore"; EventType = "Olp";
+     EventEnd
+      EventName = "Speed"; EventGroupName = "Motionprofile"; InsertPosition = "InsertBefore"; EventType = "Speed";
+      Attributes set on event:
+         Name = "Value"; Value = "0.015000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Speed"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+     End Events before PG05_P0004 motion
+    Motion: PG05_P0004;  MotionType = "Linear";
+     PositionName = "PG05_P0004"; ProcessType = "Cycle"; TargetType = "Cartesian";
+     Cartesian target:
+       X = "0.137358"; Y = "0.859241"; X = "0.973406"; Rx = "135.000000"; Ry = "0.000000"; Rz = "-90.000000";
+       Config = "RAD"; Turn = "0,0,0";
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg";
+       Value = "17.950203";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg";
+       Value = "-18.697362";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg";
+       Value = "-102.875494";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg";
+       Value = "-0.000085";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg";
+       Value = "-95.822129";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg";
+       Value = "72.050115";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "180.000000";
+     Events before PG05_P0005 motion
+      EventName = "TouchPointStartRetEvent"; EventGroupName = "OlpEvent"; InsertPosition = "InsertBefore"; EventType = "Olp";
+     EventEnd
+      EventName = "Speed"; EventGroupName = "Motionprofile"; InsertPosition = "InsertBefore"; EventType = "Speed";
+      Attributes set on event:
+         Name = "Value"; Value = "0.200000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Speed"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+     End Events before PG05_P0005 motion
+    Motion: PG05_P0005;  MotionType = "Linear";
+     PositionName = "PG05_P0005"; ProcessType = "Cycle"; TargetType = "Cartesian";
+     Cartesian target:
+       X = "0.137358"; Y = "0.859241"; X = "1.003406"; Rx = "135.000000"; Ry = "0.000000"; Rz = "-90.000000";
+       Config = "RAD"; Turn = "0,0,0";
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg";
+       Value = "17.950203";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg";
+       Value = "-18.045367";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg";
+       Value = "-100.671606";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg";
+       Value = "-0.000085";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg";
+       Value = "-97.374022";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg";
+       Value = "72.050112";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "180.000000";
+     EventEnd
+     End Events before PG05_P0006 motion
+    Motion: PG05_P0006;  MotionType = "Pt2Pt";
+     PositionName = "PG05_P0006"; ProcessType = "ProcessCurve"; TargetType = "Cartesian";
+
+   Operation: WG1_Touch2 OperationType = Normal
+    Operation used base profile:
+    BaseProfile = "B0"; ProfileIndex = "notDefined"; ReferenceProfile = "None"; X = "0.812264"; Y = "0.486941"; Z = "1.817618"; Rx = "0.000000"; Ry = "-0.000000"; Rz = "-0.000000";
+    Operation used tool profile:
+    ToolProfile = "TOOL1"; ProfileIndex = "notDefined"; ToolType = "OnRobot"; X = "0.002200"; Y = "0.141714"; Z = "0.431714"; Rx = "-45.000000"; Ry = "-0.000274"; Rz = "-0.000327";
+ Operation Attributes:
+     Name = "TSLocationAtEnd"; Value = "False"; Type = "BoolAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "TSContourTpeUUID"; Value = "7e98301-fd07e156"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "TouchSensCycleExplode"; Value = "False"; Type = "BoolAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "TSWireCheckOperation"; Value = "False"; Type = "BoolAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "TouchId"; Value = "1"; Type = "IntAttribute"; Min = "0"; Max = "2147483647"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "Touch_Cntr"; Value = "6"; Type = "IntAttribute"; Min = "0"; Max = "2147483647"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "ProcessAttribute | OperationAttribute";
+     Name = "FramePt"; Value = "1"; Type = "IntAttribute"; Min = "0"; Max = "3"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "ArcWeldingOperationWorkMethodName"; Value = "TouchSensingWorkMethod"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+ End of attributes for operation
+     Events before PG05_P0010 motion
+      EventName = "TouchSensingEvent"; EventGroupName = "Unknown"; InsertPosition = "InsertBefore"; EventType = "Process";
+      Attributes set on event:
+         Name = "TSLocationAtEnd"; Value = "False"; Type = "BoolAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "TSContourTpeUUID"; Value = "7e98301-fd07e156"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "TSBaseFrameTouchAxis"; Value = "Undefined"; Type = "LiteralAttribute"; Values = "Undefined, +X, -X, +Y, -Y, +Z, -Z"; Index = "0"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+      End of attributes for event
+     Events before PG05_P0007 motion
+      EventName = "TouchPointStartAppEvent"; EventGroupName = "OlpEvent"; InsertPosition = "InsertBefore"; EventType = "Olp";
+     EventEnd
+      EventName = "Accuracy"; EventGroupName = "Motionprofile"; InsertPosition = "InsertBefore"; EventType = "Accuracy";
+      Attributes set on event:
+         Name = "Value"; Value = "0.005000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Length"; GetOlpProperty = "";
+         Name = "Criteria"; Value = "Distance"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+      EventName = "Speed"; EventGroupName = "Motionprofile"; InsertPosition = "InsertBefore"; EventType = "Speed";
+      Attributes set on event:
+         Name = "Value"; Value = "0.200000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Speed"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+     End Events before PG05_P0007 motion
+    Motion: PG05_P0007;  MotionType = "Linear";
+     PositionName = "PG05_P0007"; ProcessType = "Cycle"; TargetType = "Cartesian";
+     Cartesian target:
+       X = "0.102751"; Y = "0.834894"; X = "0.986789"; Rx = "135.007375"; Ry = "-0.919199"; Rz = "179.080682";
+       Config = "RAD"; Turn = "0,0,0";
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg";
+       Value = "9.134986";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg";
+       Value = "-31.820234";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg";
+       Value = "-110.585084";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg";
+       Value = "0.927188";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg";
+       Value = "-101.372403";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg";
+       Value = "171.966341";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "180.000000";
+     Events before PG05_P0008 motion
+      EventName = "TouchPointCollisionEvent"; EventGroupName = "OlpEvent"; InsertPosition = "InsertBefore"; EventType = "Olp";
+     EventEnd
+      EventName = "Speed"; EventGroupName = "Motionprofile"; InsertPosition = "InsertBefore"; EventType = "Speed";
+      Attributes set on event:
+         Name = "Value"; Value = "0.015000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Speed"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+     End Events before PG05_P0008 motion
+    Motion: PG05_P0008;  MotionType = "Linear";
+     PositionName = "PG05_P0008"; ProcessType = "Cycle"; TargetType = "Cartesian";
+     Cartesian target:
+       X = "0.102751"; Y = "0.864894"; X = "0.986789"; Rx = "135.007375"; Ry = "-0.919199"; Rz = "179.080682";
+       Config = "RAD"; Turn = "0,0,0";
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg";
+       Value = "8.761995";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg";
+       Value = "-29.883544";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg";
+       Value = "-109.485973";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg";
+       Value = "0.925449";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg";
+       Value = "-100.529010";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg";
+       Value = "172.325661";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "180.000000";
+     Events before PG05_P0009 motion
+      EventName = "TouchPointStartRetEvent"; EventGroupName = "OlpEvent"; InsertPosition = "InsertBefore"; EventType = "Olp";
+     EventEnd
+      EventName = "Speed"; EventGroupName = "Motionprofile"; InsertPosition = "InsertBefore"; EventType = "Speed";
+      Attributes set on event:
+         Name = "Value"; Value = "0.200000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Speed"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+     End Events before PG05_P0009 motion
+    Motion: PG05_P0009;  MotionType = "Linear";
+     PositionName = "PG05_P0009"; ProcessType = "Cycle"; TargetType = "Cartesian";
+     Cartesian target:
+       X = "0.102751"; Y = "0.834894"; X = "0.986789"; Rx = "135.007375"; Ry = "-0.919199"; Rz = "179.080682";
+       Config = "RAD"; Turn = "0,0,0";
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg";
+       Value = "9.134986";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg";
+       Value = "-31.820234";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg";
+       Value = "-110.585084";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg";
+       Value = "0.927188";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg";
+       Value = "-101.372403";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg";
+       Value = "171.966341";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "180.000000";
+     EventEnd
+     End Events before PG05_P0010 motion
+    Motion: PG05_P0010;  MotionType = "Pt2Pt";
+     PositionName = "PG05_P0010"; ProcessType = "ProcessCurve"; TargetType = "Cartesian";
+     Events after PG05_P0010 motion
+      EventName = "BuiltInEvent"; EventGroupName = "BuiltInEvent"; InsertPosition = "InsertAfter"; EventType = "Insert";
+    Motion: PG05_P0011;  MotionType = "Pt2Pt";
+     PositionName = "PG05_P0011"; ProcessType = "TeachInsert"; TargetType = "Cartesian";
+     Cartesian target:
+       X = "0.134913"; Y = "0.840838"; X = "0.983951"; Rx = "135.007375"; Ry = "-0.919199"; Rz = "179.080682";
+       Config = "RAD"; Turn = "0,0,0";
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg";
+       Value = "11.609415";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg";
+       Value = "-31.136588";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg";
+       Value = "-110.370373";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg";
+       Value = "0.918855";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg";
+       Value = "-100.942663";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg";
+       Value = "169.483208";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "180.000000";
+     EventEnd
+     End Events after PG05_P0010 motion
+
+   Operation: WG1_Touch3 OperationType = Normal
+    Operation used base profile:
+    BaseProfile = "B0"; ProfileIndex = "notDefined"; ReferenceProfile = "None"; X = "0.812264"; Y = "0.486941"; Z = "1.817618"; Rx = "0.000000"; Ry = "-0.000000"; Rz = "-0.000000";
+    Operation used tool profile:
+    ToolProfile = "TOOL1"; ProfileIndex = "notDefined"; ToolType = "OnRobot"; X = "0.002200"; Y = "0.141714"; Z = "0.431714"; Rx = "-45.000000"; Ry = "-0.000274"; Rz = "-0.000327";
+ Operation Attributes:
+     Name = "TSLocationAtEnd"; Value = "False"; Type = "BoolAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "TSContourTpeUUID"; Value = "7e98301-fd07e156"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "TouchSensCycleExplode"; Value = "False"; Type = "BoolAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "TSWireCheckOperation"; Value = "False"; Type = "BoolAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "TouchId"; Value = "1"; Type = "IntAttribute"; Min = "0"; Max = "2147483647"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "Touch_Cntr"; Value = "6"; Type = "IntAttribute"; Min = "0"; Max = "2147483647"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "ProcessAttribute | OperationAttribute";
+     Name = "FramePt"; Value = "1"; Type = "IntAttribute"; Min = "0"; Max = "3"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "ArcWeldingOperationWorkMethodName"; Value = "TouchSensingWorkMethod"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+ End of attributes for operation
+     Events before PG05_P0015 motion
+      EventName = "TouchSensingEvent"; EventGroupName = "Unknown"; InsertPosition = "InsertBefore"; EventType = "Process";
+      Attributes set on event:
+         Name = "TSLocationAtEnd"; Value = "False"; Type = "BoolAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "TSContourTpeUUID"; Value = "7e98301-fd07e156"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "TSBaseFrameTouchAxis"; Value = "Undefined"; Type = "LiteralAttribute"; Values = "Undefined, +X, -X, +Y, -Y, +Z, -Z"; Index = "0"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+      End of attributes for event
+     Events before PG05_P0012 motion
+      EventName = "TouchPointStartAppEvent"; EventGroupName = "OlpEvent"; InsertPosition = "InsertBefore"; EventType = "Olp";
+     EventEnd
+      EventName = "Accuracy"; EventGroupName = "Motionprofile"; InsertPosition = "InsertBefore"; EventType = "Accuracy";
+      Attributes set on event:
+         Name = "Value"; Value = "0.005000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Length"; GetOlpProperty = "";
+         Name = "Criteria"; Value = "Distance"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+      EventName = "Speed"; EventGroupName = "Motionprofile"; InsertPosition = "InsertBefore"; EventType = "Speed";
+      Attributes set on event:
+         Name = "Value"; Value = "0.200000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Speed"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+     End Events before PG05_P0012 motion
+    Motion: PG05_P0012;  MotionType = "Linear";
+     PositionName = "PG05_P0012"; ProcessType = "Cycle"; TargetType = "Cartesian";
+     Cartesian target:
+       X = "0.160506"; Y = "0.884474"; X = "0.990512"; Rx = "135.000000"; Ry = "0.000000"; Rz = "-90.000000";
+       Config = "RAD"; Turn = "0,0,0";
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg";
+       Value = "18.821505";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg";
+       Value = "-16.255166";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg";
+       Value = "-100.055429";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg";
+       Value = "-0.000089";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg";
+       Value = "-96.199997";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg";
+       Value = "71.178812";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "180.000000";
+     Events before PG05_P0013 motion
+      EventName = "TouchPointCollisionEvent"; EventGroupName = "OlpEvent"; InsertPosition = "InsertBefore"; EventType = "Olp";
+     EventEnd
+      EventName = "Speed"; EventGroupName = "Motionprofile"; InsertPosition = "InsertBefore"; EventType = "Speed";
+      Attributes set on event:
+         Name = "Value"; Value = "0.015000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Speed"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+     End Events before PG05_P0013 motion
+    Motion: PG05_P0013;  MotionType = "Linear";
+     PositionName = "PG05_P0013"; ProcessType = "Cycle"; TargetType = "Cartesian";
+     Cartesian target:
+       X = "0.130506"; Y = "0.884474"; X = "0.990512"; Rx = "135.000000"; Ry = "0.000000"; Rz = "-90.000000";
+       Config = "RAD"; Turn = "0,0,0";
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg";
+       Value = "17.067136";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg";
+       Value = "-16.870304";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg";
+       Value = "-100.526905";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg";
+       Value = "-0.000081";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg";
+       Value = "-96.343661";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg";
+       Value = "72.933181";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "180.000000";
+     Events before PG05_P0014 motion
+      EventName = "TouchPointStartRetEvent"; EventGroupName = "OlpEvent"; InsertPosition = "InsertBefore"; EventType = "Olp";
+     EventEnd
+      EventName = "Speed"; EventGroupName = "Motionprofile"; InsertPosition = "InsertBefore"; EventType = "Speed";
+      Attributes set on event:
+         Name = "Value"; Value = "0.200000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Speed"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+     End Events before PG05_P0014 motion
+    Motion: PG05_P0014;  MotionType = "Linear";
+     PositionName = "PG05_P0014"; ProcessType = "Cycle"; TargetType = "Cartesian";
+     Cartesian target:
+       X = "0.160506"; Y = "0.884474"; X = "0.990512"; Rx = "135.000000"; Ry = "0.000000"; Rz = "-90.000000";
+       Config = "RAD"; Turn = "0,0,0";
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg";
+       Value = "18.821505";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg";
+       Value = "-16.255166";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg";
+       Value = "-100.055429";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg";
+       Value = "-0.000089";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg";
+       Value = "-96.199997";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg";
+       Value = "71.178812";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "180.000000";
+     EventEnd
+     End Events before PG05_P0015 motion
+    Motion: PG05_P0015;  MotionType = "Pt2Pt";
+     PositionName = "PG05_P0015"; ProcessType = "ProcessCurve"; TargetType = "Cartesian";
+     Events after PG05_P0015 motion
+      EventName = "BuiltInEvent"; EventGroupName = "BuiltInEvent"; InsertPosition = "InsertAfter"; EventType = "Insert";
+    Motion: PG05_P0016;  MotionType = "Pt2Pt";
+     PositionName = "PG05_P0016"; ProcessType = "TeachInsert"; TargetType = "Cartesian";
+     Cartesian target:
+       X = "0.161073"; Y = "0.884474"; X = "1.025155"; Rx = "135.000000"; Ry = "0.000000"; Rz = "-90.000000";
+       Config = "RAD"; Turn = "0,0,0";
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg";
+       Value = "18.854321";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg";
+       Value = "-15.468808";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg";
+       Value = "-97.453301";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg";
+       Value = "-0.000089";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg";
+       Value = "-98.015766";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg";
+       Value = "71.145993";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "180.000000";
+     EventEnd
+     End Events after PG05_P0015 motion
+
+   Operation: WG1_Touch5 OperationType = Normal
+    Operation used base profile:
+    BaseProfile = "B0"; ProfileIndex = "notDefined"; ReferenceProfile = "None"; X = "0.812264"; Y = "0.486941"; Z = "1.817618"; Rx = "0.000000"; Ry = "-0.000000"; Rz = "-0.000000";
+    Operation used tool profile:
+    ToolProfile = "TOOL1"; ProfileIndex = "notDefined"; ToolType = "OnRobot"; X = "0.002200"; Y = "0.141714"; Z = "0.431714"; Rx = "-45.000000"; Ry = "-0.000274"; Rz = "-0.000327";
+ Operation Attributes:
+     Name = "TSLocationAtEnd"; Value = "True"; Type = "BoolAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "TSContourTpeUUID"; Value = "7e98301-fd07e156"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "TouchSensCycleExplode"; Value = "False"; Type = "BoolAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "TSWireCheckOperation"; Value = "False"; Type = "BoolAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "TouchId"; Value = "1"; Type = "IntAttribute"; Min = "0"; Max = "2147483647"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "Touch_Cntr"; Value = "6"; Type = "IntAttribute"; Min = "0"; Max = "2147483647"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "ProcessAttribute | OperationAttribute";
+     Name = "FramePt"; Value = "2"; Type = "IntAttribute"; Min = "0"; Max = "3"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "ArcWeldingOperationWorkMethodName"; Value = "TouchSensingWorkMethod"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+ End of attributes for operation
+     Events before PG05_P0021 motion
+      EventName = "BuiltInEvent"; EventGroupName = "BuiltInEvent"; InsertPosition = "InsertBefore"; EventType = "Insert";
+    Motion: PG05_P0017;  MotionType = "Pt2Pt";
+     PositionName = "PG05_P0017"; ProcessType = "TeachInsert"; TargetType = "Cartesian";
+     Cartesian target:
+       X = "0.161893"; Y = "1.105016"; X = "1.028536"; Rx = "135.000000"; Ry = "-0.000000"; Rz = "-90.000000";
+       Config = "RAD"; Turn = "0,0,0";
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg";
+       Value = "15.334032";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg";
+       Value = "-1.150388";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg";
+       Value = "-84.640885";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg";
+       Value = "-0.000073";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg";
+       Value = "-96.509767";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg";
+       Value = "74.666287";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "180.000000";
+     EventEnd
+      EventName = "TouchSensingEvent"; EventGroupName = "Unknown"; InsertPosition = "InsertBefore"; EventType = "Process";
+      Attributes set on event:
+         Name = "TSLocationAtEnd"; Value = "True"; Type = "BoolAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "TSContourTpeUUID"; Value = "7e98301-fd07e156"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "TSBaseFrameTouchAxis"; Value = "Undefined"; Type = "LiteralAttribute"; Values = "Undefined, +X, -X, +Y, -Y, +Z, -Z"; Index = "0"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+      End of attributes for event
+     Events before PG05_P0018 motion
+      EventName = "TouchPointStartAppEvent"; EventGroupName = "OlpEvent"; InsertPosition = "InsertBefore"; EventType = "Olp";
+     EventEnd
+      EventName = "Accuracy"; EventGroupName = "Motionprofile"; InsertPosition = "InsertBefore"; EventType = "Accuracy";
+      Attributes set on event:
+         Name = "Value"; Value = "0.005000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Length"; GetOlpProperty = "";
+         Name = "Criteria"; Value = "Distance"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+      EventName = "Speed"; EventGroupName = "Motionprofile"; InsertPosition = "InsertBefore"; EventType = "Speed";
+      Attributes set on event:
+         Name = "Value"; Value = "0.200000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Speed"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+     End Events before PG05_P0018 motion
+    Motion: PG05_P0018;  MotionType = "Linear";
+     PositionName = "PG05_P0018"; ProcessType = "Cycle"; TargetType = "Cartesian";
+     Cartesian target:
+       X = "0.138597"; Y = "1.105016"; X = "1.003406"; Rx = "135.000000"; Ry = "0.000000"; Rz = "-90.000000";
+       Config = "RAD"; Turn = "0,0,0";
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg";
+       Value = "14.206899";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg";
+       Value = "-2.105140";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg";
+       Value = "-87.008319";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg";
+       Value = "-0.000068";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg";
+       Value = "-95.097087";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg";
+       Value = "75.793421";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "180.000000";
+     Events before PG05_P0019 motion
+      EventName = "TouchPointCollisionEvent"; EventGroupName = "OlpEvent"; InsertPosition = "InsertBefore"; EventType = "Olp";
+     EventEnd
+      EventName = "Speed"; EventGroupName = "Motionprofile"; InsertPosition = "InsertBefore"; EventType = "Speed";
+      Attributes set on event:
+         Name = "Value"; Value = "0.015000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Speed"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+     End Events before PG05_P0019 motion
+    Motion: PG05_P0019;  MotionType = "Linear";
+     PositionName = "PG05_P0019"; ProcessType = "Cycle"; TargetType = "Cartesian";
+     Cartesian target:
+       X = "0.138597"; Y = "1.105016"; X = "0.973406"; Rx = "135.000000"; Ry = "0.000000"; Rz = "-90.000000";
+       Config = "RAD"; Turn = "0,0,0";
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg";
+       Value = "14.206899";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg";
+       Value = "-2.691131";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg";
+       Value = "-89.273708";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg";
+       Value = "-0.000067";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg";
+       Value = "-93.417688";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg";
+       Value = "75.793423";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "180.000000";
+     Events before PG05_P0020 motion
+      EventName = "TouchPointStartRetEvent"; EventGroupName = "OlpEvent"; InsertPosition = "InsertBefore"; EventType = "Olp";
+     EventEnd
+      EventName = "Speed"; EventGroupName = "Motionprofile"; InsertPosition = "InsertBefore"; EventType = "Speed";
+      Attributes set on event:
+         Name = "Value"; Value = "0.200000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Speed"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+     End Events before PG05_P0020 motion
+    Motion: PG05_P0020;  MotionType = "Linear";
+     PositionName = "PG05_P0020"; ProcessType = "Cycle"; TargetType = "Cartesian";
+     Cartesian target:
+       X = "0.138597"; Y = "1.105016"; X = "1.003406"; Rx = "135.000000"; Ry = "0.000000"; Rz = "-90.000000";
+       Config = "RAD"; Turn = "0,0,0";
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg";
+       Value = "14.206899";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg";
+       Value = "-2.105140";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg";
+       Value = "-87.008319";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg";
+       Value = "-0.000068";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg";
+       Value = "-95.097087";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg";
+       Value = "75.793421";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "180.000000";
+     EventEnd
+     End Events before PG05_P0021 motion
+    Motion: PG05_P0021;  MotionType = "Pt2Pt";
+     PositionName = "PG05_P0021"; ProcessType = "ProcessCurve"; TargetType = "Cartesian";
+
+   Operation: WG1_Touch4 OperationType = Normal
+    Operation used base profile:
+    BaseProfile = "B0"; ProfileIndex = "notDefined"; ReferenceProfile = "None"; X = "0.812264"; Y = "0.486941"; Z = "1.817618"; Rx = "0.000000"; Ry = "-0.000000"; Rz = "-0.000000";
+    Operation used tool profile:
+    ToolProfile = "TOOL1"; ProfileIndex = "notDefined"; ToolType = "OnRobot"; X = "0.002200"; Y = "0.141714"; Z = "0.431714"; Rx = "-45.000000"; Ry = "-0.000274"; Rz = "-0.000327";
+ Operation Attributes:
+     Name = "TSLocationAtEnd"; Value = "True"; Type = "BoolAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "TSContourTpeUUID"; Value = "7e98301-fd07e156"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "TouchSensCycleExplode"; Value = "False"; Type = "BoolAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "TSWireCheckOperation"; Value = "False"; Type = "BoolAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "TouchId"; Value = "1"; Type = "IntAttribute"; Min = "0"; Max = "2147483647"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "Touch_Cntr"; Value = "6"; Type = "IntAttribute"; Min = "0"; Max = "2147483647"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "ProcessAttribute | OperationAttribute";
+     Name = "FramePt"; Value = "2"; Type = "IntAttribute"; Min = "0"; Max = "3"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "ArcWeldingOperationWorkMethodName"; Value = "TouchSensingWorkMethod"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+ End of attributes for operation
+     Events before PG05_P0025 motion
+      EventName = "TouchSensingEvent"; EventGroupName = "Unknown"; InsertPosition = "InsertBefore"; EventType = "Process";
+      Attributes set on event:
+         Name = "TSLocationAtEnd"; Value = "True"; Type = "BoolAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "TSContourTpeUUID"; Value = "7e98301-fd07e156"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "TSBaseFrameTouchAxis"; Value = "Undefined"; Type = "LiteralAttribute"; Values = "Undefined, +X, -X, +Y, -Y, +Z, -Z"; Index = "0"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+      End of attributes for event
+     Events before PG05_P0022 motion
+      EventName = "TouchPointStartAppEvent"; EventGroupName = "OlpEvent"; InsertPosition = "InsertBefore"; EventType = "Olp";
+     EventEnd
+      EventName = "Accuracy"; EventGroupName = "Motionprofile"; InsertPosition = "InsertBefore"; EventType = "Accuracy";
+      Attributes set on event:
+         Name = "Value"; Value = "0.005000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Length"; GetOlpProperty = "";
+         Name = "Criteria"; Value = "Distance"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+      EventName = "Speed"; EventGroupName = "Motionprofile"; InsertPosition = "InsertBefore"; EventType = "Speed";
+      Attributes set on event:
+         Name = "Value"; Value = "0.200000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Speed"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+     End Events before PG05_P0022 motion
+    Motion: PG05_P0022;  MotionType = "Linear";
+     PositionName = "PG05_P0022"; ProcessType = "Cycle"; TargetType = "Cartesian";
+     Cartesian target:
+       X = "0.160506"; Y = "1.095786"; X = "0.994966"; Rx = "135.000000"; Ry = "0.000000"; Rz = "-90.000000";
+       Config = "RAD"; Turn = "0,0,0";
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg";
+       Value = "15.389533";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg";
+       Value = "-2.506703";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg";
+       Value = "-87.876284";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg";
+       Value = "-0.000073";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg";
+       Value = "-94.630682";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg";
+       Value = "74.610787";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "180.000000";
+     Events before PG05_P0023 motion
+      EventName = "TouchPointCollisionEvent"; EventGroupName = "OlpEvent"; InsertPosition = "InsertBefore"; EventType = "Olp";
+     EventEnd
+      EventName = "Speed"; EventGroupName = "Motionprofile"; InsertPosition = "InsertBefore"; EventType = "Speed";
+      Attributes set on event:
+         Name = "Value"; Value = "0.015000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Speed"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+     End Events before PG05_P0023 motion
+    Motion: PG05_P0023;  MotionType = "Linear";
+     PositionName = "PG05_P0023"; ProcessType = "Cycle"; TargetType = "Cartesian";
+     Cartesian target:
+       X = "0.130506"; Y = "1.095786"; X = "0.994966"; Rx = "135.000000"; Ry = "-0.000000"; Rz = "-90.000000";
+       Config = "RAD"; Turn = "0,0,0";
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg";
+       Value = "13.924383";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg";
+       Value = "-3.030427";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg";
+       Value = "-88.379464";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg";
+       Value = "-0.000066";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg";
+       Value = "-94.651230";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg";
+       Value = "76.075938";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "180.000000";
+     Events before PG05_P0024 motion
+      EventName = "TouchPointStartRetEvent"; EventGroupName = "OlpEvent"; InsertPosition = "InsertBefore"; EventType = "Olp";
+     EventEnd
+      EventName = "Speed"; EventGroupName = "Motionprofile"; InsertPosition = "InsertBefore"; EventType = "Speed";
+      Attributes set on event:
+         Name = "Value"; Value = "0.200000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Speed"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+     End Events before PG05_P0024 motion
+    Motion: PG05_P0024;  MotionType = "Linear";
+     PositionName = "PG05_P0024"; ProcessType = "Cycle"; TargetType = "Cartesian";
+     Cartesian target:
+       X = "0.160506"; Y = "1.095786"; X = "0.994966"; Rx = "135.000000"; Ry = "0.000000"; Rz = "-90.000000";
+       Config = "RAD"; Turn = "0,0,0";
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg";
+       Value = "15.389533";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg";
+       Value = "-2.506703";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg";
+       Value = "-87.876284";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg";
+       Value = "-0.000073";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg";
+       Value = "-94.630682";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg";
+       Value = "74.610787";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "180.000000";
+     EventEnd
+     End Events before PG05_P0025 motion
+    Motion: PG05_P0025;  MotionType = "Pt2Pt";
+     PositionName = "PG05_P0025"; ProcessType = "ProcessCurve"; TargetType = "Cartesian";
+     Events after PG05_P0025 motion
+      EventName = "BuiltInEvent"; EventGroupName = "BuiltInEvent"; InsertPosition = "InsertAfter"; EventType = "Insert";
+    Motion: PG05_P0026;  MotionType = "Pt2Pt";
+     PositionName = "PG05_P0026"; ProcessType = "TeachInsert"; TargetType = "Cartesian";
+     Cartesian target:
+       X = "0.163962"; Y = "1.095786"; X = "1.071718"; Rx = "135.000000"; Ry = "0.000000"; Rz = "-90.000000";
+       Config = "RAD"; Turn = "0,0,0";
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg";
+       Value = "15.557011";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg";
+       Value = "-0.680850";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg";
+       Value = "-81.683899";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg";
+       Value = "-0.000074";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg";
+       Value = "-98.997215";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg";
+       Value = "74.443304";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "180.000000";
+     EventEnd
+     End Events after PG05_P0025 motion
+
+   Operation: WG1_Touch6 OperationType = Normal
+    Operation used base profile:
+    BaseProfile = "B0"; ProfileIndex = "notDefined"; ReferenceProfile = "None"; X = "0.812264"; Y = "0.486941"; Z = "1.817618"; Rx = "0.000000"; Ry = "-0.000000"; Rz = "-0.000000";
+    Operation used tool profile:
+    ToolProfile = "TOOL1"; ProfileIndex = "notDefined"; ToolType = "OnRobot"; X = "0.002200"; Y = "0.141714"; Z = "0.431714"; Rx = "-45.000000"; Ry = "-0.000274"; Rz = "-0.000327";
+ Operation Attributes:
+     Name = "TSLocationAtEnd"; Value = "False"; Type = "BoolAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "TSContourTpeUUID"; Value = "7e98301-fd07e156"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "TouchSensCycleExplode"; Value = "False"; Type = "BoolAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "TSWireCheckOperation"; Value = "False"; Type = "BoolAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "TouchId"; Value = "1"; Type = "IntAttribute"; Min = "0"; Max = "2147483647"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "Touch_Cntr"; Value = "6"; Type = "IntAttribute"; Min = "0"; Max = "2147483647"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "ProcessAttribute | OperationAttribute";
+     Name = "FramePt"; Value = "3"; Type = "IntAttribute"; Min = "0"; Max = "3"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "ArcWeldingOperationWorkMethodName"; Value = "TouchSensingWorkMethod"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+ End of attributes for operation
+     Events before PG05_P0030 motion
+      EventName = "TouchSensingEvent"; EventGroupName = "Unknown"; InsertPosition = "InsertBefore"; EventType = "Process";
+      Attributes set on event:
+         Name = "TSLocationAtEnd"; Value = "False"; Type = "BoolAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "TSContourTpeUUID"; Value = "7e98301-fd07e156"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "TSBaseFrameTouchAxis"; Value = "Undefined"; Type = "LiteralAttribute"; Values = "Undefined, +X, -X, +Y, -Y, +Z, -Z"; Index = "0"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+      End of attributes for event
+     Events before PG05_P0027 motion
+      EventName = "TouchPointStartAppEvent"; EventGroupName = "OlpEvent"; InsertPosition = "InsertBefore"; EventType = "Olp";
+     EventEnd
+      EventName = "Accuracy"; EventGroupName = "Motionprofile"; InsertPosition = "InsertBefore"; EventType = "Accuracy";
+      Attributes set on event:
+         Name = "Value"; Value = "0.005000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Length"; GetOlpProperty = "";
+         Name = "Criteria"; Value = "Distance"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+      EventName = "Speed"; EventGroupName = "Motionprofile"; InsertPosition = "InsertBefore"; EventType = "Speed";
+      Attributes set on event:
+         Name = "Value"; Value = "0.200000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Speed"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+     End Events before PG05_P0027 motion
+    Motion: PG05_P0027;  MotionType = "Linear";
+     PositionName = "PG05_P0027"; ProcessType = "Cycle"; TargetType = "Cartesian";
+     Cartesian target:
+       X = "-0.116372"; Y = "0.992277"; X = "1.058406"; Rx = "135.000000"; Ry = "0.000000"; Rz = "-90.000000";
+       Config = "RAD"; Turn = "0,0,0";
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg";
+       Value = "1.459733";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg";
+       Value = "-10.839818";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg";
+       Value = "-91.769390";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg";
+       Value = "-0.000007";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg";
+       Value = "-99.070702";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg";
+       Value = "88.540593";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "180.000000";
+     Events before PG05_P0028 motion
+      EventName = "TouchPointCollisionEvent"; EventGroupName = "OlpEvent"; InsertPosition = "InsertBefore"; EventType = "Olp";
+     EventEnd
+      EventName = "Speed"; EventGroupName = "Motionprofile"; InsertPosition = "InsertBefore"; EventType = "Speed";
+      Attributes set on event:
+         Name = "Value"; Value = "0.015000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Speed"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+     End Events before PG05_P0028 motion
+    Motion: PG05_P0028;  MotionType = "Linear";
+     PositionName = "PG05_P0028"; ProcessType = "Cycle"; TargetType = "Cartesian";
+     Cartesian target:
+       X = "-0.116372"; Y = "0.992277"; X = "1.028406"; Rx = "135.000000"; Ry = "-0.000000"; Rz = "-90.000000";
+       Config = "RAD"; Turn = "0,0,0";
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg";
+       Value = "1.459733";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg";
+       Value = "-11.557335";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg";
+       Value = "-94.109170";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg";
+       Value = "-0.000007";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg";
+       Value = "-97.448439";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg";
+       Value = "88.540593";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "180.000000";
+     Events before PG05_P0029 motion
+      EventName = "TouchPointStartRetEvent"; EventGroupName = "OlpEvent"; InsertPosition = "InsertBefore"; EventType = "Olp";
+     EventEnd
+      EventName = "Speed"; EventGroupName = "Motionprofile"; InsertPosition = "InsertBefore"; EventType = "Speed";
+      Attributes set on event:
+         Name = "Value"; Value = "0.200000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Speed"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+     End Events before PG05_P0029 motion
+    Motion: PG05_P0029;  MotionType = "Linear";
+     PositionName = "PG05_P0029"; ProcessType = "Cycle"; TargetType = "Cartesian";
+     Cartesian target:
+       X = "-0.116372"; Y = "0.992277"; X = "1.058406"; Rx = "135.000000"; Ry = "0.000000"; Rz = "-90.000000";
+       Config = "RAD"; Turn = "0,0,0";
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg";
+       Value = "1.459733";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg";
+       Value = "-10.839818";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg";
+       Value = "-91.769390";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg";
+       Value = "-0.000007";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg";
+       Value = "-99.070702";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg";
+       Value = "88.540593";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "180.000000";
+     EventEnd
+     End Events before PG05_P0030 motion
+    Motion: PG05_P0030;  MotionType = "Pt2Pt";
+     PositionName = "PG05_P0030"; ProcessType = "ProcessCurve"; TargetType = "Cartesian";
+
+   Operation: WG1_Seam7 OperationType = Normal
+    Operation used base profile:
+    BaseProfile = "B0"; ProfileIndex = "notDefined"; ReferenceProfile = "None"; X = "0.812264"; Y = "0.486941"; Z = "1.817618"; Rx = "0.000000"; Ry = "-0.000000"; Rz = "-0.000000";
+    Operation used tool profile:
+    ToolProfile = "TOOL1"; ProfileIndex = "notDefined"; ToolType = "OnRobot"; X = "0.002200"; Y = "0.141714"; Z = "0.431714"; Rx = "-45.000000"; Ry = "-0.000274"; Rz = "-0.000327";
+ Operation Attributes:
+     Name = "ChainBegin"; Value = "False"; Type = "BoolAttribute"; GroupName = ""; ReadOnly = "True"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "ChainEnd"; Value = "False"; Type = "BoolAttribute"; GroupName = ""; ReadOnly = "True"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "ArcWeldingOperationWorkMethodName"; Value = "StitchWeldingWorkMethod"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+ End of attributes for operation
+     Events before PG05_P0033 motion
+      EventName = "ApproachArcWeldingStitch"; EventGroupName = "ApproachRetract"; InsertPosition = "InsertBefore"; EventType = "Approach";
+      Attributes set on event:
+         Name = "SpeedViaApproach"; Value = "0.500000"; Type = "DoubleAttribute"; Min = "0.010000"; Max = "2.000000"; StepSize = "0.100000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Speed"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+      End of attributes for event
+     Events before PG05_P0032 motion
+      EventName = "BuiltInEvent"; EventGroupName = "BuiltInEvent"; InsertPosition = "InsertBefore"; EventType = "Insert";
+    Motion: PG05_P0031;  MotionType = "Pt2Pt";
+     PositionName = "PG05_P0031"; ProcessType = "TeachInsert"; TargetType = "Cartesian";
+     Cartesian target:
+       X = "0.201157"; Y = "0.877400"; X = "1.091465"; Rx = "135.000000"; Ry = "0.000000"; Rz = "-90.000000";
+       Config = "RAD"; Turn = "0,0,0";
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg";
+       Value = "21.295951";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg";
+       Value = "-13.310220";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg";
+       Value = "-91.865119";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg";
+       Value = "-0.000102";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg";
+       Value = "-101.445357";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg";
+       Value = "68.704355";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "180.000000";
+     EventEnd
+      EventName = "ConnectTouchProcessPointEvent"; EventGroupName = "OlpEvent"; InsertPosition = "InsertBefore"; EventType = "Olp";
+      Attributes set on event:
+         Name = "TouchId"; Value = "1"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "Touch_Cntr"; Value = "6"; Type = "IntAttribute"; Min = "0"; Max = "99"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+      End of attributes for event
+     EventEnd
+     End Events before PG05_P0032 motion
+    Motion: PG05_P0032;  MotionType = "Pt2Pt";
+     PositionName = "PG05_P0032"; ProcessType = "Approach"; TargetType = "Cartesian";
+     Cartesian target:
+       X = "0.200711"; Y = "0.877400"; X = "1.044611"; Rx = "135.000000"; Ry = "0.000000"; Rz = "-90.000000";
+       Config = "RAD"; Turn = "0,0,0";
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg";
+       Value = "21.270732";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg";
+       Value = "-14.543630";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg";
+       Value = "-95.598425";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg";
+       Value = "-0.000101";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg";
+       Value = "-98.945461";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg";
+       Value = "68.729579";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "180.000000";
+     Events after PG05_P0032 motion
+      EventName = "Speed"; EventGroupName = "Motionprofile"; InsertPosition = "InsertAfter"; EventType = "Speed";
+      Attributes set on event:
+         Name = "Value"; Value = "0.500000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Speed"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+      EventName = "Accuracy"; EventGroupName = "Motionprofile"; InsertPosition = "InsertAfter"; EventType = "Accuracy";
+      Attributes set on event:
+         Name = "Value"; Value = "0.000000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+         Name = "Criteria"; Value = "Off"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+     End Events after PG05_P0032 motion
+     EventEnd
+      EventName = "TpeAtStartEvent"; EventGroupName = "TpdbIgnore"; InsertPosition = "InsertBefore"; EventType = "Process";
+      Attributes set on event:
+         Name = "TSContourTpeUUID"; Value = "7e98301-fd07e156"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+      End of attributes for event
+     EventEnd
+     End Events before PG05_P0033 motion
+    Motion: PG05_P0033;  MotionType = "Linear";
+     PositionName = "PG05_P0033"; ProcessType = "ProcessCurve"; TargetType = "Cartesian";
+     Cartesian target:
+       X = "0.130000"; Y = "0.877400"; X = "0.973900"; Rx = "135.000000"; Ry = "0.000000"; Rz = "-90.000000";
+       Config = "RAD"; Turn = "0,0,0";
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg";
+       Value = "17.166229";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg";
+       Value = "-17.679658";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg";
+       Value = "-102.089058";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg";
+       Value = "-0.000081";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg";
+       Value = "-95.590862";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg";
+       Value = "72.834089";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "180.000000";
+     Events after PG05_P0033 motion
+      EventName = "ArcOnEvent"; EventGroupName = "OlpEvent"; InsertPosition = "InsertAfter"; EventType = "Olp";
+      Attributes set on event:
+         Name = "DLSetArcWeldMode"; Value = "None"; Type = "LiteralAttribute"; Values = "None, 2, 3"; Index = "0"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWeldConditionMode"; Value = "0"; Type = "IntAttribute"; Min = "0"; Max = "2"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWeldConditionNumber"; Value = "1"; Type = "IntAttribute"; Min = "1"; Max = "199"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLJobNumber"; Value = "1"; Type = "IntAttribute"; Min = "1"; Max = "65535"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWC1WeldSpeed"; Value = "35"; Type = "IntAttribute"; Min = "1"; Max = "999"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWC1WireFeedSpeed"; Value = "0.000000"; Type = "DoubleAttribute"; Min = "1.000000"; Max = "100.000000"; StepSize = "1.000000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWC1WeldCurrent"; Value = "0.000000"; Type = "DoubleAttribute"; Min = "-999.900000"; Max = "999.900000"; StepSize = "1.000000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWC1ArcLengthCorr"; Value = "0.000000"; Type = "DoubleAttribute"; Min = "-100.000000"; Max = "100.000000"; StepSize = "1.000000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWC1WeldVoltage"; Value = "0.000000"; Type = "DoubleAttribute"; Min = "-999.900000"; Max = "999.900000"; StepSize = "1.000000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWC1PulseDynamicCorr"; Value = "0.000000"; Type = "DoubleAttribute"; Min = "-100.000000"; Max = "100.000000"; StepSize = "1.000000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWC1WireRetractCorr"; Value = "0.000000"; Type = "DoubleAttribute"; Min = "-100.000000"; Max = "100.000000"; StepSize = "1.000000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWC2Crater"; Value = "False"; Type = "BoolAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLCraterSpotConditionNumber"; Value = "1"; Type = "IntAttribute"; Min = "1"; Max = "299"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLCraterSpotJobNumber"; Value = "1"; Type = "IntAttribute"; Min = "1"; Max = "65535"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWC2Time"; Value = "0.200000"; Type = "DoubleAttribute"; Min = "0.000000"; Max = "9.900000"; StepSize = "0.100000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWC2WireFeedSpeed"; Value = "0.000000"; Type = "DoubleAttribute"; Min = "1.000000"; Max = "100.000000"; StepSize = "1.000000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWC2WeldCurrent"; Value = "0.000000"; Type = "DoubleAttribute"; Min = "-999.900000"; Max = "999.900000"; StepSize = "1.000000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWC2ArcLengthCorr"; Value = "0.000000"; Type = "DoubleAttribute"; Min = "-100.000000"; Max = "100.000000"; StepSize = "1.000000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWC2WeldVoltage"; Value = "0.000000"; Type = "DoubleAttribute"; Min = "-999.900000"; Max = "999.900000"; StepSize = "1.000000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWC2PulseDynamicCorr"; Value = "0.000000"; Type = "DoubleAttribute"; Min = "-100.000000"; Max = "100.000000"; StepSize = "1.000000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWC2WireRetractCorr"; Value = "0.000000"; Type = "DoubleAttribute"; Min = "-100.000000"; Max = "100.000000"; StepSize = "1.000000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWeavePattern"; Value = "None"; Type = "LiteralAttribute"; Values = "None, harmonic, harmonic with end stop, reciprocating triangular, circular clockwise, circular counterclockwise, user pattern 1, user pattern 2, user pattern 3, user pattern 4, user pattern 5"; Index = "0"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWeavePatternNumber"; Value = "0"; Type = "IntAttribute"; Min = "0"; Max = "10"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWeaveFrequenz"; Value = "0.000000"; Type = "DoubleAttribute"; Min = "0.000000"; Max = "4.000000"; StepSize = "0.100000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWeaveWidth"; Value = "0.000000"; Type = "DoubleAttribute"; Min = "0.000000"; Max = "0.040000"; StepSize = "0.001000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Length"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLPatternSPS"; Value = "None"; Type = "LiteralAttribute"; Values = "None, Disabled, horizontal fillet, flat fillet, V groove, flat bevel groove, bevel groove, horizontal bevel groove, user pattern 1, user pattern 2, user pattern 3, user pattern 4, user pattern 5"; Index = "0"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLPatternNum"; Value = "0"; Type = "IntAttribute"; Min = "1"; Max = "10"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLStartDist"; Value = "0.000000"; Type = "DoubleAttribute"; Min = "0.000000"; Max = "99.000000"; StepSize = "0.100000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLReliefDist"; Value = "0.000000"; Type = "DoubleAttribute"; Min = "0.000000"; Max = "99.000000"; StepSize = "0.100000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLDistInGroove"; Value = "0.000000"; Type = "DoubleAttribute"; Min = "0.000000"; Max = "99.000000"; StepSize = "0.100000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLRTPM"; Value = "None"; Type = "LiteralAttribute"; Values = "None, Disabled, Enabled"; Index = "0"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWCRTPMNum"; Value = "0"; Type = "IntAttribute"; Min = "0"; Max = "3"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWCWireStick"; Value = "0"; Type = "IntAttribute"; Min = "0"; Max = "65535"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWCVerticalGain"; Value = "0"; Type = "IntAttribute"; Min = "-1000"; Max = "1000"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWCHorizontalGain"; Value = "0"; Type = "IntAttribute"; Min = "-1000"; Max = "1000"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWCVerticalBIAS"; Value = "0"; Type = "IntAttribute"; Min = "-1000"; Max = "1000"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWCHorizontalBIAS"; Value = "0"; Type = "IntAttribute"; Min = "-1000"; Max = "1000"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWCDelayTime"; Value = "0"; Type = "IntAttribute"; Min = "0"; Max = "10"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWCStartGain"; Value = "False"; Type = "BoolAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWCInitialGainTime"; Value = "0.000000"; Type = "DoubleAttribute"; Min = "0.100000"; Max = "9.900000"; StepSize = "0.100000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWCInitialVerticalCurrent"; Value = "0"; Type = "IntAttribute"; Min = "-1000"; Max = "1000"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWCInitialHorizontalCurrent"; Value = "0"; Type = "IntAttribute"; Min = "-1000"; Max = "1000"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWCInitialChangeCurrent"; Value = "0"; Type = "IntAttribute"; Min = "-1000"; Max = "1000"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLSSDown"; Value = "None"; Type = "LiteralAttribute"; Values = "None, Disabled, Enabled"; Index = "0"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWCSSDown"; Value = "0"; Type = "IntAttribute"; Min = "1"; Max = "3"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWCPreHeatTime"; Value = "0.000000"; Type = "DoubleAttribute"; Min = "0.000000"; Max = "9.900000"; StepSize = "0.100000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWCWeavePattern"; Value = "no weaving"; Type = "LiteralAttribute"; Values = "no weaving, harmonic, harmonic with end stop, reciprocating triangular, circular clockwise, circular counterclockwise, user pattern 1, user pattern 2, user pattern 3, user pattern 4, user pattern 5"; Index = "0"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWCWeaveNum"; Value = "0"; Type = "IntAttribute"; Min = "0"; Max = "10"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWCWeaveFreq"; Value = "0.000000"; Type = "DoubleAttribute"; Min = "0.000000"; Max = "4.000000"; StepSize = "0.100000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWCWeaveWidth"; Value = "0.000000"; Type = "DoubleAttribute"; Min = "0.000000"; Max = "40.000000"; StepSize = "0.100000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+      End of attributes for event
+     EventEnd
+      EventName = "Tool"; EventGroupName = "BuiltInEvent"; InsertPosition = "InsertAfter"; EventType = "Tool";
+     EventEnd
+      EventName = "Speed"; EventGroupName = "Motionprofile"; InsertPosition = "InsertAfter"; EventType = "Speed";
+      Attributes set on event:
+         Name = "Value"; Value = "0.005833"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Speed"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+      EventName = "Accuracy"; EventGroupName = "Motionprofile"; InsertPosition = "InsertAfter"; EventType = "Accuracy";
+      Attributes set on event:
+         Name = "Value"; Value = "0.010000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Length"; GetOlpProperty = "";
+         Name = "Criteria"; Value = "Distance"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+     End Events after PG05_P0033 motion
+    Motion: PG05_P0034;  MotionType = "Linear";
+     PositionName = "PG05_P0034"; ProcessType = "ProcessCurve"; TargetType = "Cartesian";
+     Cartesian target:
+       X = "0.130000"; Y = "0.934187"; X = "0.973900"; Rx = "135.000000"; Ry = "0.000000"; Rz = "-90.000000";
+       Config = "RAD"; Turn = "0,0,0";
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg";
+       Value = "16.181276";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg";
+       Value = "-14.037976";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg";
+       Value = "-99.257757";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg";
+       Value = "-0.000077";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg";
+       Value = "-94.780482";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg";
+       Value = "73.819045";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "180.000000";
+    Motion: PG05_P0036;  MotionType = "Circular";
+     PositionName = "PG05_P0036"; ProcessType = "ProcessCurve"; TargetType = "Cartesian";
+     Cartesian target:
+       X = "0.130000"; Y = "0.939544"; X = "0.974966"; Rx = "135.000000"; Ry = "22.500000"; Rz = "-90.000000";
+       Config = "RAD"; Turn = "0,0,0";
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg";
+       Value = "20.355445";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg";
+       Value = "-27.862780";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg";
+       Value = "-111.321514";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg";
+       Value = "7.904469";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg";
+       Value = "-75.451544";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg";
+       Value = "69.082631";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "180.000000";
+     Cartesian target:
+       X = "0.130000"; Y = "0.944086"; X = "0.978001"; Rx = "135.000000"; Ry = "45.000000"; Rz = "-90.000000";
+       Config = "RAD"; Turn = "0,0,0";
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg";
+       Value = "25.920754";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg";
+       Value = "-41.552249";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg";
+       Value = "-125.210068";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg";
+       Value = "21.793756";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg";
+       Value = "-56.360572";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg";
+       Value = "58.544606";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "180.000000";
+    Motion: PG05_P0037;  MotionType = "Linear";
+     PositionName = "PG05_P0037"; ProcessType = "ProcessCurve"; TargetType = "Cartesian";
+     Cartesian target:
+       X = "0.130000"; Y = "0.965299"; X = "0.999214"; Rx = "135.000000"; Ry = "45.000000"; Rz = "-90.000000";
+       Config = "RAD"; Turn = "0,0,0";
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg";
+       Value = "25.091528";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg";
+       Value = "-39.677812";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg";
+       Value = "-123.120707";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg";
+       Value = "21.136943";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg";
+       Value = "-56.259057";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg";
+       Value = "59.560745";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "180.000000";
+    Motion: PG05_P0039;  MotionType = "Circular";
+     PositionName = "PG05_P0039"; ProcessType = "ProcessCurve"; TargetType = "Cartesian";
+     Cartesian target:
+       X = "0.130000"; Y = "0.970490"; X = "1.002682"; Rx = "135.000000"; Ry = "22.500004"; Rz = "-90.000000";
+       Config = "RAD"; Turn = "0,0,0";
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg";
+       Value = "19.594217";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg";
+       Value = "-25.296979";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg";
+       Value = "-108.107383";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg";
+       Value = "7.600630";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg";
+       Value = "-75.991996";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg";
+       Value = "69.945607";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "180.000000";
+     Cartesian target:
+       X = "0.130000"; Y = "0.976613"; X = "1.003900"; Rx = "135.000000"; Ry = "0.000128"; Rz = "-90.000000";
+       Config = "RAD"; Turn = "0,0,0";
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg";
+       Value = "15.514411";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg";
+       Value = "-10.689912";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg";
+       Value = "-94.785284";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg";
+       Value = "-0.000039";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg";
+       Value = "-95.904769";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg";
+       Value = "74.485912";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "180.000000";
+    Motion: PG05_P0040;  MotionType = "Linear";
+     PositionName = "PG05_P0040"; ProcessType = "ProcessCurve"; TargetType = "Cartesian";
+     Cartesian target:
+       X = "0.130000"; Y = "1.014187"; X = "1.003900"; Rx = "135.000000"; Ry = "0.000000"; Rz = "-90.000000";
+       Config = "RAD"; Turn = "0,0,0";
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg";
+       Value = "14.967055";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg";
+       Value = "-8.248141";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg";
+       Value = "-92.671632";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg";
+       Value = "-0.000071";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg";
+       Value = "-95.576774";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg";
+       Value = "75.033264";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "180.000000";
+    Motion: PG05_P0042;  MotionType = "Circular";
+     PositionName = "PG05_P0042"; ProcessType = "ProcessCurve"; TargetType = "Cartesian";
+     Cartesian target:
+       X = "0.130000"; Y = "1.020310"; X = "1.002682"; Rx = "135.000000"; Ry = "-22.500406"; Rz = "-90.000000";
+       Config = "RAD"; Turn = "0,0,0";
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg";
+       Value = "12.441570";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg";
+       Value = "5.445547";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg";
+       Value = "-81.722257";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg";
+       Value = "-5.209622";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg";
+       Value = "-114.765186";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg";
+       Value = "76.292269";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "180.000000";
+     Cartesian target:
+       X = "0.130000"; Y = "1.025501"; X = "0.999214"; Rx = "135.000000"; Ry = "-45.000059"; Rz = "-90.000000";
+       Config = "RAD"; Turn = "0,0,0";
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg";
+       Value = "10.880046";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg";
+       Value = "16.802797";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg";
+       Value = "-75.455443";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg";
+       Value = "-10.307150";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg";
+       Value = "-131.758982";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg";
+       Value = "75.354685";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "180.000000";
+    Motion: PG05_P0043;  MotionType = "Linear";
+     PositionName = "PG05_P0043"; ProcessType = "ProcessCurve"; TargetType = "Cartesian";
+     Cartesian target:
+       X = "0.130000"; Y = "1.046714"; X = "0.978001"; Rx = "135.000000"; Ry = "-45.000000"; Rz = "-90.000000";
+       Config = "RAD"; Turn = "0,0,0";
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg";
+       Value = "10.722953";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg";
+       Value = "18.153710";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg";
+       Value = "-74.954354";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg";
+       Value = "-10.031744";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg";
+       Value = "-130.950153";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg";
+       Value = "75.760354";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "180.000000";
+    Motion: PG05_P0045;  MotionType = "Circular";
+     PositionName = "PG05_P0045"; ProcessType = "ProcessCurve"; TargetType = "Cartesian";
+     Cartesian target:
+       X = "0.130000"; Y = "1.051256"; X = "0.974966"; Rx = "135.000000"; Ry = "-22.500000"; Rz = "-90.000000";
+       Config = "RAD"; Turn = "0,0,0";
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg";
+       Value = "12.145806";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg";
+       Value = "7.143103";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg";
+       Value = "-81.429891";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg";
+       Value = "-5.032896";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg";
+       Value = "-113.391589";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg";
+       Value = "76.752131";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "180.000000";
+     Cartesian target:
+       X = "0.130000"; Y = "1.056613"; X = "0.973900"; Rx = "135.000000"; Ry = "-0.000000"; Rz = "-90.000000";
+       Config = "RAD"; Turn = "0,0,0";
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg";
+       Value = "14.392727";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg";
+       Value = "-6.048911";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg";
+       Value = "-92.396968";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg";
+       Value = "-0.000068";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg";
+       Value = "-93.652209";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg";
+       Value = "75.607595";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "180.000000";
+     Events before PG05_P0046 motion
+      EventName = "TpeAtEndEvent"; EventGroupName = "TpdbIgnore"; InsertPosition = "InsertBefore"; EventType = "Process";
+      Attributes set on event:
+         Name = "TSContourTpeUUID"; Value = "7e98301-fd07e156"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+      End of attributes for event
+     EventEnd
+      EventName = "ConnectTouchProcessPointEvent"; EventGroupName = "OlpEvent"; InsertPosition = "InsertBefore"; EventType = "Olp";
+      Attributes set on event:
+         Name = "TouchId"; Value = "1"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "Touch_Cntr"; Value = "6"; Type = "IntAttribute"; Min = "0"; Max = "99"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+      End of attributes for event
+     EventEnd
+      EventName = "Accuracy"; EventGroupName = "Motionprofile"; InsertPosition = "InsertBefore"; EventType = "Accuracy";
+      Attributes set on event:
+         Name = "Value"; Value = "0.000000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+         Name = "Criteria"; Value = "Off"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+     End Events before PG05_P0046 motion
+    Motion: PG05_P0046;  MotionType = "Linear";
+     PositionName = "PG05_P0046"; ProcessType = "ProcessCurve"; TargetType = "Cartesian";
+     Cartesian target:
+       X = "0.130000"; Y = "1.113400"; X = "0.973900"; Rx = "135.000000"; Ry = "0.000000"; Rz = "-90.000000";
+       Config = "RAD"; Turn = "0,0,0";
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg";
+       Value = "13.688356";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg";
+       Value = "-2.262721";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg";
+       Value = "-88.832392";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg";
+       Value = "-0.000065";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg";
+       Value = "-93.430595";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg";
+       Value = "76.311967";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "180.000000";
+     Events after PG05_P0046 motion
+      EventName = "ArcOffEvent"; EventGroupName = "OlpEvent"; InsertPosition = "InsertAfter"; EventType = "Olp";
+     EventEnd
+      EventName = "Tool"; EventGroupName = "BuiltInEvent"; InsertPosition = "InsertAfter"; EventType = "Tool";
+     EventEnd
+      EventName = "Accuracy"; EventGroupName = "Motionprofile"; InsertPosition = "InsertAfter"; EventType = "Accuracy";
+      Attributes set on event:
+         Name = "Value"; Value = "0.005000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Length"; GetOlpProperty = "";
+         Name = "Criteria"; Value = "Distance"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+      EventName = "Speed"; EventGroupName = "Motionprofile"; InsertPosition = "InsertAfter"; EventType = "Speed";
+      Attributes set on event:
+         Name = "Value"; Value = "0.500000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Speed"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+      EventName = "RetractArcWeldingStitch"; EventGroupName = "ApproachRetract"; InsertPosition = "InsertAfter"; EventType = "Retract";
+      Attributes set on event:
+         Name = "SpeedViaRetract"; Value = "0.500000"; Type = "DoubleAttribute"; Min = "0.010000"; Max = "2.000000"; StepSize = "0.100000"; GroupName = ""; ReaOnly = "False"; ValueUnitType = "Speed"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+      End of attributes for event
+    Motion: PG05_P0047;  MotionType = "Linear";
+     PositionName = "PG05_P0047"; ProcessType = "Retract"; TargetType = "Cartesian";
+     Cartesian target:
+       X = "0.200711"; Y = "1.113400"; X = "1.044611"; Rx = "135.000000"; Ry = "0.000000"; Rz = "-90.000000";
+       Config = "RAD"; Turn = "0,0,0";
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg";
+       Value = "17.063442";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg";
+       Value = "0.541659";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg";
+       Value = "-82.032346";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg";
+       Value = "-0.000081";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg";
+       Value = "-97.426257";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg";
+       Value = "72.936874";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "180.000000";
+     Events after PG05_P0047 motion
+      EventName = "BuiltInEvent"; EventGroupName = "BuiltInEvent"; InsertPosition = "InsertAfter"; EventType = "Insert";
+    Motion: PG05_P0048;  MotionType = "Linear";
+     PositionName = "PG05_P0048"; ProcessType = "TeachInsert"; TargetType = "Cartesian";
+     Cartesian target:
+       X = "0.002200"; Y = "0.906062"; X = "1.288894"; Rx = "175.000000"; Ry = "0.000000"; Rz = "0.000426";
+       Config = "RAD"; Turn = "0,0,0";
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg";
+       Value = "0.000000";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg";
+       Value = "-25.000000";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg";
+       Value = "-90.000000";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg";
+       Value = "0.000000";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg";
+       Value = "-75.000000";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg";
+       Value = "0.000000";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg";
+       Value = "180.000000";
+     EventEnd
+     End Events after PG05_P0047 motion
+     EventEnd
+     End Events after PG05_P0046 motion
