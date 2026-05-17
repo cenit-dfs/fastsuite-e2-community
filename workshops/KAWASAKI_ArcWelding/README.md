@@ -99,7 +99,7 @@ Save the spec to `docs/KAWASAKI/spec/basic_downloader.md` in your repo.
 
 ### Step 2: Generate the downloader
 
-> *Using the spec at `docs/KAWASAKI/spec/basic_downloader.md`, the Kawasaki skill, the base downloader template at `skills/downloader/templates/base_downloader.py`, and the canonical KUKA example at `community/OLPTranslators/KUKA/KUKA_KRC5.py` — create a Kawasaki E-Series downloader at `OLPTranslators/KAWASAKI/KAWASAKI_E.py`.*
+> *Using the spec at `docs/KAWASAKI/spec/basic_downloader.md`, the Kawasaki skill, the base downloader template at `skills/downloader/templates/base_downloader.py`, and the canonical ABB_IRC5 example at `community/OLPTranslators/ABB/ABB_IRC5.py` — create a Kawasaki E-Series downloader at `OLPTranslators/KAWASAKI/KAWASAKI_E.py`.*
 >
 > *Important:*
 > - *Set `DOWNLOAD_CLASS_NAME = "KAWASAKI_E"`*
