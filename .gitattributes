@@ -1,0 +1,4 @@
+# E2 scenario files — binary ZIP archives, typically 10-20 MB
+# Tracked via Git LFS to avoid repository bloat.
+# Run `git lfs install` once before cloning/committing .cendoc files.
+*.cendoc filter=lfs diff=lfs merge=lfs -text

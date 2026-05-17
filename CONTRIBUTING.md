@@ -43,6 +43,37 @@ OLPTranslators/
 - Include a docstring header listing supported features (see `KUKA_KRC5.py` as an example)
 - Do not modify CENIT canonical files (`KUKA_KRC5.py`, `ABB_IRC5.py`) without prior discussion
 
+### Technology Plugins
+
+Place in `Technologies/<TechName>/<VENDOR>/Standard/Scripts/`:
+
+```
+Technologies/
+└── ArcWeldingTechnology/
+    └── FANUC/
+        └── Standard/
+            └── Scripts/
+                ├── PostTechInitAttributes.py
+                └── PostWmSyncPgAttributes.py
+```
+
+- Follow the same coding guidelines as downloaders
+- Keep scripts general-purpose — no customer-specific attribute values
+
+### Workshop Scenarios
+
+Place in `workshops/<VENDOR>_<Application>/` — see [workshops/README.md](workshops/README.md) for the full folder structure.
+
+Workshop contributions must include:
+- `README.md` — exercise overview, goals, step-by-step instructions
+- `scenarios/*.cendoc` — E2 project file (tracked via Git LFS)
+- `reference/*_tree.txt` — Simple Translator dump of the scenario
+- `golden/*` — expected downloader output (2-3 programs)
+- `docs/*.md` — controller language reference (converted from PDF, no copyrighted content)
+
+Optional:
+- `reference/*_cd.xml` — legacy CD XML stylesheet for attribute mapping context
+
 ### Golden Files
 
 Place in `examples/golden_files/<VENDOR>_<CONTROLLER>/`:
@@ -68,10 +99,9 @@ Place in `examples/tree_dumps/`:
 |---------|-----|
 | E2 installation files (`downloadStarter.py`, `downloader.py`, etc.) | Proprietary, already in E2 |
 | E2 site-packages (`cenpydownload`, `cenpyolpcore`, etc.) | Proprietary, already in E2 |
-| `.cendoc` scenario files | Binary, 10 MB+, belong in your private repo |
-| Customer-specific logic | Keep in your private repo |
+| Customer-specific logic or test scenarios | Keep in your private repo |
 | Copilot skills, agent files, docs | Belong in the [starter repo](https://github.com/cenit-dfs/fastsuite-copilot-starter) |
-| Large binary files of any kind | Keeps the repo lightweight for submodule use |
+| Copyrighted controller documentation | Summarize or reference, don't copy vendor PDFs |
 
 ## Coding Guidelines
 
