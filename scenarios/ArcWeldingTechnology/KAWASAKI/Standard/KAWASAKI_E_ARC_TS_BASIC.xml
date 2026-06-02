@@ -1,0 +1,1587 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <TranslatorInfo TranslatorName="CENOlpKawasakiE_AS" XMLVersion="2017.2.0.1" Version="2.1.7.0" />
+  <CustomUploadDefinitions DefinitionsVersion="2.1.7.0" Enabled="true">
+    <UploadDef ID="### DOCUMENTATION ###" Enabled="false">
+      <Comment>### Open Comment "+" to view the CD Documentation and Changelog History ###
+
+============================================================================
+Project: Kawasaki E-Series AS - ARC Welding
+Created on: 2020/09/17
+Created by: MRe
+----------------------------------------------------------------------------
+Changelog (yyyy/mm/dd - by - Description):
+2020/09/17 - MRe - Initial version
+============================================================================
+Common Information:
+-------------------------
+
+!!! UPLOAD NOT IMPLEMENTED YET !!!
+
+---- ~~~~~~~~~~~~~~~~~~~ END INFO ~~~~~~~~~~~~~~~~~~~ </Comment>
+    </UploadDef>
+  </CustomUploadDefinitions>
+  <CustomDownloadDefinitions DefinitionsVersion="2.1.7.0" Enabled="true" Metadata="1">
+    <DownloadDef ID="### DOCUMENTATION ###" Enabled="false">
+      <Comment>### Open Comment "+" to view the CD Documentation and Changelog History ###
+
+============================================================================
+Project: Kawasaki E-Series AS - ARC Welding
+Created on: 2020/09/17
+Created by: MRe
+----------------------------------------------------------------------------
+Changelog (yyyy/mm/dd - by - Description):
+2023/11/24 - CBe - Added init of frame point at the beginning of each touch operation group
+2023/10/02 - CBe - Added TouchID_Prev, TouchID_Curr, TouchID_Prev_Used and TouchID_Curr_Used to allow TouchID AFTER Circle start/BEFORE Circle VIA
+2023/09/20 - CBe - Added TouchSensing support for 6D / rotating search
+2022/07/26 - CBe - Removed Python calls, corrected variable naming, unique rule-based point names, 
+                   added sub progarm support, fixed online LaserTracking syntax, dynamic base frame 0&gt; DYN_BASE*
+2022/06/07 - CBe - integrate wait, signaling and resourceport events
+2022/06/06 - CBe - integrate TouchSensingWorkMethod (R2022.1) and replace old ContourPointWorkMethod
+2021/12/20 - MGL - integration and code expression for Touch Sensing
+2021/04/12 - JFa - integration of the latest E2 events (ARCWELDCONDITION, LT_PARAM, LT_EVENT)
+2020/09/18 - MRe - Motion Data output generation based on MotionProfiles (not direct on Events)
+2020/09/18 - MRe - Added MotionType 'Point to Point' for ARC output
+2020/09/17 - MRe - Initial version
+============================================================================
+Common Information:
+-------------------------
+# Only Implicit target output supported!
+  -&gt; CENOlpDataOutputStyle has to be set on Controller/Robot!
+# Motion Data handling by Motion Profies (SPEED/ACCEL/ACCURACY/CP)
+  -&gt; PTP Speed always in %, PATH Speed always in mm/s
+;
+# Flags (Integer 0|1 or Boolean false|true)
+	IS_SYNC_MOVE == Flag to switch the synchron output mode - TRSUB(Position)
+	Dependent on BASEFRAME Names in E2 ('COP_CURRENT_PROFILE_BASE_NAME'). True, if name starts with "DYN_BASE"
+	;
+	ARC_OUTPUT == Flag to activate the ArcCommand output
+		0 == no output (for verification in Emulator; no W1SET / W2SET generation)
+		1 == LWS | LWC | LWE or C1WC|C2WE are generated
+		;
+		(LWS LinearWeldStart, LWC LinearWeldContinue, LWE LinearWeldEnd, C1WC CircularWeldContinue, C2WE CircularWeldEnd)
+		WeldStart has to be always Linear!
+	;
+	WSET_OUTPUT == Flag to set the Weld Conditions outputs (Attributs for welding)
+		0 == no output
+		1 == W1SET | W2SET output
+	Remark: There exists two definitions for the Weld Conditions
+		old == W1SET		Weld Condition - Weld Speed, Current, Voltage, ...
+		new == SETCONDW1	new definition for Weld Condition
+		;
+		old == W2SET		Crater Weld Condition - Crater Stopping time, Current, Voltage, ...
+		new == SETCONDW2	new definition for Crater Weld Condition
+		;
+		TODO: Actually Kawasaki is not able to specify exactly the required output - SETCONDW1|2 has to be output always!
+		      With thuis flag, the additional output of W1SET|W2SET can be defined
+	WJOBNO_OUTPUT == Flag for output of the Job Number
+		0 == no output (for verification in Emulator; set_arc_w1jobno is currently not supported by the VRC - too new!)
+		1 == set_arc_w1jobno 1 = 114 (114 example for a Weld Job Number 1 to 65535)
+		     set_arc_w2jobno 1 = 114 (114 example for a Crater Job Number 1 to 65535)
+	;
+---- ~~~~~~~~~~~~~~~~~~~ END INFO ~~~~~~~~~~~~~~~~~~~ </Comment>
+    </DownloadDef>
+    <DownloadDef ID="CENOLP_FMT_INIT" Metadata="1">
+      <StoreVariables Metadata="0">
+        <Assign Type="String" Name="COP_MAINFILE_EXT" Value="as" />
+        <Assign Type="Integer" Name="AW_WORKMETHOD" Value="0" />
+        <Assign Type="String" Name="ArcWeldingOperationWorkMethodName" Value="" />
+        <Assign Type="Integer" Name="WSET_OUTPUT" Value="1" />
+        <Assign Type="Integer" Name="ArcSpotWC2Output" Value="1" />
+        <Assign Type="Integer" Name="LastCraterSpotConditionNumber" Value="999" />
+        <Assign Type="Integer" Name="WJOBNO_OUTPUT" Value="1" />
+        <Assign Type="Integer" Name="ARC_OUTPUT" Value="1" />
+        <Assign Type="Integer" Name="PROGEND_HOME_OUTPUT" Value="0" />
+        <Assign Type="Integer" Name="LT_COUNTER" Value="2" />
+        <Assign Type="Integer" Name="SET_PRE_TAGNAME" Value="1" />
+        <Assign Type="Integer" Name="BFCOUNTER" Value="0" />
+        <Assign Type="Integer" Name="LTSPOINT_COUNTER" Value="0" />
+        <Assign Type="String" Name="CENOlpExtAxisMapping" Value="0,7;0,8" />
+        <Assign Type="Integer" Name="DLLTSINDEX" Value="0" />
+        <Assign Type="Integer" Name="TOUCHEVENT" Value="false" />
+        <Assign Type="Boolean" Name="TS_CORRECT" Value="false" />
+        <Assign Type="String" Name="CORR_FLAG" Value="" />
+        <Assign Type="Boolean" Name="CW_LOCAL_END" Value="false" />
+        <Assign Type="Integer" Name="TSENSE_TMP_CNT" Value="0" />
+        <Assign Type="Integer" Name="TouchPointPosition" Value="0" />
+        <Assign Type="Integer" Name="TouchID" Value="0" />
+        <Assign Type="String" Name="TIdName" Value="" />
+        <Assign Type="Integer" Name="TouchViaID" Value="0" />
+        <Assign Type="Boolean" Name="TouchID_ViaCir" Value="0" />
+        <Assign Type="String" Name="TViaIdName" Value="" />
+        <Assign Type="String" Name="TIdOut" Value="" />
+        <Assign Type="Integer" Name="FramePt" Value="0" />
+        <Assign Type="Integer" Name="LastFramePt" Value="0" />
+        <Assign Type="Integer" Name="LastTouchID" Value="0" />
+        <Assign Type="Boolean" Name="TS_FRAME_OUT" Value="false" />
+        <Assign Type="Boolean" Name="TSENSE_ID_OUT" Value="false" />
+        <Assign Type="Integer" Name="IS_SYNC_MOVE" Value="0" />
+        <Assign Type="String" Name="TRSUB_S" Value="" />
+        <Assign Type="String" Name="TRSUB_E" Value="" />
+        <Assign Type="Integer" Name="ROTBASE_ON" Value="0" />
+        <Assign Type="Integer" Name="ROTBASE_ON_PREV" Value="99" />
+        <Assign Type="String" Name="TSConnectionType" Value="false" />
+      </StoreVariables>
+    </DownloadDef>
+    <DownloadDef ID="CENOLP_FMT_MAINPROG_START_DEF" HasCustomOutput="true" Metadata="1">
+      <DataSection Metadata="0">
+        <LineList>
+          <Line>
+            <String Fmt=".PROGRAM ${COP_PROGRAMS_MAIN}()" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${COP_NUMBER_OF_EXTERNAL_AXES}&gt;0 &amp;&amp; ${GroupNumber}!=0">
+          <Line>
+            <String Fmt="GROUP ${GroupNumber}" />
+          </Line>
+        </LineList>
+      </DataSection>
+      <ProgramSection Metadata="1">
+        <LineList>
+          <Line>
+            <String Fmt=";Compensate track/rail/positioner&#xA;" />
+            <String Fmt="ROTBASE_ON = ${ROTBASE_ON}" />
+          </Line>
+        </LineList>
+      </ProgramSection>
+    </DownloadDef>
+    <DownloadDef ID="CENOLP_FMT_MAINPROG_FOOTER" Enabled="true" HasCustomOutput="true">
+      <DataSection Metadata="0">
+        <LineList Enabled="${TouchId}!=0">
+          <Line>
+            <String Fmt=".PROGRAM kr_touch(.&amp;ref,.&amp;offset,.l_rot_base,.search_dist,.search_speed,.frm_ref_id) ; Kawasaki Robotics Touch Sensing&#xA;" />
+            <String Fmt="  ; *******************************************************************&#xA;" />
+            <String Fmt="  ;&#xA;" />
+            <String Fmt="  ; Program:      kr_touch&#xA;" />
+            <String Fmt="  ; Comment:      Kawasaki Robotics Touch Sensing&#xA;" />
+            <String Fmt="  ; Author:       CENIT AG&#xA;" />
+            <String Fmt="  ;&#xA;" />
+            <String Fmt="  ; Date:         8/8/2023&#xA;" />
+            <String Fmt="  ;&#xA;" />
+            <String Fmt="  ; *******************************************************************&#xA;" />
+            <String Fmt="  ;&#xA;" />
+            <String Fmt="  ;Assign reference points for frame calculation&#xA;" />
+            <String Fmt="  CASE INT(.frm_ref_id) OF&#xA;" />
+            <String Fmt="  VALUE 1&#xA;" />
+            <String Fmt="    POINT FRAME_PT_1 = NULL&#xA;" />
+            <String Fmt="    POINT FRAME_PT_2 = NULL&#xA;" />
+            <String Fmt="    POINT FRAME_PT_3 = NULL&#xA;" />
+            <String Fmt="    POINT FRAME_REF_PT_1 = NULL&#xA;" />
+            <String Fmt="    POINT FRAME_REF_PT_2 = NULL&#xA;" />
+            <String Fmt="    POINT FRAME_REF_PT_3 = NULL&#xA;" />
+            <String Fmt="    POINT FRAME_REF_PT_1 = .ref&#xA;" />
+            <String Fmt="  VALUE 2&#xA;" />
+            <String Fmt="    POINT FRAME_REF_PT_2 = .ref&#xA;" />
+            <String Fmt="  VALUE 3&#xA;" />
+            <String Fmt="    POINT FRAME_REF_PT_3 = .ref&#xA;" />
+            <String Fmt="  ANY&#xA;" />
+            <String Fmt="    PRINT &quot;Frame point index is greater than 3!&quot;&#xA;" />
+            <String Fmt="  END&#xA;" />
+            <String Fmt="  ;&#xA;" />
+            <String Fmt="  if .l_rot_base == 1 THEN&#xA;" />
+            <String Fmt="    ; Transform reference point from Rot_Base to B0 since XAC requires B0 coordinates&#xA;" />
+            <String Fmt="    POINT .ref_in_b0 = TRSUB (.offset + .ref)&#xA;" />
+            <String Fmt="    POINT .ref_in_rb = .offset + .ref&#xA;" />
+            <String Fmt="    XAC .ref_in_b0, .touch, .search_dist, .search_speed&#xA;" />
+            <String Fmt="    BREAK&#xA;" />
+            <String Fmt="    ; Transform touch result from B0 to Rot_Base&#xA;" />
+            <String Fmt="    POINT .touch_rb = TRADD (.touch)&#xA;" />
+            <String Fmt="    ;remove the TCPs OAT and EXT values from reference and touch positions&#xA;" />
+            <String Fmt="    POINT/OAT .ref_in_rb = NULL&#xA;" />
+            <String Fmt="    POINT/OAT .touch_rb = NULL&#xA;" />
+            <String Fmt="    POINT/EXT .ref_in_rb = NULL&#xA;" />
+            <String Fmt="    POINT/EXT .touch_rb = NULL&#xA;" />
+            <String Fmt="    ;calculate offset values in rb coordinates&#xA;" />
+            <String Fmt="    POINT .offset = .offset + (.touch_rb -.ref_in_rb)&#xA;" />
+            <String Fmt="  ELSE&#xA;" />
+            <String Fmt="    POINT .ref_in_base = .offset + .ref&#xA;" />
+            <String Fmt="    XAC .ref_in_base, .touch, .search_dist, .search_speed&#xA;" />
+            <String Fmt="    BREAK&#xA;" />
+            <String Fmt="    POINT .ref_in_base_xyz = .ref_in_base&#xA;" />
+            <String Fmt="    POINT .touch_xyz = .touch&#xA;" />
+            <String Fmt="    POINT/OAT .ref_in_base_xyz = NULL&#xA;" />
+            <String Fmt="    POINT/OAT .touch_xyz = NULL&#xA;" />
+            <String Fmt="    POINT/EXT .ref_in_rb = NULL&#xA;" />
+            <String Fmt="    POINT/EXT .touch_rb = NULL&#xA;" />
+            <String Fmt="    POINT .offset = .offset + (.touch_xyz - .ref_in_base_xyz)&#xA;" />
+            <String Fmt="  END&#xA;" />
+            <String Fmt=".END" />
+          </Line>
+          <Line>
+            <String Fmt=".PROGRAM kr_frame(.&amp;ref_pt1,.&amp;ref_pt2,.&amp;ref_pt3,.&amp;frm_pt1,.&amp;frm_pt2,.&amp;frm_pt3,.&amp;offset) ; Kawasaki Robotics Frame Calculation&#xA;" />
+            <String Fmt="  ; *******************************************************************&#xA;" />
+            <String Fmt="  ;&#xA;" />
+            <String Fmt="  ; Program:      kr_frame&#xA;" />
+            <String Fmt="  ; Comment:      Kawasaki Robotics Frame Calculation&#xA;" />
+            <String Fmt="  ; Author:       CENIT AG&#xA;" />
+            <String Fmt="  ;&#xA;" />
+            <String Fmt="  ; Date:         9/6/2023&#xA;" />
+            <String Fmt="  ;&#xA;" />
+            <String Fmt="  ; *******************************************************************&#xA;" />
+            <String Fmt="  ;&#xA;" />
+            <String Fmt="  ; Define reference frame&#xA;" />
+            <String Fmt="  POINT .frm_ref = FRAME (.ref_pt1, .ref_pt2, .ref_pt3, .ref_pt1)&#xA;" />
+            <String Fmt="  ; Define corrected reference frame&#xA;" />
+            <String Fmt="  POINT .frm_touch = FRAME (.frm_pt1 + .ref_pt1, .frm_pt2 + .ref_pt2, .frm_pt3 + .ref_pt3, .frm_pt1 + .ref_pt1)&#xA;" />
+            <String Fmt="  ; Calculate correction and assign to correction ID&#xA;" />
+            <String Fmt="  POINT .offset = .frm_touch - .frm_ref&#xA;" />
+            <String Fmt=".END" />
+          </Line>
+        </LineList>
+      </DataSection>
+    </DownloadDef>
+    <DownloadDef ID="CENOLP_FMT_SUBPROG_START_DEF" HasCustomOutput="true" Metadata="0">
+      <DataSection Metadata="0">
+        <LineList>
+          <Line>
+            <String Fmt=".PROGRAM ${COP_PROGRAM_NAME}()" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${COP_NUMBER_OF_EXTERNAL_AXES}&gt;0 &amp;&amp; ${GroupNumber}!=0">
+          <Line>
+            <String Fmt="GROUP ${GroupNumber}" />
+          </Line>
+        </LineList>
+      </DataSection>
+    </DownloadDef>
+    <DownloadDef ID="CENOLP_FMT_OPERATION" Metadata="1">
+      <StoreVariables Metadata="0">
+        <Entry Type="String">
+          <Name>
+            <String Fmt="AW_WORKMETHOD" />
+          </Name>
+          <Value>
+            <String Fmt="${ArcWeldingOperationWorkMethodName}" />
+          </Value>
+          <ValueMaps>
+            <Map Key="TouchSensingWorkMethod" Value="1" />
+            <Map Key="StitchWeldingWorkMethod" Value="2" />
+            <Map Key="{*}" Value="0" />
+          </ValueMaps>
+        </Entry>
+        <Assign Type="Boolean" Name="TS_FRAME" Value="false" Enabled="!CENOlp.Java.StrEqualsIgnoreCase('${TSConnectionType}', 'Frame3pConnect')" />
+        <Assign Type="Boolean" Name="TS_FRAME" Value="true" Enabled="CENOlp.Java.StrEqualsIgnoreCase('${TSConnectionType}', 'Frame3pConnect')" />
+        <Assign Type="String" Name="TIdName" Value="${COP_PROGRAMS_CURRENT}_TS_ID_${TouchId}" />
+        <Assign Type="String" Name="TIdName" Value="FRAME_PT_${FramePt}" Enabled="${TS_FRAME} &amp;&amp; ${AW_WORKMETHOD}==1" />
+        <Assign Type="Integer" Name="TId" Value="${TouchId}" />
+        <Assign Type="Integer" Name="TId" Value="${FramePt}" Enabled="${TS_FRAME}" />
+      </StoreVariables>
+      <ProgramSection>
+        <LineList>
+          <Line>
+            <String Fmt=";Operation: ${COP_OPERATION_NAME}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${FramePt}==3 &amp;&amp; ${AW_WORKMETHOD}==1" ReferenceBookmark="BM_INIT_FRAME_PTS">
+          <Line>
+            <String Fmt="POINT FRAME_PT_1 = NULL&#xA;" />
+            <String Fmt="POINT FRAME_PT_2 = NULL&#xA;" />
+            <String Fmt="POINT FRAME_PT_3 = NULL" />
+          </Line>
+        </LineList>
+      </ProgramSection>
+    </DownloadDef>
+    <DownloadDef ID="CENOLP_FMT_OPERATION_END" Metadata="1">
+      <StoreVariables>
+        <Entry Type="String">
+          <Name>
+            <String Fmt="AW_WORKMETHOD" />
+          </Name>
+          <Value>
+            <String Fmt="${ArcWeldingOperationWorkMethodName}" />
+          </Value>
+          <ValueMaps>
+            <Map Key="TouchSensingWorkMethod" Value="1" />
+            <Map Key="StitchWeldingWorkMethod" Value="2" />
+            <Map Key="{*}" Value="0" />
+          </ValueMaps>
+        </Entry>
+        <Assign Type="Integer" Name="TouchID" Value="0" Enabled="${AW_WORKMETHOD}==2" />
+      </StoreVariables>
+    </DownloadDef>
+    <DownloadDef ID="CENOLP_FMT_OPERATION_GROUP" Enabled="false" Metadata="1">
+      <StoreVariables Metadata="0">
+        <Assign Type="String" Name="TRSUB_S" Value="" />
+        <Assign Type="String" Name="TRSUB_E" Value="" />
+        <Assign Type="Integer" Name="ROTBASE_ON" Value="0" />
+        <Assign Type="String" Name="TRSUB_S" Value="TRSUB(" Enabled="!CENOlp.Java.StrStartsWithIgnoreCase('${COP_CURRENT_PROFILE_BASE_NAME}', 'ROT_BASE')" />
+        <Assign Type="String" Name="TRSUB_E" Value=")" Enabled="!CENOlp.Java.StrStartsWithIgnoreCase('${COP_CURRENT_PROFILE_BASE_NAME}', 'ROT_BASE')" />
+        <Assign Type="Integer" Name="ROTBASE_ON" Value="1" Enabled="!CENOlp.Java.StrStartsWithIgnoreCase('${COP_CURRENT_PROFILE_BASE_NAME}', 'ROT_BASE')" />
+      </StoreVariables>
+    </DownloadDef>
+    <DownloadDef ID="CENOLP_FMT_OPERATIONGROUP" Metadata="1">
+      <StoreVariables>
+        <Assign Type="Integer" Name="LastTouchId" Value="0" />
+      </StoreVariables>
+      <ProgramSection>
+        <LineList>
+          <Line>
+            <String Fmt=";Operation Group: ${COP_OPERATIONGROUP_NAME}" />
+          </Line>
+        </LineList>
+        <Bookmark Name="BM_INIT_FRAME_PTS" />
+        <Bookmark Name="BM_INIT_TOUCH_IDS" />
+      </ProgramSection>
+    </DownloadDef>
+    <DownloadDef ID="CENOLP_FMT_INSERT" Enabled="true">
+      <StoreVariables Metadata="0">
+        <Assign Type="Boolean" Name="COP_INSERT_IS_COMMENT" Value="True" />
+      </StoreVariables>
+    </DownloadDef>
+    <DownloadDef ID="CENOLP_FMT_PROFILE_BASE_SET">
+      <StoreVariables Metadata="0">
+        <Assign Type="Integer" Name="IS_SYNC_MOVE" Value="0" Enabled="!CENOlp.Java.StrStartsWithIgnoreCase('${COP_CURRENT_PROFILE_BASE_NAME}', 'ROT_BASE')" />
+        <Assign Type="Integer" Name="IS_SYNC_MOVE" Value="1" Enabled="CENOlp.Java.StrStartsWithIgnoreCase('${COP_CURRENT_PROFILE_BASE_NAME}', 'ROT_BASE')" />
+        <Assign Type="String" Name="TRSUB_S" Value="TRSUB(" Enabled="${IS_SYNC_MOVE}!=0" />
+        <Assign Type="String" Name="TRSUB_E" Value=")" Enabled="${IS_SYNC_MOVE}!=0" />
+        <Assign Type="Integer" Name="ROTBASE_ON_PREV" Value="${ROTBASE_ON}" />
+        <Assign Type="Integer" Name="ROTBASE_ON" Value="1" Enabled="${IS_SYNC_MOVE}!=0" />
+      </StoreVariables>
+      <ProgramSection Metadata="0">
+        <LineList Enabled="${ROTBASE_ON}!=${ROTBASE_ON_PREV}">
+          <Line>
+            <String Fmt=";Compensate track/rail/positioner&#xA;" />
+            <String Fmt="ROTBASE_ON = ${ROTBASE_ON}" />
+          </Line>
+        </LineList>
+      </ProgramSection>
+    </DownloadDef>
+    <DownloadDef ID="#_LOCAL_INCLUDE_IMPLICIT_LTSPOINT_LIN" Enabled="CENOlp.Java.StrEqualsIgnoreCase('${CENOlpDataOutputStyle}', 'Implicit')" Metadata="0">
+      <ProgramSection Metadata="0">
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLLTSINDEX}==1 &amp;&amp; ${LTSPOINT_COUNTER}==1" ReferenceBookmark="BM_LTSPOINT_DYN_BEFORESTART">
+          <Line>
+            <String Fmt="LTSPOINT ${TRSUB_S}${COP_CURRENT_ROBMOTION_TAG_NAME}${TRSUB_E}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLLTSINDEX}==2 &amp;&amp; ${LTSPOINT_COUNTER}==1" ReferenceBookmark="BM_LTSPOINT_DYN_BEFORESTART">
+          <Line>
+            <String Fmt="LTSPOINT ${TRSUB_S}${COP_CURRENT_ROBMOTION_TAG_NAME}${TRSUB_E}" />
+          </Line>
+        </LineList>
+      </ProgramSection>
+    </DownloadDef>
+    <DownloadDef ID="#_LOCAL_INCLUDE_IMPLICIT_LTSPOINT_LINARC" Enabled="CENOlp.Java.StrEqualsIgnoreCase('${CENOlpDataOutputStyle}', 'Implicit')" Metadata="0">
+      <ProgramSection Metadata="0">
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLLTSINDEX}==1 &amp;&amp; ${LTSPOINT_COUNTER}==1" ReferenceBookmark="BM_LTSPOINT_STAT_AFTERSTART">
+          <Line>
+            <String Fmt="LTSPOINT ${TRSUB_S}${COP_CURRENT_ROBMOTION_TAG_NAME}${TRSUB_E}" />
+          </Line>
+        </LineList>
+      </ProgramSection>
+    </DownloadDef>
+    <DownloadDef ID="#_LOCAL_INCLUDE_IMPLICIT_ARC" Enabled="CENOlp.Java.StrEqualsIgnoreCase('${CENOlpDataOutputStyle}', 'Implicit')" Metadata="0">
+      <DataSection Metadata="0">
+        <LineList OverrideSublocation="DATA_TRANS_BODY">
+          <Line>
+            <String Fmt="${COP_CURRENT_ROBMOTION_TAG_NAME} ${COP_CURRENT_ROBMOTION_TARGET_NATIVE}" />
+          </Line>
+        </LineList>
+      </DataSection>
+      <ProgramSection Metadata="1">
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; !${TouchId}">
+          <Line>
+            <String Fmt="${COP_CURRENT_ROBMOTION_ARC_COMMAND_NAME} ${TRSUB_S}${COP_CURRENT_ROBMOTION_TAG_NAME}${TRSUB_E} ${COP_CURRENT_ROBMOTION_ARC_COMMAND_POSTFIX}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${TouchId}">
+          <Line>
+            <String Fmt="${COP_CURRENT_ROBMOTION_ARC_COMMAND_NAME} ${TRSUB_S}${TIdOut} + ${COP_CURRENT_ROBMOTION_TAG_NAME}${TRSUB_E} ${COP_CURRENT_ROBMOTION_ARC_COMMAND_POSTFIX}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==0 &amp;&amp; !${TouchId}">
+          <Line>
+            <String Fmt="${COP_CURRENT_ROBMOTION_COMMAND_NAME} ${TRSUB_S}${COP_CURRENT_ROBMOTION_TAG_NAME}${TRSUB_E}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==0 &amp;&amp; ${TouchId}">
+          <Line>
+            <String Fmt="${COP_CURRENT_ROBMOTION_COMMAND_NAME} ${TIdOut} + ${TRSUB_S}${COP_CURRENT_ROBMOTION_TAG_NAME}${TRSUB_E}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${LT_COUNTER} == 1">
+          <Line>
+            <String Fmt="LT OFF" />
+          </Line>
+        </LineList>
+      </ProgramSection>
+    </DownloadDef>
+    <DownloadDef ID="#_LOCAL_INCLUDE_EXPLICIT_ARC" Enabled="CENOlp.Java.StrEqualsIgnoreCase('${CENOlpDataOutputStyle}', 'Explicit')" Metadata="0">
+      <Comment>For SYNC MODE we have to output implicit targets</Comment>
+      <DataSection Metadata="0">
+        <LineList OverrideSublocation="DATA_TRANS_BODY" Enabled="${IS_SYNC_MOVE}==1">
+          <Line>
+            <String Fmt="${COP_CURRENT_ROBMOTION_TAG_NAME} ${COP_CURRENT_ROBMOTION_TARGET_NATIVE}" />
+          </Line>
+        </LineList>
+      </DataSection>
+      <ProgramSection Metadata="0">
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; !${COP_IS_JOINT_TARGET}">
+          <Line>
+            <String Fmt="${COP_CURRENT_ROBMOTION_ARC_COMMAND_NAME} TRANS(${COP_CURRENT_ROBMOTION_TARGET_NATIVE})${COP_CURRENT_ROBMOTION_ARC_COMMAND_POSTFIX}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==0 &amp;&amp; !${COP_IS_JOINT_TARGET}">
+          <Line>
+            <String Fmt="${COP_CURRENT_ROBMOTION_COMMAND_NAME} TRANS(${COP_CURRENT_ROBMOTION_TARGET_NATIVE})" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${COP_IS_JOINT_TARGET}">
+          <Line>
+            <String Fmt="${COP_CURRENT_ROBMOTION_ARC_COMMAND_NAME} ${TRSUB_S}${COP_CURRENT_ROBMOTION_TAG_NAME}${TRSUB_E}${COP_CURRENT_ROBMOTION_ARC_COMMAND_POSTFIX}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==0 &amp;&amp; ${COP_IS_JOINT_TARGET}">
+          <Line>
+            <String Fmt="${COP_CURRENT_ROBMOTION_COMMAND_NAME} #[${COP_CURRENT_ROBMOTION_TARGET_NATIVE}]" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${LT_COUNTER} == 1">
+          <Line>
+            <String Fmt="LT OFF" />
+          </Line>
+        </LineList>
+      </ProgramSection>
+    </DownloadDef>
+    <DownloadDef ID="#_LOCAL_INCLUDE_RESET_DATA_AFTER_ARC" Metadata="0">
+      <Comment>Force output of Motion Data (SPEED/ACCURACY/ACCEL/CP) on first motion that follows an ARC</Comment>
+      <StoreVariables Metadata="0">
+        <Assign Type="String" Name="COP_PREV_ROBMOTION_SPEED_COMMAND" Value="not set" Persistence="Delayed" />
+        <Assign Type="String" Name="COP_PREV_ROBMOTION_ACCEL_COMMAND" Value="not set" Persistence="Delayed" />
+        <Assign Type="String" Name="COP_PREV_ROBMOTION_ACCURACY_COMMAND" Value="not set" Persistence="Delayed" />
+        <Assign Type="String" Name="COP_PREV_ROBMOTION_FLYBY_COMMAND" Value="not set" Persistence="Delayed" />
+        <Assign Type="Boolean" Name="TS_CORRECT" Value="False" Persistence="Delayed" />
+      </StoreVariables>
+    </DownloadDef>
+    <DownloadDef ID="CENOLP_FMT_ROBOTMOTION_ABSPTP" Enabled="true">
+      <StoreVariables Metadata="0">
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_ACCEL_OUT" Value="" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_FLYBY_OUT" Value="" />
+      </StoreVariables>
+    </DownloadDef>
+    <DownloadDef ID="CENOLP_FMT_ROBOTMOTION_LIN:TOUCH" Enabled="true" HasCustomOutput="true" SetSuffix="" Metadata="0">
+      <StoreVariables Metadata="0">
+        <Assign Type="Double" Name="TSOvertravelLength" Value="${OvertravelLength}*1000" />
+        <Assign Type="Double" Name="TSSensingSpeed" Value="${SensingSpeed}*1000" />
+        <Assign Type="Integer" Name="TSENSE_TMP_CNT" Value="${TSENSE_TMP_CNT}+1" />
+        <Assign Type="Boolean" Name="TSENSE_ID_OUT" Value="true" Enabled="${Touch_Cntr}==${TSENSE_TMP_CNT}" />
+        <Assign Type="Integer" Name="RefId" Value="${FramePt}" />
+        <Assign Type="Integer" Name="RefId" Value="0" Enabled="${FramePt}==${LastFramePt}" />
+        <Assign Type="Integer" Name="LastFramePt" Value="${FramePt}" />
+        <Assign Type="Boolean" Name="TS_FRAME_OUT" Value="true" Enabled="${RefId}==3 &amp;&amp; ${TS_FRAME}" />
+        <Assign Type="Boolean" Name="TS_FRAME_OUT" Value="false" Persistence="DELAYED" />
+        <Assign Type="Boolean" Name="TSENSE_ID_OUT" Value="false" Persistence="DELAYED" />
+      </StoreVariables>
+      <DataSection Metadata="0">
+        <LineList OverrideSublocation="DATA_TRANS_BODY">
+          <Line>
+            <String Fmt="${COP_CURRENT_ROBMOTION_TAG_NAME} ${COP_CURRENT_ROBMOTION_TARGET_NATIVE}" />
+          </Line>
+        </LineList>
+      </DataSection>
+      <ProgramSection Metadata="0">
+        <Include Id="#_INCLUDE_ROBOTMOTION_MOTION_DATA_OUT" />
+        <Include Id="#_LOCAL_INCLUDE_IMPLICIT_LTSPOINT_LIN" />
+        <LineList>
+          <Line>
+            <String Fmt="CALL KR_TOUCH (&amp;${COP_CURRENT_ROBMOTION_TAG_NAME}, &amp;${TIdName}, ROTBASE_ON, ${TSOvertravelLength}, ${TSSensingSpeed}, ${RefId})" />
+          </Line>
+        </LineList>
+        <LineList>
+          <Line>
+            <String Fmt="STABLE 0.1" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${TS_FRAME_OUT}">
+          <Line>
+            <String Fmt="CALL KR_FRAME (&amp;FRAME_REF_PT_1, &amp;FRAME_REF_PT_2, &amp;FRAME_REF_PT_3, &amp;FRAME_PT_1, &amp;FRAME_PT_2, &amp;FRAME_PT_3, &amp;${COP_PROGRAMS_CURRENT}_TS_ID_${TouchId})" />
+          </Line>
+        </LineList>
+      </ProgramSection>
+    </DownloadDef>
+    <DownloadDef ID="CENOLP_FMT_ROBOTMOTION_PTP" Enabled="true" HasCustomOutput="true" Metadata="0">
+      <StoreVariables Metadata="0">
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_ACCEL_OUT" Value="" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_FLYBY_OUT" Value="" />
+      </StoreVariables>
+      <DataSection Metadata="0">
+        <Include Id="#_LOCAL_INCLUDE_IMPLICIT_ARC" />
+        <Include Id="#_LOCAL_INCLUDE_EXPLICIT_ARC" />
+      </DataSection>
+      <ProgramSection Metadata="0">
+        <Include Id="#_INCLUDE_ROBOTMOTION_MOTION_DATA_OUT" />
+        <LineList Enabled="${TouchId}">
+          <Line>
+            <String Fmt="${COP_CURRENT_ROBMOTION_COMMAND_NAME} ${TRSUB_S}${TIdName} + ${COP_CURRENT_ROBMOTION_TAG_NAME}${TRSUB_E}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="!${TouchId}">
+          <Line>
+            <String Fmt="${COP_CURRENT_ROBMOTION_COMMAND_NAME} ${TRSUB_S}${COP_CURRENT_ROBMOTION_TAG_NAME}${TRSUB_E}" />
+          </Line>
+        </LineList>
+      </ProgramSection>
+    </DownloadDef>
+    <DownloadDef ID="CENOLP_FMT_ROBOTMOTION_LIN" Enabled="true" HasCustomOutput="true" Metadata="0">
+      <StoreVariables Metadata="0">
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_ACCEL_OUT" Value="" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_FLYBY_OUT" Value="" />
+        <Assign Type="Integer" Name="LTSPOINT_COUNTER" Value="${LTSPOINT_COUNTER}+1" />
+      </StoreVariables>
+      <DataSection Metadata="0">
+        <Include Id="#_LOCAL_INCLUDE_IMPLICIT_ARC" />
+        <Include Id="#_LOCAL_INCLUDE_EXPLICIT_ARC" />
+      </DataSection>
+      <ProgramSection Metadata="0">
+        <Include Id="#_INCLUDE_ROBOTMOTION_MOTION_DATA_OUT" />
+        <Include Id="#_LOCAL_INCLUDE_IMPLICIT_LTSPOINT_LIN" />
+        <LineList Enabled="${TouchId}">
+          <Line>
+            <String Fmt="${COP_CURRENT_ROBMOTION_COMMAND_NAME} ${TRSUB_S}${TIdName} + ${COP_CURRENT_ROBMOTION_TAG_NAME}${TRSUB_E}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="!${TouchId}">
+          <Line>
+            <String Fmt="${COP_CURRENT_ROBMOTION_COMMAND_NAME} ${TRSUB_S}${COP_CURRENT_ROBMOTION_TAG_NAME}${TRSUB_E}" />
+          </Line>
+        </LineList>
+      </ProgramSection>
+    </DownloadDef>
+    <DownloadDef ID="CENOLP_FMT_ROBOTMOTION_PTP:ARC_ON" HasCustomOutput="true" SetSuffix="ARC" Metadata="0">
+      <StoreVariables Metadata="0">
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_SPEED_OUT" Value="" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_ACCEL_OUT" Value="" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_FLYBY_OUT" Value="" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_ARC_COMMAND_NAME" Value="JWS" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_ARC_COMMAND_POSTFIX" Value="" />
+        <Assign Type="String" Name="TIdOut" Value="${TIdName}" />
+      </StoreVariables>
+      <DataSection Metadata="0">
+        <Include Id="#_LOCAL_INCLUDE_IMPLICIT_ARC" />
+        <Include Id="#_LOCAL_INCLUDE_EXPLICIT_ARC" />
+      </DataSection>
+      <ProgramSection Metadata="0">
+        <Include Id="#_INCLUDE_ROBOTMOTION_MOTION_DATA_OUT" />
+        <Bookmark Name="BM_WELDMODE3" Enabled="${ARC_OUTPUT}==1" />
+        <Bookmark Name="BM_WJOBNO1" Enabled="${ARC_OUTPUT}==1" />
+        <Bookmark Name="BM_WELDCONDITION1" Enabled="${ARC_OUTPUT}==1" />
+        <Bookmark Name="BM_W1SET" Enabled="${ARC_OUTPUT}==1" />
+        <Bookmark Name="BM_WJOBNO2" Enabled="${ARC_OUTPUT}==1" />
+        <Bookmark Name="BM_WELDCONDITION2" Enabled="${ARC_OUTPUT}==1" />
+        <Bookmark Name="BM_W2SET" Enabled="${ARC_OUTPUT}==1" />
+        <Bookmark Name="BM_SoftwareSlowDown" Enabled="${ARC_OUTPUT}==1" />
+        <Bookmark Name="BM_StartPointSensing" Enabled="${ARC_OUTPUT}==1" />
+        <Bookmark Name="BM_RTPM" Enabled="${ARC_OUTPUT}==1" />
+        <Include Id="#_LOCAL_INCLUDE_IMPLICIT_ARC" />
+        <Include Id="#_LOCAL_INCLUDE_EXPLICIT_ARC" />
+      </ProgramSection>
+    </DownloadDef>
+    <DownloadDef ID="CENOLP_FMT_ROBOTMOTION_PTP:ARC_SPOT" HasCustomOutput="true" SetSuffix="" Metadata="0">
+      <StoreVariables Metadata="0">
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_SPEED_OUT" Value="" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_ACCEL_OUT" Value="" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_FLYBY_OUT" Value="" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_ARC_COMMAND_NAME" Value="JAS" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_ARC_COMMAND_POSTFIX" Value=",${DLCraterSpotConditionNumber}" Enabled="${DLWC2Crater}" />
+        <Assign Type="Integer" Name="ArcSpotWC2Output" Value="0" Persistence="Delayed" />
+        <Assign Type="String" Name="TIdOut" Value="${TIdName}" />
+      </StoreVariables>
+      <DataSection Metadata="0">
+        <Include Id="#_LOCAL_INCLUDE_IMPLICIT_ARC" />
+        <Include Id="#_LOCAL_INCLUDE_EXPLICIT_ARC" />
+      </DataSection>
+      <ProgramSection Metadata="0">
+        <Include Id="#_INCLUDE_ROBOTMOTION_MOTION_DATA_OUT" />
+        <Bookmark Name="BM_WJOBNO2" Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${ArcSpotWC2Output}==1" />
+        <Bookmark Name="BM_WELDCONDITION2" Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${ArcSpotWC2Output}==1" />
+        <Bookmark Name="BM_W2SET" Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${ArcSpotWC2Output}==1" />
+        <Include Id="#_LOCAL_INCLUDE_IMPLICIT_ARC" />
+        <Include Id="#_LOCAL_INCLUDE_EXPLICIT_ARC" />
+      </ProgramSection>
+    </DownloadDef>
+    <DownloadDef ID="CENOLP_FMT_ROBOTMOTION_PTP:ARC" Enabled="true" HasCustomOutput="true" Metadata="0">
+      <Comment>[Error]: ARC CONT for Motion Type 'Point to Point' is not allowed! Changed Motion Type to Linear!</Comment>
+      <StoreVariables Metadata="0">
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_SPEED_OUT" Value="" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_ACCEL_OUT" Value="" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_FLYBY_OUT" Value="" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_ARC_COMMAND_NAME" Value="LWC" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_ARC_COMMAND_POSTFIX" Value=",${DLWeldConditionNumber}" Enabled="${DLWeldConditionMode}&lt;2" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_ARC_COMMAND_POSTFIX" Value=",1" Enabled="${DLWeldConditionMode}==2" />
+        <Assign Type="Boolean" Name="CW_LOCAL_END" Value="false" Persistence="Delayed" />
+        <Assign Type="String" Name="TIdOut" Value="${TIdName}" />
+      </StoreVariables>
+      <DataSection Metadata="1">
+        <Include Id="#_LOCAL_INCLUDE_IMPLICIT_ARC" />
+        <Include Id="#_LOCAL_INCLUDE_EXPLICIT_ARC" />
+      </DataSection>
+      <ProgramSection Metadata="0">
+        <Include Id="#_INCLUDE_ROBOTMOTION_MOTION_DATA_OUT" />
+        <LineList OverrideLocation="DOWNLOADER_MESSAGES" OverrideSublocation="DOWNLOADER_MESSAGES">
+          <Line>
+            <String Fmt="[Error]: ARC CONT for Motion Type 'Point to Point' is not allowed! Changed Motion Type to Linear!&#xA;" />
+            <String Fmt="[Error]: Point Name: ${COP_CURRENT_ROBMOTION_TAG_NAME_XML}&#xA;" />
+            <String Fmt="[Error]: !! Program will not run correctly. Please modify the E2 Process !!!" />
+          </Line>
+        </LineList>
+        <Include Id="#_LOCAL_INCLUDE_IMPLICIT_ARC" />
+        <Include Id="#_LOCAL_INCLUDE_EXPLICIT_ARC" />
+      </ProgramSection>
+    </DownloadDef>
+    <DownloadDef ID="CENOLP_FMT_ROBOTMOTION_PTP:ARC_OFF" Enabled="true" HasCustomOutput="true" SetSuffix="" Metadata="0">
+      <Comment>[Error]: ARC END for Motion Type 'Point to Point' is not allowed! Changed Motion Type to Linear!</Comment>
+      <StoreVariables Metadata="0">
+        <Include Id="#_LOCAL_INCLUDE_RESET_DATA_AFTER_ARC" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_SPEED_OUT" Value="" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_ACCEL_OUT" Value="" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_FLYBY_OUT" Value="" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_ARC_COMMAND_NAME" Value="LWE" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_ARC_COMMAND_POSTFIX" Value=",${DLWeldConditionNumber},${DLCraterSpotConditionNumber}" Enabled="${DLWC2Crater} &amp;&amp; ${DLWeldConditionMode}&lt;2" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_ARC_COMMAND_POSTFIX" Value=",1,1" Enabled="${DLWC2Crater} &amp;&amp; ${DLWeldConditionMode}==2" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_ARC_COMMAND_POSTFIX" Value=",${DLWeldConditionNumber}" Enabled="!${DLWC2Crater} &amp;&amp; ${DLWeldConditionMode}&lt;2" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_ARC_COMMAND_POSTFIX" Value=",1" Enabled="!${DLWC2Crater} &amp;&amp; ${DLWeldConditionMode}==2" />
+        <Assign Type="Integer" Name="LT_COUNTER" Value="${LT_COUNTER}+1" />
+        <Assign Type="String" Name="TIdOut" Value="${TIdName}" />
+      </StoreVariables>
+      <DataSection Metadata="1">
+        <Include Id="#_LOCAL_INCLUDE_IMPLICIT_ARC" />
+        <Include Id="#_LOCAL_INCLUDE_EXPLICIT_ARC" />
+      </DataSection>
+      <ProgramSection Metadata="0">
+        <Include Id="#_INCLUDE_ROBOTMOTION_MOTION_DATA_OUT" />
+        <LineList OverrideLocation="DOWNLOADER_MESSAGES" OverrideSublocation="DOWNLOADER_MESSAGES">
+          <Line>
+            <String Fmt="[Error]: ARC END for Motion Type 'Point to Point' is not allowed! Changed Motion Type to Linear!&#xA;" />
+            <String Fmt="[Error]: Point Name: ${COP_CURRENT_ROBMOTION_TAG_NAME_XML}&#xA;" />
+            <String Fmt="[Error]: !! Program will not run correctly. Please modify the E2 Process !!!" />
+          </Line>
+        </LineList>
+        <Include Id="#_LOCAL_INCLUDE_IMPLICIT_ARC" />
+        <Include Id="#_LOCAL_INCLUDE_EXPLICIT_ARC" />
+      </ProgramSection>
+    </DownloadDef>
+    <DownloadDef ID="CENOLP_FMT_ROBOTMOTION_LIN:ARC_ON" Enabled="true" HasCustomOutput="true" SetSuffix="ARC" Metadata="0">
+      <StoreVariables Metadata="0">
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_SPEED_OUT" Value="" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_ACCEL_OUT" Value="" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_FLYBY_OUT" Value="" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_ARC_COMMAND_NAME" Value="LWS" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_ARC_COMMAND_POSTFIX" Value="" />
+        <Assign Type="String" Name="TIdOut" Value="${TIdName}" />
+      </StoreVariables>
+      <DataSection Metadata="1">
+        <Include Id="#_LOCAL_INCLUDE_IMPLICIT_ARC" />
+        <Include Id="#_LOCAL_INCLUDE_EXPLICIT_ARC" />
+      </DataSection>
+      <ProgramSection Metadata="0">
+        <Include Id="#_INCLUDE_ROBOTMOTION_MOTION_DATA_OUT" />
+        <Bookmark Name="BM_WELDMODE3" Enabled="${ARC_OUTPUT}==1" />
+        <Bookmark Name="BM_WJOBNO1" Enabled="${ARC_OUTPUT}==1" />
+        <Bookmark Name="BM_WELDCONDITION1" Enabled="${ARC_OUTPUT}==1" />
+        <Bookmark Name="BM_W1SET" Enabled="${ARC_OUTPUT}==1" />
+        <Bookmark Name="BM_WJOBNO2" Enabled="${ARC_OUTPUT}==1" />
+        <Bookmark Name="BM_WELDCONDITION2" Enabled="${ARC_OUTPUT}==1" />
+        <Bookmark Name="BM_W2SET" Enabled="${ARC_OUTPUT}==1" />
+        <Bookmark Name="BM_SoftwareSlowDown" Enabled="${ARC_OUTPUT}==1" />
+        <Bookmark Name="BM_StartPointSensing" Enabled="${ARC_OUTPUT}==1" />
+        <Bookmark Name="BM_RTPM" Enabled="${ARC_OUTPUT}==1" />
+        <Include Id="#_LOCAL_INCLUDE_IMPLICIT_ARC" />
+        <Include Id="#_LOCAL_INCLUDE_EXPLICIT_ARC" />
+      </ProgramSection>
+    </DownloadDef>
+    <DownloadDef ID="CENOLP_FMT_ROBOTMOTION_LIN:ARC_SPOT" Enabled="true" HasCustomOutput="true" SetSuffix="" Metadata="0">
+      <StoreVariables Metadata="0">
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_SPEED_OUT" Value="" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_ACCEL_OUT" Value="" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_FLYBY_OUT" Value="" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_ARC_COMMAND_NAME" Value="LAS" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_ARC_COMMAND_POSTFIX" Value=",${DLCraterSpotConditionNumber}" Enabled="${DLWC2Crater}" />
+        <Assign Type="Integer" Name="ArcSpotWC2Output" Value="0" Persistence="Delayed" />
+        <Assign Type="String" Name="TIdOut" Value="${TIdName}" />
+      </StoreVariables>
+      <DataSection Metadata="1">
+        <Include Id="#_LOCAL_INCLUDE_IMPLICIT_ARC" />
+        <Include Id="#_LOCAL_INCLUDE_EXPLICIT_ARC" />
+      </DataSection>
+      <ProgramSection Metadata="0">
+        <Include Id="#_INCLUDE_ROBOTMOTION_MOTION_DATA_OUT" />
+        <Bookmark Name="BM_WJOBNO2" Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${ArcSpotWC2Output}==1" />
+        <Bookmark Name="BM_WELDCONDITION2" Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${ArcSpotWC2Output}==1" />
+        <Bookmark Name="BM_W2SET" Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${ArcSpotWC2Output}==1" />
+        <Include Id="#_LOCAL_INCLUDE_IMPLICIT_ARC" />
+        <Include Id="#_LOCAL_INCLUDE_EXPLICIT_ARC" />
+      </ProgramSection>
+    </DownloadDef>
+    <DownloadDef ID="CENOLP_FMT_ROBOTMOTION_LIN:ARC" Enabled="true" HasCustomOutput="true" Metadata="0">
+      <StoreVariables Metadata="0">
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_SPEED_OUT" Value="" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_ACCEL_OUT" Value="" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_FLYBY_OUT" Value="" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_ARC_COMMAND_NAME" Value="LWC" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_ARC_COMMAND_POSTFIX" Value=",${DLWeldConditionNumber}" Enabled="${DLWeldConditionMode}&lt;2" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_ARC_COMMAND_POSTFIX" Value=",1" Enabled="${DLWeldConditionMode}==2" />
+        <Assign Type="Integer" Name="LTSPOINT_COUNTER" Value="${LTSPOINT_COUNTER}+1" />
+        <Assign Type="String" Name="TIdOut" Value="${TIdName}" />
+        <Assign Type="Boolean" Name="CW_LOCAL_END" Value="false" Persistence="Delayed" />
+      </StoreVariables>
+      <DataSection Metadata="1">
+        <Include Id="#_LOCAL_INCLUDE_IMPLICIT_ARC" />
+        <Include Id="#_LOCAL_INCLUDE_EXPLICIT_ARC" />
+      </DataSection>
+      <ProgramSection Metadata="0">
+        <Include Id="#_INCLUDE_ROBOTMOTION_MOTION_DATA_OUT" />
+        <Include Id="#_LOCAL_INCLUDE_IMPLICIT_LTSPOINT_LINARC" />
+        <Include Id="#_LOCAL_INCLUDE_IMPLICIT_ARC" />
+        <Include Id="#_LOCAL_INCLUDE_EXPLICIT_ARC" />
+      </ProgramSection>
+    </DownloadDef>
+    <DownloadDef ID="CENOLP_FMT_ROBOTMOTION_LIN:ARC_OFF" Enabled="true" HasCustomOutput="true" SetSuffix="" Metadata="0">
+      <StoreVariables Metadata="0">
+        <Include Id="#_LOCAL_INCLUDE_RESET_DATA_AFTER_ARC" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_SPEED_OUT" Value="" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_ACCEL_OUT" Value="" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_FLYBY_OUT" Value="" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_ARC_COMMAND_NAME" Value="LWE" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_ARC_COMMAND_POSTFIX" Value=",${DLWeldConditionNumber},${DLCraterSpotConditionNumber}" Enabled="${DLWC2Crater} &amp;&amp; ${DLWeldConditionMode}&lt;2" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_ARC_COMMAND_POSTFIX" Value=",1,1" Enabled="${DLWC2Crater} &amp;&amp; ${DLWeldConditionMode}==2" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_ARC_COMMAND_POSTFIX" Value=",${DLWeldConditionNumber}" Enabled="!${DLWC2Crater} &amp;&amp; ${DLWeldConditionMode}&lt;2" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_ARC_COMMAND_POSTFIX" Value=",1" Enabled="!${DLWC2Crater} &amp;&amp; ${DLWeldConditionMode}==2" />
+        <Assign Type="Integer" Name="LT_COUNTER" Value="${LT_COUNTER}+1" />
+        <Assign Type="String" Name="TIdOut" Value="${TIdName}" />
+      </StoreVariables>
+      <DataSection Metadata="1">
+        <Include Id="#_LOCAL_INCLUDE_IMPLICIT_ARC" />
+        <Include Id="#_LOCAL_INCLUDE_EXPLICIT_ARC" />
+      </DataSection>
+      <ProgramSection Metadata="0">
+        <Include Id="#_INCLUDE_ROBOTMOTION_MOTION_DATA_OUT" />
+        <Include Id="#_LOCAL_INCLUDE_IMPLICIT_ARC" />
+        <Include Id="#_LOCAL_INCLUDE_EXPLICIT_ARC" />
+      </ProgramSection>
+    </DownloadDef>
+    <DownloadDef ID="CENOLP_FMT_ROBOTMOTION_VIACIR:ARC_ON" Enabled="true" HasCustomOutput="true" SetSuffix="ARC" Metadata="0">
+      <Comment>[Error]: ARC START for Motion Type 'Circular Via' is not allowed!</Comment>
+      <StoreVariables Metadata="0">
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_SPEED_OUT" Value="" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_ACCEL_OUT" Value="" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_FLYBY_OUT" Value="" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_ARC_COMMAND_NAME" Value="C1WC" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_ARC_COMMAND_POSTFIX" Value="" />
+      </StoreVariables>
+      <DataSection Metadata="1">
+        <Include Id="#_LOCAL_INCLUDE_IMPLICIT_ARC" />
+        <Include Id="#_LOCAL_INCLUDE_EXPLICIT_ARC" />
+      </DataSection>
+      <ProgramSection Metadata="0">
+        <Include Id="#_INCLUDE_ROBOTMOTION_MOTION_DATA_OUT" />
+        <Bookmark Name="BM_WELDMODE3" Enabled="${ARC_OUTPUT}==1" />
+        <Bookmark Name="BM_WJOBNO1" Enabled="${ARC_OUTPUT}==1" />
+        <Bookmark Name="BM_WELDCONDITION1" Enabled="${ARC_OUTPUT}==1" />
+        <Bookmark Name="BM_W1SET" Enabled="${ARC_OUTPUT}==1" />
+        <Bookmark Name="BM_WJOBNO2" Enabled="${ARC_OUTPUT}==1" />
+        <Bookmark Name="BM_WELDCONDITION2" Enabled="${ARC_OUTPUT}==1" />
+        <Bookmark Name="BM_W2SET" Enabled="${ARC_OUTPUT}==1" />
+        <Bookmark Name="BM_SoftwareSlowDown" Enabled="${ARC_OUTPUT}==1" />
+        <Bookmark Name="BM_StartPointSensing" Enabled="${ARC_OUTPUT}==1" />
+        <Bookmark Name="BM_RTPM" Enabled="${ARC_OUTPUT}==1" />
+        <LineList OverrideLocation="DOWNLOADER_MESSAGES" OverrideSublocation="DOWNLOADER_MESSAGES">
+          <Line>
+            <String Fmt="[Error]: ARC START for Motion Type 'Circular Via' is not allowed!&#xA;" />
+            <String Fmt="[Error]: Point Name: ${COP_CURRENT_ROBMOTION_TAG_NAME_XML}&#xA;" />
+            <String Fmt="[Error]: !! Program will not run correctly. Please modify the E2 Process !!!" />
+          </Line>
+        </LineList>
+        <Include Id="#_LOCAL_INCLUDE_IMPLICIT_ARC" />
+        <Include Id="#_LOCAL_INCLUDE_EXPLICIT_ARC" />
+      </ProgramSection>
+    </DownloadDef>
+    <DownloadDef ID="CENOLP_FMT_ROBOTMOTION_VIACIR:ARC" Enabled="true" HasCustomOutput="true" Metadata="0">
+      <StoreVariables Metadata="0">
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_SPEED_OUT" Value="" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_ACCEL_OUT" Value="" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_FLYBY_OUT" Value="" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_ARC_COMMAND_NAME" Value="C1WC" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_ARC_COMMAND_POSTFIX" Value=",${DLWeldConditionNumber}" Enabled="${DLWeldConditionMode}&lt;2" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_ARC_COMMAND_POSTFIX" Value=",1" Enabled="${DLWeldConditionMode}==2" />
+        <Assign Type="String" Name="TIdOut" Value="${TIdName}" Enabled="!${TouchViaID}" />
+        <Assign Type="String" Name="TIdOut" Value="${TViaIdName}" Enabled="${TouchViaID}" />
+        <Assign Type="String" Name="TViaIdName" Value="" Persistence="Delayed" />
+        <Assign Type="Integer" Name="TouchViaID" Value="0" Persistence="Delayed" />
+        <Assign Type="Boolean" Name="CW_LOCAL_END" Value="false" Persistence="Delayed" />
+      </StoreVariables>
+      <DataSection Metadata="1">
+        <Include Id="#_LOCAL_INCLUDE_IMPLICIT_ARC" />
+        <Include Id="#_LOCAL_INCLUDE_EXPLICIT_ARC" />
+      </DataSection>
+      <ProgramSection Metadata="0">
+        <Include Id="#_INCLUDE_ROBOTMOTION_MOTION_DATA_OUT" />
+        <Include Id="#_LOCAL_INCLUDE_IMPLICIT_ARC" />
+        <Include Id="#_LOCAL_INCLUDE_EXPLICIT_ARC" />
+      </ProgramSection>
+    </DownloadDef>
+    <DownloadDef ID="CENOLP_FMT_ROBOTMOTION_CIR:ARC" Enabled="true" HasCustomOutput="true" Metadata="0">
+      <StoreVariables Metadata="0">
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_SPEED_OUT" Value="" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_ACCEL_OUT" Value="" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_FLYBY_OUT" Value="" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_ARC_COMMAND_NAME" Value="C2WC" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_ARC_COMMAND_POSTFIX" Value=",${DLWeldConditionNumber}" Enabled="${DLWeldConditionMode}&lt;2" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_ARC_COMMAND_POSTFIX" Value=",1" Enabled="${DLWeldConditionMode}==2" />
+        <Assign Type="String" Name="TIdOut" Value="${TIdName}" />
+        <Assign Type="Boolean" Name="CW_LOCAL_END" Value="false" Persistence="Delayed" />
+      </StoreVariables>
+      <DataSection Metadata="1">
+        <Include Id="#_LOCAL_INCLUDE_IMPLICIT_ARC" />
+        <Include Id="#_LOCAL_INCLUDE_EXPLICIT_ARC" />
+      </DataSection>
+      <ProgramSection Metadata="0">
+        <Include Id="#_INCLUDE_ROBOTMOTION_MOTION_DATA_OUT" />
+        <Include Id="#_LOCAL_INCLUDE_IMPLICIT_ARC" />
+        <Include Id="#_LOCAL_INCLUDE_EXPLICIT_ARC" />
+      </ProgramSection>
+    </DownloadDef>
+    <DownloadDef ID="CENOLP_FMT_ROBOTMOTION_CIR:ARC_OFF" Enabled="true" HasCustomOutput="true" SetSuffix="" Metadata="0">
+      <StoreVariables Metadata="0">
+        <Include Id="#_LOCAL_INCLUDE_RESET_DATA_AFTER_ARC" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_SPEED_OUT" Value="" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_ACCEL_OUT" Value="" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_FLYBY_OUT" Value="" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_ARC_COMMAND_NAME" Value="C2WE" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_ARC_COMMAND_POSTFIX" Value=",${DLWeldConditionNumber},${DLCraterSpotConditionNumber}" Enabled="${DLWC2Crater} &amp;&amp; ${DLWeldConditionMode}&lt;2" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_ARC_COMMAND_POSTFIX" Value=",1,1" Enabled="${DLWC2Crater} &amp;&amp; ${DLWeldConditionMode}==2" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_ARC_COMMAND_POSTFIX" Value=",${DLWeldConditionNumber}" Enabled="!${DLWC2Crater} &amp;&amp; ${DLWeldConditionMode}&lt;2" />
+        <Assign Type="String" Name="COP_CURRENT_ROBMOTION_ARC_COMMAND_POSTFIX" Value=",1" Enabled="!${DLWC2Crater} &amp;&amp; ${DLWeldConditionMode}==2" />
+        <Assign Type="Integer" Name="LT_COUNTER" Value="${LT_COUNTER}+1" />
+        <Assign Type="String" Name="TIdOut" Value="${TIdName}" />
+      </StoreVariables>
+      <DataSection Metadata="1">
+        <Include Id="#_LOCAL_INCLUDE_IMPLICIT_ARC" />
+        <Include Id="#_LOCAL_INCLUDE_EXPLICIT_ARC" />
+      </DataSection>
+      <ProgramSection Metadata="0">
+        <Include Id="#_INCLUDE_ROBOTMOTION_MOTION_DATA_OUT" />
+        <Include Id="#_LOCAL_INCLUDE_IMPLICIT_ARC" />
+        <Include Id="#_LOCAL_INCLUDE_EXPLICIT_ARC" />
+      </ProgramSection>
+    </DownloadDef>
+    <DownloadDef ID="ARCONEVENT" Enabled="true" InhibitsMoveProcessing="true" SetMoveParameters="true" HasCustomOutput="true" SetSuffix="ARC_ON" Metadata="0">
+      <StoreVariables Metadata="0">
+        <Assign Type="Boolean" Name="disable_weldmode_output" Value="CENOlp.Java.StrEqualsIgnoreCase('${DLSetArcWeldMode}', 'None')" />
+        <Assign Type="Double" Name="MY_WEAVE_WIDTH" Value="${DLWeaveWidth}*1000" Enabled="${DLWeavePatternNumber}&gt;0" />
+        <Assign Type="Integer" Name="MY_WEAVE_WIDTH" Value="0" Enabled="${DLWeavePatternNumber}==0" />
+        <Assign Type="Double" Name="MY_WEAVE_FREQUENZ" Value="${DLWeaveFrequenz}*1" Enabled="${DLWeavePatternNumber}&gt;0" />
+        <Assign Type="Integer" Name="MY_WEAVE_FREQUENZ" Value="0" Enabled="${DLWeavePatternNumber}==0" />
+        <Assign Type="Integer" Name="_ARC_OUTPUT_" Value="0" Enabled="${DLWeldConditionMode}==2" />
+        <Assign Type="Integer" Name="_ARC_OUTPUT_" Value="1" Enabled="${DLWeldConditionMode}&lt;2" />
+      </StoreVariables>
+      <ProgramSection Metadata="0">
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLWCSSDown}==2" ReferenceBookmark="BM_SoftwareSlowDown">
+          <Line>
+            <String Fmt="SETCONDW3 ${DLWCPreHeatTime},,,,,${DLWCWeaveWidth},${DLWCWeaveFreq}, ${DLWCWeaveNum}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLWCSSDown}==1" ReferenceBookmark="BM_SoftwareSlowDown">
+          <Line>
+            <String Fmt="SETCONDW3 0,,,,,0,0,0 " />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLWCRTPMNum}==2 &amp;&amp; ${DLWCStartGain}" ReferenceBookmark="BM_RTPM">
+          <Line>
+            <String Fmt="RTPM2_STARTGain ON, ${DLWCInitialGainTime}, ${DLWCInitialVerticalCurrent}, ${DLWCInitialHorizontalCurrent}, ${DLWCInitialChangeCurrent}" />
+          </Line>
+          <Line>
+            <String Fmt="SET_ARC_RTPMREF ${DLWCWireStick}" />
+          </Line>
+          <Line>
+            <String Fmt="RT2DLYTIME ${DLWCDelayTime}" />
+          </Line>
+          <Line>
+            <String Fmt="RT2Gain ${DLWCVerticalGain}, ${DLWCHorizontalGain}" />
+          </Line>
+          <Line>
+            <String Fmt="RT2BIAS ${DLWCVerticalBIAS}, ${DLWCHorizontalBIAS}" />
+          </Line>
+          <Line>
+            <String Fmt="RTPM ON" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLWCRTPMNum}==2 &amp;&amp; !${DLWCStartGain}" ReferenceBookmark="BM_RTPM">
+          <Line>
+            <String Fmt="RTPM2_STARTGain OFF" />
+          </Line>
+          <Line>
+            <String Fmt="RT2DLYTIME ${DLWCDelayTime}" />
+          </Line>
+          <Line>
+            <String Fmt="SET_ARC_RTPMREF ${DLWCWireStick}" />
+          </Line>
+          <Line>
+            <String Fmt="RT2Gain ${DLWCVerticalGain}, ${DLWCHorizontalGain}" />
+          </Line>
+          <Line>
+            <String Fmt="RT2BIAS ${DLWCVerticalBIAS}, ${DLWCHorizontalBIAS}" />
+          </Line>
+          <Line>
+            <String Fmt="RTPM ON" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLWCRTPMNum}==1" ReferenceBookmark="BM_RTPM">
+          <Line>
+            <String Fmt="RTPM OFF" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLPatternNum}==2" ReferenceBookmark="BM_StartPointSensing">
+          <Line>
+            <String Fmt="SSENSPTN 101" />
+          </Line>
+          <Line>
+            <String Fmt="SSENS_SET ${DLStartDist}, ${DLReliefDist}, ${DLDistInGroove}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLPatternNum}==3" ReferenceBookmark="BM_StartPointSensing">
+          <Line>
+            <String Fmt="SSENSPTN 102" />
+          </Line>
+          <Line>
+            <String Fmt="SSENS_SET ${DLStartDist}, ${DLReliefDist}, ${DLDistInGroove}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLPatternNum}==4" ReferenceBookmark="BM_StartPointSensing">
+          <Line>
+            <String Fmt="SSENSPTN 103" />
+          </Line>
+          <Line>
+            <String Fmt="SSENS_SET ${DLStartDist}, ${DLReliefDist}, ${DLDistInGroove}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLPatternNum}==5" ReferenceBookmark="BM_StartPointSensing">
+          <Line>
+            <String Fmt="SSENSPTN 104" />
+          </Line>
+          <Line>
+            <String Fmt="SSENS_SET ${DLStartDist}, ${DLReliefDist}, ${DLDistInGroove}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLPatternNum}==6" ReferenceBookmark="BM_StartPointSensing">
+          <Line>
+            <String Fmt="SSENSPTN 105" />
+          </Line>
+          <Line>
+            <String Fmt="SSENS_SET ${DLStartDist}, ${DLReliefDist}, ${DLDistInGroove}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLPatternNum}==7" ReferenceBookmark="BM_StartPointSensing">
+          <Line>
+            <String Fmt="SSENSPTN 106" />
+          </Line>
+          <Line>
+            <String Fmt="SSENS_SET ${DLStartDist}, ${DLReliefDist}, ${DLDistInGroove}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLPatternNum}==8" ReferenceBookmark="BM_StartPointSensing">
+          <Line>
+            <String Fmt="SSENSPTN 1" />
+          </Line>
+          <Line>
+            <String Fmt="SSENS_SET ${DLStartDist}, ${DLReliefDist}, ${DLDistInGroove}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLPatternNum}==9" ReferenceBookmark="BM_StartPointSensing">
+          <Line>
+            <String Fmt="SSENSPTN 2" />
+          </Line>
+          <Line>
+            <String Fmt="SSENS_SET ${DLStartDist}, ${DLReliefDist}, ${DLDistInGroove}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLPatternNum}==10" ReferenceBookmark="BM_StartPointSensing">
+          <Line>
+            <String Fmt="SSENSPTN 3" />
+          </Line>
+          <Line>
+            <String Fmt="SSENS_SET ${DLStartDist}, ${DLReliefDist}, ${DLDistInGroove}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLPatternNum}==11" ReferenceBookmark="BM_StartPointSensing">
+          <Line>
+            <String Fmt="SSENSPTN 4" />
+          </Line>
+          <Line>
+            <String Fmt="SSENS_SET ${DLStartDist}, ${DLReliefDist}, ${DLDistInGroove}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLPatternNum}==12" ReferenceBookmark="BM_StartPointSensing">
+          <Line>
+            <String Fmt="SSENSPTN 5" />
+          </Line>
+          <Line>
+            <String Fmt="SSENS_SET ${DLStartDist}, ${DLReliefDist}, ${DLDistInGroove}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLPatternNum}==1" ReferenceBookmark="BM_StartPointSensing">
+          <Line>
+            <String Fmt="SSENSING OFF" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLPatternNum}&gt;1" ReferenceBookmark="BM_StartPointSensing">
+          <Line>
+            <String Fmt="SSENSING ON" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; !${disable_weldmode_output}" ReferenceBookmark="BM_WELDMODE3">
+          <Line>
+            <String Fmt="SET_ARC_WELDMODE ${DLSetArcWeldMode}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLWeldConditionMode}==0  &amp;&amp; ${WJOBNO_OUTPUT}==1" ReferenceBookmark="BM_WJOBNO1">
+          <Line>
+            <String Fmt="SET_ARC_W1JOBNO ${DLWeldConditionNumber} = ${DLJobNumber}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLWC2Crater} &amp;&amp; ${DLWeldConditionMode}==0  &amp;&amp; ${WJOBNO_OUTPUT}==1" ReferenceBookmark="BM_WJOBNO2">
+          <Line>
+            <String Fmt="SET_ARC_W2JOBNO ${DLCraterSpotConditionNumber} = ${DLCraterSpotJobNumber}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLWeldConditionMode}==0" ReferenceBookmark="BM_WELDCONDITION1">
+          <Line>
+            <String Fmt="SETCONDW1 ${DLWeldConditionNumber} = ${DLWC1WeldSpeed},${DLWC1WireFeedSpeed:0.#},${DLWC1ArcLengthCorr:0.#},${DLWC1PulseDynamicCorr:0.#},${DLWC1WireRetractCorr:0.#},${MY_WEAVE_WIDTH:0.#},${MY_WEAVE_FREQUENZ:0.#},${DLWeavePatternNumber}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLWC2Crater} &amp;&amp; ${DLWeldConditionMode}==0" ReferenceBookmark="BM_WELDCONDITION2">
+          <Line>
+            <String Fmt="SETCONDW2 ${DLCraterSpotConditionNumber} = ${DLWC2Time:0.#},${DLWC2WireFeedSpeed:0.#},${DLWC2ArcLengthCorr:0.#},${DLWC2PulseDynamicCorr:0.#},${DLWC2WireRetractCorr:0.#}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLWeldConditionMode}==0 &amp;&amp; ${WSET_OUTPUT}==1" ReferenceBookmark="BM_W1SET">
+          <Line>
+            <String Fmt="W1SET ${DLWeldConditionNumber} = ${DLWC1WeldSpeed},${DLWC1WireFeedSpeed:0.#},${DLWC1ArcLengthCorr:0.#},${DLWC1PulseDynamicCorr:0.#},${DLWC1WireRetractCorr:0.#},${MY_WEAVE_WIDTH:0.#},${MY_WEAVE_FREQUENZ:0.#}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLWC2Crater} &amp;&amp; ${DLWeldConditionMode}==0 &amp;&amp; ${WSET_OUTPUT}==1" ReferenceBookmark="BM_W2SET">
+          <Line>
+            <String Fmt="W2SET ${DLCraterSpotConditionNumber} = ${DLWC2Time:0.#},${DLWC2WireFeedSpeed:0.#},${DLWC2ArcLengthCorr:0.#},${DLWC2PulseDynamicCorr:0.#}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLWeldConditionMode}==1" ReferenceBookmark="BM_WELDCONDITION1">
+          <Line>
+            <String Fmt="SETCONDW1 ${DLWeldConditionNumber} = ${DLWC1WeldSpeed},${DLWC1WeldCurrent:0.#},${DLWC1WeldVoltage:0.#},${DLWC1PulseDynamicCorr:0.#},${DLWC1WireRetractCorr:0.#},${MY_WEAVE_WIDTH:0.#},${MY_WEAVE_FREQUENZ:0.#},${DLWeavePatternNumber}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLWC2Crater} &amp;&amp; ${DLWeldConditionMode}==1" ReferenceBookmark="BM_WELDCONDITION2">
+          <Line>
+            <String Fmt="SETCONDW2 ${DLCraterSpotConditionNumber} = ${DLWC2Time:0.#},${DLWC2WeldCurrent:0.#},${DLWC2WeldVoltage:0.#},${DLWC2PulseDynamicCorr:0.#},${DLWC2WireRetractCorr:0.#}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLWeldConditionMode}==1 &amp;&amp; ${WSET_OUTPUT}==1" ReferenceBookmark="BM_W1SET">
+          <Line>
+            <String Fmt="W1SET ${DLWeldConditionNumber} = ${DLWC1WeldSpeed},${DLWC1WeldCurrent:0.#},${DLWC1WeldVoltage:0.#},${DLWC1PulseDynamicCorr:0.#}},${DLWC1WireRetractCorr:0.#},${MY_WEAVE_WIDTH:0.#},${MY_WEAVE_FREQUENZ:0.#}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLWC2Crater} &amp;&amp; ${DLWeldConditionMode}==1 &amp;&amp; ${WSET_OUTPUT}==1" ReferenceBookmark="BM_W2SET">
+          <Line>
+            <String Fmt="W2SET ${DLCraterSpotConditionNumber} = ${DLWC2Time:0.#},${DLWC2WeldCurrent:0.#},${DLWC2WeldVoltage:0.#},${DLWC2PulseDynamicCorr:0.#}" />
+          </Line>
+        </LineList>
+      </ProgramSection>
+    </DownloadDef>
+    <DownloadDef ID="ARCOFFEVENT" Enabled="true" InhibitsMoveProcessing="true" SetMoveParameters="true" HasCustomOutput="true" SetSuffix="ARC_OFF" Metadata="0">
+      <ProgramSection Metadata="0">
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLPatternNum}&gt;1">
+          <Line>
+            <String Fmt="SSENSING OFF" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLWCRTPMNum}==2">
+          <Line>
+            <String Fmt="RTPM OFF" />
+          </Line>
+        </LineList>
+      </ProgramSection>
+    </DownloadDef>
+    <DownloadDef ID="ARCSPOTEVENT" Enabled="true" InhibitsMoveProcessing="true" SetMoveParameters="true" HasCustomOutput="true" SetSuffix="ARC_SPOT" Metadata="0">
+      <StoreVariables Metadata="0">
+        <Assign Type="Integer" Name="ArcSpotWC2Output" Value="1" Enabled="${DLCraterSpotConditionNumber} != ${DLCraterSpotConditionNumber}" />
+        <Assign Type="Integer" Name="LastCraterSpotConditionNumber" Value="${DLCraterSpotConditionNumber}" />
+        <Assign Type="Integer" Name="_ARC_OUTPUT_" Value="0" Enabled="${DLWeldConditionMode}==2" />
+        <Assign Type="Integer" Name="_ARC_OUTPUT_" Value="1" Enabled="${DLWeldConditionMode}&lt;2" />
+      </StoreVariables>
+      <ProgramSection Metadata="0">
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLWC2Crater} &amp;&amp; !${DLWeldConditionMode}==0  &amp;&amp; ${WJOBNO_OUTPUT}==1  &amp;&amp; ${ArcSpotWC2Output}==1" ReferenceBookmark="BM_WJOBNO2">
+          <Line>
+            <String Fmt="SET_ARC_W2JOBNO ${DLCraterSpotConditionNumber} = ${DLCraterSpotJobNumber}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLWC2Crater} &amp;&amp; ${DLWeldConditionMode}==0  &amp;&amp; ${ArcSpotWC2Output}==1" ReferenceBookmark="BM_WELDCONDITION2">
+          <Line>
+            <String Fmt="SETCONDW2 ${DLCraterSpotConditionNumber} = ${DLWC2Time:0.#},${DLWC2WireFeedSpeed:0.#},${DLWC2ArcLengthCorr:0.#},${DLWC2PulseDynamicCorr:0.#},${DLWC2WireRetractCorr:0.#}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLWC2Crater} &amp;&amp; ${DLWeldConditionMode}==0 &amp;&amp; ${WSET_OUTPUT}==1  &amp;&amp; ${ArcSpotWC2Output}==1" ReferenceBookmark="BM_W2SET">
+          <Line>
+            <String Fmt="W2SET ${DLCraterSpotConditionNumber} = ${DLWC2Time:0.#},${DLWC2WireFeedSpeed:0.#},${DLWC2ArcLengthCorr:0.#},${DLWC2PulseDynamicCorr:0.#}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLWC2Crater} &amp;&amp; ${DLWeldConditionMode}==1  &amp;&amp; ${ArcSpotWC2Output}==1" ReferenceBookmark="BM_WELDCONDITION2">
+          <Line>
+            <String Fmt="SETCONDW2 ${DLCraterSpotConditionNumber} = ${DLWC2Time:0.#},${DLWC2WeldCurrent:0.#},${DLWC2WeldVoltage:0.#},${DLWC2PulseDynamicCorr:0.#},${DLWC2WireRetractCorr:0.#}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLWC2Crater} &amp;&amp; ${DLWeldConditionMode}==1 &amp;&amp; ${WSET_OUTPUT}==1  &amp;&amp; ${ArcSpotWC2Output}==1" ReferenceBookmark="BM_W2SET">
+          <Line>
+            <String Fmt="W2SET ${DLCraterSpotConditionNumber} = ${DLWC2Time:0.#},${DLWC2WeldCurrent:0.#},${DLWC2WeldVoltage:0.#},${DLWC2PulseDynamicCorr:0.#}" />
+          </Line>
+        </LineList>
+      </ProgramSection>
+    </DownloadDef>
+    <DownloadDef ID="ARCWELDCONDITIONEVENT" Enabled="true" Metadata="0">
+      <StoreVariables Metadata="0">
+        <Assign Type="Boolean" Name="disable_weldmode_output" Value="CENOlp.Java.StrEqualsIgnoreCase('${DLSetArcWeldMode}', 'None')" />
+        <Assign Type="Double" Name="MY_WEAVE_WIDTH" Value="${DLWeaveWidth}*1000" Enabled="${DLWeavePatternNumber}&gt;0" />
+        <Assign Type="Integer" Name="MY_WEAVE_WIDTH" Value="0" Enabled="${DLWeavePatternNumber}==0" />
+        <Assign Type="Double" Name="MY_WEAVE_FREQUENZ" Value="${DLWeaveFrequenz (Hz)}*1" Enabled="${DLWeavePatternNumber}&gt;0" />
+        <Assign Type="Integer" Name="MY_WEAVE_FREQUENZ" Value="0" Enabled="${DLWeavePatternNumber}==0" />
+      </StoreVariables>
+      <ProgramSection Metadata="0">
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLWCSSDNum}==2">
+          <Line>
+            <String Fmt=";WeavePattern: ${DLWCWeavePattern}" />
+          </Line>
+          <Line>
+            <String Fmt=";WeaveNum: ${DLWCWeaveNum}" />
+          </Line>
+          <Line>
+            <String Fmt="SETCONDW3 ${DLWCPreHeatTime},,,,,${DLWCWeaveWidth},${DLWCWeaveFreq}, ${DLWCWeaveNum}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLWCSSDNum}==1">
+          <Line>
+            <String Fmt="SETCONDW3 0,,,,,0,0,0 " />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLWCRTPMNum}==2 &amp;&amp; ${DLWCStartGain}">
+          <Line>
+            <String Fmt="RTPM2_STARTGain ON, ${DLWCInitialGainTime}, ${DLWCInitialVerticalCurrent}, ${DLWCInitialHorizontalCurrent}, ${DLWCInitialChangeCurrent}" />
+          </Line>
+          <Line>
+            <String Fmt="SET_ARC_RTPMREF ${DLWCWireStick}" />
+          </Line>
+          <Line>
+            <String Fmt="RT2DLYTIME ${DLWCDelayTime}" />
+          </Line>
+          <Line>
+            <String Fmt="RT2Gain ${DLWCVerticalGain}, ${DLWCHorizontalGain}" />
+          </Line>
+          <Line>
+            <String Fmt="RT2BIAS ${DLWCVerticalBIAS}, ${DLWCHorizontalBIAS}" />
+          </Line>
+          <Line>
+            <String Fmt="RTPM ON" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLWCRTPMNum}==2 &amp;&amp; !${DLWCStartGain}">
+          <Line>
+            <String Fmt="RTPM2_STARTGain OFF" />
+          </Line>
+          <Line>
+            <String Fmt="SET_ARC_RTPMREF ${DLWCWireStick}" />
+          </Line>
+          <Line>
+            <String Fmt="RT2DLYTIME ${DLWCDelayTime}" />
+          </Line>
+          <Line>
+            <String Fmt="RT2Gain ${DLWCVerticalGain}, ${DLWCHorizontalGain}" />
+          </Line>
+          <Line>
+            <String Fmt="RT2BIAS ${DLWCVerticalBIAS}, ${DLWCHorizontalBIAS}" />
+          </Line>
+          <Line>
+            <String Fmt="RTPM ON" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLPatternNum}==2">
+          <Line>
+            <String Fmt="SSENSPTN 101" />
+          </Line>
+          <Line>
+            <String Fmt="SSENS_SET ${DLStartDist}, ${DLReliefDist}, ${DLDistInGroove}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLPatternNum}==3">
+          <Line>
+            <String Fmt="SSENSPTN 102" />
+          </Line>
+          <Line>
+            <String Fmt="SSENS_SET ${DLStartDist}, ${DLReliefDist}, ${DLDistInGroove}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLPatternNum}==4">
+          <Line>
+            <String Fmt="SSENSPTN 103" />
+          </Line>
+          <Line>
+            <String Fmt="SSENS_SET ${DLStartDist}, ${DLReliefDist}, ${DLDistInGroove}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLPatternNum}==5">
+          <Line>
+            <String Fmt="SSENSPTN 104" />
+          </Line>
+          <Line>
+            <String Fmt="SSENS_SET ${DLStartDist}, ${DLReliefDist}, ${DLDistInGroove}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLPatternNum}==6">
+          <Line>
+            <String Fmt="SSENSPTN 105" />
+          </Line>
+          <Line>
+            <String Fmt="SSENS_SET ${DLStartDist}, ${DLReliefDist}, ${DLDistInGroove}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLPatternNum}==7">
+          <Line>
+            <String Fmt="SSENSPTN 106" />
+          </Line>
+          <Line>
+            <String Fmt="SSENS_SET ${DLStartDist}, ${DLReliefDist}, ${DLDistInGroove}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLPatternNum}==8">
+          <Line>
+            <String Fmt="SSENSPTN 1" />
+          </Line>
+          <Line>
+            <String Fmt="SSENS_SET ${DLStartDist}, ${DLReliefDist}, ${DLDistInGroove}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLPatternNum}==9">
+          <Line>
+            <String Fmt="SSENSPTN 2" />
+          </Line>
+          <Line>
+            <String Fmt="SSENS_SET ${DLStartDist}, ${DLReliefDist}, ${DLDistInGroove}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLPatternNum}==10">
+          <Line>
+            <String Fmt="SSENSPTN 3" />
+          </Line>
+          <Line>
+            <String Fmt="SSENS_SET ${DLStartDist}, ${DLReliefDist}, ${DLDistInGroove}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLPatternNum}==11">
+          <Line>
+            <String Fmt="SSENSPTN 4" />
+          </Line>
+          <Line>
+            <String Fmt="SSENS_SET ${DLStartDist}, ${DLReliefDist}, ${DLDistInGroove}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLPatternNum}==12">
+          <Line>
+            <String Fmt="SSENSPTN 5" />
+          </Line>
+          <Line>
+            <String Fmt="SSENS_SET ${DLStartDist}, ${DLReliefDist}, ${DLDistInGroove}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLPatternNum}==1">
+          <Line>
+            <String Fmt="SSENSING OFF" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLPatternNum}&gt;1">
+          <Line>
+            <String Fmt="SSENSING ON" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLWeldConditionMode}&lt;2 &amp;&amp; !${disable_weldmode_output}">
+          <Line>
+            <String Fmt="SET_ARC_WELDMODE ${DLSetArcWeldMode}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLWeldConditionMode}==0">
+          <Line>
+            <String Fmt="SET_ARC_W1JOBNO ${DLWeldConditionNumber} = ${DLJobNumber}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLWeldConditionMode}==0">
+          <Line>
+            <String Fmt="SETCONDW1 ${DLWeldConditionNumber} = ${DLWC1WeldSpeed:0},${DLWC1WireFeedSpeed:0.#},${DLWC1ArcLengthCorr:0.#},${DLWC1PulseDynamicCorr:0.#},${DLWC1WireRetractCorr:0.#},${MY_WEAVE_WIDTH:0.#},${MY_WEAVE_FREQUENZ:0.#},${DLWeavePatternNumber}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLWeldConditionMode}==0 &amp;&amp; ${WSET_OUTPUT}==1">
+          <Line>
+            <String Fmt="W1SET ${DLWeldConditionNumber} = ${DLWC1WeldSpeed:0},${DLWC1WireFeedSpeed:0.#},${DLWC1ArcLengthCorr:0.#},${DLWC1PulseDynamicCorr:0.#},${DLWC1WireRetractCorr:0.#},${MY_WEAVE_WIDTH:0.#},${MY_WEAVE_FREQUENZ:0.#}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLWC2Crater} &amp;&amp; ${DLWeldConditionMode}==0">
+          <Line>
+            <String Fmt="SET_ARC_W2JOBNO ${DLCraterSpotConditionNumber} = ${DLCraterSpotJobNumber}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLWC2Crater} &amp;&amp; ${DLWeldConditionMode}==0">
+          <Line>
+            <String Fmt="SETCONDW2 ${DLCraterSpotConditionNumber} = ${DLWC2Time:0.#},${DLWC2WireFeedSpeed:0.#},${DLWC2ArcLengthCorr:0.#},${DLWC2PulseDynamicCorr:0.#},${DLWC2WireRetractCorr:0.#}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLWC2Crater} &amp;&amp; ${DLWeldConditionMode}==0 &amp;&amp; ${WSET_OUTPUT}==1">
+          <Line>
+            <String Fmt="W2SET ${DLCraterSpotConditionNumber} = ${DLWC2Time:0.#},${DLWC2WireFeedSpeed:0.#},${DLWC2ArcLengthCorr:0.#},${DLWC2PulseDynamicCorr:0.#}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLWeldConditionMode}==1">
+          <Line>
+            <String Fmt="SETCONDW1 ${DLWeldConditionNumber} = ${DLWC1WeldSpeed:0},${DLWC1WeldCurrent:0.#},${DLWC1WeldVoltage:0.#},${DLWC1PulseDynamicCorr:0.#},${DLWC1WireRetractCorr:0.#},${MY_WEAVE_WIDTH:0.#},${MY_WEAVE_FREQUENZ:0.#},${DLWeavePatternNumber}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLWeldConditionMode}==1 &amp;&amp; ${WSET_OUTPUT}==1">
+          <Line>
+            <String Fmt="W1SET ${DLWeldConditionNumber} = ${DLWC1WeldSpeed:0},${DLWC1WeldCurrent:0.#},${DLWC1WeldVoltage:0.#},${DLWC1PulseDynamicCorr:0.#}},${DLWC1WireRetractCorr:0.#},${MY_WEAVE_WIDTH:0.#},${MY_WEAVE_FREQUENZ:0.#}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLWC2Crater} &amp;&amp; ${DLWeldConditionMode}==1">
+          <Line>
+            <String Fmt="SETCONDW2 ${DLCraterSpotConditionNumber} = ${DLWC2Time:0.#},${DLWC2WeldCurrent:0.#},${DLWC2WeldVoltage:0.#},${DLWC2PulseDynamicCorr:0.#},${DLWC2WireRetractCorr:0.#}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLWC2Crater} &amp;&amp; ${DLWeldConditionMode}==1 &amp;&amp; ${WSET_OUTPUT}==1">
+          <Line>
+            <String Fmt="W2SET ${DLCraterSpotConditionNumber} = ${DLWC2Time:0.#},${DLWC2WeldCurrent:0.#},${DLWC2WeldVoltage:0.#},${DLWC2PulseDynamicCorr:0.#}" />
+          </Line>
+        </LineList>
+      </ProgramSection>
+    </DownloadDef>
+    <DownloadDef ID="LT_PARAM_EVENT" Enabled="true" Metadata="0">
+      <StoreVariables Metadata="0">
+        <Assign Type="Double" Name="LTBIAS_X_mm" Value="${DLLTBiasX}*1000" />
+        <Assign Type="Double" Name="LTBIAS_Y_mm" Value="${DLLTBiasY}*1000" />
+        <Assign Type="Double" Name="LTBIAS_Z_mm" Value="${DLLTBiasZ}*1000" />
+        <Assign Type="Integer" Name="LT_COUNTER" Value="0" />
+      </StoreVariables>
+      <ProgramSection Metadata="0">
+        <LineList Enabled="${ARC_OUTPUT}==1">
+          <Line>
+            <String Fmt="LJT ${DLJobNumberLaser}&#xA;" />
+            <String Fmt="LTBIAS ${LTBIAS_X_mm:0.#},${LTBIAS_Y_mm:0.#},${LTBIAS_Z_mm:0.#}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLLTOff}">
+          <Line>
+            <String Fmt="LT OFF" />
+          </Line>
+        </LineList>
+      </ProgramSection>
+    </DownloadDef>
+    <DownloadDef ID="LT_EVENT" Enabled="true" Metadata="0">
+      <StoreVariables Metadata="0">
+        <Assign Type="Integer" Name="LTSPOINT_COUNTER" Value="0" />
+      </StoreVariables>
+      <ProgramSection Metadata="0">
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLLTSINDEX}==1">
+          <Line>
+            <String Fmt="LTS ON&#xA;" />
+            <String Fmt="LTSCNT ${DLLTSCount}" />
+          </Line>
+        </LineList>
+        <Bookmark Name="BM_LTSPOINT_STAT_BEFORESTART" Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLLTSINDEX}==1 &amp;&amp; ${IS_SYNC_MOVE}==0" />
+        <Bookmark Name="BM_LTSPOINT_STAT_BEFORESTART" Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLLTSINDEX}==2 &amp;&amp; ${IS_SYNC_MOVE}==0" />
+        <Bookmark Name="BM_LTSPOINT_DYN_BEFORESTART" Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLLTSINDEX}==1 &amp;&amp; ${IS_SYNC_MOVE}==1" />
+        <Bookmark Name="BM_LTSPOINT_DYN_BEFORESTART" Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLLTSINDEX}==2 &amp;&amp; ${IS_SYNC_MOVE}==1" />
+        <Bookmark Name="BM_LTSPOINT_STAT_AFTERSTART" Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLLTSINDEX}==2 &amp;&amp; ${IS_SYNC_MOVE}==0" />
+        <Bookmark Name="BM_LTSPOINT_DYN_AFTERSTART" Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLLTSINDEX}==2 &amp;&amp; ${IS_SYNC_MOVE}==1" />
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLLTSINDEX}==3">
+          <Line>
+            <String Fmt="LTS OFF" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLLTEINDEX}==1">
+          <Line>
+            <String Fmt="LTE ON&#xA;" />
+            <String Fmt="LTECNT ${DLLTECount}" />
+          </Line>
+        </LineList>
+        <LineList Enabled="${ARC_OUTPUT}==1 &amp;&amp; ${DLLTEINDEX}==2">
+          <Line>
+            <String Fmt="LTE OFF" />
+          </Line>
+        </LineList>
+      </ProgramSection>
+    </DownloadDef>
+    <DownloadDef ID="LTONEVENT" Enabled="true" Metadata="0">
+      <ProgramSection Metadata="0">
+        <LineList Enabled="${ARC_OUTPUT}==1">
+          <Line>
+            <String Fmt="LT ON" />
+          </Line>
+        </LineList>
+      </ProgramSection>
+    </DownloadDef>
+    <DownloadDef ID="LTOFFEVENT" Enabled="true" Metadata="0">
+      <StoreVariables Metadata="0">
+        <Assign Type="Integer" Name="LT_COUNTER" Value="${LT_COUNTER}+1" />
+      </StoreVariables>
+      <ProgramSection Metadata="0">
+        <LineList Enabled="${ARC_OUTPUT}==1">
+          <Line>
+            <String Fmt="LT OFF" />
+          </Line>
+        </LineList>
+      </ProgramSection>
+    </DownloadDef>
+    <DownloadDef ID="SPSEVENT">
+      <ProgramSection Metadata="0">
+        <LineList>
+          <Line>
+            <String Fmt="SSENSPTN ${DLPatternNum},${DLStartDist},${DLReliefDist},${DLDistInGroove}" />
+          </Line>
+        </LineList>
+      </ProgramSection>
+    </DownloadDef>
+    <DownloadDef ID="CWLOCALENDEVENT">
+      <StoreVariables Metadata="0">
+        <Assign Type="Boolean" Name="CW_LOCAL_END" Value="true" />
+      </StoreVariables>
+    </DownloadDef>
+    <DownloadDef ID="CENOLP_FMT_SUBPROG_END_DEF" Enabled="true">
+      <ProgramSection Metadata="0">
+        <LineList Enabled="${PROGEND_HOME_OUTPUT}==1">
+          <Line>
+            <String Fmt="HOME" />
+          </Line>
+        </LineList>
+      </ProgramSection>
+    </DownloadDef>
+    <DownloadDef ID="CENOLP_FMT_MAINPROG_END_DEF" Enabled="true">
+      <ProgramSection Metadata="0">
+        <LineList Enabled="${PROGEND_HOME_OUTPUT}==1">
+          <Line>
+            <String Fmt="HOME" />
+          </Line>
+        </LineList>
+      </ProgramSection>
+    </DownloadDef>
+    <DownloadDef ID="TOUCHPOINTSTARTAPPEVENT">
+      <StoreVariables Metadata="0">
+        <Assign Type="Integer" Name="TouchPointPosition" Value="1" />
+        <Entry Type="Integer" Enabled="${TouchId} != ${LastTouchId}" Persistence="DELAYED">
+          <Name>
+            <String Fmt="LastTouchId" />
+          </Name>
+          <Value>
+            <String Fmt="${TouchId}" />
+          </Value>
+        </Entry>
+      </StoreVariables>
+      <ProgramSection Metadata="0">
+        <LineList Enabled="${TouchId}!=0 &amp;&amp; ${TouchId} != ${LastTouchId}" ReferenceBookmark="BM_INIT_TOUCH_IDS">
+          <Line>
+            <String Fmt="POINT ${COP_PROGRAMS_CURRENT}_TS_ID_${TouchId} = NULL" />
+          </Line>
+        </LineList>
+      </ProgramSection>
+    </DownloadDef>
+    <DownloadDef ID="TOUCHPOINTCOLLISIONEVENT" Enabled="true" SetSuffix="TOUCH">
+      <StoreVariables Metadata="0">
+        <Assign Type="Integer" Name="TouchPointPosition" Value="2" />
+        <Assign Type="Boolean" Name="TOUCH_SENSE_ON" Value="true" />
+      </StoreVariables>
+    </DownloadDef>
+    <DownloadDef ID="TOUCHPOINTSTARTRETEVENT_" Enabled="${TSENSE_ID_OUT}">
+      <StoreVariables Metadata="0">
+        <Assign Type="Integer" Name="TouchPointPosition" Value="3" />
+        <Assign Type="Integer" Name="TSENSE_TMP_CNT" Value="0" Persistence="DELAYED" />
+        <Assign Type="Boolean" Name="TSENSE_ID_OUT" Value="false" Persistence="DELAYED" />
+        <Assign Type="Boolean" Name="TSENSE_ERROR_OUT" Value="false" />
+        <Assign Type="Boolean" Name="TSENSE_ERROR_OUT" Value="true" Enabled="${Touch_Cntr}&gt;3 &amp;&amp; !CENOlp.Java.StrEqualsIgnoreCase('${TSConnectionType}', 'Frame3pConnect')" />
+        <Assign Type="String" Name="TOUCH_CNT_ERROR" Value="ERROR: ${Touch_Cntr} touches assigned to Touch ID ${TouchId}! Max. of 3 touches per ID allowed!" />
+      </StoreVariables>
+      <ProgramSection Metadata="0">
+        <LineList Enabled="${TSENSE_ERROR_OUT}">
+          <Line>
+            <String Fmt="${TOUCH_CNT_ERROR}" />
+          </Line>
+        </LineList>
+      </ProgramSection>
+    </DownloadDef>
+    <DownloadDef ID="CONNECTTOUCHPROCESSPOINTEVENT" Enabled="true">
+      <StoreVariables>
+        <Assign Type="Integer" Name="TouchViaID" Value="${TouchID}" Enabled="${TouchID_ViaCir}" />
+        <Assign Type="String" Name="TIdName" Value="${COP_PROGRAMS_CURRENT}_TS_ID_${TouchId}" />
+        <Assign Type="String" Name="TViaIdName" Value="${COP_PROGRAMS_CURRENT}_TS_ID_${TouchViaID}" />
+      </StoreVariables>
+    </DownloadDef>
+    <DownloadDef ID="CENE2WAITFORRESOURCEPORT" Metadata="0">
+      <StoreVariables Metadata="0">
+        <Assign Type="String" Name="sTrueFalse" Value="" Enabled="${EventValue}" />
+        <Assign Type="String" Name="sTrueFalse" Value="-" Enabled="!${EventValue}" />
+        <Assign Type="String" Name="sOffOn" Value="On" Enabled="${EventValue}" />
+        <Assign Type="String" Name="sOffOn" Value="Off" Enabled="!${EventValue}" />
+      </StoreVariables>
+      <ProgramSection Metadata="1">
+        <LineList>
+          <Line>
+            <String Fmt="WAIT SIG(${sTrueFalse}${SignalAddress}) ; ${SignalName}=${sOffOn}" />
+          </Line>
+        </LineList>
+      </ProgramSection>
+    </DownloadDef>
+    <DownloadDef ID="CENE2SETRESOURCEPORT" Metadata="0">
+      <StoreVariables Metadata="0">
+        <Assign Type="String" Name="sTrueFalse" Value="" Enabled="${EventValue}" />
+        <Assign Type="String" Name="sTrueFalse" Value="-" Enabled="!${EventValue}" />
+        <Assign Type="String" Name="sOffOn" Value="On" Enabled="${EventValue}" />
+        <Assign Type="String" Name="sOffOn" Value="Off" Enabled="!${EventValue}" />
+      </StoreVariables>
+      <ProgramSection Metadata="0">
+        <LineList>
+          <Line>
+            <String Fmt="SIGNAL ${sTrueFalse}${SignalAddress} ; ${SignalName}=${sOffOn}" />
+          </Line>
+        </LineList>
+      </ProgramSection>
+    </DownloadDef>
+    <DownloadDef ID="CENOLP_FMT_DELAY" HasCustomOutput="true" Metadata="0">
+      <ProgramSection Metadata="0">
+        <LineList>
+          <Line>
+            <String Fmt="TWAIT ${DelayValue} ; Wait for ${DelayValue}s" />
+          </Line>
+        </LineList>
+      </ProgramSection>
+    </DownloadDef>
+    <DownloadDef ID="CENOLP_FMT_WAITFORSIGNAL" Enabled="true" HasCustomOutput="false" Metadata="0">
+      <StoreVariables Metadata="0">
+        <Assign Type="String" Name="sTrueFalse" Value="" Enabled="${EventValue}" />
+        <Assign Type="String" Name="sTrueFalse" Value="-" Enabled="!${EventValue}" />
+        <Assign Type="String" Name="sOffOn" Value="On" Enabled="${EventValue}" />
+        <Assign Type="String" Name="sOffOn" Value="Off" Enabled="!${EventValue}" />
+      </StoreVariables>
+      <MangleVariable>
+        <Name>
+          <String Fmt="COP_CURRENT_WAITFORSIGNAL_VALUE_OUT" />
+        </Name>
+        <Value>
+          <String Fmt="${sTrueFalse}${SignalAddress} ; ${SignalName}=${sOffOn}" />
+        </Value>
+      </MangleVariable>
+    </DownloadDef>
+    <DownloadDef ID="CENOLP_FMT_SETSIGNAL" Enabled="true" HasCustomOutput="false" Metadata="0">
+      <StoreVariables Metadata="0">
+        <Assign Type="String" Name="sTrueFalse" Value="" Enabled="${EventValue}" />
+        <Assign Type="String" Name="sTrueFalse" Value="-" Enabled="!${EventValue}" />
+        <Assign Type="String" Name="sOffOn" Value="On" Enabled="${EventValue}" />
+        <Assign Type="String" Name="sOffOn" Value="Off" Enabled="!${EventValue}" />
+      </StoreVariables>
+      <MangleVariable>
+        <Name>
+          <String Fmt="COP_CURRENT_SETSIGNAL_VALUE_OUT" />
+        </Name>
+        <Value>
+          <String Fmt="${sTrueFalse}${SignalAddress} ; ${SignalName}=${sOffOn}" />
+        </Value>
+      </MangleVariable>
+    </DownloadDef>
+  </CustomDownloadDefinitions>
+</CustomDefinitions>

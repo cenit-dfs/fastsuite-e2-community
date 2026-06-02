@@ -1,0 +1,1186 @@
+# [API: operator.GetCurrentLanguage() → str]
+Current language: en-US
+# [API: operator.GetController() → DULPythonController]
+Controller: E0x_with_TrafoUnit
+Model: E0x_with_TrafoUnit
+Series: E-Series
+Manufacturer: Kawasaki
+Controller Type: Motion
+Active program: PG02_SE
+# [API: controller.GetConnectedJoints() → list[DULPythonJoint]]
+Controller connected joints: 
+  JointName = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg"; Value = "";
+  JointName = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg"; Value = "";
+  JointName = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg"; Value = "";
+  JointName = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg"; Value = "";
+  JointName = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg"; Value = "";
+  JointName = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg"; Value = "";
+  AuxJointName = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg"; Value = "";
+  AuxJointName = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg"; Value = "";
+# [API: controller.GetToolProfiles() → list[DULPythonToolProfile]]
+ Tool profiles: 
+ # [API: profile.GetXYZ() / GetOrientation() → DULPythonToolProfile] [XYZ: meters, Angles: degrees]
+  ToolProfile = "TOOL1"; ProfileIndex = "notDefined"; ToolType = "OnRobot"; X = "0.002200"; Y = "0.141714"; Z = "0.431714"; Rx = "-45.000000"; Ry = "-0.000274"; Rz = "-0.000327";
+# [API: controller.GetBaseProfiles() → list[DULPythonBaseProfile]]
+ Base profiles: 
+ # [API: profile.GetXYZ() / GetOrientation() → DULPythonBaseProfile] [XYZ: meters, Angles: degrees]
+  BaseProfile = "World"; ProfileIndex = "notDefined"; ReferenceProfile = "None"; X = "0.000000"; Y = "0.000000"; Z = "0.000000"; Rx = "0.000000"; Ry = "0.000000"; Rz = "0.000000";
+ # [API: profile.GetXYZ() / GetOrientation() → DULPythonBaseProfile] [XYZ: meters, Angles: degrees]
+  BaseProfile = "B0"; ProfileIndex = "notDefined"; ReferenceProfile = "None"; X = "0.812264"; Y = "0.486941"; Z = "1.817618"; Rx = "0.000000"; Ry = "-0.000000"; Rz = "-0.000000";
+# [API: controller.GetAccuracyProfiles() → list[DULPythonAccuracyProfile]]
+ Accuracy profiles: 
+ # [API: profile.GetValue() / GetUnit() → DULPythonAccuracyProfile] [value: meters]
+  AccuracyProfile = "Default"; AccuracyCriteria = "Distance"; FlyBy = "Off"; Value = "0.000000"; Unit = "m";
+ # [API: profile.GetValue() / GetUnit() → DULPythonAccuracyProfile] [value: meters]
+  AccuracyProfile = "CP_ACCU_0.01m"; AccuracyCriteria = "Distance"; FlyBy = "On"; Value = "0.005000"; Unit = "m";
+# [API: controller.GetMotionProfiles() → list[DULPythonMotionProfile]]
+ Motion profiles: 
+ # [API: profile.GetSpeedValue() / GetAccelValue() → DULPythonMotionProfile] [speed: m/s or %, accel: %]
+  MotionProfile = "CP_SP_0.50_ACC100.00%"; MotionProfileBasis = "Absolute"; ProfileType = "Contour"; SpeedValue = "0.500000"; SpeedUnit = ""; AccelerationValue = "100.000000"; AccelerationUnit = "%";
+ # [API: profile.GetSpeedValue() / GetAccelValue() → DULPythonMotionProfile] [speed: m/s or %, accel: %]
+  MotionProfile = "CP_SP_0.01_ACC100.00%"; MotionProfileBasis = "Absolute"; ProfileType = "Contour"; SpeedValue = "0.005833"; SpeedUnit = ""; AccelerationValue = "100.000000"; AccelerationUnit = "%";
+ # [API: profile.GetSpeedValue() / GetAccelValue() → DULPythonMotionProfile] [speed: m/s or %, accel: %]
+  MotionProfile = "PTP_SP_50%_ACC_100%"; MotionProfileBasis = "Percent"; ProfileType = "PointToPoint"; SpeedValue = "50.000000"; SpeedUnit = "%"; AccelerationValue = "100.000000"; AccelerationUnit = "%";
+ # [API: profile.GetSpeedValue() / GetAccelValue() → DULPythonMotionProfile] [speed: m/s or %, accel: %]
+  MotionProfile = "CP_SP_1m/s_ACC_100%"; MotionProfileBasis = "Absolute"; ProfileType = "Contour"; SpeedValue = "1.000000"; SpeedUnit = "%"; AccelerationValue = "100.000000"; AccelerationUnit = "%";
+# [API: controller.GetAttributes() → list[OlpCorePythonAttribute]]
+ Controller attributes: 
+ End of Controller attributes
+# [API: controller.GetResources() → list[OlpCorePythonResource]]
+ Controller resources list: 
+  ResourceName = "BA06L"; ItemType = "Production"; ItemSubType = "MachineRobot"; Manufacturer = "Kawasaki"; Model = "BA06L"; Series = "BA-Series";
+ Resource Attributes:
+    Name = "CENOlpDataOutputStyle"; Value = "Implicit"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+ Attributes:
+    Name = "CENOlpDataOutputStyle"; Value = "Implicit"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+  ResourceName = "ZSB-V-RT3500H MIG-MAG"; ItemType = "Peripheral"; ItemSubType = "Tool"; Manufacturer = "OTC"; Model = ""; Series = "";
+  ResourceName = "PMU_Positionierer"; ItemType = "Production"; ItemSubType = "WorkpiecePositioner"; Manufacturer = "ASTOR"; Model = "PST500H1"; Series = "K-Positionier";
+
+# [API: program.GetName() / IsMainProgram() / GetUsedBaseProfile() / GetUsedToolProfile() / GetAttributes() → DULPythonProgram]
+Program: PG02_SE IsMainProgram = True
+ # [API: profile.GetXYZ() / GetOrientation() → DULPythonBaseProfile] [XYZ: meters, Angles: degrees]
+  BaseProfile = "B0"; ProfileIndex = "notDefined"; ReferenceProfile = "None"; X = "0.812264"; Y = "0.486941"; Z = "1.817618"; Rx = "0.000000"; Ry = "-0.000000"; Rz = "-0.000000";
+ # [API: profile.GetXYZ() / GetOrientation() → DULPythonToolProfile] [XYZ: meters, Angles: degrees]
+  ToolProfile = "TOOL1"; ProfileIndex = "notDefined"; ToolType = "OnRobot"; X = "0.002200"; Y = "0.141714"; Z = "0.431714"; Rx = "-45.000000"; Ry = "-0.000274"; Rz = "-0.000327";
+  Program attributes
+     Name = "CONTROLLER_MANUFACTURER"; Value = "Kawasaki"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "ProcessAttribute | GlobalAttribute";
+     Name = "CONTROLLER_SERIES"; Value = "E-Series"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "ProcessAttribute | GlobalAttribute";
+     Name = "CONTROLLER_MODEL"; Value = "E0x_with_TrafoUnit"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "ProcessAttribute | GlobalAttribute";
+     Name = "RESOURCE_MANUFACTURER"; Value = "Kawasaki"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "ProcessAttribute | GlobalAttribute";
+     Name = "RESOURCE_SERIES"; Value = "BA-Series"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "ProcessAttribute | GlobalAttribute";
+     Name = "RESOURCE_MODEL"; Value = "BA06L"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "ProcessAttribute | GlobalAttribute";
+     Name = "P_SEARCH_CYC_EXPLODE"; Value = "forbidden"; Type = "LiteralAttribute"; Values = "forbidden, immediately"; Index = "0"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | GlobalAttribute";
+     Name = "TSConnectionType"; Value = "StartEndConnect"; Type = "LiteralAttribute"; Values = "OperationConnect, StartEndConnect, ShortestDistanceConnect, Frame3pConnect"; Index = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationGroupAttribute | GlobalAttribute";
+     Name = "GroupNumber"; Value = "0"; Type = "IntAttribute"; Min = "-1"; Max = "6"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | GlobalAttribute";
+     Name = "SensingLength"; Value = "0.030000"; Type = "DoubleAttribute"; Min = "0.000000"; Max = "1000.000000"; StepSize = "0.001000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Length"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute | OperationGroupAttribute | GlobalAttribute";
+     Name = "OvertravelLength"; Value = "0.030000"; Type = "DoubleAttribute"; Min = "0.000000"; Max = "1000.000000"; StepSize = "0.001000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Length"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute | OperationGroupAttribute | GlobalAttribute";
+     Name = "SensingSpeed"; Value = "0.015000"; Type = "DoubleAttribute"; Min = "0.001000"; Max = "0.200000"; StepSize = "0.005000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Speed"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute | OperationGroupAttribute | GlobalAttribute";
+     Name = "TouchApprRetrSpeed"; Value = "0.200000"; Type = "DoubleAttribute"; Min = "0.000000"; Max = "1.000000"; StepSize = "0.001000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Length"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute | OperationGroupAttribute | GlobalAttribute";
+     Name = "TouchApprFlyBy"; Value = "0.005000"; Type = "DoubleAttribute"; Min = "0.000000"; Max = "0.100000"; StepSize = "0.001000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Length"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute | OperationGroupAttribute | GlobalAttribute";
+     Name = "SeamSearchSensingLength"; Value = "0.030000"; Type = "DoubleAttribute"; Min = "0.000000"; Max = "1000.000000"; StepSize = "0.001000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Length"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute | OperationGroupAttribute | GlobalAttribute";
+     Name = "SeamSearchOvertravelLength"; Value = "0.030000"; Type = "DoubleAttribute"; Min = "0.000000"; Max = "1000.000000"; StepSize = "0.001000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Length"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute | OperationGroupAttribute | GlobalAttribute";
+     Name = "SeamSearchSensingSpeed"; Value = "0.015000"; Type = "DoubleAttribute"; Min = "0.001000"; Max = "0.200000"; StepSize = "0.005000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Speed"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute | OperationGroupAttribute | GlobalAttribute";
+  End of attributes for program
+
+Operation group:  GRP001
+   TechnologyName = "ArcWeldingTechnology";
+  # [API: profile.GetXYZ() / GetOrientation() → DULPythonBaseProfile] [XYZ: meters, Angles: degrees]
+   BaseProfile = "B0"; ProfileIndex = "notDefined"; ReferenceProfile = "None"; X = "0.812264"; Y = "0.486941"; Z = "1.817618"; Rx = "0.000000"; Ry = "-0.000000"; Rz = "-0.000000";
+  # [API: profile.GetXYZ() / GetOrientation() → DULPythonToolProfile] [XYZ: meters, Angles: degrees]
+   ToolProfile = "TOOL1"; ProfileIndex = "notDefined"; ToolType = "OnRobot"; X = "0.002200"; Y = "0.141714"; Z = "0.431714"; Rx = "-45.000000"; Ry = "-0.000274"; Rz = "-0.000327";
+
+   Operation: WG1_Touch1 OperationType = Normal
+    Operation used base profile:
+   # [API: profile.GetXYZ() / GetOrientation() → DULPythonBaseProfile] [XYZ: meters, Angles: degrees]
+    BaseProfile = "B0"; ProfileIndex = "notDefined"; ReferenceProfile = "None"; X = "0.812264"; Y = "0.486941"; Z = "1.817618"; Rx = "0.000000"; Ry = "-0.000000"; Rz = "-0.000000";
+    Operation used tool profile:
+   # [API: profile.GetXYZ() / GetOrientation() → DULPythonToolProfile] [XYZ: meters, Angles: degrees]
+    ToolProfile = "TOOL1"; ProfileIndex = "notDefined"; ToolType = "OnRobot"; X = "0.002200"; Y = "0.141714"; Z = "0.431714"; Rx = "-45.000000"; Ry = "-0.000274"; Rz = "-0.000327";
+ Operation attributes
+     Name = "TSLocationAtEnd"; Value = "False"; Type = "BoolAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "TSContourTpeUUID"; Value = "9110301-7d85e156"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "TouchSensCycleExplode"; Value = "False"; Type = "BoolAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "TSWireCheckOperation"; Value = "False"; Type = "BoolAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "TouchId"; Value = "1"; Type = "IntAttribute"; Min = "0"; Max = "2147483647"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "Touch_Cntr"; Value = "3"; Type = "IntAttribute"; Min = "0"; Max = "2147483647"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "ProcessAttribute | OperationAttribute";
+     Name = "FramePt"; Value = "0"; Type = "IntAttribute"; Min = "0"; Max = "3"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "ArcWeldingOperationWorkMethodName"; Value = "TouchSensingWorkMethod"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+ End of attributes for Operation
+     Events before PG02_SE_P0004 motion
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "TouchSensingEvent"; EventGroupName = "Unknown"; InsertPosition = "InsertBefore"; EventType = "Process";
+      Attributes set on event:
+         Name = "TSLocationAtEnd"; Value = "False"; Type = "BoolAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "TSContourTpeUUID"; Value = "9110301-7d85e156"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "TSBaseFrameTouchAxis"; Value = "Undefined"; Type = "LiteralAttribute"; Values = "Undefined, +X, -X, +Y, -Y, +Z, -Z"; Index = "0"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+      End of attributes for event
+     Events before PG02_SE_P0001 motion
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "TouchPointStartAppEvent"; EventGroupName = "OlpEvent"; InsertPosition = "InsertBefore"; EventType = "Olp";
+     EventEnd
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "Accuracy"; EventGroupName = "Motionprofile"; InsertPosition = "InsertBefore"; EventType = "Accuracy";
+      Attributes set on event:
+         Name = "Value"; Value = "0.005000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Length"; GetOlpProperty = "";
+         Name = "Criteria"; Value = "Distance"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "Speed"; EventGroupName = "Motionprofile"; InsertPosition = "InsertBefore"; EventType = "Speed";
+      Attributes set on event:
+         Name = "Value"; Value = "0.200000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Speed"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+     End Events before PG02_SE_P0001 motion
+    # [API: motion.GetMotionType() → MotionType, motion.GetPosition() → DULPythonPosition]
+    Motion: PG02_SE_P0001;  MotionType = "Linear";
+     PositionName = "PG02_SE_P0001"; ProcessType = "Cycle"; TargetType = "Cartesian";
+     # [API: position.GetXYZ() → tuple(x,y,z)] [unit: METERS — multiply by 1000 for mm]
+     # [API: position.GetOrientation() → tuple(rx,ry,rz)] [unit: degrees]
+     Cartesian target:
+       X = "0.101907"; Y = "1.092978"; Z = "1.058360"; Rx = "135.000000"; Ry = "-0.000000"; Rz = "-0.000000";
+       Config = "RAD"; Turn = "0,0,0";
+     # [API: position.GetMainJointValues() → list[(DULPythonJoint, float)]] [unit: degrees]
+     # [API: position.GetExternalJointValues() → list[(DULPythonJoint, float)]] [unit: degrees or meters for prismatic]
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg"; Value = "4.616780";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg"; Value = "6.015847";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg"; Value = "-75.504290";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg"; Value = "-0.000276";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg"; Value = "-98.479840";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg"; Value = "-4.616494";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg"; Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg"; Value = "180.000000";
+     Events before PG02_SE_P0002 motion
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "TouchPointCollisionEvent"; EventGroupName = "OlpEvent"; InsertPosition = "InsertBefore"; EventType = "Olp";
+     EventEnd
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "Speed"; EventGroupName = "Motionprofile"; InsertPosition = "InsertBefore"; EventType = "Speed";
+      Attributes set on event:
+         Name = "Value"; Value = "0.015000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Speed"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+     End Events before PG02_SE_P0002 motion
+    # [API: motion.GetMotionType() → MotionType, motion.GetPosition() → DULPythonPosition]
+    Motion: PG02_SE_P0002;  MotionType = "Linear";
+     PositionName = "PG02_SE_P0002"; ProcessType = "Cycle"; TargetType = "Cartesian";
+     # [API: position.GetXYZ() → tuple(x,y,z)] [unit: METERS — multiply by 1000 for mm]
+     # [API: position.GetOrientation() → tuple(rx,ry,rz)] [unit: degrees]
+     Cartesian target:
+       X = "0.101907"; Y = "1.092978"; Z = "1.028360"; Rx = "135.000000"; Ry = "0.000000"; Rz = "-0.000000";
+       Config = "RAD"; Turn = "0,0,0";
+     # [API: position.GetMainJointValues() → list[(DULPythonJoint, float)]] [unit: degrees]
+     # [API: position.GetExternalJointValues() → list[(DULPythonJoint, float)]] [unit: degrees or meters for prismatic]
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg"; Value = "4.616780";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg"; Value = "5.260288";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg"; Value = "-78.051714";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg"; Value = "-0.000275";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg"; Value = "-96.687976";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg"; Value = "-4.616486";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg"; Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg"; Value = "180.000000";
+     Events before PG02_SE_P0003 motion
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "TouchPointStartRetEvent"; EventGroupName = "OlpEvent"; InsertPosition = "InsertBefore"; EventType = "Olp";
+     EventEnd
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "Speed"; EventGroupName = "Motionprofile"; InsertPosition = "InsertBefore"; EventType = "Speed";
+      Attributes set on event:
+         Name = "Value"; Value = "0.200000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Speed"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+     End Events before PG02_SE_P0003 motion
+    # [API: motion.GetMotionType() → MotionType, motion.GetPosition() → DULPythonPosition]
+    Motion: PG02_SE_P0003;  MotionType = "Linear";
+     PositionName = "PG02_SE_P0003"; ProcessType = "Cycle"; TargetType = "Cartesian";
+     # [API: position.GetXYZ() → tuple(x,y,z)] [unit: METERS — multiply by 1000 for mm]
+     # [API: position.GetOrientation() → tuple(rx,ry,rz)] [unit: degrees]
+     Cartesian target:
+       X = "0.101907"; Y = "1.092978"; Z = "1.058360"; Rx = "135.000000"; Ry = "-0.000000"; Rz = "-0.000000";
+       Config = "RAD"; Turn = "0,0,0";
+     # [API: position.GetMainJointValues() → list[(DULPythonJoint, float)]] [unit: degrees]
+     # [API: position.GetExternalJointValues() → list[(DULPythonJoint, float)]] [unit: degrees or meters for prismatic]
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg"; Value = "4.616780";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg"; Value = "6.015847";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg"; Value = "-75.504290";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg"; Value = "-0.000276";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg"; Value = "-98.479840";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg"; Value = "-4.616494";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg"; Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg"; Value = "180.000000";
+     EventEnd
+     End Events before PG02_SE_P0004 motion
+    # [API: motion.GetMotionType() → MotionType, motion.GetPosition() → DULPythonPosition]
+    Motion: PG02_SE_P0004;  MotionType = "Pt2Pt";
+     PositionName = "PG02_SE_P0004"; ProcessType = "ProcessCurve"; TargetType = "Cartesian";
+
+   Operation: WG1_Touch2 OperationType = Normal
+    Operation used base profile:
+   # [API: profile.GetXYZ() / GetOrientation() → DULPythonBaseProfile] [XYZ: meters, Angles: degrees]
+    BaseProfile = "B0"; ProfileIndex = "notDefined"; ReferenceProfile = "None"; X = "0.812264"; Y = "0.486941"; Z = "1.817618"; Rx = "0.000000"; Ry = "-0.000000"; Rz = "-0.000000";
+    Operation used tool profile:
+   # [API: profile.GetXYZ() / GetOrientation() → DULPythonToolProfile] [XYZ: meters, Angles: degrees]
+    ToolProfile = "TOOL1"; ProfileIndex = "notDefined"; ToolType = "OnRobot"; X = "0.002200"; Y = "0.141714"; Z = "0.431714"; Rx = "-45.000000"; Ry = "-0.000274"; Rz = "-0.000327";
+ Operation attributes
+     Name = "TSLocationAtEnd"; Value = "False"; Type = "BoolAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "TSContourTpeUUID"; Value = "9110301-7d85e156"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "TouchSensCycleExplode"; Value = "False"; Type = "BoolAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "TSWireCheckOperation"; Value = "False"; Type = "BoolAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "TouchId"; Value = "1"; Type = "IntAttribute"; Min = "0"; Max = "2147483647"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "Touch_Cntr"; Value = "3"; Type = "IntAttribute"; Min = "0"; Max = "2147483647"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "ProcessAttribute | OperationAttribute";
+     Name = "FramePt"; Value = "0"; Type = "IntAttribute"; Min = "0"; Max = "3"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "ArcWeldingOperationWorkMethodName"; Value = "TouchSensingWorkMethod"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+ End of attributes for Operation
+     Events before PG02_SE_P0008 motion
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "TouchSensingEvent"; EventGroupName = "Unknown"; InsertPosition = "InsertBefore"; EventType = "Process";
+      Attributes set on event:
+         Name = "TSLocationAtEnd"; Value = "False"; Type = "BoolAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "TSContourTpeUUID"; Value = "9110301-7d85e156"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "TSBaseFrameTouchAxis"; Value = "Undefined"; Type = "LiteralAttribute"; Values = "Undefined, +X, -X, +Y, -Y, +Z, -Z"; Index = "0"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+      End of attributes for event
+     Events before PG02_SE_P0005 motion
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "TouchPointStartAppEvent"; EventGroupName = "OlpEvent"; InsertPosition = "InsertBefore"; EventType = "Olp";
+     EventEnd
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "Accuracy"; EventGroupName = "Motionprofile"; InsertPosition = "InsertBefore"; EventType = "Accuracy";
+      Attributes set on event:
+         Name = "Value"; Value = "0.005000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Length"; GetOlpProperty = "";
+         Name = "Criteria"; Value = "Distance"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "Speed"; EventGroupName = "Motionprofile"; InsertPosition = "InsertBefore"; EventType = "Speed";
+      Attributes set on event:
+         Name = "Value"; Value = "0.200000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Speed"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+     End Events before PG02_SE_P0005 motion
+    # [API: motion.GetMotionType() → MotionType, motion.GetPosition() → DULPythonPosition]
+    Motion: PG02_SE_P0005;  MotionType = "Linear";
+     PositionName = "PG02_SE_P0005"; ProcessType = "Cycle"; TargetType = "Cartesian";
+     # [API: position.GetXYZ() → tuple(x,y,z)] [unit: METERS — multiply by 1000 for mm]
+     # [API: position.GetOrientation() → tuple(rx,ry,rz)] [unit: degrees]
+     Cartesian target:
+       X = "0.160467"; Y = "1.083655"; Z = "1.001932"; Rx = "125.264390"; Ry = "30.000000"; Rz = "-35.264390";
+       Config = "RAD"; Turn = "0,0,0";
+     # [API: position.GetMainJointValues() → list[(DULPythonJoint, float)]] [unit: degrees]
+     # [API: position.GetExternalJointValues() → list[(DULPythonJoint, float)]] [unit: degrees or meters for prismatic]
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg"; Value = "24.082834";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg"; Value = "2.511472";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg"; Value = "-88.059960";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg"; Value = "31.146080";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg"; Value = "-93.543924";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg"; Value = "9.396225";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg"; Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg"; Value = "180.000000";
+     Events before PG02_SE_P0006 motion
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "TouchPointCollisionEvent"; EventGroupName = "OlpEvent"; InsertPosition = "InsertBefore"; EventType = "Olp";
+     EventEnd
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "Speed"; EventGroupName = "Motionprofile"; InsertPosition = "InsertBefore"; EventType = "Speed";
+      Attributes set on event:
+         Name = "Value"; Value = "0.015000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Speed"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+     End Events before PG02_SE_P0006 motion
+    # [API: motion.GetMotionType() → MotionType, motion.GetPosition() → DULPythonPosition]
+    Motion: PG02_SE_P0006;  MotionType = "Linear";
+     PositionName = "PG02_SE_P0006"; ProcessType = "Cycle"; TargetType = "Cartesian";
+     # [API: position.GetXYZ() → tuple(x,y,z)] [unit: METERS — multiply by 1000 for mm]
+     # [API: position.GetOrientation() → tuple(rx,ry,rz)] [unit: degrees]
+     Cartesian target:
+       X = "0.130467"; Y = "1.083655"; Z = "1.001932"; Rx = "125.264390"; Ry = "30.000000"; Rz = "-35.264390";
+       Config = "RAD"; Turn = "0,0,0";
+     # [API: position.GetMainJointValues() → list[(DULPythonJoint, float)]] [unit: degrees]
+     # [API: position.GetExternalJointValues() → list[(DULPythonJoint, float)]] [unit: degrees or meters for prismatic]
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg"; Value = "22.797546";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg"; Value = "1.671079";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg"; Value = "-88.924718";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg"; Value = "31.219957";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg"; Value = "-92.857606";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg"; Value = "10.484831";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg"; Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg"; Value = "180.000000";
+     Events before PG02_SE_P0007 motion
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "TouchPointStartRetEvent"; EventGroupName = "OlpEvent"; InsertPosition = "InsertBefore"; EventType = "Olp";
+     EventEnd
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "Speed"; EventGroupName = "Motionprofile"; InsertPosition = "InsertBefore"; EventType = "Speed";
+      Attributes set on event:
+         Name = "Value"; Value = "0.200000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Speed"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+     End Events before PG02_SE_P0007 motion
+    # [API: motion.GetMotionType() → MotionType, motion.GetPosition() → DULPythonPosition]
+    Motion: PG02_SE_P0007;  MotionType = "Linear";
+     PositionName = "PG02_SE_P0007"; ProcessType = "Cycle"; TargetType = "Cartesian";
+     # [API: position.GetXYZ() → tuple(x,y,z)] [unit: METERS — multiply by 1000 for mm]
+     # [API: position.GetOrientation() → tuple(rx,ry,rz)] [unit: degrees]
+     Cartesian target:
+       X = "0.160467"; Y = "1.083655"; Z = "1.001932"; Rx = "125.264390"; Ry = "30.000000"; Rz = "-35.264390";
+       Config = "RAD"; Turn = "0,0,0";
+     # [API: position.GetMainJointValues() → list[(DULPythonJoint, float)]] [unit: degrees]
+     # [API: position.GetExternalJointValues() → list[(DULPythonJoint, float)]] [unit: degrees or meters for prismatic]
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg"; Value = "24.082834";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg"; Value = "2.511472";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg"; Value = "-88.059960";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg"; Value = "31.146080";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg"; Value = "-93.543924";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg"; Value = "9.396225";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg"; Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg"; Value = "180.000000";
+     EventEnd
+     End Events before PG02_SE_P0008 motion
+    # [API: motion.GetMotionType() → MotionType, motion.GetPosition() → DULPythonPosition]
+    Motion: PG02_SE_P0008;  MotionType = "Pt2Pt";
+     PositionName = "PG02_SE_P0008"; ProcessType = "ProcessCurve"; TargetType = "Cartesian";
+     Events after PG02_SE_P0008 motion
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "BuiltInEvent"; EventGroupName = "BuiltInEvent"; InsertPosition = "InsertAfter"; EventType = "Insert";
+    # [API: motion.GetMotionType() → MotionType, motion.GetPosition() → DULPythonPosition]
+    Motion: PG02_SE_P0009;  MotionType = "Pt2Pt";
+     PositionName = "PG02_SE_P0009"; ProcessType = "TeachInsert"; TargetType = "Cartesian";
+     # [API: position.GetXYZ() → tuple(x,y,z)] [unit: METERS — multiply by 1000 for mm]
+     # [API: position.GetOrientation() → tuple(rx,ry,rz)] [unit: degrees]
+     Cartesian target:
+       X = "0.179256"; Y = "1.162123"; Z = "1.064807"; Rx = "120.576056"; Ry = "10.600725"; Rz = "-48.532361";
+       Config = "RAD"; Turn = "0,0,0";
+     # [API: position.GetMainJointValues() → list[(DULPythonJoint, float)]] [unit: degrees]
+     # [API: position.GetExternalJointValues() → list[(DULPythonJoint, float)]] [unit: degrees or meters for prismatic]
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg"; Value = "19.132925";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg"; Value = "13.093647";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg"; Value = "-70.576565";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg"; Value = "16.582796";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg"; Value = "-103.516278";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg"; Value = "30.937325";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg"; Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg"; Value = "180.000000";
+     EventEnd
+     End Events after PG02_SE_P0008 motion
+
+   Operation: WG1_Touch3 OperationType = Normal
+    Operation used base profile:
+   # [API: profile.GetXYZ() / GetOrientation() → DULPythonBaseProfile] [XYZ: meters, Angles: degrees]
+    BaseProfile = "B0"; ProfileIndex = "notDefined"; ReferenceProfile = "None"; X = "0.812264"; Y = "0.486941"; Z = "1.817618"; Rx = "0.000000"; Ry = "-0.000000"; Rz = "-0.000000";
+    Operation used tool profile:
+   # [API: profile.GetXYZ() / GetOrientation() → DULPythonToolProfile] [XYZ: meters, Angles: degrees]
+    ToolProfile = "TOOL1"; ProfileIndex = "notDefined"; ToolType = "OnRobot"; X = "0.002200"; Y = "0.141714"; Z = "0.431714"; Rx = "-45.000000"; Ry = "-0.000274"; Rz = "-0.000327";
+ Operation attributes
+     Name = "TSLocationAtEnd"; Value = "False"; Type = "BoolAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "TSContourTpeUUID"; Value = "9110301-7d85e156"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "TouchSensCycleExplode"; Value = "False"; Type = "BoolAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "TSWireCheckOperation"; Value = "False"; Type = "BoolAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "TouchId"; Value = "1"; Type = "IntAttribute"; Min = "0"; Max = "2147483647"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "Touch_Cntr"; Value = "3"; Type = "IntAttribute"; Min = "0"; Max = "2147483647"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "ProcessAttribute | OperationAttribute";
+     Name = "FramePt"; Value = "0"; Type = "IntAttribute"; Min = "0"; Max = "3"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "ArcWeldingOperationWorkMethodName"; Value = "TouchSensingWorkMethod"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+ End of attributes for Operation
+     Events before PG02_SE_P0013 motion
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "TouchSensingEvent"; EventGroupName = "Unknown"; InsertPosition = "InsertBefore"; EventType = "Process";
+      Attributes set on event:
+         Name = "TSLocationAtEnd"; Value = "False"; Type = "BoolAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "TSContourTpeUUID"; Value = "9110301-7d85e156"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "TSBaseFrameTouchAxis"; Value = "Undefined"; Type = "LiteralAttribute"; Values = "Undefined, +X, -X, +Y, -Y, +Z, -Z"; Index = "0"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+      End of attributes for event
+     Events before PG02_SE_P0010 motion
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "TouchPointStartAppEvent"; EventGroupName = "OlpEvent"; InsertPosition = "InsertBefore"; EventType = "Olp";
+     EventEnd
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "Accuracy"; EventGroupName = "Motionprofile"; InsertPosition = "InsertBefore"; EventType = "Accuracy";
+      Attributes set on event:
+         Name = "Value"; Value = "0.005000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Length"; GetOlpProperty = "";
+         Name = "Criteria"; Value = "Distance"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "Speed"; EventGroupName = "Motionprofile"; InsertPosition = "InsertBefore"; EventType = "Speed";
+      Attributes set on event:
+         Name = "Value"; Value = "0.200000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Speed"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+     End Events before PG02_SE_P0010 motion
+    # [API: motion.GetMotionType() → MotionType, motion.GetPosition() → DULPythonPosition]
+    Motion: PG02_SE_P0010;  MotionType = "Linear";
+     PositionName = "PG02_SE_P0010"; ProcessType = "Cycle"; TargetType = "Cartesian";
+     # [API: position.GetXYZ() → tuple(x,y,z)] [unit: METERS — multiply by 1000 for mm]
+     # [API: position.GetOrientation() → tuple(rx,ry,rz)] [unit: degrees]
+     Cartesian target:
+       X = "0.101923"; Y = "1.155860"; Z = "0.994542"; Rx = "135.000000"; Ry = "0.000000"; Rz = "-0.000000";
+       Config = "RAD"; Turn = "0,0,0";
+     # [API: position.GetMainJointValues() → list[(DULPythonJoint, float)]] [unit: degrees]
+     # [API: position.GetExternalJointValues() → list[(DULPythonJoint, float)]] [unit: degrees or meters for prismatic]
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg"; Value = "4.394654";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg"; Value = "9.078400";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg"; Value = "-75.776189";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg"; Value = "-0.000274";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg"; Value = "-95.145390";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg"; Value = "-4.394352";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg"; Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg"; Value = "180.000000";
+     Events before PG02_SE_P0011 motion
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "TouchPointCollisionEvent"; EventGroupName = "OlpEvent"; InsertPosition = "InsertBefore"; EventType = "Olp";
+     EventEnd
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "Speed"; EventGroupName = "Motionprofile"; InsertPosition = "InsertBefore"; EventType = "Speed";
+      Attributes set on event:
+         Name = "Value"; Value = "0.015000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Speed"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+     End Events before PG02_SE_P0011 motion
+    # [API: motion.GetMotionType() → MotionType, motion.GetPosition() → DULPythonPosition]
+    Motion: PG02_SE_P0011;  MotionType = "Linear";
+     PositionName = "PG02_SE_P0011"; ProcessType = "Cycle"; TargetType = "Cartesian";
+     # [API: position.GetXYZ() → tuple(x,y,z)] [unit: METERS — multiply by 1000 for mm]
+     # [API: position.GetOrientation() → tuple(rx,ry,rz)] [unit: degrees]
+     Cartesian target:
+       X = "0.101923"; Y = "1.125860"; Z = "0.994542"; Rx = "135.000000"; Ry = "0.000000"; Rz = "-0.000000";
+       Config = "RAD"; Turn = "0,0,0";
+     # [API: position.GetMainJointValues() → list[(DULPythonJoint, float)]] [unit: degrees]
+     # [API: position.GetExternalJointValues() → list[(DULPythonJoint, float)]] [unit: degrees or meters for prismatic]
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg"; Value = "4.498241";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg"; Value = "6.876296";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg"; Value = "-78.226972";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg"; Value = "-0.000274";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg"; Value = "-94.896710";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg"; Value = "-4.497938";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg"; Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg"; Value = "180.000000";
+     Events before PG02_SE_P0012 motion
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "TouchPointStartRetEvent"; EventGroupName = "OlpEvent"; InsertPosition = "InsertBefore"; EventType = "Olp";
+     EventEnd
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "Speed"; EventGroupName = "Motionprofile"; InsertPosition = "InsertBefore"; EventType = "Speed";
+      Attributes set on event:
+         Name = "Value"; Value = "0.200000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Speed"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+     End Events before PG02_SE_P0012 motion
+    # [API: motion.GetMotionType() → MotionType, motion.GetPosition() → DULPythonPosition]
+    Motion: PG02_SE_P0012;  MotionType = "Linear";
+     PositionName = "PG02_SE_P0012"; ProcessType = "Cycle"; TargetType = "Cartesian";
+     # [API: position.GetXYZ() → tuple(x,y,z)] [unit: METERS — multiply by 1000 for mm]
+     # [API: position.GetOrientation() → tuple(rx,ry,rz)] [unit: degrees]
+     Cartesian target:
+       X = "0.101923"; Y = "1.155860"; Z = "0.994542"; Rx = "135.000000"; Ry = "0.000000"; Rz = "-0.000000";
+       Config = "RAD"; Turn = "0,0,0";
+     # [API: position.GetMainJointValues() → list[(DULPythonJoint, float)]] [unit: degrees]
+     # [API: position.GetExternalJointValues() → list[(DULPythonJoint, float)]] [unit: degrees or meters for prismatic]
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg"; Value = "4.394654";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg"; Value = "9.078400";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg"; Value = "-75.776189";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg"; Value = "-0.000274";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg"; Value = "-95.145390";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg"; Value = "-4.394352";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg"; Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg"; Value = "180.000000";
+     EventEnd
+     End Events before PG02_SE_P0013 motion
+    # [API: motion.GetMotionType() → MotionType, motion.GetPosition() → DULPythonPosition]
+    Motion: PG02_SE_P0013;  MotionType = "Pt2Pt";
+     PositionName = "PG02_SE_P0013"; ProcessType = "ProcessCurve"; TargetType = "Cartesian";
+
+   Operation: WG1_Touch4 OperationType = Normal
+    Operation used base profile:
+   # [API: profile.GetXYZ() / GetOrientation() → DULPythonBaseProfile] [XYZ: meters, Angles: degrees]
+    BaseProfile = "B0"; ProfileIndex = "notDefined"; ReferenceProfile = "None"; X = "0.812264"; Y = "0.486941"; Z = "1.817618"; Rx = "0.000000"; Ry = "-0.000000"; Rz = "-0.000000";
+    Operation used tool profile:
+   # [API: profile.GetXYZ() / GetOrientation() → DULPythonToolProfile] [XYZ: meters, Angles: degrees]
+    ToolProfile = "TOOL1"; ProfileIndex = "notDefined"; ToolType = "OnRobot"; X = "0.002200"; Y = "0.141714"; Z = "0.431714"; Rx = "-45.000000"; Ry = "-0.000274"; Rz = "-0.000327";
+ Operation attributes
+     Name = "TSLocationAtEnd"; Value = "True"; Type = "BoolAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "TSContourTpeUUID"; Value = "9110301-7d85e156"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "TouchSensCycleExplode"; Value = "False"; Type = "BoolAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "TSWireCheckOperation"; Value = "False"; Type = "BoolAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "TouchId"; Value = "2"; Type = "IntAttribute"; Min = "0"; Max = "2147483647"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "Touch_Cntr"; Value = "3"; Type = "IntAttribute"; Min = "0"; Max = "2147483647"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "ProcessAttribute | OperationAttribute";
+     Name = "FramePt"; Value = "0"; Type = "IntAttribute"; Min = "0"; Max = "3"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "ArcWeldingOperationWorkMethodName"; Value = "TouchSensingWorkMethod"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+ End of attributes for Operation
+     Events before PG02_SE_P0017 motion
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "TouchSensingEvent"; EventGroupName = "Unknown"; InsertPosition = "InsertBefore"; EventType = "Process";
+      Attributes set on event:
+         Name = "TSLocationAtEnd"; Value = "True"; Type = "BoolAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "TSContourTpeUUID"; Value = "9110301-7d85e156"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "TSBaseFrameTouchAxis"; Value = "Undefined"; Type = "LiteralAttribute"; Values = "Undefined, +X, -X, +Y, -Y, +Z, -Z"; Index = "0"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+      End of attributes for event
+     Events before PG02_SE_P0014 motion
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "TouchPointStartAppEvent"; EventGroupName = "OlpEvent"; InsertPosition = "InsertBefore"; EventType = "Olp";
+     EventEnd
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "Accuracy"; EventGroupName = "Motionprofile"; InsertPosition = "InsertBefore"; EventType = "Accuracy";
+      Attributes set on event:
+         Name = "Value"; Value = "0.005000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Length"; GetOlpProperty = "";
+         Name = "Criteria"; Value = "Distance"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "Speed"; EventGroupName = "Motionprofile"; InsertPosition = "InsertBefore"; EventType = "Speed";
+      Attributes set on event:
+         Name = "Value"; Value = "0.200000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Speed"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+     End Events before PG02_SE_P0014 motion
+    # [API: motion.GetMotionType() → MotionType, motion.GetPosition() → DULPythonPosition]
+    Motion: PG02_SE_P0014;  MotionType = "Linear";
+     PositionName = "PG02_SE_P0014"; ProcessType = "Cycle"; TargetType = "Cartesian";
+     # [API: position.GetXYZ() → tuple(x,y,z)] [unit: METERS — multiply by 1000 for mm]
+     # [API: position.GetOrientation() → tuple(rx,ry,rz)] [unit: degrees]
+     Cartesian target:
+       X = "-0.095785"; Y = "1.155859"; Z = "0.992075"; Rx = "135.000000"; Ry = "0.000000"; Rz = "-0.000000";
+       Config = "RAD"; Turn = "0,0,0";
+     # [API: position.GetMainJointValues() → list[(DULPythonJoint, float)]] [unit: degrees]
+     # [API: position.GetExternalJointValues() → list[(DULPythonJoint, float)]] [unit: degrees or meters for prismatic]
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg"; Value = "-4.318504";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg"; Value = "9.013989";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg"; Value = "-75.989127";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg"; Value = "-0.000274";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg"; Value = "-94.996904";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg"; Value = "4.318806";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg"; Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg"; Value = "180.000000";
+     Events before PG02_SE_P0015 motion
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "TouchPointCollisionEvent"; EventGroupName = "OlpEvent"; InsertPosition = "InsertBefore"; EventType = "Olp";
+     EventEnd
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "Speed"; EventGroupName = "Motionprofile"; InsertPosition = "InsertBefore"; EventType = "Speed";
+      Attributes set on event:
+         Name = "Value"; Value = "0.015000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Speed"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+     End Events before PG02_SE_P0015 motion
+    # [API: motion.GetMotionType() → MotionType, motion.GetPosition() → DULPythonPosition]
+    Motion: PG02_SE_P0015;  MotionType = "Linear";
+     PositionName = "PG02_SE_P0015"; ProcessType = "Cycle"; TargetType = "Cartesian";
+     # [API: position.GetXYZ() → tuple(x,y,z)] [unit: METERS — multiply by 1000 for mm]
+     # [API: position.GetOrientation() → tuple(rx,ry,rz)] [unit: degrees]
+     Cartesian target:
+       X = "-0.095785"; Y = "1.125859"; Z = "0.992075"; Rx = "135.000000"; Ry = "0.000000"; Rz = "-0.000000";
+       Config = "RAD"; Turn = "0,0,0";
+     # [API: position.GetMainJointValues() → list[(DULPythonJoint, float)]] [unit: degrees]
+     # [API: position.GetExternalJointValues() → list[(DULPythonJoint, float)]] [unit: degrees or meters for prismatic]
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg"; Value = "-4.420311";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg"; Value = "6.813662";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg"; Value = "-78.435780";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg"; Value = "-0.000274";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg"; Value = "-94.750579";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg"; Value = "4.420614";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg"; Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg"; Value = "180.000000";
+     Events before PG02_SE_P0016 motion
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "TouchPointStartRetEvent"; EventGroupName = "OlpEvent"; InsertPosition = "InsertBefore"; EventType = "Olp";
+     EventEnd
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "Speed"; EventGroupName = "Motionprofile"; InsertPosition = "InsertBefore"; EventType = "Speed";
+      Attributes set on event:
+         Name = "Value"; Value = "0.200000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Speed"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+     End Events before PG02_SE_P0016 motion
+    # [API: motion.GetMotionType() → MotionType, motion.GetPosition() → DULPythonPosition]
+    Motion: PG02_SE_P0016;  MotionType = "Linear";
+     PositionName = "PG02_SE_P0016"; ProcessType = "Cycle"; TargetType = "Cartesian";
+     # [API: position.GetXYZ() → tuple(x,y,z)] [unit: METERS — multiply by 1000 for mm]
+     # [API: position.GetOrientation() → tuple(rx,ry,rz)] [unit: degrees]
+     Cartesian target:
+       X = "-0.095785"; Y = "1.155859"; Z = "0.992075"; Rx = "135.000000"; Ry = "0.000000"; Rz = "-0.000000";
+       Config = "RAD"; Turn = "0,0,0";
+     # [API: position.GetMainJointValues() → list[(DULPythonJoint, float)]] [unit: degrees]
+     # [API: position.GetExternalJointValues() → list[(DULPythonJoint, float)]] [unit: degrees or meters for prismatic]
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg"; Value = "-4.318504";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg"; Value = "9.013989";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg"; Value = "-75.989127";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg"; Value = "-0.000274";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg"; Value = "-94.996904";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg"; Value = "4.318806";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg"; Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg"; Value = "180.000000";
+     EventEnd
+     End Events before PG02_SE_P0017 motion
+    # [API: motion.GetMotionType() → MotionType, motion.GetPosition() → DULPythonPosition]
+    Motion: PG02_SE_P0017;  MotionType = "Pt2Pt";
+     PositionName = "PG02_SE_P0017"; ProcessType = "ProcessCurve"; TargetType = "Cartesian";
+     Events after PG02_SE_P0017 motion
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "BuiltInEvent"; EventGroupName = "BuiltInEvent"; InsertPosition = "InsertAfter"; EventType = "Insert";
+    # [API: motion.GetMotionType() → MotionType, motion.GetPosition() → DULPythonPosition]
+    Motion: PG02_SE_P0018;  MotionType = "Pt2Pt";
+     PositionName = "PG02_SE_P0018"; ProcessType = "TeachInsert"; TargetType = "Cartesian";
+     # [API: position.GetXYZ() → tuple(x,y,z)] [unit: METERS — multiply by 1000 for mm]
+     # [API: position.GetOrientation() → tuple(rx,ry,rz)] [unit: degrees]
+     Cartesian target:
+       X = "-0.149618"; Y = "1.148667"; Z = "0.981233"; Rx = "135.000000"; Ry = "0.000000"; Rz = "-0.000000";
+       Config = "RAD"; Turn = "0,0,0";
+     # [API: position.GetMainJointValues() → list[(DULPythonJoint, float)]] [unit: degrees]
+     # [API: position.GetExternalJointValues() → list[(DULPythonJoint, float)]] [unit: degrees or meters for prismatic]
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg"; Value = "-6.710271";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg"; Value = "8.633825";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg"; Value = "-77.032029";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg"; Value = "-0.000273";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg"; Value = "-94.334177";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg"; Value = "6.710577";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg"; Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg"; Value = "180.000000";
+     EventEnd
+     End Events after PG02_SE_P0017 motion
+
+   Operation: WG1_Touch5 OperationType = Normal
+    Operation used base profile:
+   # [API: profile.GetXYZ() / GetOrientation() → DULPythonBaseProfile] [XYZ: meters, Angles: degrees]
+    BaseProfile = "B0"; ProfileIndex = "notDefined"; ReferenceProfile = "None"; X = "0.812264"; Y = "0.486941"; Z = "1.817618"; Rx = "0.000000"; Ry = "-0.000000"; Rz = "-0.000000";
+    Operation used tool profile:
+   # [API: profile.GetXYZ() / GetOrientation() → DULPythonToolProfile] [XYZ: meters, Angles: degrees]
+    ToolProfile = "TOOL1"; ProfileIndex = "notDefined"; ToolType = "OnRobot"; X = "0.002200"; Y = "0.141714"; Z = "0.431714"; Rx = "-45.000000"; Ry = "-0.000274"; Rz = "-0.000327";
+ Operation attributes
+     Name = "TSLocationAtEnd"; Value = "True"; Type = "BoolAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "TSContourTpeUUID"; Value = "9110301-7d85e156"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "TouchSensCycleExplode"; Value = "False"; Type = "BoolAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "TSWireCheckOperation"; Value = "False"; Type = "BoolAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "TouchId"; Value = "2"; Type = "IntAttribute"; Min = "0"; Max = "2147483647"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "Touch_Cntr"; Value = "3"; Type = "IntAttribute"; Min = "0"; Max = "2147483647"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "ProcessAttribute | OperationAttribute";
+     Name = "FramePt"; Value = "0"; Type = "IntAttribute"; Min = "0"; Max = "3"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "ArcWeldingOperationWorkMethodName"; Value = "TouchSensingWorkMethod"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+ End of attributes for Operation
+     Events before PG02_SE_P0022 motion
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "TouchSensingEvent"; EventGroupName = "Unknown"; InsertPosition = "InsertBefore"; EventType = "Process";
+      Attributes set on event:
+         Name = "TSLocationAtEnd"; Value = "True"; Type = "BoolAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "TSContourTpeUUID"; Value = "9110301-7d85e156"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "TSBaseFrameTouchAxis"; Value = "Undefined"; Type = "LiteralAttribute"; Values = "Undefined, +X, -X, +Y, -Y, +Z, -Z"; Index = "0"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+      End of attributes for event
+     Events before PG02_SE_P0019 motion
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "TouchPointStartAppEvent"; EventGroupName = "OlpEvent"; InsertPosition = "InsertBefore"; EventType = "Olp";
+     EventEnd
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "Accuracy"; EventGroupName = "Motionprofile"; InsertPosition = "InsertBefore"; EventType = "Accuracy";
+      Attributes set on event:
+         Name = "Value"; Value = "0.005000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Length"; GetOlpProperty = "";
+         Name = "Criteria"; Value = "Distance"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "Speed"; EventGroupName = "Motionprofile"; InsertPosition = "InsertBefore"; EventType = "Speed";
+      Attributes set on event:
+         Name = "Value"; Value = "0.200000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Speed"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+     End Events before PG02_SE_P0019 motion
+    # [API: motion.GetMotionType() → MotionType, motion.GetPosition() → DULPythonPosition]
+    Motion: PG02_SE_P0019;  MotionType = "Linear";
+     PositionName = "PG02_SE_P0019"; ProcessType = "Cycle"; TargetType = "Cartesian";
+     # [API: position.GetXYZ() → tuple(x,y,z)] [unit: METERS — multiply by 1000 for mm]
+     # [API: position.GetOrientation() → tuple(rx,ry,rz)] [unit: degrees]
+     Cartesian target:
+       X = "-0.160466"; Y = "1.082594"; Z = "1.002647"; Rx = "125.264390"; Ry = "-30.000000"; Rz = "35.264390";
+       Config = "RAD"; Turn = "0,0,0";
+     # [API: position.GetMainJointValues() → list[(DULPythonJoint, float)]] [unit: degrees]
+     # [API: position.GetExternalJointValues() → list[(DULPythonJoint, float)]] [unit: degrees or meters for prismatic]
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg"; Value = "-24.277046";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg"; Value = "2.371271";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg"; Value = "-88.287470";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg"; Value = "-31.131399";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg"; Value = "-93.569531";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg"; Value = "-9.183829";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg"; Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg"; Value = "180.000000";
+     Events before PG02_SE_P0020 motion
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "TouchPointCollisionEvent"; EventGroupName = "OlpEvent"; InsertPosition = "InsertBefore"; EventType = "Olp";
+     EventEnd
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "Speed"; EventGroupName = "Motionprofile"; InsertPosition = "InsertBefore"; EventType = "Speed";
+      Attributes set on event:
+         Name = "Value"; Value = "0.015000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Speed"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+     End Events before PG02_SE_P0020 motion
+    # [API: motion.GetMotionType() → MotionType, motion.GetPosition() → DULPythonPosition]
+    Motion: PG02_SE_P0020;  MotionType = "Linear";
+     PositionName = "PG02_SE_P0020"; ProcessType = "Cycle"; TargetType = "Cartesian";
+     # [API: position.GetXYZ() → tuple(x,y,z)] [unit: METERS — multiply by 1000 for mm]
+     # [API: position.GetOrientation() → tuple(rx,ry,rz)] [unit: degrees]
+     Cartesian target:
+       X = "-0.130466"; Y = "1.082594"; Z = "1.002647"; Rx = "125.264390"; Ry = "-30.000000"; Rz = "35.264390";
+       Config = "RAD"; Turn = "0,0,0";
+     # [API: position.GetMainJointValues() → list[(DULPythonJoint, float)]] [unit: degrees]
+     # [API: position.GetExternalJointValues() → list[(DULPythonJoint, float)]] [unit: degrees or meters for prismatic]
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg"; Value = "-22.991824";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg"; Value = "1.524844";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg"; Value = "-89.156750";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg"; Value = "-31.207769";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg"; Value = "-92.884806";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg"; Value = "-10.273334";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg"; Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg"; Value = "180.000000";
+     Events before PG02_SE_P0021 motion
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "TouchPointStartRetEvent"; EventGroupName = "OlpEvent"; InsertPosition = "InsertBefore"; EventType = "Olp";
+     EventEnd
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "Speed"; EventGroupName = "Motionprofile"; InsertPosition = "InsertBefore"; EventType = "Speed";
+      Attributes set on event:
+         Name = "Value"; Value = "0.200000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Speed"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+     End Events before PG02_SE_P0021 motion
+    # [API: motion.GetMotionType() → MotionType, motion.GetPosition() → DULPythonPosition]
+    Motion: PG02_SE_P0021;  MotionType = "Linear";
+     PositionName = "PG02_SE_P0021"; ProcessType = "Cycle"; TargetType = "Cartesian";
+     # [API: position.GetXYZ() → tuple(x,y,z)] [unit: METERS — multiply by 1000 for mm]
+     # [API: position.GetOrientation() → tuple(rx,ry,rz)] [unit: degrees]
+     Cartesian target:
+       X = "-0.160466"; Y = "1.082594"; Z = "1.002647"; Rx = "125.264390"; Ry = "-30.000000"; Rz = "35.264390";
+       Config = "RAD"; Turn = "0,0,0";
+     # [API: position.GetMainJointValues() → list[(DULPythonJoint, float)]] [unit: degrees]
+     # [API: position.GetExternalJointValues() → list[(DULPythonJoint, float)]] [unit: degrees or meters for prismatic]
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg"; Value = "-24.277046";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg"; Value = "2.371271";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg"; Value = "-88.287470";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg"; Value = "-31.131399";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg"; Value = "-93.569531";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg"; Value = "-9.183829";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg"; Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg"; Value = "180.000000";
+     EventEnd
+     End Events before PG02_SE_P0022 motion
+    # [API: motion.GetMotionType() → MotionType, motion.GetPosition() → DULPythonPosition]
+    Motion: PG02_SE_P0022;  MotionType = "Pt2Pt";
+     PositionName = "PG02_SE_P0022"; ProcessType = "ProcessCurve"; TargetType = "Cartesian";
+
+   Operation: WG1_Touch6 OperationType = Normal
+    Operation used base profile:
+   # [API: profile.GetXYZ() / GetOrientation() → DULPythonBaseProfile] [XYZ: meters, Angles: degrees]
+    BaseProfile = "B0"; ProfileIndex = "notDefined"; ReferenceProfile = "None"; X = "0.812264"; Y = "0.486941"; Z = "1.817618"; Rx = "0.000000"; Ry = "-0.000000"; Rz = "-0.000000";
+    Operation used tool profile:
+   # [API: profile.GetXYZ() / GetOrientation() → DULPythonToolProfile] [XYZ: meters, Angles: degrees]
+    ToolProfile = "TOOL1"; ProfileIndex = "notDefined"; ToolType = "OnRobot"; X = "0.002200"; Y = "0.141714"; Z = "0.431714"; Rx = "-45.000000"; Ry = "-0.000274"; Rz = "-0.000327";
+ Operation attributes
+     Name = "TSLocationAtEnd"; Value = "True"; Type = "BoolAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "TSContourTpeUUID"; Value = "9110301-7d85e156"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "TouchSensCycleExplode"; Value = "False"; Type = "BoolAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "TSWireCheckOperation"; Value = "False"; Type = "BoolAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "TouchId"; Value = "2"; Type = "IntAttribute"; Min = "0"; Max = "2147483647"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "Touch_Cntr"; Value = "3"; Type = "IntAttribute"; Min = "0"; Max = "2147483647"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "ProcessAttribute | OperationAttribute";
+     Name = "FramePt"; Value = "0"; Type = "IntAttribute"; Min = "0"; Max = "3"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "ArcWeldingOperationWorkMethodName"; Value = "TouchSensingWorkMethod"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+ End of attributes for Operation
+     Events before PG02_SE_P0026 motion
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "TouchSensingEvent"; EventGroupName = "Unknown"; InsertPosition = "InsertBefore"; EventType = "Process";
+      Attributes set on event:
+         Name = "TSLocationAtEnd"; Value = "True"; Type = "BoolAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "TSContourTpeUUID"; Value = "9110301-7d85e156"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "TSBaseFrameTouchAxis"; Value = "Undefined"; Type = "LiteralAttribute"; Values = "Undefined, +X, -X, +Y, -Y, +Z, -Z"; Index = "0"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+      End of attributes for event
+     Events before PG02_SE_P0023 motion
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "TouchPointStartAppEvent"; EventGroupName = "OlpEvent"; InsertPosition = "InsertBefore"; EventType = "Olp";
+     EventEnd
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "Accuracy"; EventGroupName = "Motionprofile"; InsertPosition = "InsertBefore"; EventType = "Accuracy";
+      Attributes set on event:
+         Name = "Value"; Value = "0.005000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Length"; GetOlpProperty = "";
+         Name = "Criteria"; Value = "Distance"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "Speed"; EventGroupName = "Motionprofile"; InsertPosition = "InsertBefore"; EventType = "Speed";
+      Attributes set on event:
+         Name = "Value"; Value = "0.200000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Speed"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+     End Events before PG02_SE_P0023 motion
+    # [API: motion.GetMotionType() → MotionType, motion.GetPosition() → DULPythonPosition]
+    Motion: PG02_SE_P0023;  MotionType = "Linear";
+     PositionName = "PG02_SE_P0023"; ProcessType = "Cycle"; TargetType = "Cartesian";
+     # [API: position.GetXYZ() → tuple(x,y,z)] [unit: METERS — multiply by 1000 for mm]
+     # [API: position.GetOrientation() → tuple(rx,ry,rz)] [unit: degrees]
+     Cartesian target:
+       X = "-0.102317"; Y = "1.092735"; Z = "1.058360"; Rx = "135.000000"; Ry = "0.000000"; Rz = "-0.000000";
+       Config = "RAD"; Turn = "0,0,0";
+     # [API: position.GetMainJointValues() → list[(DULPythonJoint, float)]] [unit: degrees]
+     # [API: position.GetExternalJointValues() → list[(DULPythonJoint, float)]] [unit: degrees or meters for prismatic]
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg"; Value = "-4.839586";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg"; Value = "6.027139";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg"; Value = "-75.492011";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg"; Value = "-0.000276";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg"; Value = "-98.480873";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg"; Value = "4.839872";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg"; Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg"; Value = "180.000000";
+     Events before PG02_SE_P0024 motion
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "TouchPointCollisionEvent"; EventGroupName = "OlpEvent"; InsertPosition = "InsertBefore"; EventType = "Olp";
+     EventEnd
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "Speed"; EventGroupName = "Motionprofile"; InsertPosition = "InsertBefore"; EventType = "Speed";
+      Attributes set on event:
+         Name = "Value"; Value = "0.015000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Speed"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+     End Events before PG02_SE_P0024 motion
+    # [API: motion.GetMotionType() → MotionType, motion.GetPosition() → DULPythonPosition]
+    Motion: PG02_SE_P0024;  MotionType = "Linear";
+     PositionName = "PG02_SE_P0024"; ProcessType = "Cycle"; TargetType = "Cartesian";
+     # [API: position.GetXYZ() → tuple(x,y,z)] [unit: METERS — multiply by 1000 for mm]
+     # [API: position.GetOrientation() → tuple(rx,ry,rz)] [unit: degrees]
+     Cartesian target:
+       X = "-0.102317"; Y = "1.092735"; Z = "1.028360"; Rx = "135.000000"; Ry = "-0.000000"; Rz = "-0.000000";
+       Config = "RAD"; Turn = "0,0,0";
+     # [API: position.GetMainJointValues() → list[(DULPythonJoint, float)]] [unit: degrees]
+     # [API: position.GetExternalJointValues() → list[(DULPythonJoint, float)]] [unit: degrees or meters for prismatic]
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg"; Value = "-4.839586";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg"; Value = "5.271471";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg"; Value = "-78.039684";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg"; Value = "-0.000275";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg"; Value = "-96.688868";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg"; Value = "4.839881";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg"; Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg"; Value = "180.000000";
+     Events before PG02_SE_P0025 motion
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "TouchPointStartRetEvent"; EventGroupName = "OlpEvent"; InsertPosition = "InsertBefore"; EventType = "Olp";
+     EventEnd
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "Speed"; EventGroupName = "Motionprofile"; InsertPosition = "InsertBefore"; EventType = "Speed";
+      Attributes set on event:
+         Name = "Value"; Value = "0.200000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Speed"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+     End Events before PG02_SE_P0025 motion
+    # [API: motion.GetMotionType() → MotionType, motion.GetPosition() → DULPythonPosition]
+    Motion: PG02_SE_P0025;  MotionType = "Linear";
+     PositionName = "PG02_SE_P0025"; ProcessType = "Cycle"; TargetType = "Cartesian";
+     # [API: position.GetXYZ() → tuple(x,y,z)] [unit: METERS — multiply by 1000 for mm]
+     # [API: position.GetOrientation() → tuple(rx,ry,rz)] [unit: degrees]
+     Cartesian target:
+       X = "-0.102317"; Y = "1.092735"; Z = "1.058360"; Rx = "135.000000"; Ry = "0.000000"; Rz = "-0.000000";
+       Config = "RAD"; Turn = "0,0,0";
+     # [API: position.GetMainJointValues() → list[(DULPythonJoint, float)]] [unit: degrees]
+     # [API: position.GetExternalJointValues() → list[(DULPythonJoint, float)]] [unit: degrees or meters for prismatic]
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg"; Value = "-4.839586";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg"; Value = "6.027139";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg"; Value = "-75.492011";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg"; Value = "-0.000276";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg"; Value = "-98.480873";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg"; Value = "4.839872";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg"; Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg"; Value = "180.000000";
+     EventEnd
+     End Events before PG02_SE_P0026 motion
+    # [API: motion.GetMotionType() → MotionType, motion.GetPosition() → DULPythonPosition]
+    Motion: PG02_SE_P0026;  MotionType = "Pt2Pt";
+     PositionName = "PG02_SE_P0026"; ProcessType = "ProcessCurve"; TargetType = "Cartesian";
+
+   Operation: WG1_Seam7 OperationType = Normal
+    Operation used base profile:
+   # [API: profile.GetXYZ() / GetOrientation() → DULPythonBaseProfile] [XYZ: meters, Angles: degrees]
+    BaseProfile = "B0"; ProfileIndex = "notDefined"; ReferenceProfile = "None"; X = "0.812264"; Y = "0.486941"; Z = "1.817618"; Rx = "0.000000"; Ry = "-0.000000"; Rz = "-0.000000";
+    Operation used tool profile:
+   # [API: profile.GetXYZ() / GetOrientation() → DULPythonToolProfile] [XYZ: meters, Angles: degrees]
+    ToolProfile = "TOOL1"; ProfileIndex = "notDefined"; ToolType = "OnRobot"; X = "0.002200"; Y = "0.141714"; Z = "0.431714"; Rx = "-45.000000"; Ry = "-0.000274"; Rz = "-0.000327";
+ Operation attributes
+     Name = "ChainBegin"; Value = "False"; Type = "BoolAttribute"; GroupName = ""; ReadOnly = "True"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "ChainEnd"; Value = "False"; Type = "BoolAttribute"; GroupName = ""; ReadOnly = "True"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+     Name = "ArcWeldingOperationWorkMethodName"; Value = "StitchWeldingWorkMethod"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+ End of attributes for Operation
+     Events before PG02_SE_P0028 motion
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "ApproachArcWeldingStitch"; EventGroupName = "ApproachRetract"; InsertPosition = "InsertBefore"; EventType = "Approach";
+      Attributes set on event:
+         Name = "SpeedViaApproach"; Value = "0.500000"; Type = "DoubleAttribute"; Min = "0.010000"; Max = "2.000000"; StepSize = "0.100000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Speed"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+      End of attributes for event
+     Events before PG02_SE_P0027 motion
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "ConnectTouchProcessPointEvent"; EventGroupName = "OlpEvent"; InsertPosition = "InsertBefore"; EventType = "Olp";
+      Attributes set on event:
+         Name = "TouchId"; Value = "1"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "Touch_Cntr"; Value = "3"; Type = "IntAttribute"; Min = "0"; Max = "99"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+      End of attributes for event
+     EventEnd
+     End Events before PG02_SE_P0027 motion
+    # [API: motion.GetMotionType() → MotionType, motion.GetPosition() → DULPythonPosition]
+    Motion: PG02_SE_P0027;  MotionType = "Pt2Pt";
+     PositionName = "PG02_SE_P0027"; ProcessType = "Approach"; TargetType = "Cartesian";
+     # [API: position.GetXYZ() → tuple(x,y,z)] [unit: METERS — multiply by 1000 for mm]
+     # [API: position.GetOrientation() → tuple(rx,ry,rz)] [unit: degrees]
+     Cartesian target:
+       X = "0.118750"; Y = "1.191111"; Z = "1.093611"; Rx = "135.000000"; Ry = "0.000000"; Rz = "-0.000000";
+       Config = "RAD"; Turn = "0,0,0";
+     # [API: position.GetMainJointValues() → list[(DULPythonJoint, float)]] [unit: degrees]
+     # [API: position.GetExternalJointValues() → list[(DULPythonJoint, float)]] [unit: degrees or meters for prismatic]
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg"; Value = "4.997488";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg"; Value = "14.696738";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg"; Value = "-63.446245";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg"; Value = "-0.000279";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg"; Value = "-101.856994";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg"; Value = "-4.997219";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg"; Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg"; Value = "180.000000";
+     Events after PG02_SE_P0027 motion
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "Speed"; EventGroupName = "Motionprofile"; InsertPosition = "InsertAfter"; EventType = "Speed";
+      Attributes set on event:
+         Name = "Value"; Value = "0.500000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Speed"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "Accuracy"; EventGroupName = "Motionprofile"; InsertPosition = "InsertAfter"; EventType = "Accuracy";
+      Attributes set on event:
+         Name = "Value"; Value = "0.000000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+         Name = "Criteria"; Value = "Off"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+     End Events after PG02_SE_P0027 motion
+     EventEnd
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "TpeAtStartEvent"; EventGroupName = "TpdbIgnore"; InsertPosition = "InsertBefore"; EventType = "Process";
+      Attributes set on event:
+         Name = "TSContourTpeUUID"; Value = "9110301-7d85e156"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+      End of attributes for event
+     EventEnd
+     End Events before PG02_SE_P0028 motion
+    # [API: motion.GetMotionType() → MotionType, motion.GetPosition() → DULPythonPosition]
+    Motion: PG02_SE_P0028;  MotionType = "Linear";
+     PositionName = "PG02_SE_P0028"; ProcessType = "ProcessCurve"; TargetType = "Cartesian";
+     # [API: position.GetXYZ() → tuple(x,y,z)] [unit: METERS — multiply by 1000 for mm]
+     # [API: position.GetOrientation() → tuple(rx,ry,rz)] [unit: degrees]
+     Cartesian target:
+       X = "0.118750"; Y = "1.120400"; Z = "1.022900"; Rx = "135.000000"; Ry = "0.000000"; Rz = "-0.000000";
+       Config = "RAD"; Turn = "0,0,0";
+     # [API: position.GetMainJointValues() → list[(DULPythonJoint, float)]] [unit: degrees]
+     # [API: position.GetExternalJointValues() → list[(DULPythonJoint, float)]] [unit: degrees or meters for prismatic]
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg"; Value = "5.275937";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg"; Value = "7.227560";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg"; Value = "-76.221977";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg"; Value = "-0.000275";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg"; Value = "-96.550438";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg"; Value = "-5.275641";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg"; Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg"; Value = "180.000000";
+     Events after PG02_SE_P0028 motion
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "ArcOnEvent"; EventGroupName = "OlpEvent"; InsertPosition = "InsertAfter"; EventType = "Olp";
+      Attributes set on event:
+         Name = "DLSetArcWeldMode"; Value = "None"; Type = "LiteralAttribute"; Values = "None, 2, 3"; Index = "0"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWeldConditionMode"; Value = "0"; Type = "IntAttribute"; Min = "0"; Max = "2"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWeldConditionNumber"; Value = "1"; Type = "IntAttribute"; Min = "1"; Max = "199"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLJobNumber"; Value = "1"; Type = "IntAttribute"; Min = "1"; Max = "65535"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWC1WeldSpeed"; Value = "35"; Type = "IntAttribute"; Min = "1"; Max = "999"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWC1WireFeedSpeed"; Value = "0.000000"; Type = "DoubleAttribute"; Min = "1.000000"; Max = "100.000000"; StepSize = "1.000000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWC1WeldCurrent"; Value = "0.000000"; Type = "DoubleAttribute"; Min = "-999.900000"; Max = "999.900000"; StepSize = "1.000000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWC1ArcLengthCorr"; Value = "0.000000"; Type = "DoubleAttribute"; Min = "-100.000000"; Max = "100.000000"; StepSize = "1.000000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWC1WeldVoltage"; Value = "0.000000"; Type = "DoubleAttribute"; Min = "-999.900000"; Max = "999.900000"; StepSize = "1.000000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWC1PulseDynamicCorr"; Value = "0.000000"; Type = "DoubleAttribute"; Min = "-100.000000"; Max = "100.000000"; StepSize = "1.000000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWC1WireRetractCorr"; Value = "0.000000"; Type = "DoubleAttribute"; Min = "-100.000000"; Max = "100.000000"; StepSize = "1.000000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWC2Crater"; Value = "False"; Type = "BoolAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLCraterSpotConditionNumber"; Value = "1"; Type = "IntAttribute"; Min = "1"; Max = "299"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLCraterSpotJobNumber"; Value = "1"; Type = "IntAttribute"; Min = "1"; Max = "65535"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWC2Time"; Value = "0.200000"; Type = "DoubleAttribute"; Min = "0.000000"; Max = "9.900000"; StepSize = "0.100000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWC2WireFeedSpeed"; Value = "0.000000"; Type = "DoubleAttribute"; Min = "1.000000"; Max = "100.000000"; StepSize = "1.000000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWC2WeldCurrent"; Value = "0.000000"; Type = "DoubleAttribute"; Min = "-999.900000"; Max = "999.900000"; StepSize = "1.000000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWC2ArcLengthCorr"; Value = "0.000000"; Type = "DoubleAttribute"; Min = "-100.000000"; Max = "100.000000"; StepSize = "1.000000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWC2WeldVoltage"; Value = "0.000000"; Type = "DoubleAttribute"; Min = "-999.900000"; Max = "999.900000"; StepSize = "1.000000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWC2PulseDynamicCorr"; Value = "0.000000"; Type = "DoubleAttribute"; Min = "-100.000000"; Max = "100.000000"; StepSize = "1.000000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWC2WireRetractCorr"; Value = "0.000000"; Type = "DoubleAttribute"; Min = "-100.000000"; Max = "100.000000"; StepSize = "1.000000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWeavePattern"; Value = "None"; Type = "LiteralAttribute"; Values = "None, harmonic, harmonic with end stop, reciprocating triangular, circular clockwise, circular counterclockwise, user pattern 1, user pattern 2, user pattern 3, user pattern 4, user pattern 5"; Index = "0"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWeavePatternNumber"; Value = "0"; Type = "IntAttribute"; Min = "0"; Max = "10"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWeaveFrequenz"; Value = "0.000000"; Type = "DoubleAttribute"; Min = "0.000000"; Max = "4.000000"; StepSize = "0.100000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWeaveWidth"; Value = "0.000000"; Type = "DoubleAttribute"; Min = "0.000000"; Max = "0.040000"; StepSize = "0.001000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Length"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLPatternSPS"; Value = "None"; Type = "LiteralAttribute"; Values = "None, Disabled, horizontal fillet, flat fillet, V groove, flat bevel groove, bevel groove, horizontal bevel groove, user pattern 1, user pattern 2, user pattern 3, user pattern 4, user pattern 5"; Index = "0"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLPatternNum"; Value = "0"; Type = "IntAttribute"; Min = "1"; Max = "10"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLStartDist"; Value = "0.000000"; Type = "DoubleAttribute"; Min = "0.000000"; Max = "99.000000"; StepSize = "0.100000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLReliefDist"; Value = "0.000000"; Type = "DoubleAttribute"; Min = "0.000000"; Max = "99.000000"; StepSize = "0.100000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLDistInGroove"; Value = "0.000000"; Type = "DoubleAttribute"; Min = "0.000000"; Max = "99.000000"; StepSize = "0.100000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLRTPM"; Value = "None"; Type = "LiteralAttribute"; Values = "None, Disabled, Enabled"; Index = "0"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWCRTPMNum"; Value = "0"; Type = "IntAttribute"; Min = "0"; Max = "3"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWCWireStick"; Value = "0"; Type = "IntAttribute"; Min = "0"; Max = "65535"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWCVerticalGain"; Value = "0"; Type = "IntAttribute"; Min = "-1000"; Max = "1000"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWCHorizontalGain"; Value = "0"; Type = "IntAttribute"; Min = "-1000"; Max = "1000"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWCVerticalBIAS"; Value = "0"; Type = "IntAttribute"; Min = "-1000"; Max = "1000"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWCHorizontalBIAS"; Value = "0"; Type = "IntAttribute"; Min = "-1000"; Max = "1000"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWCDelayTime"; Value = "0"; Type = "IntAttribute"; Min = "0"; Max = "10"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWCStartGain"; Value = "False"; Type = "BoolAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWCInitialGainTime"; Value = "0.000000"; Type = "DoubleAttribute"; Min = "0.100000"; Max = "9.900000"; StepSize = "0.100000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWCInitialVerticalCurrent"; Value = "0"; Type = "IntAttribute"; Min = "-1000"; Max = "1000"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWCInitialHorizontalCurrent"; Value = "0"; Type = "IntAttribute"; Min = "-1000"; Max = "1000"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWCInitialChangeCurrent"; Value = "0"; Type = "IntAttribute"; Min = "-1000"; Max = "1000"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLSSDown"; Value = "None"; Type = "LiteralAttribute"; Values = "None, Disabled, Enabled"; Index = "0"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWCSSDown"; Value = "0"; Type = "IntAttribute"; Min = "1"; Max = "3"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWCPreHeatTime"; Value = "0.000000"; Type = "DoubleAttribute"; Min = "0.000000"; Max = "9.900000"; StepSize = "0.100000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWCWeavePattern"; Value = "no weaving"; Type = "LiteralAttribute"; Values = "no weaving, harmonic, harmonic with end stop, reciprocating triangular, circular clockwise, circular counterclockwise, user pattern 1, user pattern 2, user pattern 3, user pattern 4, user pattern 5"; Index = "0"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWCWeaveNum"; Value = "0"; Type = "IntAttribute"; Min = "0"; Max = "10"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWCWeaveFreq"; Value = "0.000000"; Type = "DoubleAttribute"; Min = "0.000000"; Max = "4.000000"; StepSize = "0.100000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "DLWCWeaveWidth"; Value = "0.000000"; Type = "DoubleAttribute"; Min = "0.000000"; Max = "40.000000"; StepSize = "0.100000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+      End of attributes for event
+     EventEnd
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "Tool"; EventGroupName = "BuiltInEvent"; InsertPosition = "InsertAfter"; EventType = "Tool";
+     EventEnd
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "Speed"; EventGroupName = "Motionprofile"; InsertPosition = "InsertAfter"; EventType = "Speed";
+      Attributes set on event:
+         Name = "Value"; Value = "0.005833"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Speed"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "Accuracy"; EventGroupName = "Motionprofile"; InsertPosition = "InsertAfter"; EventType = "Accuracy";
+      Attributes set on event:
+         Name = "Value"; Value = "0.010000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Length"; GetOlpProperty = "";
+         Name = "Criteria"; Value = "Distance"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+     End Events after PG02_SE_P0028 motion
+     Events before PG02_SE_P0029 motion
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "TpeAtEndEvent"; EventGroupName = "TpdbIgnore"; InsertPosition = "InsertBefore"; EventType = "Process";
+      Attributes set on event:
+         Name = "TSContourTpeUUID"; Value = "9110301-7d85e156"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+      End of attributes for event
+     EventEnd
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "ConnectTouchProcessPointEvent"; EventGroupName = "OlpEvent"; InsertPosition = "InsertBefore"; EventType = "Olp";
+      Attributes set on event:
+         Name = "TouchId"; Value = "2"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute";
+         Name = "Touch_Cntr"; Value = "3"; Type = "IntAttribute"; Min = "0"; Max = "99"; StepSize = "1"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+      End of attributes for event
+     EventEnd
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "Accuracy"; EventGroupName = "Motionprofile"; InsertPosition = "InsertBefore"; EventType = "Accuracy";
+      Attributes set on event:
+         Name = "Value"; Value = "0.000000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+         Name = "Criteria"; Value = "Off"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+     End Events before PG02_SE_P0029 motion
+    # [API: motion.GetMotionType() → MotionType, motion.GetPosition() → DULPythonPosition]
+    Motion: PG02_SE_P0029;  MotionType = "Linear";
+     PositionName = "PG02_SE_P0029"; ProcessType = "ProcessCurve"; TargetType = "Cartesian";
+     # [API: position.GetXYZ() → tuple(x,y,z)] [unit: METERS — multiply by 1000 for mm]
+     # [API: position.GetOrientation() → tuple(rx,ry,rz)] [unit: degrees]
+     Cartesian target:
+       X = "-0.118000"; Y = "1.120400"; Z = "1.022900"; Rx = "135.000000"; Ry = "0.000000"; Rz = "-0.000000";
+       Config = "RAD"; Turn = "0,0,0";
+     # [API: position.GetMainJointValues() → list[(DULPythonJoint, float)]] [unit: degrees]
+     # [API: position.GetExternalJointValues() → list[(DULPythonJoint, float)]] [unit: degrees or meters for prismatic]
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg"; Value = "-5.440353";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg"; Value = "7.252630";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg"; Value = "-76.194314";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg"; Value = "-0.000275";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg"; Value = "-96.553082";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg"; Value = "5.440648";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg"; Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg"; Value = "180.000000";
+     Events after PG02_SE_P0029 motion
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "ArcOffEvent"; EventGroupName = "OlpEvent"; InsertPosition = "InsertAfter"; EventType = "Olp";
+     EventEnd
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "Tool"; EventGroupName = "BuiltInEvent"; InsertPosition = "InsertAfter"; EventType = "Tool";
+     EventEnd
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "Accuracy"; EventGroupName = "Motionprofile"; InsertPosition = "InsertAfter"; EventType = "Accuracy";
+      Attributes set on event:
+         Name = "Value"; Value = "0.005000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Length"; GetOlpProperty = "";
+         Name = "Criteria"; Value = "Distance"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "Speed"; EventGroupName = "Motionprofile"; InsertPosition = "InsertAfter"; EventType = "Speed";
+      Attributes set on event:
+         Name = "Value"; Value = "0.500000"; Type = "DoubleAttribute"; Min = "float min negative: -1.7976931348623157e+308"; Max = "float max: 1.7976931348623157e+308"; StepSize = "0.100000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Speed"; GetOlpProperty = "";
+         Name = "PathType"; Value = "Contour"; Type = "StringAttribute"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Standard"; GetOlpProperty = "";
+      End of attributes for event
+     EventEnd
+     # [API: event.GetEventType() → str, event.GetInsertPosition() → InsertPosition, event.GetAttributes() → list]
+      EventName = "RetractArcWeldingStitch"; EventGroupName = "ApproachRetract"; InsertPosition = "InsertAfter"; EventType = "Retract";
+      Attributes set on event:
+         Name = "SpeedViaRetract"; Value = "0.500000"; Type = "DoubleAttribute"; Min = "0.010000"; Max = "2.000000"; StepSize = "0.100000"; GroupName = ""; ReadOnly = "False"; ValueUnitType = "Speed"; GetOlpProperty = "UserAttribute | ProcessAttribute | OperationAttribute";
+      End of attributes for event
+    # [API: motion.GetMotionType() → MotionType, motion.GetPosition() → DULPythonPosition]
+    Motion: PG02_SE_P0030;  MotionType = "Linear";
+     PositionName = "PG02_SE_P0030"; ProcessType = "Retract"; TargetType = "Cartesian";
+     # [API: position.GetXYZ() → tuple(x,y,z)] [unit: METERS — multiply by 1000 for mm]
+     # [API: position.GetOrientation() → tuple(rx,ry,rz)] [unit: degrees]
+     Cartesian target:
+       X = "-0.118000"; Y = "1.191111"; Z = "1.093611"; Rx = "135.000000"; Ry = "0.000000"; Rz = "-0.000000";
+       Config = "RAD"; Turn = "0,0,0";
+     # [API: position.GetMainJointValues() → list[(DULPythonJoint, float)]] [unit: degrees]
+     # [API: position.GetExternalJointValues() → list[(DULPythonJoint, float)]] [unit: degrees or meters for prismatic]
+     Joint target:
+       MainJoint = "D1"; GroupIndex = "0"; DOFNumber = "1"; JointIndex = "1"; PortName = "D1"; Role = "Main"; Unit = "deg"; Value = "-5.153322";
+       MainJoint = "D2"; GroupIndex = "0"; DOFNumber = "2"; JointIndex = "2"; PortName = "D2"; Role = "Main"; Unit = "deg"; Value = "14.723078";
+       MainJoint = "D3"; GroupIndex = "0"; DOFNumber = "3"; JointIndex = "3"; PortName = "D3"; Role = "Main"; Unit = "deg"; Value = "-63.414220";
+       MainJoint = "D4"; GroupIndex = "0"; DOFNumber = "4"; JointIndex = "4"; PortName = "D4"; Role = "Main"; Unit = "deg"; Value = "-0.000279";
+       MainJoint = "D5"; GroupIndex = "0"; DOFNumber = "5"; JointIndex = "5"; PortName = "D5"; Role = "Main"; Unit = "deg"; Value = "-101.862726";
+       MainJoint = "D6"; GroupIndex = "0"; DOFNumber = "6"; JointIndex = "6"; PortName = "D6"; Role = "Main"; Unit = "deg"; Value = "5.153591";
+       ExtJoint = "JT7"; GroupIndex = "0"; DOFNumber = "7"; JointIndex = "7"; PortName = "D7"; Role = "WorkpiecePositioner"; Unit = "deg"; Value = "0.000000";
+       ExtJoint = "JT8"; GroupIndex = "0"; DOFNumber = "8"; JointIndex = "8"; PortName = "D8"; Role = "WorkpiecePositioner"; Unit = "deg"; Value = "180.000000";
+     EventEnd
+     End Events after PG02_SE_P0029 motion
