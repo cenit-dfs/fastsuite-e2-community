@@ -1,0 +1,48 @@
+{
+  "version": "1.0",
+  "data_type": "seamdata",
+  "last_modified": "2026-01-27T00:00:00",
+  "default_id": 0,
+  "next_id": 3,
+  "instances": [
+    {
+      "id": 0,
+      "name": "sd_default",
+      "description": "Default seam data",
+      "created": "2026-01-27T00:00:00",
+      "modified": "2026-01-27T00:00:00",
+      "values": {
+        "seam_type": 1,
+        "weld_on": false,
+        "seam_length": 100.0,
+        "seam_width": 5.0
+      }
+    },
+    {
+      "id": 1,
+      "name": "sd_linear_100",
+      "description": "Linear seam 100mm",
+      "created": "2026-01-27T00:00:00",
+      "modified": "2026-01-27T00:00:00",
+      "values": {
+        "seam_type": 1,
+        "weld_on": true,
+        "seam_length": 100.0,
+        "seam_width": 5.0
+      }
+    },
+    {
+      "id": 2,
+      "name": "sd_circular",
+      "description": "Circular seam",
+      "created": "2026-01-27T00:00:00",
+      "modified": "2026-01-27T00:00:00",
+      "values": {
+        "seam_type": 2,
+        "weld_on": true,
+        "seam_length": 150.0,
+        "seam_width": 6.0
+      }
+    }
+  ]
+}

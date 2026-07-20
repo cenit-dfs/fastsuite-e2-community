@@ -1,0 +1,56 @@
+{
+  "version": "1.0",
+  "data_type": "weavedata",
+  "last_modified": "2026-01-28T13:43:14",
+  "default_id": 0,
+  "next_id": 2,
+  "instances": [
+    {
+      "id": 0,
+      "name": "wv_default",
+      "description": "Default weave - disabled",
+      "created": "2026-01-27T00:00:00",
+      "modified": "2026-01-27T00:00:00",
+      "values": {
+        "weave_type": 0,
+        "enabled": false,
+        "amplitude": 0.0,
+        "frequency": 0.0,
+        "parameters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "id": 1,
+      "name": "wv_triangle_5mm",
+      "description": "Triangle weave 5mm amplitude",
+      "created": "2026-01-27T00:00:00",
+      "modified": "2026-01-28T13:43:14",
+      "values": {
+        "weave_shape": 2,
+        "weave_type": 1,
+        "weave_length": 4,
+        "weave_width": 5,
+        "weave_height": 0,
+        "dwell_left": 0,
+        "dwell_center": 0,
+        "dwell_right": 0,
+        "weave_dir": 0,
+        "weave_tilt": 0,
+        "weave_ori": 0,
+        "weave_bias": 0,
+        "org_weave_width": 0,
+        "org_weave_height": 0,
+        "org_weave_bias": 0
+      }
+    }
+  ]
+}

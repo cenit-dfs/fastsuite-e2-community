@@ -1,0 +1,6 @@
+;-------------------- START - PULSE PIERCE AND CUT, SUBROUTINE #3 -------------------------------
+M5S3
+$PECK
+$CUT
+M6
+;-------------------- END - PULSE PIERCE AND CUT, SUBROUTINE #3 ---------------------------------

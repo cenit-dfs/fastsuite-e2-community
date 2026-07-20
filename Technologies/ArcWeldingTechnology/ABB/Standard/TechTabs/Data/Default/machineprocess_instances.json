@@ -1,0 +1,51 @@
+{
+  "version": "1.0",
+  "data_type": "machineprocess",
+  "last_modified": "2026-06-12T00:00:00",
+  "default_id": 0,
+  "next_id": 3,
+  "instances": [
+    {
+      "id": 0,
+      "name": "mp_default",
+      "description": "Default machine process (no angles, no routines)",
+      "created": "2026-06-12T00:00:00",
+      "modified": "2026-06-12T00:00:00",
+      "values": {
+        "EngageDistance": 0.0,
+        "TiltAngle": 0.0,
+        "LeadAngle": 0.0,
+        "PreRoutine": "",
+        "PostRoutine": ""
+      }
+    },
+    {
+      "id": 1,
+      "name": "mp_Plasma_10mm",
+      "description": "Plasma cutting with 10 mm engage distance",
+      "created": "2026-06-12T00:00:00",
+      "modified": "2026-06-12T00:00:00",
+      "values": {
+        "EngageDistance": 10.0,
+        "TiltAngle": 0.0,
+        "LeadAngle": 0.0,
+        "PreRoutine": "",
+        "PostRoutine": ""
+      }
+    },
+    {
+      "id": 2,
+      "name": "mp_Grind_45deg",
+      "description": "Grinding with 45-degree lead angle and routines",
+      "created": "2026-06-12T00:00:00",
+      "modified": "2026-06-12T00:00:00",
+      "values": {
+        "EngageDistance": 2.0,
+        "TiltAngle": 0.0,
+        "LeadAngle": 45.0,
+        "PreRoutine": "rPreGrind",
+        "PostRoutine": "rPostGrind"
+      }
+    }
+  ]
+}

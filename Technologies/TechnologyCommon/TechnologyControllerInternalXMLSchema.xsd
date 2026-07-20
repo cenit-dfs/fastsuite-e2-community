@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="ControllerSettings">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Technology"/>
+      </xs:sequence>
+      <xs:attribute name="Version" use="required" type="xs:decimal"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Technology">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="TechTabs"/>
+      </xs:sequence>
+      <xs:attribute name="Name" use="required" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TechTabs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="TechTab"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TechTab">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="Containers"/>
+      </xs:sequence>      
+      <xs:attribute name="Name"       use="required" type="xs:string"/>
+      <xs:attribute name="Order"      use="required" type="xs:integer"/>
+      <xs:attribute name="Visibility" use="required" type="xs:boolean"/> 
+      <xs:attribute name="Icon"       use="required" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Containers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="Container"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Container">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Groups"/>
+      </xs:sequence>      
+      <xs:attribute name="Name"       use="required" type="xs:string"/>
+      <xs:attribute name="Order"      use="required" type="xs:integer"/>
+      <xs:attribute name="Visibility" use="required" type="xs:boolean"/>
+      <xs:attribute name="Icon"       use="required" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Groups">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="Group"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Group">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="Attributes"/>
+        <xs:element ref="Rule"/>
+      </xs:choice>
+      <xs:attribute name="Name"  use="required" type="xs:string"/>
+      <xs:attribute name="Order" use="required" type="xs:integer"/>
+	  <xs:attribute name="ShowGroupName" use="optional" type="xs:boolean"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Attributes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="Attribute"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Attribute">
+    <xs:complexType>
+      <xs:attribute name="Name"           use="required" type="xs:string"/>
+      <xs:attribute name="Order"          use="required" type="xs:integer"/>
+      <xs:attribute name="Value"          use="optional" type="xs:string"/>
+      <xs:attribute name="Visibility"     use="optional" type="xs:boolean"/>
+      <xs:attribute name="Icon"           use="required" type="xs:string"/>
+      <xs:attribute name="Rule"           use="optional" type="xs:NCName"/>     
+      <xs:attribute name="Event"          use="optional" type="xs:NCName"/>   
+      <xs:attribute name="UserSkillLevel" use="optional" type="xs:string"/>   
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Rule">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Events"/>
+      </xs:sequence>      
+      <xs:attribute name="Name"       use="required" type="xs:string"/>
+      <xs:attribute name="Visibility" use="required" type="xs:boolean"/>
+      <xs:attribute name="Icon"       use="required" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Events">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="Event"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Event">
+    <xs:complexType>
+      <xs:attribute name="Name" use="required" type="xs:string"/>      
+      <xs:attribute name="Visibility" use="optional" type="xs:boolean"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

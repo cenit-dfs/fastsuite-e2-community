@@ -1,0 +1,33 @@
+;-------------------- START - PULSE PIERCE AND TREPAN, SUBROUTINE #7 ----------------------------
+M5S7
+G5
+MV5                               ;SELECT GAS FOR PIERCE
+PRV6                              ;SET PRESSURE FOR PIERCE
+M100                              ;SHUTTER OPEN
+G4X0.1                            ;DELAY FOR SHUTTER
+M51M52XV1M53XV2PKV3               ;SET PIERCE LASER PARAMETERS
+G20R                              ;SET PLANE ROTATION
+G91                               ;SET INCREMENTAL
+G00ZV7                            ;DEFOCUS    
+M54XV4                            ;PIERCE
+G00Z-V7+V17                       ;DEFOCUS FOR TREPAN
+M51M52XV11M53XV12PKV13            ;SET CUTTING PARAMETERS
+MV5+1                             ;SHUT OFF PIERCE GAS
+MV14                              ;TURN ON CUT GAS
+PRV15                             ;SET PRESSURE FOR CUTTING
+IF V5!=V14 G4X2.0                 ;IF PIERCE GAS IS DIFFERENT FROM TREPAN GAS DELAY TWO SECONDS
+IF V6!=V15 G4X0.5                 ;IF PIERCE PRESSURE IS DIFFERENT FROM TREPAN PRESSURE DELAY HALF SECOND
+M60                               ;BEAM ON
+FV16                              ;SET FEED RATE
+G01X-V31/2                        ;LEAD IN
+G7                                ;CONTINIUOUS MOTION
+G02IV31/2 J0 RV33                 ;TREPAN HOLE
+G5                                ;EXACT POSITION
+M61                               ;BEAM OFF
+IF V5!=V14 M101                   ;CLOSE SHUTTER IF REQUIRED FOR GAS CHANGE
+IF V5!=V14 G4X0.1                 ;DELAY         IF REQUIRED FOR GAS CHANGE
+IF V5!=V14 M301M303M305M307       ;GAS OFF       IF REQUIRED FOR GAS CHANGE
+G20                               ;CANCEL PLANE ROTATION
+G90                               ;SET ABSOLUTE
+M6
+;-------------------- END - PULSE PIERCE AND TREPAN, SUBROUTINE #7 ---------------------------------

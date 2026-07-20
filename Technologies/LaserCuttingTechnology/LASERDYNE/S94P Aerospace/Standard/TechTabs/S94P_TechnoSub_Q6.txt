@@ -1,0 +1,19 @@
+;-------------------- START - CW WELD WITHOUT WIRE, SUBROUTINE #6 -------------------------------
+M5S6
+G5
+MV24                              ;TURN ON WELD GAS
+M300                              ;TURN ON AIR KNIFE
+PRV25                             ;SET PRESSURE FOR WELDING
+G4X5.0                            ;DELAY FOR SHIELD GAS
+G20R                              ;SET PLANE ROTATION
+G91                               ;SET INCREMENTAL
+G00ZV27                           ;DEFOCUS
+G20                               ;CANCEL PLANE ROTATION
+G90                               ;SET ABSOLUTE
+M50PV23                           ;SET WELDING PARAMETERS
+M100                              ;SHUTTER OPEN
+G4X0.1                            ;DELAY FOR SHUTTER    
+M60                               ;BEAM ON
+FV26                              ;SET FEED RATE
+M6
+;-------------------- END - CW WELD WITHOUT WIRE, SUBROUTINE #6 ---------------------------------

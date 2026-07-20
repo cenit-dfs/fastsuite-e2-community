@@ -1,0 +1,22 @@
+{
+  "profiles": [
+    {
+      "name": "Sample_Left45",
+      "ALONG": "CDa",
+      "LATERAL": "CDa",
+      "HEIGHT": "CDb"
+    },
+    {
+      "name": "Sample_Right45",
+      "ALONG": "CDa",
+      "LATERAL": "CDd",
+      "HEIGHT": "CDb"
+    },
+    {
+      "name": "Sample_Top0",
+      "ALONG": "CDh",
+      "LATERAL": "CDh",
+      "HEIGHT": "CDv"
+    }
+  ]
+}

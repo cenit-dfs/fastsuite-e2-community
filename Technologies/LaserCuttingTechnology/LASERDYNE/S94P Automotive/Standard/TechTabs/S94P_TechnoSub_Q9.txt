@@ -1,0 +1,6 @@
+;-------------------- START - CW WELD WITH WIRE, SUBROUTINE #9 ----------------------------------
+M5S9
+$PECK
+$CUT
+M6
+;-------------------- END - CW WELD WITH WIRE, SUBROUTINE #9 ------------------------------------

@@ -1,0 +1,24 @@
+;-------------------- START - PULSE PIERCE AND CUT, SUBROUTINE #3 -------------------------------
+M5S3
+G5
+MV5                               ;SELECT GAS FOR PIERCE
+PRV6                              ;SET PRESSURE FOR PIERCE
+M51M52XV1M53XV2PKV3               ;SET PIERCE LASER PARAMETERS
+G20R                              ;SET PLANE ROTATION
+G91                               ;SET INCREMENTAL
+G00ZV7                            ;DEFOCUS
+M100                              ;SHUTTER OPEN
+G4X0.1                            ;DELAY FOR SHUTTER    
+M54XV4                            ;PIERCE
+G00Z-V7+V17                       ;DEFOCUS FOR CUT
+G20                               ;CANCEL PLANE ROTATION
+G90                               ;SET ABSOLUTE
+M51M52XV11M53XV12PKV13            ;SET CUTTING PARAMETERS
+MV5+1                             ;SHUT OFF PIERCE GAS
+MV14                              ;TURN ON CUT GAS
+PRV15                             ;SET PRESSURE FOR CUTTING
+IF V5!=V14 G4X2.0                 ;IF PIERCE GAS IS DIFFERENT FROM CUT GAS DELAY TWO SECONDS
+M60                               ;BEAM ON
+FV16                              ;SET FEED RATE
+M6
+;-------------------- END - PULSE PIERCE AND CUT, SUBROUTINE #3 ---------------------------------

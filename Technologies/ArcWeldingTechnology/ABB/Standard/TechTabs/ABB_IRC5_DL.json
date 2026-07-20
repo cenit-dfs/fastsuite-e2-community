@@ -1,0 +1,59 @@
+{
+  "schema": "ABB_IRC5_DL",
+  "version": 1,
+  "output": {
+    "act_unit_name": "TISCH_1",
+    "default_proc_name": "Main",
+    "target_output_type": "Implicit",
+    "use_e2_position_names": true,
+    "displacement_auto_off": true,
+    "output_pgf": false
+  },
+  "plugins": {
+    "enabled": [
+      "ArcWelding",
+      "Machining"
+    ]
+  },
+  "captureTrace": {
+    "enabled": true,
+    "debug": true,
+    "file": null,
+    "eventMotions": "refs"
+  },
+  "orientation_defaults": {
+    "ArcWelding": {"rx": 45.0, "ry": 0.0, "rz": 90.0},
+    "Machining":  {"rx": 0.0,  "ry": 0.0, "rz": 90.0}
+  },
+  "stations": {
+    "default": 1,
+    "enabled": false,
+    "list": [
+      {
+        "index": 0,
+        "setup_proc": "None",
+        "wobj": "",
+        "rail_group_index": "10",
+        "rail_ajustment": "0.0",
+        "ext_mechanism": "10,1"
+      },
+      {
+        "index": 1,
+        "setup_proc": "StartStn1",
+        "wobj": "wobjUse",
+        "rail_group_index": "10",
+        "rail_ajustment": "0.0",
+        "ext_mechanism": "10,1"
+      },
+      {
+        "index": 2,
+        "setup_proc": "StartStn2",
+        "wobj": "wobjUse",
+        "rail_group_index": "10",
+        "rail_ajustment": "-6745.0",
+        "ext_mechanism": "10,2"
+      }
+    ]
+  }
+}
+

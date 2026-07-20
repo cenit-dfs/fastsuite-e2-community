@@ -1,0 +1,1919 @@
+meta:
+  translator: "TreeDumper"
+  translator_version: "1.0"
+  language: "en-US"
+
+controller:
+  name: "E0x_with_TrafoUnit"
+  model: "E0x_with_TrafoUnit"
+  series: "E-Series"
+  manufacturer: "Kawasaki"
+  type: "Motion"
+  active_program: "P1MAIN"
+
+  joints:
+    - name: "D1"
+      group_index: 0
+      dof_number: 1
+      joint_index: 1
+      port_name: "D1"
+      role: "Main"
+      unit: "deg"
+      is_external: false
+      kinematic_type: "Revolute"
+    - name: "D2"
+      group_index: 0
+      dof_number: 2
+      joint_index: 2
+      port_name: "D2"
+      role: "Main"
+      unit: "deg"
+      is_external: false
+      kinematic_type: "Revolute"
+    - name: "D3"
+      group_index: 0
+      dof_number: 3
+      joint_index: 3
+      port_name: "D3"
+      role: "Main"
+      unit: "deg"
+      is_external: false
+      kinematic_type: "Revolute"
+    - name: "D4"
+      group_index: 0
+      dof_number: 4
+      joint_index: 4
+      port_name: "D4"
+      role: "Main"
+      unit: "deg"
+      is_external: false
+      kinematic_type: "Revolute"
+    - name: "D5"
+      group_index: 0
+      dof_number: 5
+      joint_index: 5
+      port_name: "D5"
+      role: "Main"
+      unit: "deg"
+      is_external: false
+      kinematic_type: "Revolute"
+    - name: "D6"
+      group_index: 0
+      dof_number: 6
+      joint_index: 6
+      port_name: "D6"
+      role: "Main"
+      unit: "deg"
+      is_external: false
+      kinematic_type: "Revolute"
+    - name: "JT7"
+      group_index: 0
+      dof_number: 7
+      joint_index: 7
+      port_name: "D7"
+      role: "WorkpiecePositioner"
+      unit: "deg"
+      is_external: true
+      kinematic_type: "Revolute"
+    - name: "JT8"
+      group_index: 0
+      dof_number: 8
+      joint_index: 8
+      port_name: "D8"
+      role: "WorkpiecePositioner"
+      unit: "deg"
+      is_external: true
+      kinematic_type: "Revolute"
+
+  tool_profiles:
+    - name: "TOOL1"
+      index: ~
+      tool_type: "OnRobot"
+      is_vision_frame: false
+      xyz_m: [0.002200, 0.141714, 0.431714]
+      orientation_deg: [-45.000000, -0.000274, -0.000327]
+
+  base_profiles:
+    - name: "World"
+      index: ~
+      reference_profile: ~
+      xyz_m: [0.000000, 0.000000, 0.000000]
+      orientation_deg: [0.000000, 0.000000, 0.000000]
+    - name: "B0"
+      index: ~
+      reference_profile: ~
+      xyz_m: [0.812264, 0.486941, 1.817618]
+      orientation_deg: [0.000000, -0.000000, -0.000000]
+    - name: "Rot_Base"
+      index: ~
+      reference_profile: "B0"
+      xyz_m: [-0.000000, 0.995400, 0.922900]
+      orientation_deg: [-0.000000, -0.000000, -0.000000]
+
+  accuracy_profiles:
+    - name: "Default"
+      criteria: "Distance"
+      fly_by: "Off"
+      value: 0.000000
+      unit: "m"
+    - name: "CP_ACCU_0.01m"
+      criteria: "Distance"
+      fly_by: "On"
+      value: 0.005000
+      unit: "m"
+
+  motion_profiles:
+    - name: "CP_SP_0.50_ACC100.00%"
+      basis: "Absolute"
+      type: "Contour"
+      speed: {value: 0.500000, unit: ""}
+      acceleration: {value: 100.000000, unit: "%"}
+    - name: "CP_SP_0.01_ACC100.00%"
+      basis: "Absolute"
+      type: "Contour"
+      speed: {value: 0.005833, unit: ""}
+      acceleration: {value: 100.000000, unit: "%"}
+    - name: "PTP_SP_50%_ACC_100%"
+      basis: "Percent"
+      type: "PointToPoint"
+      speed: {value: 50.000000, unit: "%"}
+      acceleration: {value: 100.000000, unit: "%"}
+    - name: "CP_SP_1m/s_ACC_100%"
+      basis: "Absolute"
+      type: "Contour"
+      speed: {value: 1.000000, unit: "%"}
+      acceleration: {value: 100.000000, unit: "%"}
+
+  attributes:
+
+  resources:
+    - name: "BA06L"
+      item_type: "Production"
+      item_sub_type: "MachineRobot"
+      manufacturer: "Kawasaki"
+      model: "BA06L"
+      series: "BA-Series"
+      supported_configurations: ["RAU", "LBU", "RBU", "LAU", "RAD", "LBD", "RBD", "LAD"]
+      supported_turns: ["8,0,0", "-16,0,0", "0,28,0", "0,0,0", "-2,-1,31", "1,0,0", "0,2,0", "2,0,0", "-1,63,0", "3,0,0", "0,-8,1", "4,0,0", "0,-64,63", "6,0,0", "0,6,0", "31,0,0", "30,0,0", "-128,1,0", "7,0,0", "-16,3,0", "12,0,0", "14,0,0", "0,0,15", "15,0,0", "-2,-1,-1", "-2,-1,15", "-16,7,0", "-32,-1,1", "16,0,0", "24,0,0", "-64,3,0", "28,0,0", "32,0,0", "48,0,0", "56,0,0", "-16,-1,0", "-2,3,0", "60,0,0", "-2,1,0", "62,0,0", "0,-16,7", "120,0,0", "63,0,0", "-2,7,0", "127,0,0", "64,0,0", "0,7,0", "96,0,0", "112,0,0", "124,0,0", "-128,7,0", "0,0,126", "-4,-1,15", "126,0,0", "-2,-1,7", "-128,0,0", "-16,-1,63", "-8,-1,31", "-64,0,0", "-32,0,0", "-1,1,0", "-2,-1,127", "-8,0,0", "0,126,0", "-4,0,0", "-2,0,0", "-64,-1,1", "-64,7,0", "-128,-1,31", "-16,15,0", "-8,1,0", "-1,0,0", "0,-4,31", "0,1,0", "-1,31,0", "-8,7,0", "-64,-1,7", "-64,1,0", "0,-16,63", "-32,1,0", "0,0,1", "-16,1,0", "0,127,0", "-4,1,0", "0,-64,0", "0,3,0", "-128,3,0", "-32,3,0", "-8,3,0", "-4,3,0", "-1,-1,63", "-1,3,0", "0,4,0", "-32,7,0", "-128,-1,127", "-4,7,0", "-1,7,0", "0,8,0", "0,12,0", "0,-4,127", "0,14,0", "0,-16,-1", "0,15,0", "-32,-1,-1", "-128,15,0", "0,-128,3", "-64,15,0", "-4,-1,1", "-32,15,0", "-8,15,0", "-4,15,0", "-2,-1,0", "-2,15,0", "-1,15,0", "-2,31,0", "0,16,0", "0,24,0", "0,-2,31", "0,30,0", "0,31,0", "-128,31,0", "0,0,124", "-64,31,0", "-64,-1,63", "-32,31,0", "-16,31,0", "-8,31,0", "-4,31,0", "0,32,0", "-128,127,0", "0,48,0", "0,-16,3", "0,56,0", "0,60,0", "0,62,0", "0,63,0", "-128,-1,7", "-128,63,0", "-1,-1,31", "-64,63,0", "0,-2,15", "-32,-1,7", "-32,63,0", "-16,63,0", "-8,63,0", "-4,63,0", "0,-4,3", "-2,63,0", "0,64,0", "0,-128,1", "0,96,0", "0,112,0", "0,-4,15", "0,120,0", "0,124,0", "-64,127,0", "-32,127,0", "-16,127,0", "-8,127,0", "-4,127,0", "-2,127,0", "-1,127,0", "0,-128,0", "0,-32,0", "0,-16,0", "0,-8,0", "-4,-1,-1", "0,-4,0", "0,-2,0", "0,-1,0", "-128,-1,0", "-64,-1,0", "-32,-1,0", "-8,-1,0", "-8,-1,127", "-4,-1,0", "-1,-1,0", "0,-64,1", "0,-32,1", "0,-16,1", "0,-4,1", "0,-2,1", "0,-1,1", "-128,-1,1", "-16,-1,1", "-8,-1,1", "-2,-1,1", "-1,-1,1", "0,0,2", "0,0,3", "0,-64,3", "0,-32,3", "-32,-1,127", "0,-8,3", "0,-2,3", "-4,-1,31", "0,-1,3", "-128,-1,3", "-64,-1,3", "-32,-1,3", "-16,-1,3", "-8,-1,3", "0,-1,127", "-4,-1,3", "0,-1,31", "-2,-1,3", "-1,-1,3", "0,0,4", "-128,-1,-1", "0,0,6", "0,0,7", "0,-128,7", "0,-64,7", "0,-32,7", "0,-8,7", "0,-4,7", "0,-1,15", "0,-2,7", "0,-1,7", "-16,-1,7", "-8,-1,7", "-4,-1,7", "-1,-1,7", "0,0,-16", "0,0,8", "0,0,12", "0,0,14", "0,-128,15", "0,-64,-1", "0,-64,15", "0,-32,15", "0,-16,15", "-4,-1,127", "0,-8,15", "0,-16,31", "-128,-1,15", "-64,-1,15", "-32,-1,15", "-16,-1,-1", "-16,-1,15", "-8,-1,15", "-1,-1,15", "0,0,16", "0,0,24", "0,0,28", "0,0,30", "0,0,31", "0,-128,31", "0,-64,31", "0,-32,31", "0,-8,31", "-64,-1,31", "-32,-1,31", "-16,-1,31", "0,0,32", "0,0,48", "0,0,56", "0,0,60", "0,-32,127", "0,0,62", "0,0,63", "0,-128,63", "0,-32,63", "0,-8,63", "0,-4,63", "0,-2,63", "0,-2,127", "0,-1,63", "-128,-1,63", "-32,-1,63", "-8,-1,63", "-4,-1,63", "-2,-1,63", "0,0,64", "0,0,96", "0,0,112", "0,0,120", "0,0,127", "0,0,-128", "0,-128,127", "0,-64,127", "0,-16,127", "0,-8,127", "-64,-1,127", "-16,-1,127", "-1,-1,127", "0,0,-64", "0,-128,-1", "0,0,-32", "0,0,-8", "0,0,-4", "0,0,-2", "0,0,-1", "0,-32,-1", "0,-8,-1", "0,-4,-1", "0,-2,-1", "0,-1,-1", "-64,-1,-1", "-8,-1,-1", "-1,-1,-1"]
+      ports:
+      attributes:
+        - name: "CENOlpDataOutputStyle"
+          type: "String"
+          value: "Implicit"
+          group_name: ""
+          read_only: false
+          value_unit_type: "Standard"
+          olp_property: []
+    - name: "ZSB-V-RT3500H MIG-MAG"
+      item_type: "Peripheral"
+      item_sub_type: "Tool"
+      manufacturer: "OTC"
+      model: ""
+      series: ""
+      supported_configurations: []
+      supported_turns: [""]
+      ports:
+        - name: "1"
+          comment: "Tool On"
+          data_type: "Bool"
+          direction: "Input"
+      attributes:
+    - name: "PMU_Positionierer"
+      item_type: "Production"
+      item_sub_type: "WorkpiecePositioner"
+      manufacturer: "ASTOR"
+      model: "PST500H1"
+      series: "K-Positionier"
+      supported_configurations: []
+      supported_turns: [""]
+      ports:
+      attributes:
+    - name: "Clamp"
+      item_type: "Peripheral"
+      item_sub_type: "Fixture"
+      manufacturer: "Cenit"
+      model: ""
+      series: ""
+      supported_configurations: []
+      supported_turns: [""]
+      ports:
+        - name: "1"
+          comment: "Close"
+          data_type: "Bool"
+          direction: "Input"
+        - name: "2"
+          comment: "Open"
+          data_type: "Bool"
+          direction: "Input"
+        - name: "3"
+          comment: "Closed"
+          data_type: "Bool"
+          direction: "Output"
+        - name: "4"
+          comment: "Opened"
+          data_type: "Bool"
+          direction: "Output"
+      attributes:
+
+programs:
+  - name: "P1MAIN"
+    is_main: true
+    base_profile: "Rot_Base"
+    tool_profile: "TOOL1"
+    attributes:
+      - name: "CONTROLLER_MANUFACTURER"
+        type: "String"
+        value: "Kawasaki"
+        group_name: ""
+        read_only: false
+        value_unit_type: "Standard"
+        olp_property: ["ProcessAttribute", "GlobalAttribute"]
+      - name: "CONTROLLER_SERIES"
+        type: "String"
+        value: "E-Series"
+        group_name: ""
+        read_only: false
+        value_unit_type: "Standard"
+        olp_property: ["ProcessAttribute", "GlobalAttribute"]
+      - name: "CONTROLLER_MODEL"
+        type: "String"
+        value: "E0x_with_TrafoUnit"
+        group_name: ""
+        read_only: false
+        value_unit_type: "Standard"
+        olp_property: ["ProcessAttribute", "GlobalAttribute"]
+      - name: "RESOURCE_MANUFACTURER"
+        type: "String"
+        value: "Kawasaki"
+        group_name: ""
+        read_only: false
+        value_unit_type: "Standard"
+        olp_property: ["ProcessAttribute", "GlobalAttribute"]
+      - name: "RESOURCE_SERIES"
+        type: "String"
+        value: "BA-Series"
+        group_name: ""
+        read_only: false
+        value_unit_type: "Standard"
+        olp_property: ["ProcessAttribute", "GlobalAttribute"]
+      - name: "RESOURCE_MODEL"
+        type: "String"
+        value: "BA06L"
+        group_name: ""
+        read_only: false
+        value_unit_type: "Standard"
+        olp_property: ["ProcessAttribute", "GlobalAttribute"]
+      - name: "P_SEARCH_CYC_EXPLODE"
+        type: "Literal"
+        value: "forbidden"
+        values: ["forbidden", "immediately"]
+        index: 0
+        group_name: ""
+        read_only: false
+        value_unit_type: "Standard"
+        olp_property: ["UserAttribute", "ProcessAttribute", "GlobalAttribute"]
+      - name: "ProgNumberDefine"
+        type: "Int"
+        value: 1
+        min: 0
+        max: 999
+        step_size: 1
+        group_name: "Kawasaki_WC"
+        read_only: false
+        value_unit_type: "Standard"
+        olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute", "OperationGroupAttribute", "GlobalAttribute"]
+      - name: "ProgNumber2Define"
+        type: "Int"
+        value: 1
+        min: 0
+        max: 999
+        step_size: 1
+        group_name: ""
+        read_only: false
+        value_unit_type: "Standard"
+        olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute", "OperationGroupAttribute", "GlobalAttribute"]
+      - name: "ArcWeldingWeaveOnDefine"
+        type: "Int"
+        value: 1
+        min: 0
+        max: 999
+        step_size: 1
+        group_name: ""
+        read_only: false
+        value_unit_type: "Standard"
+        olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute", "OperationGroupAttribute", "GlobalAttribute"]
+      - name: "UseWeaveDefine"
+        type: "Bool"
+        value: false
+        group_name: ""
+        read_only: false
+        value_unit_type: "Standard"
+        olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute", "OperationGroupAttribute", "GlobalAttribute"]
+      - name: "WeaveFrequenzDefine"
+        type: "Double"
+        value: 2.000000
+        min: 0.100000
+        max: 10.000000
+        step_size: 1.000000
+        group_name: ""
+        read_only: true
+        value_unit_type: "Standard"
+        olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute", "OperationGroupAttribute", "GlobalAttribute"]
+      - name: "WeaveWidthDefine"
+        type: "Double"
+        value: 0.002000
+        min: 0.000000
+        max: 0.100000
+        step_size: 0.001000
+        group_name: ""
+        read_only: true
+        value_unit_type: "Length"
+        olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute", "OperationGroupAttribute", "GlobalAttribute"]
+      - name: "WeaveTime1Define"
+        type: "Double"
+        value: 0.100000
+        min: 0.000000
+        max: 10.000000
+        step_size: 0.100000
+        group_name: ""
+        read_only: true
+        value_unit_type: "Time"
+        olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute", "OperationGroupAttribute", "GlobalAttribute"]
+      - name: "WeaveTime2Define"
+        type: "Double"
+        value: 0.100000
+        min: 0.000000
+        max: 10.000000
+        step_size: 0.100000
+        group_name: ""
+        read_only: true
+        value_unit_type: "Time"
+        olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute", "OperationGroupAttribute", "GlobalAttribute"]
+      - name: "ArcWeldingWireFeed"
+        type: "Double"
+        value: 0.000000
+        min: 0.000000
+        max: 999.000000
+        step_size: 0.005000
+        group_name: ""
+        read_only: false
+        value_unit_type: "Speed"
+        olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute", "OperationGroupAttribute", "GlobalAttribute"]
+      - name: "ArcWeldingWireConsumption"
+        type: "Double"
+        value: 0.000000
+        min: 0.000000
+        max: 999.000000
+        step_size: 1.000000
+        group_name: ""
+        read_only: false
+        value_unit_type: "Standard"
+        olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute", "OperationGroupAttribute", "GlobalAttribute"]
+      - name: "ArcWeldingVoltage"
+        type: "Double"
+        value: 1.000000
+        min: 0.000000
+        max: 999.000000
+        step_size: 1.000000
+        group_name: ""
+        read_only: false
+        value_unit_type: "Voltage"
+        olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute", "OperationGroupAttribute", "GlobalAttribute"]
+      - name: "ArcWeldingCurrent"
+        type: "Double"
+        value: 0.500000
+        min: 0.000000
+        max: 999.000000
+        step_size: 1.000000
+        group_name: ""
+        read_only: false
+        value_unit_type: "ElectricCurrent"
+        olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute", "OperationGroupAttribute", "GlobalAttribute"]
+      - name: "ArcWeldingGasFlow"
+        type: "Double"
+        value: 0.000000
+        min: 0.000000
+        max: 999.000000
+        step_size: 1.000000
+        group_name: ""
+        read_only: false
+        value_unit_type: "FlowRate"
+        olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute", "OperationGroupAttribute", "GlobalAttribute"]
+      - name: "ArcWeldingGasConsumption"
+        type: "Double"
+        value: 0.000000
+        min: 0.000000
+        max: 999.000000
+        step_size: 1.000000
+        group_name: ""
+        read_only: false
+        value_unit_type: "Standard"
+        olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute", "OperationGroupAttribute", "GlobalAttribute"]
+      - name: "TSConnectionType"
+        type: "Literal"
+        value: "OperationConnect"
+        values: ["OperationConnect", "StartEndConnect", "ShortestDistanceConnect", "Frame3pConnect"]
+        index: 0
+        group_name: ""
+        read_only: false
+        value_unit_type: "Standard"
+        olp_property: ["UserAttribute", "ProcessAttribute", "OperationGroupAttribute", "GlobalAttribute"]
+      - name: "GroupNumber"
+        type: "Int"
+        value: 0
+        min: -1
+        max: 6
+        step_size: 1
+        group_name: ""
+        read_only: false
+        value_unit_type: "Standard"
+        olp_property: ["UserAttribute", "ProcessAttribute", "GlobalAttribute"]
+      - name: "SeamTrackingOnOff"
+        type: "Bool"
+        value: false
+        group_name: ""
+        read_only: false
+        value_unit_type: "Standard"
+        olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute", "OperationGroupAttribute", "GlobalAttribute"]
+      - name: "SensingLength"
+        type: "Double"
+        value: 0.030000
+        min: 0.000000
+        max: 1000.000000
+        step_size: 0.001000
+        group_name: ""
+        read_only: false
+        value_unit_type: "Length"
+        olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute", "OperationGroupAttribute", "GlobalAttribute"]
+      - name: "OvertravelLength"
+        type: "Double"
+        value: 0.030000
+        min: 0.000000
+        max: 1000.000000
+        step_size: 0.001000
+        group_name: ""
+        read_only: false
+        value_unit_type: "Length"
+        olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute", "OperationGroupAttribute", "GlobalAttribute"]
+      - name: "SensingSpeed"
+        type: "Double"
+        value: 0.015000
+        min: 0.001000
+        max: 0.200000
+        step_size: 0.005000
+        group_name: ""
+        read_only: false
+        value_unit_type: "Speed"
+        olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute", "OperationGroupAttribute", "GlobalAttribute"]
+      - name: "TouchApprRetrSpeed"
+        type: "Double"
+        value: 0.200000
+        min: 0.000000
+        max: 1.000000
+        step_size: 0.001000
+        group_name: ""
+        read_only: false
+        value_unit_type: "Length"
+        olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute", "OperationGroupAttribute", "GlobalAttribute"]
+      - name: "TouchApprFlyBy"
+        type: "Double"
+        value: 0.005000
+        min: 0.000000
+        max: 0.100000
+        step_size: 0.001000
+        group_name: ""
+        read_only: false
+        value_unit_type: "Length"
+        olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute", "OperationGroupAttribute", "GlobalAttribute"]
+      - name: "SeamSearchSensingLength"
+        type: "Double"
+        value: 0.030000
+        min: 0.000000
+        max: 1000.000000
+        step_size: 0.001000
+        group_name: ""
+        read_only: false
+        value_unit_type: "Length"
+        olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute", "OperationGroupAttribute", "GlobalAttribute"]
+      - name: "SeamSearchOvertravelLength"
+        type: "Double"
+        value: 0.030000
+        min: 0.000000
+        max: 1000.000000
+        step_size: 0.001000
+        group_name: ""
+        read_only: false
+        value_unit_type: "Length"
+        olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute", "OperationGroupAttribute", "GlobalAttribute"]
+      - name: "SeamSearchSensingSpeed"
+        type: "Double"
+        value: 0.015000
+        min: 0.001000
+        max: 0.200000
+        step_size: 0.005000
+        group_name: ""
+        read_only: false
+        value_unit_type: "Speed"
+        olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute", "OperationGroupAttribute", "GlobalAttribute"]
+    subprograms:
+      - name: "P1S1"
+        calling_program: "P1MAIN"
+        called_program: "P1S1"
+    operation_groups:
+      - name: "GRP001"
+        technology:
+          name: "ArcWeldingTechnology"
+          version: 46
+          uuid: "D94A16B4-0258-42D5-AAE9-1E5B4CDE71CE"
+        base_profile: "Rot_Base"
+        tool_profile: "TOOL1"
+        attributes:
+        operations:
+          - name: "WG1_Seam1"
+            type: "Normal"
+            base_profile: "Rot_Base"
+            tool_profile: "TOOL1"
+            attributes:
+              - name: "ChainBegin"
+                type: "Bool"
+                value: false
+                group_name: ""
+                read_only: true
+                value_unit_type: "Standard"
+                olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute"]
+              - name: "ChainEnd"
+                type: "Bool"
+                value: false
+                group_name: ""
+                read_only: true
+                value_unit_type: "Standard"
+                olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute"]
+              - name: "ArcWeldingOperationWorkMethodName"
+                type: "String"
+                value: "StitchWeldingWorkMethod"
+                group_name: ""
+                read_only: false
+                value_unit_type: "Standard"
+                olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute"]
+            motions:
+              - name: "P1MAIN_P0020"
+                motion_type: "Linear"
+                is_ptp: false
+                is_linear: true
+                is_circular: false
+                is_reference: false
+                attributes:
+                events_before:
+                  - name: "ApproachArcWeldingStitch"
+                    group: "ApproachRetract"
+                    insert_position: "InsertBefore"
+                    event_type: "Approach"
+                    attributes:
+                      - name: "SpeedViaApproach"
+                        type: "Double"
+                        value: 0.500000
+                        min: 0.010000
+                        max: 2.000000
+                        step_size: 0.100000
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Speed"
+                        olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute"]
+                    motions:
+                      - name: "P1MAIN_P0019"
+                        motion_type: "Pt2Pt"
+                        is_ptp: true
+                        is_linear: false
+                        is_circular: false
+                        is_reference: false
+                        attributes:
+                        events_before:
+                          - name: "BuiltInEvent"
+                            group: "BuiltInEvent"
+                            insert_position: "InsertBefore"
+                            event_type: "Insert"
+                            attributes:
+                            motions:
+                              - name: "P1MAIN_P0018"
+                                motion_type: "Pt2Pt"
+                                is_ptp: true
+                                is_linear: false
+                                is_circular: false
+                                is_reference: false
+                                attributes:
+                                events_before:
+                                position:
+                                  name: "P1MAIN_P0018"
+                                  process_type: "TeachInsert"
+                                  target_type: "Joint"
+                                  xyz_m: [0.002200, -0.089338, 0.365994]
+                                  orientation_deg: [175.000000, 0.000000, 0.000426]
+                                  config: "RAD"
+                                  turn: "0,0,0"
+                                  main_joints:
+                                    - name: "D1"
+                                      value: 0.000000
+                                    - name: "D2"
+                                      value: -25.000000
+                                    - name: "D3"
+                                      value: -90.000000
+                                    - name: "D4"
+                                      value: 0.000000
+                                    - name: "D5"
+                                      value: -75.000000
+                                    - name: "D6"
+                                      value: 0.000000
+                                  external_joints:
+                                    - name: "JT7"
+                                      value: 0.000000
+                                    - name: "JT8"
+                                      value: 180.000000
+                                  attributes:
+                                via_position: ~
+                                events_after:
+                        position:
+                          name: "P1MAIN_P0019"
+                          process_type: "Approach"
+                          target_type: "Cartesian"
+                          xyz_m: [0.200711, -0.118000, 0.121711]
+                          orientation_deg: [135.000000, 0.000000, -90.000000]
+                          config: "RAD"
+                          turn: "0,0,0"
+                          main_joints:
+                            - name: "D1"
+                              value: 21.270732
+                            - name: "D2"
+                              value: -14.543630
+                            - name: "D3"
+                              value: -95.598425
+                            - name: "D4"
+                              value: -0.000101
+                            - name: "D5"
+                              value: -98.945461
+                            - name: "D6"
+                              value: 68.729579
+                          external_joints:
+                            - name: "JT7"
+                              value: 0.000000
+                            - name: "JT8"
+                              value: 180.000000
+                          attributes:
+                        via_position: ~
+                        events_after:
+                          - name: "Speed"
+                            group: "Motionprofile"
+                            insert_position: "InsertAfter"
+                            event_type: "Speed"
+                            attributes:
+                              - name: "Value"
+                                type: "Double"
+                                value: 0.500000
+                                min: -179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                                max: 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                                step_size: 0.100000
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Speed"
+                                olp_property: []
+                              - name: "PathType"
+                                type: "String"
+                                value: "Contour"
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Standard"
+                                olp_property: []
+                          - name: "Accuracy"
+                            group: "Motionprofile"
+                            insert_position: "InsertAfter"
+                            event_type: "Accuracy"
+                            attributes:
+                              - name: "Value"
+                                type: "Double"
+                                value: 0.000000
+                                min: -179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                                max: 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                                step_size: 0.100000
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Standard"
+                                olp_property: []
+                              - name: "Criteria"
+                                type: "String"
+                                value: "Off"
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Standard"
+                                olp_property: []
+                              - name: "PathType"
+                                type: "String"
+                                value: "Contour"
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Standard"
+                                olp_property: []
+                  - name: "TpeAtStartEvent"
+                    group: "TpdbIgnore"
+                    insert_position: "InsertBefore"
+                    event_type: "Process"
+                    attributes:
+                      - name: "TSContourTpeUUID"
+                        type: "String"
+                        value: "56e9721-0db202a6"
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                position:
+                  name: "P1MAIN_P0020"
+                  process_type: "ProcessCurve"
+                  target_type: "Cartesian"
+                  xyz_m: [0.130000, -0.118000, 0.051000]
+                  orientation_deg: [135.000000, 0.000000, -90.000000]
+                  config: "RAD"
+                  turn: "0,0,0"
+                  main_joints:
+                    - name: "D1"
+                      value: 17.166229
+                    - name: "D2"
+                      value: -17.679658
+                    - name: "D3"
+                      value: -102.089058
+                    - name: "D4"
+                      value: -0.000081
+                    - name: "D5"
+                      value: -95.590862
+                    - name: "D6"
+                      value: 72.834089
+                  external_joints:
+                    - name: "JT7"
+                      value: 0.000000
+                    - name: "JT8"
+                      value: 180.000000
+                  attributes:
+                via_position: ~
+                events_after:
+                  - name: "ArcOnEvent"
+                    group: "OlpEvent"
+                    insert_position: "InsertAfter"
+                    event_type: "Olp"
+                    attributes:
+                      - name: "DLSetArcWeldMode"
+                        type: "Literal"
+                        value: "None"
+                        values: ["None", "2", "3"]
+                        index: 0
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWeldConditionMode"
+                        type: "Int"
+                        value: 0
+                        min: 0
+                        max: 2
+                        step_size: 1
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWeldConditionNumber"
+                        type: "Int"
+                        value: 1
+                        min: 1
+                        max: 199
+                        step_size: 1
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLJobNumber"
+                        type: "Int"
+                        value: 1
+                        min: 1
+                        max: 65535
+                        step_size: 1
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWC1WeldSpeed"
+                        type: "Int"
+                        value: 35
+                        min: 1
+                        max: 999
+                        step_size: 1
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWC1WireFeedSpeed"
+                        type: "Double"
+                        value: 0.000000
+                        min: 1.000000
+                        max: 100.000000
+                        step_size: 1.000000
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWC1WeldCurrent"
+                        type: "Double"
+                        value: 0.000000
+                        min: -999.900000
+                        max: 999.900000
+                        step_size: 1.000000
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWC1ArcLengthCorr"
+                        type: "Double"
+                        value: 0.000000
+                        min: -100.000000
+                        max: 100.000000
+                        step_size: 1.000000
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWC1WeldVoltage"
+                        type: "Double"
+                        value: 0.000000
+                        min: -999.900000
+                        max: 999.900000
+                        step_size: 1.000000
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWC1PulseDynamicCorr"
+                        type: "Double"
+                        value: 0.000000
+                        min: -100.000000
+                        max: 100.000000
+                        step_size: 1.000000
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWC1WireRetractCorr"
+                        type: "Double"
+                        value: 0.000000
+                        min: -100.000000
+                        max: 100.000000
+                        step_size: 1.000000
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWC2Crater"
+                        type: "Bool"
+                        value: false
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLCraterSpotConditionNumber"
+                        type: "Int"
+                        value: 1
+                        min: 1
+                        max: 299
+                        step_size: 1
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLCraterSpotJobNumber"
+                        type: "Int"
+                        value: 1
+                        min: 1
+                        max: 65535
+                        step_size: 1
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWC2Time"
+                        type: "Double"
+                        value: 0.200000
+                        min: 0.000000
+                        max: 9.900000
+                        step_size: 0.100000
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWC2WireFeedSpeed"
+                        type: "Double"
+                        value: 0.000000
+                        min: 1.000000
+                        max: 100.000000
+                        step_size: 1.000000
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWC2WeldCurrent"
+                        type: "Double"
+                        value: 0.000000
+                        min: -999.900000
+                        max: 999.900000
+                        step_size: 1.000000
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWC2ArcLengthCorr"
+                        type: "Double"
+                        value: 0.000000
+                        min: -100.000000
+                        max: 100.000000
+                        step_size: 1.000000
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWC2WeldVoltage"
+                        type: "Double"
+                        value: 0.000000
+                        min: -999.900000
+                        max: 999.900000
+                        step_size: 1.000000
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWC2PulseDynamicCorr"
+                        type: "Double"
+                        value: 0.000000
+                        min: -100.000000
+                        max: 100.000000
+                        step_size: 1.000000
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWC2WireRetractCorr"
+                        type: "Double"
+                        value: 0.000000
+                        min: -100.000000
+                        max: 100.000000
+                        step_size: 1.000000
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWeavePattern"
+                        type: "Literal"
+                        value: "None"
+                        values: ["None", "harmonic", "harmonic with end stop", "reciprocating triangular", "circular clockwise", "circular counterclockwise", "user pattern 1", "user pattern 2", "user pattern 3", "user pattern 4", "user pattern 5"]
+                        index: 0
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWeavePatternNumber"
+                        type: "Int"
+                        value: 0
+                        min: 0
+                        max: 10
+                        step_size: 1
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWeaveFrequenz"
+                        type: "Double"
+                        value: 0.000000
+                        min: 0.000000
+                        max: 4.000000
+                        step_size: 0.100000
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWeaveWidth"
+                        type: "Double"
+                        value: 0.000000
+                        min: 0.000000
+                        max: 0.040000
+                        step_size: 0.001000
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Length"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLPatternSPS"
+                        type: "Literal"
+                        value: "None"
+                        values: ["None", "Disabled", "horizontal fillet", "flat fillet", "V groove", "flat bevel groove", "bevel groove", "horizontal bevel groove", "user pattern 1", "user pattern 2", "user pattern 3", "user pattern 4", "user pattern 5"]
+                        index: 0
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLPatternNum"
+                        type: "Int"
+                        value: 0
+                        min: 1
+                        max: 10
+                        step_size: 1
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLStartDist"
+                        type: "Double"
+                        value: 0.000000
+                        min: 0.000000
+                        max: 99.000000
+                        step_size: 0.100000
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLReliefDist"
+                        type: "Double"
+                        value: 0.000000
+                        min: 0.000000
+                        max: 99.000000
+                        step_size: 0.100000
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLDistInGroove"
+                        type: "Double"
+                        value: 0.000000
+                        min: 0.000000
+                        max: 99.000000
+                        step_size: 0.100000
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLRTPM"
+                        type: "Literal"
+                        value: "None"
+                        values: ["None", "Disabled", "Enabled"]
+                        index: 0
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWCRTPMNum"
+                        type: "Int"
+                        value: 0
+                        min: 0
+                        max: 3
+                        step_size: 1
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWCWireStick"
+                        type: "Int"
+                        value: 0
+                        min: 0
+                        max: 65535
+                        step_size: 1
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWCVerticalGain"
+                        type: "Int"
+                        value: 0
+                        min: -1000
+                        max: 1000
+                        step_size: 1
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWCHorizontalGain"
+                        type: "Int"
+                        value: 0
+                        min: -1000
+                        max: 1000
+                        step_size: 1
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWCVerticalBIAS"
+                        type: "Int"
+                        value: 0
+                        min: -1000
+                        max: 1000
+                        step_size: 1
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWCHorizontalBIAS"
+                        type: "Int"
+                        value: 0
+                        min: -1000
+                        max: 1000
+                        step_size: 1
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWCDelayTime"
+                        type: "Int"
+                        value: 0
+                        min: 0
+                        max: 10
+                        step_size: 1
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWCStartGain"
+                        type: "Bool"
+                        value: false
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWCInitialGainTime"
+                        type: "Double"
+                        value: 0.000000
+                        min: 0.100000
+                        max: 9.900000
+                        step_size: 0.100000
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWCInitialVerticalCurrent"
+                        type: "Int"
+                        value: 0
+                        min: -1000
+                        max: 1000
+                        step_size: 1
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWCInitialHorizontalCurrent"
+                        type: "Int"
+                        value: 0
+                        min: -1000
+                        max: 1000
+                        step_size: 1
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWCInitialChangeCurrent"
+                        type: "Int"
+                        value: 0
+                        min: -1000
+                        max: 1000
+                        step_size: 1
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLSSDown"
+                        type: "Literal"
+                        value: "None"
+                        values: ["None", "Disabled", "Enabled"]
+                        index: 0
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWCSSDown"
+                        type: "Int"
+                        value: 0
+                        min: 1
+                        max: 3
+                        step_size: 1
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWCPreHeatTime"
+                        type: "Double"
+                        value: 0.000000
+                        min: 0.000000
+                        max: 9.900000
+                        step_size: 0.100000
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWCWeavePattern"
+                        type: "Literal"
+                        value: "no weaving"
+                        values: ["no weaving", "harmonic", "harmonic with end stop", "reciprocating triangular", "circular clockwise", "circular counterclockwise", "user pattern 1", "user pattern 2", "user pattern 3", "user pattern 4", "user pattern 5"]
+                        index: 0
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWCWeaveNum"
+                        type: "Int"
+                        value: 0
+                        min: 0
+                        max: 10
+                        step_size: 1
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWCWeaveFreq"
+                        type: "Double"
+                        value: 0.000000
+                        min: 0.000000
+                        max: 4.000000
+                        step_size: 0.100000
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWCWeaveWidth"
+                        type: "Double"
+                        value: 0.000000
+                        min: 0.000000
+                        max: 40.000000
+                        step_size: 0.100000
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                  - name: "Tool"
+                    group: "BuiltInEvent"
+                    insert_position: "InsertAfter"
+                    event_type: "Tool"
+                    attributes:
+                  - name: "Speed"
+                    group: "Motionprofile"
+                    insert_position: "InsertAfter"
+                    event_type: "Speed"
+                    attributes:
+                      - name: "Value"
+                        type: "Double"
+                        value: 0.005833
+                        min: -179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                        max: 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                        step_size: 0.100000
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Speed"
+                        olp_property: []
+                      - name: "PathType"
+                        type: "String"
+                        value: "Contour"
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: []
+                  - name: "Accuracy"
+                    group: "Motionprofile"
+                    insert_position: "InsertAfter"
+                    event_type: "Accuracy"
+                    attributes:
+                      - name: "Value"
+                        type: "Double"
+                        value: 0.010000
+                        min: -179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                        max: 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                        step_size: 0.100000
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Length"
+                        olp_property: []
+                      - name: "Criteria"
+                        type: "String"
+                        value: "Distance"
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: []
+                      - name: "PathType"
+                        type: "String"
+                        value: "Contour"
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: []
+              - name: "P1MAIN_P0021"
+                motion_type: "Linear"
+                is_ptp: false
+                is_linear: true
+                is_circular: false
+                is_reference: false
+                attributes:
+                events_before:
+                position:
+                  name: "P1MAIN_P0021"
+                  process_type: "ProcessCurve"
+                  target_type: "Cartesian"
+                  xyz_m: [0.130000, -0.061213, 0.051000]
+                  orientation_deg: [135.000000, 0.000000, -90.000000]
+                  config: "RAD"
+                  turn: "0,0,0"
+                  main_joints:
+                    - name: "D1"
+                      value: 16.181276
+                    - name: "D2"
+                      value: -14.037976
+                    - name: "D3"
+                      value: -99.257757
+                    - name: "D4"
+                      value: -0.000077
+                    - name: "D5"
+                      value: -94.780482
+                    - name: "D6"
+                      value: 73.819045
+                  external_joints:
+                    - name: "JT7"
+                      value: 0.000000
+                    - name: "JT8"
+                      value: 180.000000
+                  attributes:
+                via_position: ~
+                events_after:
+              - name: "P1MAIN_P0023"
+                motion_type: "Circular"
+                is_ptp: false
+                is_linear: false
+                is_circular: true
+                is_reference: false
+                attributes:
+                events_before:
+                position:
+                  name: "P1MAIN_P0023"
+                  process_type: "ProcessCurve"
+                  target_type: "Cartesian"
+                  xyz_m: [0.130000, -0.051314, 0.055101]
+                  orientation_deg: [135.000000, 45.000000, -90.000000]
+                  config: "RAD"
+                  turn: "0,0,0"
+                  main_joints:
+                    - name: "D1"
+                      value: 25.920754
+                    - name: "D2"
+                      value: -41.552249
+                    - name: "D3"
+                      value: -125.210068
+                    - name: "D4"
+                      value: 21.793756
+                    - name: "D5"
+                      value: -56.360572
+                    - name: "D6"
+                      value: 58.544606
+                  external_joints:
+                    - name: "JT7"
+                      value: 0.000000
+                    - name: "JT8"
+                      value: 180.000000
+                  attributes:
+                via_position:
+                  name: "P1MAIN_P0022"
+                  process_type: "ViaPoint"
+                  target_type: "Cartesian"
+                  xyz_m: [0.130000, -0.055856, 0.052066]
+                  orientation_deg: [135.000000, 22.500000, -90.000000]
+                  config: "RAD"
+                  turn: "0,0,0"
+                  main_joints:
+                    - name: "D1"
+                      value: 20.355445
+                    - name: "D2"
+                      value: -27.862780
+                    - name: "D3"
+                      value: -111.321514
+                    - name: "D4"
+                      value: 7.904469
+                    - name: "D5"
+                      value: -75.451544
+                    - name: "D6"
+                      value: 69.082631
+                  external_joints:
+                    - name: "JT7"
+                      value: 0.000000
+                    - name: "JT8"
+                      value: 180.000000
+                  attributes:
+                events_after:
+              - name: "P1MAIN_P0024"
+                motion_type: "Linear"
+                is_ptp: false
+                is_linear: true
+                is_circular: false
+                is_reference: false
+                attributes:
+                events_before:
+                position:
+                  name: "P1MAIN_P0024"
+                  process_type: "ProcessCurve"
+                  target_type: "Cartesian"
+                  xyz_m: [0.130000, -0.030101, 0.076314]
+                  orientation_deg: [135.000000, 45.000000, -90.000000]
+                  config: "RAD"
+                  turn: "0,0,0"
+                  main_joints:
+                    - name: "D1"
+                      value: 25.091528
+                    - name: "D2"
+                      value: -39.677812
+                    - name: "D3"
+                      value: -123.120707
+                    - name: "D4"
+                      value: 21.136943
+                    - name: "D5"
+                      value: -56.259057
+                    - name: "D6"
+                      value: 59.560745
+                  external_joints:
+                    - name: "JT7"
+                      value: 0.000000
+                    - name: "JT8"
+                      value: 180.000000
+                  attributes:
+                via_position: ~
+                events_after:
+              - name: "P1MAIN_P0026"
+                motion_type: "Circular"
+                is_ptp: false
+                is_linear: false
+                is_circular: true
+                is_reference: false
+                attributes:
+                events_before:
+                position:
+                  name: "P1MAIN_P0026"
+                  process_type: "ProcessCurve"
+                  target_type: "Cartesian"
+                  xyz_m: [0.130000, -0.018787, 0.081000]
+                  orientation_deg: [135.000000, 0.000128, -90.000000]
+                  config: "RAD"
+                  turn: "0,0,0"
+                  main_joints:
+                    - name: "D1"
+                      value: 15.514411
+                    - name: "D2"
+                      value: -10.689912
+                    - name: "D3"
+                      value: -94.785284
+                    - name: "D4"
+                      value: -0.000039
+                    - name: "D5"
+                      value: -95.904769
+                    - name: "D6"
+                      value: 74.485912
+                  external_joints:
+                    - name: "JT7"
+                      value: 0.000000
+                    - name: "JT8"
+                      value: 180.000000
+                  attributes:
+                via_position:
+                  name: "P1MAIN_P0025"
+                  process_type: "ViaPoint"
+                  target_type: "Cartesian"
+                  xyz_m: [0.130000, -0.024910, 0.079782]
+                  orientation_deg: [135.000000, 22.500004, -90.000000]
+                  config: "RAD"
+                  turn: "0,0,0"
+                  main_joints:
+                    - name: "D1"
+                      value: 19.594217
+                    - name: "D2"
+                      value: -25.296979
+                    - name: "D3"
+                      value: -108.107383
+                    - name: "D4"
+                      value: 7.600630
+                    - name: "D5"
+                      value: -75.991996
+                    - name: "D6"
+                      value: 69.945607
+                  external_joints:
+                    - name: "JT7"
+                      value: 0.000000
+                    - name: "JT8"
+                      value: 180.000000
+                  attributes:
+                events_after:
+              - name: "P1MAIN_P0027"
+                motion_type: "Linear"
+                is_ptp: false
+                is_linear: true
+                is_circular: false
+                is_reference: false
+                attributes:
+                events_before:
+                position:
+                  name: "P1MAIN_P0027"
+                  process_type: "ProcessCurve"
+                  target_type: "Cartesian"
+                  xyz_m: [0.130000, 0.018787, 0.081000]
+                  orientation_deg: [135.000000, 0.000000, -90.000000]
+                  config: "RAD"
+                  turn: "0,0,0"
+                  main_joints:
+                    - name: "D1"
+                      value: 14.967055
+                    - name: "D2"
+                      value: -8.248141
+                    - name: "D3"
+                      value: -92.671632
+                    - name: "D4"
+                      value: -0.000071
+                    - name: "D5"
+                      value: -95.576774
+                    - name: "D6"
+                      value: 75.033264
+                  external_joints:
+                    - name: "JT7"
+                      value: 0.000000
+                    - name: "JT8"
+                      value: 180.000000
+                  attributes:
+                via_position: ~
+                events_after:
+              - name: "P1MAIN_P0029"
+                motion_type: "Circular"
+                is_ptp: false
+                is_linear: false
+                is_circular: true
+                is_reference: false
+                attributes:
+                events_before:
+                position:
+                  name: "P1MAIN_P0029"
+                  process_type: "ProcessCurve"
+                  target_type: "Cartesian"
+                  xyz_m: [0.130000, 0.030101, 0.076314]
+                  orientation_deg: [135.000000, -45.000059, -90.000000]
+                  config: "RAD"
+                  turn: "0,0,0"
+                  main_joints:
+                    - name: "D1"
+                      value: 10.880046
+                    - name: "D2"
+                      value: 16.802797
+                    - name: "D3"
+                      value: -75.455443
+                    - name: "D4"
+                      value: -10.307150
+                    - name: "D5"
+                      value: -131.758982
+                    - name: "D6"
+                      value: 75.354685
+                  external_joints:
+                    - name: "JT7"
+                      value: 0.000000
+                    - name: "JT8"
+                      value: 180.000000
+                  attributes:
+                via_position:
+                  name: "P1MAIN_P0028"
+                  process_type: "ViaPoint"
+                  target_type: "Cartesian"
+                  xyz_m: [0.130000, 0.024910, 0.079782]
+                  orientation_deg: [135.000000, -22.500406, -90.000000]
+                  config: "RAD"
+                  turn: "0,0,0"
+                  main_joints:
+                    - name: "D1"
+                      value: 12.441570
+                    - name: "D2"
+                      value: 5.445547
+                    - name: "D3"
+                      value: -81.722257
+                    - name: "D4"
+                      value: -5.209622
+                    - name: "D5"
+                      value: -114.765186
+                    - name: "D6"
+                      value: 76.292269
+                  external_joints:
+                    - name: "JT7"
+                      value: 0.000000
+                    - name: "JT8"
+                      value: 180.000000
+                  attributes:
+                events_after:
+              - name: "P1MAIN_P0030"
+                motion_type: "Linear"
+                is_ptp: false
+                is_linear: true
+                is_circular: false
+                is_reference: false
+                attributes:
+                events_before:
+                position:
+                  name: "P1MAIN_P0030"
+                  process_type: "ProcessCurve"
+                  target_type: "Cartesian"
+                  xyz_m: [0.130000, 0.051314, 0.055101]
+                  orientation_deg: [135.000000, -45.000000, -90.000000]
+                  config: "RAD"
+                  turn: "0,0,0"
+                  main_joints:
+                    - name: "D1"
+                      value: 10.722953
+                    - name: "D2"
+                      value: 18.153710
+                    - name: "D3"
+                      value: -74.954354
+                    - name: "D4"
+                      value: -10.031744
+                    - name: "D5"
+                      value: -130.950153
+                    - name: "D6"
+                      value: 75.760354
+                  external_joints:
+                    - name: "JT7"
+                      value: 0.000000
+                    - name: "JT8"
+                      value: 180.000000
+                  attributes:
+                via_position: ~
+                events_after:
+              - name: "P1MAIN_P0032"
+                motion_type: "Circular"
+                is_ptp: false
+                is_linear: false
+                is_circular: true
+                is_reference: false
+                attributes:
+                events_before:
+                position:
+                  name: "P1MAIN_P0032"
+                  process_type: "ProcessCurve"
+                  target_type: "Cartesian"
+                  xyz_m: [0.130000, 0.061213, 0.051000]
+                  orientation_deg: [135.000000, -0.000000, -90.000000]
+                  config: "RAD"
+                  turn: "0,0,0"
+                  main_joints:
+                    - name: "D1"
+                      value: 14.392727
+                    - name: "D2"
+                      value: -6.048911
+                    - name: "D3"
+                      value: -92.396968
+                    - name: "D4"
+                      value: -0.000068
+                    - name: "D5"
+                      value: -93.652209
+                    - name: "D6"
+                      value: 75.607595
+                  external_joints:
+                    - name: "JT7"
+                      value: 0.000000
+                    - name: "JT8"
+                      value: 180.000000
+                  attributes:
+                via_position:
+                  name: "P1MAIN_P0031"
+                  process_type: "ViaPoint"
+                  target_type: "Cartesian"
+                  xyz_m: [0.130000, 0.055856, 0.052066]
+                  orientation_deg: [135.000000, -22.500000, -90.000000]
+                  config: "RAD"
+                  turn: "0,0,0"
+                  main_joints:
+                    - name: "D1"
+                      value: 12.145806
+                    - name: "D2"
+                      value: 7.143103
+                    - name: "D3"
+                      value: -81.429891
+                    - name: "D4"
+                      value: -5.032896
+                    - name: "D5"
+                      value: -113.391589
+                    - name: "D6"
+                      value: 76.752131
+                  external_joints:
+                    - name: "JT7"
+                      value: 0.000000
+                    - name: "JT8"
+                      value: 180.000000
+                  attributes:
+                events_after:
+              - name: "P1MAIN_P0033"
+                motion_type: "Linear"
+                is_ptp: false
+                is_linear: true
+                is_circular: false
+                is_reference: false
+                attributes:
+                events_before:
+                  - name: "TpeAtEndEvent"
+                    group: "TpdbIgnore"
+                    insert_position: "InsertBefore"
+                    event_type: "Process"
+                    attributes:
+                      - name: "TSContourTpeUUID"
+                        type: "String"
+                        value: "56e9721-0db202a6"
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                  - name: "Accuracy"
+                    group: "Motionprofile"
+                    insert_position: "InsertBefore"
+                    event_type: "Accuracy"
+                    attributes:
+                      - name: "Value"
+                        type: "Double"
+                        value: 0.000000
+                        min: -179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                        max: 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                        step_size: 0.100000
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: []
+                      - name: "Criteria"
+                        type: "String"
+                        value: "Off"
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: []
+                      - name: "PathType"
+                        type: "String"
+                        value: "Contour"
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: []
+                position:
+                  name: "P1MAIN_P0033"
+                  process_type: "ProcessCurve"
+                  target_type: "Cartesian"
+                  xyz_m: [0.130000, 0.118000, 0.051000]
+                  orientation_deg: [135.000000, 0.000000, -90.000000]
+                  config: "RAD"
+                  turn: "0,0,0"
+                  main_joints:
+                    - name: "D1"
+                      value: 13.688356
+                    - name: "D2"
+                      value: -2.262721
+                    - name: "D3"
+                      value: -88.832392
+                    - name: "D4"
+                      value: -0.000065
+                    - name: "D5"
+                      value: -93.430595
+                    - name: "D6"
+                      value: 76.311967
+                  external_joints:
+                    - name: "JT7"
+                      value: 0.000000
+                    - name: "JT8"
+                      value: 180.000000
+                  attributes:
+                via_position: ~
+                events_after:
+                  - name: "ArcOffEvent"
+                    group: "OlpEvent"
+                    insert_position: "InsertAfter"
+                    event_type: "Olp"
+                    attributes:
+                  - name: "Tool"
+                    group: "BuiltInEvent"
+                    insert_position: "InsertAfter"
+                    event_type: "Tool"
+                    attributes:
+                  - name: "Accuracy"
+                    group: "Motionprofile"
+                    insert_position: "InsertAfter"
+                    event_type: "Accuracy"
+                    attributes:
+                      - name: "Value"
+                        type: "Double"
+                        value: 0.005000
+                        min: -179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                        max: 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                        step_size: 0.100000
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Length"
+                        olp_property: []
+                      - name: "Criteria"
+                        type: "String"
+                        value: "Distance"
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: []
+                      - name: "PathType"
+                        type: "String"
+                        value: "Contour"
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: []
+                  - name: "Speed"
+                    group: "Motionprofile"
+                    insert_position: "InsertAfter"
+                    event_type: "Speed"
+                    attributes:
+                      - name: "Value"
+                        type: "Double"
+                        value: 0.500000
+                        min: -179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                        max: 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                        step_size: 0.100000
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Speed"
+                        olp_property: []
+                      - name: "PathType"
+                        type: "String"
+                        value: "Contour"
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: []
+                  - name: "RetractArcWeldingStitch"
+                    group: "ApproachRetract"
+                    insert_position: "InsertAfter"
+                    event_type: "Retract"
+                    attributes:
+                      - name: "SpeedViaRetract"
+                        type: "Double"
+                        value: 0.500000
+                        min: 0.010000
+                        max: 2.000000
+                        step_size: 0.100000
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Speed"
+                        olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute"]
+                    motions:
+                      - name: "P1MAIN_P0034"
+                        motion_type: "Linear"
+                        is_ptp: false
+                        is_linear: true
+                        is_circular: false
+                        is_reference: false
+                        attributes:
+                        events_before:
+                        position:
+                          name: "P1MAIN_P0034"
+                          process_type: "Retract"
+                          target_type: "Cartesian"
+                          xyz_m: [0.200711, 0.118000, 0.121711]
+                          orientation_deg: [135.000000, 0.000000, -90.000000]
+                          config: "RAD"
+                          turn: "0,0,0"
+                          main_joints:
+                            - name: "D1"
+                              value: 17.063442
+                            - name: "D2"
+                              value: 0.541659
+                            - name: "D3"
+                              value: -82.032346
+                            - name: "D4"
+                              value: -0.000081
+                            - name: "D5"
+                              value: -97.426257
+                            - name: "D6"
+                              value: 72.936874
+                          external_joints:
+                            - name: "JT7"
+                              value: 0.000000
+                            - name: "JT8"
+                              value: 180.000000
+                          attributes:
+                        via_position: ~
+                        events_after:
+      - name: "P1S2"
+        calling_program: "P1MAIN"
+        called_program: "P1S2"
+      - name: "P1S3"
+        calling_program: "P1MAIN"
+        called_program: "P1S3"
+
+summary:
+  program_count: 1
+  operation_group_count: 1
+  operation_count: 1
+  motion_count: 13
+  event_count: 16
+  event_types_found: ["Olp", "Approach", "Retract", "Process", "Speed", "Accuracy", "Tool", "Insert"]
+  technologies_found: ["ArcWeldingTechnology"]
+  attribute_counts:
+    controller: 0
+    program: 32
+    group: 0
+    operation: 3
+    event: 72
+    motion: 0
+    position: 0
+    resource: 1
