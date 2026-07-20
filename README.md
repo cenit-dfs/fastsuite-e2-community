@@ -14,6 +14,7 @@ This repository is used as a **git submodule** in the [fastsuite-copilot-starter
 |------|---------------|-------------|
 | `OLPTranslators/KUKA/KUKA_KRC5.py` | CENIT | **Canonical base downloader** — KUKA KRC5 with motion FOLDs, position data, multi-signal event handling |
 | `OLPTranslators/ABB/ABB_IRC5.py` | CENIT | **Advanced multi-plugin** — ABB IRC5 with technology plugin architecture |
+| `OLPTranslators/KAWASAKI/KAWASAKI_AS.py` | Community | **Kawasaki AS** — standard motion, signals, ROT_BASE, arc welding, seam tracking, and touch sensing |
 | `OLPTranslators/Simple_Python_Translator.py` | CENIT | **OLP tree dumper** — downloads the complete E2 object tree as `.txt` for analysis |
 
 Community contributions add new vendors or controller variants alongside the canonical files:
