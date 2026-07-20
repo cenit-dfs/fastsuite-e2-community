@@ -1,0 +1,46 @@
+{
+  "version": "1.0",
+  "data_type": "welddata",
+  "rapid_type": "welddata",
+  "rapid_template": "LOCAL PERS {rapid_type} {name}:=[{values}];",
+  "fields": [
+    {
+      "name": "weld_speed",
+      "type": "Integer",
+      "output_index": 0,
+      "default": 7,
+      "min": 0,
+      "max": 999,
+      "description": "Weld speed (mm/s)"
+    },
+    {
+      "name": "org_weld_speed",
+      "type": "Integer",
+      "output_index": 1,
+      "default": 0,
+      "min": 0,
+      "max": 999,
+      "description": "Original weld speed"
+    },
+    {
+      "name": "main_arc",
+      "type": "Array",
+      "array_type": "Integer",
+      "array_size": 9,
+      "output_index": 2,
+      "default": [29, 0, 0, 0, 0, 230, 0, 0, 0],
+      "column_headers": ["sched", "current", "voltage", "wire_feed", "dyn_corr", "arc_length", "gas_flow", "res1", "res2"],
+      "description": "Main arc parameters [9 elements]"
+    },
+    {
+      "name": "reserved",
+      "type": "Array",
+      "array_type": "Integer",
+      "array_size": 9,
+      "output_index": 3,
+      "default": [0, 0, 0, 0, 0, 0, 0, 0, 0],
+      "column_headers": ["res1", "res2", "res3", "res4", "res5", "res6", "res7", "res8", "res9"],
+      "description": "Reserved parameters [9 elements]"
+    }
+  ]
+}

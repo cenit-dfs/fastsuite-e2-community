@@ -1,0 +1,3595 @@
+meta:
+  translator: "TreeDumper"
+  translator_version: "1.0"
+  language: "en-US"
+
+controller:
+  name: "E0x_with_TrafoUnit"
+  model: "E0x_with_TrafoUnit"
+  series: "E-Series"
+  manufacturer: "Kawasaki"
+  type: "Motion"
+  active_program: "PG02_SE"
+
+  joints:
+    - name: "D1"
+      group_index: 0
+      dof_number: 1
+      joint_index: 1
+      port_name: "D1"
+      role: "Main"
+      unit: "deg"
+      is_external: false
+      kinematic_type: "Revolute"
+    - name: "D2"
+      group_index: 0
+      dof_number: 2
+      joint_index: 2
+      port_name: "D2"
+      role: "Main"
+      unit: "deg"
+      is_external: false
+      kinematic_type: "Revolute"
+    - name: "D3"
+      group_index: 0
+      dof_number: 3
+      joint_index: 3
+      port_name: "D3"
+      role: "Main"
+      unit: "deg"
+      is_external: false
+      kinematic_type: "Revolute"
+    - name: "D4"
+      group_index: 0
+      dof_number: 4
+      joint_index: 4
+      port_name: "D4"
+      role: "Main"
+      unit: "deg"
+      is_external: false
+      kinematic_type: "Revolute"
+    - name: "D5"
+      group_index: 0
+      dof_number: 5
+      joint_index: 5
+      port_name: "D5"
+      role: "Main"
+      unit: "deg"
+      is_external: false
+      kinematic_type: "Revolute"
+    - name: "D6"
+      group_index: 0
+      dof_number: 6
+      joint_index: 6
+      port_name: "D6"
+      role: "Main"
+      unit: "deg"
+      is_external: false
+      kinematic_type: "Revolute"
+    - name: "JT7"
+      group_index: 0
+      dof_number: 7
+      joint_index: 7
+      port_name: "D7"
+      role: "WorkpiecePositioner"
+      unit: "deg"
+      is_external: true
+      kinematic_type: "Revolute"
+    - name: "JT8"
+      group_index: 0
+      dof_number: 8
+      joint_index: 8
+      port_name: "D8"
+      role: "WorkpiecePositioner"
+      unit: "deg"
+      is_external: true
+      kinematic_type: "Revolute"
+
+  tool_profiles:
+    - name: "TOOL1"
+      index: ~
+      tool_type: "OnRobot"
+      is_vision_frame: false
+      xyz_m: [0.002200, 0.141714, 0.431714]
+      orientation_deg: [-45.000000, -0.000274, -0.000327]
+
+  base_profiles:
+    - name: "World"
+      index: ~
+      reference_profile: ~
+      xyz_m: [0.000000, 0.000000, 0.000000]
+      orientation_deg: [0.000000, 0.000000, 0.000000]
+    - name: "B0"
+      index: ~
+      reference_profile: ~
+      xyz_m: [0.812264, 0.486941, 1.817618]
+      orientation_deg: [0.000000, -0.000000, -0.000000]
+
+  accuracy_profiles:
+    - name: "Default"
+      criteria: "Distance"
+      fly_by: "Off"
+      value: 0.000000
+      unit: "m"
+    - name: "CP_ACCU_0.01m"
+      criteria: "Distance"
+      fly_by: "On"
+      value: 0.005000
+      unit: "m"
+
+  motion_profiles:
+    - name: "CP_SP_0.50_ACC100.00%"
+      basis: "Absolute"
+      type: "Contour"
+      speed: {value: 0.500000, unit: ""}
+      acceleration: {value: 100.000000, unit: "%"}
+    - name: "CP_SP_0.01_ACC100.00%"
+      basis: "Absolute"
+      type: "Contour"
+      speed: {value: 0.005833, unit: ""}
+      acceleration: {value: 100.000000, unit: "%"}
+    - name: "PTP_SP_50%_ACC_100%"
+      basis: "Percent"
+      type: "PointToPoint"
+      speed: {value: 50.000000, unit: "%"}
+      acceleration: {value: 100.000000, unit: "%"}
+    - name: "CP_SP_1m/s_ACC_100%"
+      basis: "Absolute"
+      type: "Contour"
+      speed: {value: 1.000000, unit: "%"}
+      acceleration: {value: 100.000000, unit: "%"}
+
+  attributes:
+
+  resources:
+    - name: "BA06L"
+      item_type: "Production"
+      item_sub_type: "MachineRobot"
+      manufacturer: "Kawasaki"
+      model: "BA06L"
+      series: "BA-Series"
+      supported_configurations: ["RAU", "LBU", "RBU", "LAU", "RAD", "LBD", "RBD", "LAD"]
+      supported_turns: ["8,0,0", "-16,0,0", "0,28,0", "0,0,0", "-2,-1,31", "1,0,0", "0,2,0", "2,0,0", "-1,63,0", "3,0,0", "0,-8,1", "4,0,0", "0,-64,63", "6,0,0", "0,6,0", "31,0,0", "30,0,0", "-128,1,0", "7,0,0", "-16,3,0", "12,0,0", "14,0,0", "0,0,15", "15,0,0", "-2,-1,-1", "-2,-1,15", "-16,7,0", "-32,-1,1", "16,0,0", "24,0,0", "-64,3,0", "28,0,0", "32,0,0", "48,0,0", "56,0,0", "-16,-1,0", "-2,3,0", "60,0,0", "-2,1,0", "62,0,0", "0,-16,7", "120,0,0", "63,0,0", "-2,7,0", "127,0,0", "64,0,0", "0,7,0", "96,0,0", "112,0,0", "124,0,0", "-128,7,0", "0,0,126", "-4,-1,15", "126,0,0", "-2,-1,7", "-128,0,0", "-16,-1,63", "-8,-1,31", "-64,0,0", "-32,0,0", "-1,1,0", "-2,-1,127", "-8,0,0", "0,126,0", "-4,0,0", "-2,0,0", "-64,-1,1", "-64,7,0", "-128,-1,31", "-16,15,0", "-8,1,0", "-1,0,0", "0,-4,31", "0,1,0", "-1,31,0", "-8,7,0", "-64,-1,7", "-64,1,0", "0,-16,63", "-32,1,0", "0,0,1", "-16,1,0", "0,127,0", "-4,1,0", "0,-64,0", "0,3,0", "-128,3,0", "-32,3,0", "-8,3,0", "-4,3,0", "-1,-1,63", "-1,3,0", "0,4,0", "-32,7,0", "-128,-1,127", "-4,7,0", "-1,7,0", "0,8,0", "0,12,0", "0,-4,127", "0,14,0", "0,-16,-1", "0,15,0", "-32,-1,-1", "-128,15,0", "0,-128,3", "-64,15,0", "-4,-1,1", "-32,15,0", "-8,15,0", "-4,15,0", "-2,-1,0", "-2,15,0", "-1,15,0", "-2,31,0", "0,16,0", "0,24,0", "0,-2,31", "0,30,0", "0,31,0", "-128,31,0", "0,0,124", "-64,31,0", "-64,-1,63", "-32,31,0", "-16,31,0", "-8,31,0", "-4,31,0", "0,32,0", "-128,127,0", "0,48,0", "0,-16,3", "0,56,0", "0,60,0", "0,62,0", "0,63,0", "-128,-1,7", "-128,63,0", "-1,-1,31", "-64,63,0", "0,-2,15", "-32,-1,7", "-32,63,0", "-16,63,0", "-8,63,0", "-4,63,0", "0,-4,3", "-2,63,0", "0,64,0", "0,-128,1", "0,96,0", "0,112,0", "0,-4,15", "0,120,0", "0,124,0", "-64,127,0", "-32,127,0", "-16,127,0", "-8,127,0", "-4,127,0", "-2,127,0", "-1,127,0", "0,-128,0", "0,-32,0", "0,-16,0", "0,-8,0", "-4,-1,-1", "0,-4,0", "0,-2,0", "0,-1,0", "-128,-1,0", "-64,-1,0", "-32,-1,0", "-8,-1,0", "-8,-1,127", "-4,-1,0", "-1,-1,0", "0,-64,1", "0,-32,1", "0,-16,1", "0,-4,1", "0,-2,1", "0,-1,1", "-128,-1,1", "-16,-1,1", "-8,-1,1", "-2,-1,1", "-1,-1,1", "0,0,2", "0,0,3", "0,-64,3", "0,-32,3", "-32,-1,127", "0,-8,3", "0,-2,3", "-4,-1,31", "0,-1,3", "-128,-1,3", "-64,-1,3", "-32,-1,3", "-16,-1,3", "-8,-1,3", "0,-1,127", "-4,-1,3", "0,-1,31", "-2,-1,3", "-1,-1,3", "0,0,4", "-128,-1,-1", "0,0,6", "0,0,7", "0,-128,7", "0,-64,7", "0,-32,7", "0,-8,7", "0,-4,7", "0,-1,15", "0,-2,7", "0,-1,7", "-16,-1,7", "-8,-1,7", "-4,-1,7", "-1,-1,7", "0,0,-16", "0,0,8", "0,0,12", "0,0,14", "0,-128,15", "0,-64,-1", "0,-64,15", "0,-32,15", "0,-16,15", "-4,-1,127", "0,-8,15", "0,-16,31", "-128,-1,15", "-64,-1,15", "-32,-1,15", "-16,-1,-1", "-16,-1,15", "-8,-1,15", "-1,-1,15", "0,0,16", "0,0,24", "0,0,28", "0,0,30", "0,0,31", "0,-128,31", "0,-64,31", "0,-32,31", "0,-8,31", "-64,-1,31", "-32,-1,31", "-16,-1,31", "0,0,32", "0,0,48", "0,0,56", "0,0,60", "0,-32,127", "0,0,62", "0,0,63", "0,-128,63", "0,-32,63", "0,-8,63", "0,-4,63", "0,-2,63", "0,-2,127", "0,-1,63", "-128,-1,63", "-32,-1,63", "-8,-1,63", "-4,-1,63", "-2,-1,63", "0,0,64", "0,0,96", "0,0,112", "0,0,120", "0,0,127", "0,0,-128", "0,-128,127", "0,-64,127", "0,-16,127", "0,-8,127", "-64,-1,127", "-16,-1,127", "-1,-1,127", "0,0,-64", "0,-128,-1", "0,0,-32", "0,0,-8", "0,0,-4", "0,0,-2", "0,0,-1", "0,-32,-1", "0,-8,-1", "0,-4,-1", "0,-2,-1", "0,-1,-1", "-64,-1,-1", "-8,-1,-1", "-1,-1,-1"]
+      ports:
+      attributes:
+        - name: "CENOlpDataOutputStyle"
+          type: "String"
+          value: "Implicit"
+          group_name: ""
+          read_only: false
+          value_unit_type: "Standard"
+          olp_property: []
+    - name: "ZSB-V-RT3500H MIG-MAG"
+      item_type: "Peripheral"
+      item_sub_type: "Tool"
+      manufacturer: "OTC"
+      model: ""
+      series: ""
+      supported_configurations: []
+      supported_turns: [""]
+      ports:
+        - name: "1"
+          comment: "Tool On"
+          data_type: "Bool"
+          direction: "Input"
+      attributes:
+    - name: "PMU_Positionierer"
+      item_type: "Production"
+      item_sub_type: "WorkpiecePositioner"
+      manufacturer: "ASTOR"
+      model: "PST500H1"
+      series: "K-Positionier"
+      supported_configurations: []
+      supported_turns: [""]
+      ports:
+      attributes:
+    - name: "Clamp"
+      item_type: "Peripheral"
+      item_sub_type: "Fixture"
+      manufacturer: "Cenit"
+      model: ""
+      series: ""
+      supported_configurations: []
+      supported_turns: [""]
+      ports:
+        - name: "1"
+          comment: "Close"
+          data_type: "Bool"
+          direction: "Input"
+        - name: "2"
+          comment: "Open"
+          data_type: "Bool"
+          direction: "Input"
+        - name: "3"
+          comment: "Closed"
+          data_type: "Bool"
+          direction: "Output"
+        - name: "4"
+          comment: "Opened"
+          data_type: "Bool"
+          direction: "Output"
+      attributes:
+
+programs:
+  - name: "PG02_SE"
+    is_main: true
+    base_profile: "B0"
+    tool_profile: "TOOL1"
+    attributes:
+      - name: "CONTROLLER_MANUFACTURER"
+        type: "String"
+        value: "Kawasaki"
+        group_name: ""
+        read_only: false
+        value_unit_type: "Standard"
+        olp_property: ["ProcessAttribute", "GlobalAttribute"]
+      - name: "CONTROLLER_SERIES"
+        type: "String"
+        value: "E-Series"
+        group_name: ""
+        read_only: false
+        value_unit_type: "Standard"
+        olp_property: ["ProcessAttribute", "GlobalAttribute"]
+      - name: "CONTROLLER_MODEL"
+        type: "String"
+        value: "E0x_with_TrafoUnit"
+        group_name: ""
+        read_only: false
+        value_unit_type: "Standard"
+        olp_property: ["ProcessAttribute", "GlobalAttribute"]
+      - name: "RESOURCE_MANUFACTURER"
+        type: "String"
+        value: "Kawasaki"
+        group_name: ""
+        read_only: false
+        value_unit_type: "Standard"
+        olp_property: ["ProcessAttribute", "GlobalAttribute"]
+      - name: "RESOURCE_SERIES"
+        type: "String"
+        value: "BA-Series"
+        group_name: ""
+        read_only: false
+        value_unit_type: "Standard"
+        olp_property: ["ProcessAttribute", "GlobalAttribute"]
+      - name: "RESOURCE_MODEL"
+        type: "String"
+        value: "BA06L"
+        group_name: ""
+        read_only: false
+        value_unit_type: "Standard"
+        olp_property: ["ProcessAttribute", "GlobalAttribute"]
+      - name: "P_SEARCH_CYC_EXPLODE"
+        type: "Literal"
+        value: "forbidden"
+        values: ["forbidden", "immediately"]
+        index: 0
+        group_name: ""
+        read_only: false
+        value_unit_type: "Standard"
+        olp_property: ["UserAttribute", "ProcessAttribute", "GlobalAttribute"]
+      - name: "TSConnectionType"
+        type: "Literal"
+        value: "StartEndConnect"
+        values: ["OperationConnect", "StartEndConnect", "ShortestDistanceConnect", "Frame3pConnect"]
+        index: 1
+        group_name: ""
+        read_only: false
+        value_unit_type: "Standard"
+        olp_property: ["UserAttribute", "ProcessAttribute", "OperationGroupAttribute", "GlobalAttribute"]
+      - name: "GroupNumber"
+        type: "Int"
+        value: 0
+        min: -1
+        max: 6
+        step_size: 1
+        group_name: ""
+        read_only: false
+        value_unit_type: "Standard"
+        olp_property: ["UserAttribute", "ProcessAttribute", "GlobalAttribute"]
+      - name: "SensingLength"
+        type: "Double"
+        value: 0.030000
+        min: 0.000000
+        max: 1000.000000
+        step_size: 0.001000
+        group_name: ""
+        read_only: false
+        value_unit_type: "Length"
+        olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute", "OperationGroupAttribute", "GlobalAttribute"]
+      - name: "OvertravelLength"
+        type: "Double"
+        value: 0.030000
+        min: 0.000000
+        max: 1000.000000
+        step_size: 0.001000
+        group_name: ""
+        read_only: false
+        value_unit_type: "Length"
+        olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute", "OperationGroupAttribute", "GlobalAttribute"]
+      - name: "SensingSpeed"
+        type: "Double"
+        value: 0.015000
+        min: 0.001000
+        max: 0.200000
+        step_size: 0.005000
+        group_name: ""
+        read_only: false
+        value_unit_type: "Speed"
+        olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute", "OperationGroupAttribute", "GlobalAttribute"]
+      - name: "TouchApprRetrSpeed"
+        type: "Double"
+        value: 0.200000
+        min: 0.000000
+        max: 1.000000
+        step_size: 0.001000
+        group_name: ""
+        read_only: false
+        value_unit_type: "Length"
+        olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute", "OperationGroupAttribute", "GlobalAttribute"]
+      - name: "TouchApprFlyBy"
+        type: "Double"
+        value: 0.005000
+        min: 0.000000
+        max: 0.100000
+        step_size: 0.001000
+        group_name: ""
+        read_only: false
+        value_unit_type: "Length"
+        olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute", "OperationGroupAttribute", "GlobalAttribute"]
+      - name: "SeamSearchSensingLength"
+        type: "Double"
+        value: 0.030000
+        min: 0.000000
+        max: 1000.000000
+        step_size: 0.001000
+        group_name: ""
+        read_only: false
+        value_unit_type: "Length"
+        olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute", "OperationGroupAttribute", "GlobalAttribute"]
+      - name: "SeamSearchOvertravelLength"
+        type: "Double"
+        value: 0.030000
+        min: 0.000000
+        max: 1000.000000
+        step_size: 0.001000
+        group_name: ""
+        read_only: false
+        value_unit_type: "Length"
+        olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute", "OperationGroupAttribute", "GlobalAttribute"]
+      - name: "SeamSearchSensingSpeed"
+        type: "Double"
+        value: 0.015000
+        min: 0.001000
+        max: 0.200000
+        step_size: 0.005000
+        group_name: ""
+        read_only: false
+        value_unit_type: "Speed"
+        olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute", "OperationGroupAttribute", "GlobalAttribute"]
+    operation_groups:
+      - name: "GRP001"
+        technology:
+          name: "ArcWeldingTechnology"
+          version: 46
+          uuid: "D94A16B4-0258-42D5-AAE9-1E5B4CDE71CE"
+        base_profile: "B0"
+        tool_profile: "TOOL1"
+        attributes:
+        operations:
+          - name: "WG1_Touch1"
+            type: "Normal"
+            base_profile: "B0"
+            tool_profile: "TOOL1"
+            attributes:
+              - name: "TSLocationAtEnd"
+                type: "Bool"
+                value: false
+                group_name: ""
+                read_only: false
+                value_unit_type: "Standard"
+                olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute"]
+              - name: "TSContourTpeUUID"
+                type: "String"
+                value: "9110301-7d85e156"
+                group_name: ""
+                read_only: false
+                value_unit_type: "Standard"
+                olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute"]
+              - name: "TouchSensCycleExplode"
+                type: "Bool"
+                value: false
+                group_name: ""
+                read_only: false
+                value_unit_type: "Standard"
+                olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute"]
+              - name: "TSWireCheckOperation"
+                type: "Bool"
+                value: false
+                group_name: ""
+                read_only: false
+                value_unit_type: "Standard"
+                olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute"]
+              - name: "TouchId"
+                type: "Int"
+                value: 1
+                min: 0
+                max: 2147483647
+                step_size: 1
+                group_name: ""
+                read_only: false
+                value_unit_type: "Standard"
+                olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute"]
+              - name: "Touch_Cntr"
+                type: "Int"
+                value: 3
+                min: 0
+                max: 2147483647
+                step_size: 1
+                group_name: ""
+                read_only: false
+                value_unit_type: "Standard"
+                olp_property: ["ProcessAttribute", "OperationAttribute"]
+              - name: "FramePt"
+                type: "Int"
+                value: 0
+                min: 0
+                max: 3
+                step_size: 1
+                group_name: ""
+                read_only: false
+                value_unit_type: "Standard"
+                olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute"]
+              - name: "ArcWeldingOperationWorkMethodName"
+                type: "String"
+                value: "TouchSensingWorkMethod"
+                group_name: ""
+                read_only: false
+                value_unit_type: "Standard"
+                olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute"]
+            motions:
+              - name: "PG02_SE_P0004"
+                motion_type: "Pt2Pt"
+                is_ptp: true
+                is_linear: false
+                is_circular: false
+                is_reference: true
+                attributes:
+                events_before:
+                  - name: "TouchSensingEvent"
+                    group: "Unknown"
+                    insert_position: "InsertBefore"
+                    event_type: "Process"
+                    attributes:
+                      - name: "TSLocationAtEnd"
+                        type: "Bool"
+                        value: false
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "TSContourTpeUUID"
+                        type: "String"
+                        value: "9110301-7d85e156"
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "TSBaseFrameTouchAxis"
+                        type: "Literal"
+                        value: "Undefined"
+                        values: ["Undefined", "+X", "-X", "+Y", "-Y", "+Z", "-Z"]
+                        index: 0
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                    motions:
+                      - name: "PG02_SE_P0001"
+                        motion_type: "Linear"
+                        is_ptp: false
+                        is_linear: true
+                        is_circular: false
+                        is_reference: false
+                        attributes:
+                        events_before:
+                          - name: "TouchPointStartAppEvent"
+                            group: "OlpEvent"
+                            insert_position: "InsertBefore"
+                            event_type: "Olp"
+                            attributes:
+                          - name: "Accuracy"
+                            group: "Motionprofile"
+                            insert_position: "InsertBefore"
+                            event_type: "Accuracy"
+                            attributes:
+                              - name: "Value"
+                                type: "Double"
+                                value: 0.005000
+                                min: -179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                                max: 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                                step_size: 0.100000
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Length"
+                                olp_property: []
+                              - name: "Criteria"
+                                type: "String"
+                                value: "Distance"
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Standard"
+                                olp_property: []
+                              - name: "PathType"
+                                type: "String"
+                                value: "Contour"
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Standard"
+                                olp_property: []
+                          - name: "Speed"
+                            group: "Motionprofile"
+                            insert_position: "InsertBefore"
+                            event_type: "Speed"
+                            attributes:
+                              - name: "Value"
+                                type: "Double"
+                                value: 0.200000
+                                min: -179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                                max: 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                                step_size: 0.100000
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Speed"
+                                olp_property: []
+                              - name: "PathType"
+                                type: "String"
+                                value: "Contour"
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Standard"
+                                olp_property: []
+                        position:
+                          name: "PG02_SE_P0001"
+                          process_type: "Cycle"
+                          target_type: "Cartesian"
+                          xyz_m: [0.101907, 1.092978, 1.058360]
+                          orientation_deg: [135.000000, -0.000000, 0.000000]
+                          config: "RAD"
+                          turn: "0,0,0"
+                          main_joints:
+                            - name: "D1"
+                              value: 4.616780
+                            - name: "D2"
+                              value: 6.015847
+                            - name: "D3"
+                              value: -75.504290
+                            - name: "D4"
+                              value: -0.000276
+                            - name: "D5"
+                              value: -98.479840
+                            - name: "D6"
+                              value: -4.616494
+                          external_joints:
+                            - name: "JT7"
+                              value: 0.000000
+                            - name: "JT8"
+                              value: 180.000000
+                          attributes:
+                        via_position: ~
+                        events_after:
+                      - name: "PG02_SE_P0002"
+                        motion_type: "Linear"
+                        is_ptp: false
+                        is_linear: true
+                        is_circular: false
+                        is_reference: false
+                        attributes:
+                        events_before:
+                          - name: "TouchPointCollisionEvent"
+                            group: "OlpEvent"
+                            insert_position: "InsertBefore"
+                            event_type: "Olp"
+                            attributes:
+                          - name: "Speed"
+                            group: "Motionprofile"
+                            insert_position: "InsertBefore"
+                            event_type: "Speed"
+                            attributes:
+                              - name: "Value"
+                                type: "Double"
+                                value: 0.015000
+                                min: -179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                                max: 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                                step_size: 0.100000
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Speed"
+                                olp_property: []
+                              - name: "PathType"
+                                type: "String"
+                                value: "Contour"
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Standard"
+                                olp_property: []
+                        position:
+                          name: "PG02_SE_P0002"
+                          process_type: "Cycle"
+                          target_type: "Cartesian"
+                          xyz_m: [0.101907, 1.092978, 1.028360]
+                          orientation_deg: [135.000000, 0.000000, -0.000000]
+                          config: "RAD"
+                          turn: "0,0,0"
+                          main_joints:
+                            - name: "D1"
+                              value: 4.616780
+                            - name: "D2"
+                              value: 5.260288
+                            - name: "D3"
+                              value: -78.051714
+                            - name: "D4"
+                              value: -0.000275
+                            - name: "D5"
+                              value: -96.687976
+                            - name: "D6"
+                              value: -4.616486
+                          external_joints:
+                            - name: "JT7"
+                              value: 0.000000
+                            - name: "JT8"
+                              value: 180.000000
+                          attributes:
+                        via_position: ~
+                        events_after:
+                      - name: "PG02_SE_P0003"
+                        motion_type: "Linear"
+                        is_ptp: false
+                        is_linear: true
+                        is_circular: false
+                        is_reference: false
+                        attributes:
+                        events_before:
+                          - name: "TouchPointStartRetEvent"
+                            group: "OlpEvent"
+                            insert_position: "InsertBefore"
+                            event_type: "Olp"
+                            attributes:
+                          - name: "Speed"
+                            group: "Motionprofile"
+                            insert_position: "InsertBefore"
+                            event_type: "Speed"
+                            attributes:
+                              - name: "Value"
+                                type: "Double"
+                                value: 0.200000
+                                min: -179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                                max: 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                                step_size: 0.100000
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Speed"
+                                olp_property: []
+                              - name: "PathType"
+                                type: "String"
+                                value: "Contour"
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Standard"
+                                olp_property: []
+                        position:
+                          name: "PG02_SE_P0003"
+                          process_type: "Cycle"
+                          target_type: "Cartesian"
+                          xyz_m: [0.101907, 1.092978, 1.058360]
+                          orientation_deg: [135.000000, -0.000000, 0.000000]
+                          config: "RAD"
+                          turn: "0,0,0"
+                          main_joints:
+                            - name: "D1"
+                              value: 4.616780
+                            - name: "D2"
+                              value: 6.015847
+                            - name: "D3"
+                              value: -75.504290
+                            - name: "D4"
+                              value: -0.000276
+                            - name: "D5"
+                              value: -98.479840
+                            - name: "D6"
+                              value: -4.616494
+                          external_joints:
+                            - name: "JT7"
+                              value: 0.000000
+                            - name: "JT8"
+                              value: 180.000000
+                          attributes:
+                        via_position: ~
+                        events_after:
+                position:
+                  name: "PG02_SE_P0004"
+                  process_type: "ProcessCurve"
+                  target_type: "Cartesian"
+                  xyz_m: [0.101907, 1.092978, 1.015546]
+                  orientation_deg: [135.000000, 0.000000, -0.000000]
+                  config: "RAD"
+                  turn: "0,0,0"
+                  main_joints:
+                    - name: "D1"
+                      value: 4.616780
+                    - name: "D2"
+                      value: 4.962515
+                    - name: "D3"
+                      value: -79.104926
+                    - name: "D4"
+                      value: -0.000275
+                    - name: "D5"
+                      value: -95.932537
+                    - name: "D6"
+                      value: -4.616482
+                  external_joints:
+                    - name: "JT7"
+                      value: 0.000000
+                    - name: "JT8"
+                      value: 180.000000
+                  attributes:
+                via_position: ~
+                events_after:
+          - name: "WG1_Touch2"
+            type: "Normal"
+            base_profile: "B0"
+            tool_profile: "TOOL1"
+            attributes:
+              - name: "TSLocationAtEnd"
+                type: "Bool"
+                value: false
+                group_name: ""
+                read_only: false
+                value_unit_type: "Standard"
+                olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute"]
+              - name: "TSContourTpeUUID"
+                type: "String"
+                value: "9110301-7d85e156"
+                group_name: ""
+                read_only: false
+                value_unit_type: "Standard"
+                olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute"]
+              - name: "TouchSensCycleExplode"
+                type: "Bool"
+                value: false
+                group_name: ""
+                read_only: false
+                value_unit_type: "Standard"
+                olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute"]
+              - name: "TSWireCheckOperation"
+                type: "Bool"
+                value: false
+                group_name: ""
+                read_only: false
+                value_unit_type: "Standard"
+                olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute"]
+              - name: "TouchId"
+                type: "Int"
+                value: 1
+                min: 0
+                max: 2147483647
+                step_size: 1
+                group_name: ""
+                read_only: false
+                value_unit_type: "Standard"
+                olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute"]
+              - name: "Touch_Cntr"
+                type: "Int"
+                value: 3
+                min: 0
+                max: 2147483647
+                step_size: 1
+                group_name: ""
+                read_only: false
+                value_unit_type: "Standard"
+                olp_property: ["ProcessAttribute", "OperationAttribute"]
+              - name: "FramePt"
+                type: "Int"
+                value: 0
+                min: 0
+                max: 3
+                step_size: 1
+                group_name: ""
+                read_only: false
+                value_unit_type: "Standard"
+                olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute"]
+              - name: "ArcWeldingOperationWorkMethodName"
+                type: "String"
+                value: "TouchSensingWorkMethod"
+                group_name: ""
+                read_only: false
+                value_unit_type: "Standard"
+                olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute"]
+            motions:
+              - name: "PG02_SE_P0008"
+                motion_type: "Pt2Pt"
+                is_ptp: true
+                is_linear: false
+                is_circular: false
+                is_reference: true
+                attributes:
+                events_before:
+                  - name: "TouchSensingEvent"
+                    group: "Unknown"
+                    insert_position: "InsertBefore"
+                    event_type: "Process"
+                    attributes:
+                      - name: "TSLocationAtEnd"
+                        type: "Bool"
+                        value: false
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "TSContourTpeUUID"
+                        type: "String"
+                        value: "9110301-7d85e156"
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "TSBaseFrameTouchAxis"
+                        type: "Literal"
+                        value: "Undefined"
+                        values: ["Undefined", "+X", "-X", "+Y", "-Y", "+Z", "-Z"]
+                        index: 0
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                    motions:
+                      - name: "PG02_SE_P0005"
+                        motion_type: "Linear"
+                        is_ptp: false
+                        is_linear: true
+                        is_circular: false
+                        is_reference: false
+                        attributes:
+                        events_before:
+                          - name: "TouchPointStartAppEvent"
+                            group: "OlpEvent"
+                            insert_position: "InsertBefore"
+                            event_type: "Olp"
+                            attributes:
+                          - name: "Accuracy"
+                            group: "Motionprofile"
+                            insert_position: "InsertBefore"
+                            event_type: "Accuracy"
+                            attributes:
+                              - name: "Value"
+                                type: "Double"
+                                value: 0.005000
+                                min: -179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                                max: 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                                step_size: 0.100000
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Length"
+                                olp_property: []
+                              - name: "Criteria"
+                                type: "String"
+                                value: "Distance"
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Standard"
+                                olp_property: []
+                              - name: "PathType"
+                                type: "String"
+                                value: "Contour"
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Standard"
+                                olp_property: []
+                          - name: "Speed"
+                            group: "Motionprofile"
+                            insert_position: "InsertBefore"
+                            event_type: "Speed"
+                            attributes:
+                              - name: "Value"
+                                type: "Double"
+                                value: 0.200000
+                                min: -179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                                max: 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                                step_size: 0.100000
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Speed"
+                                olp_property: []
+                              - name: "PathType"
+                                type: "String"
+                                value: "Contour"
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Standard"
+                                olp_property: []
+                        position:
+                          name: "PG02_SE_P0005"
+                          process_type: "Cycle"
+                          target_type: "Cartesian"
+                          xyz_m: [0.160467, 1.083655, 1.001932]
+                          orientation_deg: [125.264390, 30.000000, -35.264390]
+                          config: "RAD"
+                          turn: "0,0,0"
+                          main_joints:
+                            - name: "D1"
+                              value: 24.082834
+                            - name: "D2"
+                              value: 2.511472
+                            - name: "D3"
+                              value: -88.059960
+                            - name: "D4"
+                              value: 31.146080
+                            - name: "D5"
+                              value: -93.543924
+                            - name: "D6"
+                              value: 9.396225
+                          external_joints:
+                            - name: "JT7"
+                              value: 0.000000
+                            - name: "JT8"
+                              value: 180.000000
+                          attributes:
+                        via_position: ~
+                        events_after:
+                      - name: "PG02_SE_P0006"
+                        motion_type: "Linear"
+                        is_ptp: false
+                        is_linear: true
+                        is_circular: false
+                        is_reference: false
+                        attributes:
+                        events_before:
+                          - name: "TouchPointCollisionEvent"
+                            group: "OlpEvent"
+                            insert_position: "InsertBefore"
+                            event_type: "Olp"
+                            attributes:
+                          - name: "Speed"
+                            group: "Motionprofile"
+                            insert_position: "InsertBefore"
+                            event_type: "Speed"
+                            attributes:
+                              - name: "Value"
+                                type: "Double"
+                                value: 0.015000
+                                min: -179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                                max: 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                                step_size: 0.100000
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Speed"
+                                olp_property: []
+                              - name: "PathType"
+                                type: "String"
+                                value: "Contour"
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Standard"
+                                olp_property: []
+                        position:
+                          name: "PG02_SE_P0006"
+                          process_type: "Cycle"
+                          target_type: "Cartesian"
+                          xyz_m: [0.130467, 1.083655, 1.001932]
+                          orientation_deg: [125.264390, 30.000000, -35.264390]
+                          config: "RAD"
+                          turn: "0,0,0"
+                          main_joints:
+                            - name: "D1"
+                              value: 22.797546
+                            - name: "D2"
+                              value: 1.671079
+                            - name: "D3"
+                              value: -88.924718
+                            - name: "D4"
+                              value: 31.219957
+                            - name: "D5"
+                              value: -92.857606
+                            - name: "D6"
+                              value: 10.484831
+                          external_joints:
+                            - name: "JT7"
+                              value: 0.000000
+                            - name: "JT8"
+                              value: 180.000000
+                          attributes:
+                        via_position: ~
+                        events_after:
+                      - name: "PG02_SE_P0007"
+                        motion_type: "Linear"
+                        is_ptp: false
+                        is_linear: true
+                        is_circular: false
+                        is_reference: false
+                        attributes:
+                        events_before:
+                          - name: "TouchPointStartRetEvent"
+                            group: "OlpEvent"
+                            insert_position: "InsertBefore"
+                            event_type: "Olp"
+                            attributes:
+                          - name: "Speed"
+                            group: "Motionprofile"
+                            insert_position: "InsertBefore"
+                            event_type: "Speed"
+                            attributes:
+                              - name: "Value"
+                                type: "Double"
+                                value: 0.200000
+                                min: -179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                                max: 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                                step_size: 0.100000
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Speed"
+                                olp_property: []
+                              - name: "PathType"
+                                type: "String"
+                                value: "Contour"
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Standard"
+                                olp_property: []
+                        position:
+                          name: "PG02_SE_P0007"
+                          process_type: "Cycle"
+                          target_type: "Cartesian"
+                          xyz_m: [0.160467, 1.083655, 1.001932]
+                          orientation_deg: [125.264390, 30.000000, -35.264390]
+                          config: "RAD"
+                          turn: "0,0,0"
+                          main_joints:
+                            - name: "D1"
+                              value: 24.082834
+                            - name: "D2"
+                              value: 2.511472
+                            - name: "D3"
+                              value: -88.059960
+                            - name: "D4"
+                              value: 31.146080
+                            - name: "D5"
+                              value: -93.543924
+                            - name: "D6"
+                              value: 9.396225
+                          external_joints:
+                            - name: "JT7"
+                              value: 0.000000
+                            - name: "JT8"
+                              value: 180.000000
+                          attributes:
+                        via_position: ~
+                        events_after:
+                position:
+                  name: "PG02_SE_P0008"
+                  process_type: "ProcessCurve"
+                  target_type: "Cartesian"
+                  xyz_m: [0.116046, 1.083655, 1.001932]
+                  orientation_deg: [125.264390, 30.000000, -35.264390]
+                  config: "RAD"
+                  turn: "0,0,0"
+                  main_joints:
+                    - name: "D1"
+                      value: 22.170875
+                    - name: "D2"
+                      value: 1.283664
+                    - name: "D3"
+                      value: -89.320068
+                    - name: "D4"
+                      value: 31.251514
+                    - name: "D5"
+                      value: -92.525870
+                    - name: "D6"
+                      value: 11.017103
+                  external_joints:
+                    - name: "JT7"
+                      value: 0.000000
+                    - name: "JT8"
+                      value: 180.000000
+                  attributes:
+                via_position: ~
+                events_after:
+                  - name: "BuiltInEvent"
+                    group: "BuiltInEvent"
+                    insert_position: "InsertAfter"
+                    event_type: "Insert"
+                    attributes:
+                    motions:
+                      - name: "PG02_SE_P0009"
+                        motion_type: "Pt2Pt"
+                        is_ptp: true
+                        is_linear: false
+                        is_circular: false
+                        is_reference: false
+                        attributes:
+                        events_before:
+                        position:
+                          name: "PG02_SE_P0009"
+                          process_type: "TeachInsert"
+                          target_type: "Cartesian"
+                          xyz_m: [0.179256, 1.162123, 1.064807]
+                          orientation_deg: [120.576056, 10.600725, -48.532361]
+                          config: "RAD"
+                          turn: "0,0,0"
+                          main_joints:
+                            - name: "D1"
+                              value: 19.132925
+                            - name: "D2"
+                              value: 13.093647
+                            - name: "D3"
+                              value: -70.576565
+                            - name: "D4"
+                              value: 16.582796
+                            - name: "D5"
+                              value: -103.516278
+                            - name: "D6"
+                              value: 30.937325
+                          external_joints:
+                            - name: "JT7"
+                              value: 0.000000
+                            - name: "JT8"
+                              value: 180.000000
+                          attributes:
+                        via_position: ~
+                        events_after:
+          - name: "WG1_Touch3"
+            type: "Normal"
+            base_profile: "B0"
+            tool_profile: "TOOL1"
+            attributes:
+              - name: "TSLocationAtEnd"
+                type: "Bool"
+                value: false
+                group_name: ""
+                read_only: false
+                value_unit_type: "Standard"
+                olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute"]
+              - name: "TSContourTpeUUID"
+                type: "String"
+                value: "9110301-7d85e156"
+                group_name: ""
+                read_only: false
+                value_unit_type: "Standard"
+                olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute"]
+              - name: "TouchSensCycleExplode"
+                type: "Bool"
+                value: false
+                group_name: ""
+                read_only: false
+                value_unit_type: "Standard"
+                olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute"]
+              - name: "TSWireCheckOperation"
+                type: "Bool"
+                value: false
+                group_name: ""
+                read_only: false
+                value_unit_type: "Standard"
+                olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute"]
+              - name: "TouchId"
+                type: "Int"
+                value: 1
+                min: 0
+                max: 2147483647
+                step_size: 1
+                group_name: ""
+                read_only: false
+                value_unit_type: "Standard"
+                olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute"]
+              - name: "Touch_Cntr"
+                type: "Int"
+                value: 3
+                min: 0
+                max: 2147483647
+                step_size: 1
+                group_name: ""
+                read_only: false
+                value_unit_type: "Standard"
+                olp_property: ["ProcessAttribute", "OperationAttribute"]
+              - name: "FramePt"
+                type: "Int"
+                value: 0
+                min: 0
+                max: 3
+                step_size: 1
+                group_name: ""
+                read_only: false
+                value_unit_type: "Standard"
+                olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute"]
+              - name: "ArcWeldingOperationWorkMethodName"
+                type: "String"
+                value: "TouchSensingWorkMethod"
+                group_name: ""
+                read_only: false
+                value_unit_type: "Standard"
+                olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute"]
+            motions:
+              - name: "PG02_SE_P0013"
+                motion_type: "Pt2Pt"
+                is_ptp: true
+                is_linear: false
+                is_circular: false
+                is_reference: true
+                attributes:
+                events_before:
+                  - name: "TouchSensingEvent"
+                    group: "Unknown"
+                    insert_position: "InsertBefore"
+                    event_type: "Process"
+                    attributes:
+                      - name: "TSLocationAtEnd"
+                        type: "Bool"
+                        value: false
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "TSContourTpeUUID"
+                        type: "String"
+                        value: "9110301-7d85e156"
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "TSBaseFrameTouchAxis"
+                        type: "Literal"
+                        value: "Undefined"
+                        values: ["Undefined", "+X", "-X", "+Y", "-Y", "+Z", "-Z"]
+                        index: 0
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                    motions:
+                      - name: "PG02_SE_P0010"
+                        motion_type: "Linear"
+                        is_ptp: false
+                        is_linear: true
+                        is_circular: false
+                        is_reference: false
+                        attributes:
+                        events_before:
+                          - name: "TouchPointStartAppEvent"
+                            group: "OlpEvent"
+                            insert_position: "InsertBefore"
+                            event_type: "Olp"
+                            attributes:
+                          - name: "Accuracy"
+                            group: "Motionprofile"
+                            insert_position: "InsertBefore"
+                            event_type: "Accuracy"
+                            attributes:
+                              - name: "Value"
+                                type: "Double"
+                                value: 0.005000
+                                min: -179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                                max: 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                                step_size: 0.100000
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Length"
+                                olp_property: []
+                              - name: "Criteria"
+                                type: "String"
+                                value: "Distance"
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Standard"
+                                olp_property: []
+                              - name: "PathType"
+                                type: "String"
+                                value: "Contour"
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Standard"
+                                olp_property: []
+                          - name: "Speed"
+                            group: "Motionprofile"
+                            insert_position: "InsertBefore"
+                            event_type: "Speed"
+                            attributes:
+                              - name: "Value"
+                                type: "Double"
+                                value: 0.200000
+                                min: -179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                                max: 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                                step_size: 0.100000
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Speed"
+                                olp_property: []
+                              - name: "PathType"
+                                type: "String"
+                                value: "Contour"
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Standard"
+                                olp_property: []
+                        position:
+                          name: "PG02_SE_P0010"
+                          process_type: "Cycle"
+                          target_type: "Cartesian"
+                          xyz_m: [0.101923, 1.155860, 0.994542]
+                          orientation_deg: [135.000000, 0.000000, 0.000000]
+                          config: "RAD"
+                          turn: "0,0,0"
+                          main_joints:
+                            - name: "D1"
+                              value: 4.394654
+                            - name: "D2"
+                              value: 9.078400
+                            - name: "D3"
+                              value: -75.776189
+                            - name: "D4"
+                              value: -0.000274
+                            - name: "D5"
+                              value: -95.145390
+                            - name: "D6"
+                              value: -4.394352
+                          external_joints:
+                            - name: "JT7"
+                              value: 0.000000
+                            - name: "JT8"
+                              value: 180.000000
+                          attributes:
+                        via_position: ~
+                        events_after:
+                      - name: "PG02_SE_P0011"
+                        motion_type: "Linear"
+                        is_ptp: false
+                        is_linear: true
+                        is_circular: false
+                        is_reference: false
+                        attributes:
+                        events_before:
+                          - name: "TouchPointCollisionEvent"
+                            group: "OlpEvent"
+                            insert_position: "InsertBefore"
+                            event_type: "Olp"
+                            attributes:
+                          - name: "Speed"
+                            group: "Motionprofile"
+                            insert_position: "InsertBefore"
+                            event_type: "Speed"
+                            attributes:
+                              - name: "Value"
+                                type: "Double"
+                                value: 0.015000
+                                min: -179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                                max: 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                                step_size: 0.100000
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Speed"
+                                olp_property: []
+                              - name: "PathType"
+                                type: "String"
+                                value: "Contour"
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Standard"
+                                olp_property: []
+                        position:
+                          name: "PG02_SE_P0011"
+                          process_type: "Cycle"
+                          target_type: "Cartesian"
+                          xyz_m: [0.101923, 1.125860, 0.994542]
+                          orientation_deg: [135.000000, 0.000000, -0.000000]
+                          config: "RAD"
+                          turn: "0,0,0"
+                          main_joints:
+                            - name: "D1"
+                              value: 4.498241
+                            - name: "D2"
+                              value: 6.876296
+                            - name: "D3"
+                              value: -78.226972
+                            - name: "D4"
+                              value: -0.000274
+                            - name: "D5"
+                              value: -94.896710
+                            - name: "D6"
+                              value: -4.497938
+                          external_joints:
+                            - name: "JT7"
+                              value: 0.000000
+                            - name: "JT8"
+                              value: 180.000000
+                          attributes:
+                        via_position: ~
+                        events_after:
+                      - name: "PG02_SE_P0012"
+                        motion_type: "Linear"
+                        is_ptp: false
+                        is_linear: true
+                        is_circular: false
+                        is_reference: false
+                        attributes:
+                        events_before:
+                          - name: "TouchPointStartRetEvent"
+                            group: "OlpEvent"
+                            insert_position: "InsertBefore"
+                            event_type: "Olp"
+                            attributes:
+                          - name: "Speed"
+                            group: "Motionprofile"
+                            insert_position: "InsertBefore"
+                            event_type: "Speed"
+                            attributes:
+                              - name: "Value"
+                                type: "Double"
+                                value: 0.200000
+                                min: -179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                                max: 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                                step_size: 0.100000
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Speed"
+                                olp_property: []
+                              - name: "PathType"
+                                type: "String"
+                                value: "Contour"
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Standard"
+                                olp_property: []
+                        position:
+                          name: "PG02_SE_P0012"
+                          process_type: "Cycle"
+                          target_type: "Cartesian"
+                          xyz_m: [0.101923, 1.155860, 0.994542]
+                          orientation_deg: [135.000000, 0.000000, 0.000000]
+                          config: "RAD"
+                          turn: "0,0,0"
+                          main_joints:
+                            - name: "D1"
+                              value: 4.394654
+                            - name: "D2"
+                              value: 9.078400
+                            - name: "D3"
+                              value: -75.776189
+                            - name: "D4"
+                              value: -0.000274
+                            - name: "D5"
+                              value: -95.145390
+                            - name: "D6"
+                              value: -4.394352
+                          external_joints:
+                            - name: "JT7"
+                              value: 0.000000
+                            - name: "JT8"
+                              value: 180.000000
+                          attributes:
+                        via_position: ~
+                        events_after:
+                position:
+                  name: "PG02_SE_P0013"
+                  process_type: "ProcessCurve"
+                  target_type: "Cartesian"
+                  xyz_m: [0.101923, 1.118964, 0.994542]
+                  orientation_deg: [135.000000, 0.000000, 0.000000]
+                  config: "RAD"
+                  turn: "0,0,0"
+                  main_joints:
+                    - name: "D1"
+                      value: 4.522743
+                    - name: "D2"
+                      value: 6.375648
+                    - name: "D3"
+                      value: -78.774593
+                    - name: "D4"
+                      value: -0.000274
+                    - name: "D5"
+                      value: -94.849737
+                    - name: "D6"
+                      value: -4.522439
+                  external_joints:
+                    - name: "JT7"
+                      value: 0.000000
+                    - name: "JT8"
+                      value: 180.000000
+                  attributes:
+                via_position: ~
+                events_after:
+          - name: "WG1_Touch4"
+            type: "Normal"
+            base_profile: "B0"
+            tool_profile: "TOOL1"
+            attributes:
+              - name: "TSLocationAtEnd"
+                type: "Bool"
+                value: true
+                group_name: ""
+                read_only: false
+                value_unit_type: "Standard"
+                olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute"]
+              - name: "TSContourTpeUUID"
+                type: "String"
+                value: "9110301-7d85e156"
+                group_name: ""
+                read_only: false
+                value_unit_type: "Standard"
+                olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute"]
+              - name: "TouchSensCycleExplode"
+                type: "Bool"
+                value: false
+                group_name: ""
+                read_only: false
+                value_unit_type: "Standard"
+                olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute"]
+              - name: "TSWireCheckOperation"
+                type: "Bool"
+                value: false
+                group_name: ""
+                read_only: false
+                value_unit_type: "Standard"
+                olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute"]
+              - name: "TouchId"
+                type: "Int"
+                value: 2
+                min: 0
+                max: 2147483647
+                step_size: 1
+                group_name: ""
+                read_only: false
+                value_unit_type: "Standard"
+                olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute"]
+              - name: "Touch_Cntr"
+                type: "Int"
+                value: 3
+                min: 0
+                max: 2147483647
+                step_size: 1
+                group_name: ""
+                read_only: false
+                value_unit_type: "Standard"
+                olp_property: ["ProcessAttribute", "OperationAttribute"]
+              - name: "FramePt"
+                type: "Int"
+                value: 0
+                min: 0
+                max: 3
+                step_size: 1
+                group_name: ""
+                read_only: false
+                value_unit_type: "Standard"
+                olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute"]
+              - name: "ArcWeldingOperationWorkMethodName"
+                type: "String"
+                value: "TouchSensingWorkMethod"
+                group_name: ""
+                read_only: false
+                value_unit_type: "Standard"
+                olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute"]
+            motions:
+              - name: "PG02_SE_P0017"
+                motion_type: "Pt2Pt"
+                is_ptp: true
+                is_linear: false
+                is_circular: false
+                is_reference: true
+                attributes:
+                events_before:
+                  - name: "TouchSensingEvent"
+                    group: "Unknown"
+                    insert_position: "InsertBefore"
+                    event_type: "Process"
+                    attributes:
+                      - name: "TSLocationAtEnd"
+                        type: "Bool"
+                        value: true
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "TSContourTpeUUID"
+                        type: "String"
+                        value: "9110301-7d85e156"
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "TSBaseFrameTouchAxis"
+                        type: "Literal"
+                        value: "Undefined"
+                        values: ["Undefined", "+X", "-X", "+Y", "-Y", "+Z", "-Z"]
+                        index: 0
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                    motions:
+                      - name: "PG02_SE_P0014"
+                        motion_type: "Linear"
+                        is_ptp: false
+                        is_linear: true
+                        is_circular: false
+                        is_reference: false
+                        attributes:
+                        events_before:
+                          - name: "TouchPointStartAppEvent"
+                            group: "OlpEvent"
+                            insert_position: "InsertBefore"
+                            event_type: "Olp"
+                            attributes:
+                          - name: "Accuracy"
+                            group: "Motionprofile"
+                            insert_position: "InsertBefore"
+                            event_type: "Accuracy"
+                            attributes:
+                              - name: "Value"
+                                type: "Double"
+                                value: 0.005000
+                                min: -179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                                max: 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                                step_size: 0.100000
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Length"
+                                olp_property: []
+                              - name: "Criteria"
+                                type: "String"
+                                value: "Distance"
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Standard"
+                                olp_property: []
+                              - name: "PathType"
+                                type: "String"
+                                value: "Contour"
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Standard"
+                                olp_property: []
+                          - name: "Speed"
+                            group: "Motionprofile"
+                            insert_position: "InsertBefore"
+                            event_type: "Speed"
+                            attributes:
+                              - name: "Value"
+                                type: "Double"
+                                value: 0.200000
+                                min: -179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                                max: 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                                step_size: 0.100000
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Speed"
+                                olp_property: []
+                              - name: "PathType"
+                                type: "String"
+                                value: "Contour"
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Standard"
+                                olp_property: []
+                        position:
+                          name: "PG02_SE_P0014"
+                          process_type: "Cycle"
+                          target_type: "Cartesian"
+                          xyz_m: [-0.095785, 1.155859, 0.992075]
+                          orientation_deg: [135.000000, 0.000000, -0.000000]
+                          config: "RAD"
+                          turn: "0,0,0"
+                          main_joints:
+                            - name: "D1"
+                              value: -4.318504
+                            - name: "D2"
+                              value: 9.013989
+                            - name: "D3"
+                              value: -75.989127
+                            - name: "D4"
+                              value: -0.000274
+                            - name: "D5"
+                              value: -94.996904
+                            - name: "D6"
+                              value: 4.318806
+                          external_joints:
+                            - name: "JT7"
+                              value: 0.000000
+                            - name: "JT8"
+                              value: 180.000000
+                          attributes:
+                        via_position: ~
+                        events_after:
+                      - name: "PG02_SE_P0015"
+                        motion_type: "Linear"
+                        is_ptp: false
+                        is_linear: true
+                        is_circular: false
+                        is_reference: false
+                        attributes:
+                        events_before:
+                          - name: "TouchPointCollisionEvent"
+                            group: "OlpEvent"
+                            insert_position: "InsertBefore"
+                            event_type: "Olp"
+                            attributes:
+                          - name: "Speed"
+                            group: "Motionprofile"
+                            insert_position: "InsertBefore"
+                            event_type: "Speed"
+                            attributes:
+                              - name: "Value"
+                                type: "Double"
+                                value: 0.015000
+                                min: -179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                                max: 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                                step_size: 0.100000
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Speed"
+                                olp_property: []
+                              - name: "PathType"
+                                type: "String"
+                                value: "Contour"
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Standard"
+                                olp_property: []
+                        position:
+                          name: "PG02_SE_P0015"
+                          process_type: "Cycle"
+                          target_type: "Cartesian"
+                          xyz_m: [-0.095785, 1.125859, 0.992075]
+                          orientation_deg: [135.000000, 0.000000, 0.000000]
+                          config: "RAD"
+                          turn: "0,0,0"
+                          main_joints:
+                            - name: "D1"
+                              value: -4.420311
+                            - name: "D2"
+                              value: 6.813662
+                            - name: "D3"
+                              value: -78.435780
+                            - name: "D4"
+                              value: -0.000274
+                            - name: "D5"
+                              value: -94.750579
+                            - name: "D6"
+                              value: 4.420614
+                          external_joints:
+                            - name: "JT7"
+                              value: 0.000000
+                            - name: "JT8"
+                              value: 180.000000
+                          attributes:
+                        via_position: ~
+                        events_after:
+                      - name: "PG02_SE_P0016"
+                        motion_type: "Linear"
+                        is_ptp: false
+                        is_linear: true
+                        is_circular: false
+                        is_reference: false
+                        attributes:
+                        events_before:
+                          - name: "TouchPointStartRetEvent"
+                            group: "OlpEvent"
+                            insert_position: "InsertBefore"
+                            event_type: "Olp"
+                            attributes:
+                          - name: "Speed"
+                            group: "Motionprofile"
+                            insert_position: "InsertBefore"
+                            event_type: "Speed"
+                            attributes:
+                              - name: "Value"
+                                type: "Double"
+                                value: 0.200000
+                                min: -179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                                max: 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                                step_size: 0.100000
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Speed"
+                                olp_property: []
+                              - name: "PathType"
+                                type: "String"
+                                value: "Contour"
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Standard"
+                                olp_property: []
+                        position:
+                          name: "PG02_SE_P0016"
+                          process_type: "Cycle"
+                          target_type: "Cartesian"
+                          xyz_m: [-0.095785, 1.155859, 0.992075]
+                          orientation_deg: [135.000000, 0.000000, -0.000000]
+                          config: "RAD"
+                          turn: "0,0,0"
+                          main_joints:
+                            - name: "D1"
+                              value: -4.318504
+                            - name: "D2"
+                              value: 9.013989
+                            - name: "D3"
+                              value: -75.989127
+                            - name: "D4"
+                              value: -0.000274
+                            - name: "D5"
+                              value: -94.996904
+                            - name: "D6"
+                              value: 4.318806
+                          external_joints:
+                            - name: "JT7"
+                              value: 0.000000
+                            - name: "JT8"
+                              value: 180.000000
+                          attributes:
+                        via_position: ~
+                        events_after:
+                position:
+                  name: "PG02_SE_P0017"
+                  process_type: "ProcessCurve"
+                  target_type: "Cartesian"
+                  xyz_m: [-0.095785, 1.120028, 0.992075]
+                  orientation_deg: [135.000000, 0.000000, -0.000000]
+                  config: "RAD"
+                  turn: "0,0,0"
+                  main_joints:
+                    - name: "D1"
+                      value: -4.440658
+                    - name: "D2"
+                      value: 6.390439
+                    - name: "D3"
+                      value: -78.898541
+                    - name: "D4"
+                      value: -0.000274
+                    - name: "D5"
+                      value: -94.711041
+                    - name: "D6"
+                      value: 4.440962
+                  external_joints:
+                    - name: "JT7"
+                      value: 0.000000
+                    - name: "JT8"
+                      value: 180.000000
+                  attributes:
+                via_position: ~
+                events_after:
+                  - name: "BuiltInEvent"
+                    group: "BuiltInEvent"
+                    insert_position: "InsertAfter"
+                    event_type: "Insert"
+                    attributes:
+                    motions:
+                      - name: "PG02_SE_P0018"
+                        motion_type: "Pt2Pt"
+                        is_ptp: true
+                        is_linear: false
+                        is_circular: false
+                        is_reference: false
+                        attributes:
+                        events_before:
+                        position:
+                          name: "PG02_SE_P0018"
+                          process_type: "TeachInsert"
+                          target_type: "Cartesian"
+                          xyz_m: [-0.149618, 1.148667, 0.981233]
+                          orientation_deg: [135.000000, 0.000000, 0.000000]
+                          config: "RAD"
+                          turn: "0,0,0"
+                          main_joints:
+                            - name: "D1"
+                              value: -6.710271
+                            - name: "D2"
+                              value: 8.633825
+                            - name: "D3"
+                              value: -77.032029
+                            - name: "D4"
+                              value: -0.000273
+                            - name: "D5"
+                              value: -94.334177
+                            - name: "D6"
+                              value: 6.710577
+                          external_joints:
+                            - name: "JT7"
+                              value: 0.000000
+                            - name: "JT8"
+                              value: 180.000000
+                          attributes:
+                        via_position: ~
+                        events_after:
+          - name: "WG1_Touch5"
+            type: "Normal"
+            base_profile: "B0"
+            tool_profile: "TOOL1"
+            attributes:
+              - name: "TSLocationAtEnd"
+                type: "Bool"
+                value: true
+                group_name: ""
+                read_only: false
+                value_unit_type: "Standard"
+                olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute"]
+              - name: "TSContourTpeUUID"
+                type: "String"
+                value: "9110301-7d85e156"
+                group_name: ""
+                read_only: false
+                value_unit_type: "Standard"
+                olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute"]
+              - name: "TouchSensCycleExplode"
+                type: "Bool"
+                value: false
+                group_name: ""
+                read_only: false
+                value_unit_type: "Standard"
+                olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute"]
+              - name: "TSWireCheckOperation"
+                type: "Bool"
+                value: false
+                group_name: ""
+                read_only: false
+                value_unit_type: "Standard"
+                olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute"]
+              - name: "TouchId"
+                type: "Int"
+                value: 2
+                min: 0
+                max: 2147483647
+                step_size: 1
+                group_name: ""
+                read_only: false
+                value_unit_type: "Standard"
+                olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute"]
+              - name: "Touch_Cntr"
+                type: "Int"
+                value: 3
+                min: 0
+                max: 2147483647
+                step_size: 1
+                group_name: ""
+                read_only: false
+                value_unit_type: "Standard"
+                olp_property: ["ProcessAttribute", "OperationAttribute"]
+              - name: "FramePt"
+                type: "Int"
+                value: 0
+                min: 0
+                max: 3
+                step_size: 1
+                group_name: ""
+                read_only: false
+                value_unit_type: "Standard"
+                olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute"]
+              - name: "ArcWeldingOperationWorkMethodName"
+                type: "String"
+                value: "TouchSensingWorkMethod"
+                group_name: ""
+                read_only: false
+                value_unit_type: "Standard"
+                olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute"]
+            motions:
+              - name: "PG02_SE_P0022"
+                motion_type: "Pt2Pt"
+                is_ptp: true
+                is_linear: false
+                is_circular: false
+                is_reference: true
+                attributes:
+                events_before:
+                  - name: "TouchSensingEvent"
+                    group: "Unknown"
+                    insert_position: "InsertBefore"
+                    event_type: "Process"
+                    attributes:
+                      - name: "TSLocationAtEnd"
+                        type: "Bool"
+                        value: true
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "TSContourTpeUUID"
+                        type: "String"
+                        value: "9110301-7d85e156"
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "TSBaseFrameTouchAxis"
+                        type: "Literal"
+                        value: "Undefined"
+                        values: ["Undefined", "+X", "-X", "+Y", "-Y", "+Z", "-Z"]
+                        index: 0
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                    motions:
+                      - name: "PG02_SE_P0019"
+                        motion_type: "Linear"
+                        is_ptp: false
+                        is_linear: true
+                        is_circular: false
+                        is_reference: false
+                        attributes:
+                        events_before:
+                          - name: "TouchPointStartAppEvent"
+                            group: "OlpEvent"
+                            insert_position: "InsertBefore"
+                            event_type: "Olp"
+                            attributes:
+                          - name: "Accuracy"
+                            group: "Motionprofile"
+                            insert_position: "InsertBefore"
+                            event_type: "Accuracy"
+                            attributes:
+                              - name: "Value"
+                                type: "Double"
+                                value: 0.005000
+                                min: -179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                                max: 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                                step_size: 0.100000
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Length"
+                                olp_property: []
+                              - name: "Criteria"
+                                type: "String"
+                                value: "Distance"
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Standard"
+                                olp_property: []
+                              - name: "PathType"
+                                type: "String"
+                                value: "Contour"
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Standard"
+                                olp_property: []
+                          - name: "Speed"
+                            group: "Motionprofile"
+                            insert_position: "InsertBefore"
+                            event_type: "Speed"
+                            attributes:
+                              - name: "Value"
+                                type: "Double"
+                                value: 0.200000
+                                min: -179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                                max: 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                                step_size: 0.100000
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Speed"
+                                olp_property: []
+                              - name: "PathType"
+                                type: "String"
+                                value: "Contour"
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Standard"
+                                olp_property: []
+                        position:
+                          name: "PG02_SE_P0019"
+                          process_type: "Cycle"
+                          target_type: "Cartesian"
+                          xyz_m: [-0.160466, 1.082594, 1.002647]
+                          orientation_deg: [125.264390, -30.000000, 35.264390]
+                          config: "RAD"
+                          turn: "0,0,0"
+                          main_joints:
+                            - name: "D1"
+                              value: -24.277046
+                            - name: "D2"
+                              value: 2.371271
+                            - name: "D3"
+                              value: -88.287470
+                            - name: "D4"
+                              value: -31.131399
+                            - name: "D5"
+                              value: -93.569531
+                            - name: "D6"
+                              value: -9.183829
+                          external_joints:
+                            - name: "JT7"
+                              value: 0.000000
+                            - name: "JT8"
+                              value: 180.000000
+                          attributes:
+                        via_position: ~
+                        events_after:
+                      - name: "PG02_SE_P0020"
+                        motion_type: "Linear"
+                        is_ptp: false
+                        is_linear: true
+                        is_circular: false
+                        is_reference: false
+                        attributes:
+                        events_before:
+                          - name: "TouchPointCollisionEvent"
+                            group: "OlpEvent"
+                            insert_position: "InsertBefore"
+                            event_type: "Olp"
+                            attributes:
+                          - name: "Speed"
+                            group: "Motionprofile"
+                            insert_position: "InsertBefore"
+                            event_type: "Speed"
+                            attributes:
+                              - name: "Value"
+                                type: "Double"
+                                value: 0.015000
+                                min: -179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                                max: 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                                step_size: 0.100000
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Speed"
+                                olp_property: []
+                              - name: "PathType"
+                                type: "String"
+                                value: "Contour"
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Standard"
+                                olp_property: []
+                        position:
+                          name: "PG02_SE_P0020"
+                          process_type: "Cycle"
+                          target_type: "Cartesian"
+                          xyz_m: [-0.130466, 1.082594, 1.002647]
+                          orientation_deg: [125.264390, -30.000000, 35.264390]
+                          config: "RAD"
+                          turn: "0,0,0"
+                          main_joints:
+                            - name: "D1"
+                              value: -22.991824
+                            - name: "D2"
+                              value: 1.524844
+                            - name: "D3"
+                              value: -89.156750
+                            - name: "D4"
+                              value: -31.207769
+                            - name: "D5"
+                              value: -92.884806
+                            - name: "D6"
+                              value: -10.273334
+                          external_joints:
+                            - name: "JT7"
+                              value: 0.000000
+                            - name: "JT8"
+                              value: 180.000000
+                          attributes:
+                        via_position: ~
+                        events_after:
+                      - name: "PG02_SE_P0021"
+                        motion_type: "Linear"
+                        is_ptp: false
+                        is_linear: true
+                        is_circular: false
+                        is_reference: false
+                        attributes:
+                        events_before:
+                          - name: "TouchPointStartRetEvent"
+                            group: "OlpEvent"
+                            insert_position: "InsertBefore"
+                            event_type: "Olp"
+                            attributes:
+                          - name: "Speed"
+                            group: "Motionprofile"
+                            insert_position: "InsertBefore"
+                            event_type: "Speed"
+                            attributes:
+                              - name: "Value"
+                                type: "Double"
+                                value: 0.200000
+                                min: -179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                                max: 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                                step_size: 0.100000
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Speed"
+                                olp_property: []
+                              - name: "PathType"
+                                type: "String"
+                                value: "Contour"
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Standard"
+                                olp_property: []
+                        position:
+                          name: "PG02_SE_P0021"
+                          process_type: "Cycle"
+                          target_type: "Cartesian"
+                          xyz_m: [-0.160466, 1.082594, 1.002647]
+                          orientation_deg: [125.264390, -30.000000, 35.264390]
+                          config: "RAD"
+                          turn: "0,0,0"
+                          main_joints:
+                            - name: "D1"
+                              value: -24.277046
+                            - name: "D2"
+                              value: 2.371271
+                            - name: "D3"
+                              value: -88.287470
+                            - name: "D4"
+                              value: -31.131399
+                            - name: "D5"
+                              value: -93.569531
+                            - name: "D6"
+                              value: -9.183829
+                          external_joints:
+                            - name: "JT7"
+                              value: 0.000000
+                            - name: "JT8"
+                              value: 180.000000
+                          attributes:
+                        via_position: ~
+                        events_after:
+                position:
+                  name: "PG02_SE_P0022"
+                  process_type: "ProcessCurve"
+                  target_type: "Cartesian"
+                  xyz_m: [-0.120782, 1.082594, 1.002647]
+                  orientation_deg: [125.264390, -30.000000, 35.264390]
+                  config: "RAD"
+                  turn: "0,0,0"
+                  main_joints:
+                    - name: "D1"
+                      value: -22.571585
+                    - name: "D2"
+                      value: 1.261515
+                    - name: "D3"
+                      value: -89.425164
+                    - name: "D4"
+                      value: -31.230069
+                    - name: "D5"
+                      value: -92.662658
+                    - name: "D6"
+                      value: -10.630477
+                  external_joints:
+                    - name: "JT7"
+                      value: 0.000000
+                    - name: "JT8"
+                      value: 180.000000
+                  attributes:
+                via_position: ~
+                events_after:
+          - name: "WG1_Touch6"
+            type: "Normal"
+            base_profile: "B0"
+            tool_profile: "TOOL1"
+            attributes:
+              - name: "TSLocationAtEnd"
+                type: "Bool"
+                value: true
+                group_name: ""
+                read_only: false
+                value_unit_type: "Standard"
+                olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute"]
+              - name: "TSContourTpeUUID"
+                type: "String"
+                value: "9110301-7d85e156"
+                group_name: ""
+                read_only: false
+                value_unit_type: "Standard"
+                olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute"]
+              - name: "TouchSensCycleExplode"
+                type: "Bool"
+                value: false
+                group_name: ""
+                read_only: false
+                value_unit_type: "Standard"
+                olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute"]
+              - name: "TSWireCheckOperation"
+                type: "Bool"
+                value: false
+                group_name: ""
+                read_only: false
+                value_unit_type: "Standard"
+                olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute"]
+              - name: "TouchId"
+                type: "Int"
+                value: 2
+                min: 0
+                max: 2147483647
+                step_size: 1
+                group_name: ""
+                read_only: false
+                value_unit_type: "Standard"
+                olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute"]
+              - name: "Touch_Cntr"
+                type: "Int"
+                value: 3
+                min: 0
+                max: 2147483647
+                step_size: 1
+                group_name: ""
+                read_only: false
+                value_unit_type: "Standard"
+                olp_property: ["ProcessAttribute", "OperationAttribute"]
+              - name: "FramePt"
+                type: "Int"
+                value: 0
+                min: 0
+                max: 3
+                step_size: 1
+                group_name: ""
+                read_only: false
+                value_unit_type: "Standard"
+                olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute"]
+              - name: "ArcWeldingOperationWorkMethodName"
+                type: "String"
+                value: "TouchSensingWorkMethod"
+                group_name: ""
+                read_only: false
+                value_unit_type: "Standard"
+                olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute"]
+            motions:
+              - name: "PG02_SE_P0026"
+                motion_type: "Pt2Pt"
+                is_ptp: true
+                is_linear: false
+                is_circular: false
+                is_reference: true
+                attributes:
+                events_before:
+                  - name: "TouchSensingEvent"
+                    group: "Unknown"
+                    insert_position: "InsertBefore"
+                    event_type: "Process"
+                    attributes:
+                      - name: "TSLocationAtEnd"
+                        type: "Bool"
+                        value: true
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "TSContourTpeUUID"
+                        type: "String"
+                        value: "9110301-7d85e156"
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "TSBaseFrameTouchAxis"
+                        type: "Literal"
+                        value: "Undefined"
+                        values: ["Undefined", "+X", "-X", "+Y", "-Y", "+Z", "-Z"]
+                        index: 0
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                    motions:
+                      - name: "PG02_SE_P0023"
+                        motion_type: "Linear"
+                        is_ptp: false
+                        is_linear: true
+                        is_circular: false
+                        is_reference: false
+                        attributes:
+                        events_before:
+                          - name: "TouchPointStartAppEvent"
+                            group: "OlpEvent"
+                            insert_position: "InsertBefore"
+                            event_type: "Olp"
+                            attributes:
+                          - name: "Accuracy"
+                            group: "Motionprofile"
+                            insert_position: "InsertBefore"
+                            event_type: "Accuracy"
+                            attributes:
+                              - name: "Value"
+                                type: "Double"
+                                value: 0.005000
+                                min: -179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                                max: 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                                step_size: 0.100000
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Length"
+                                olp_property: []
+                              - name: "Criteria"
+                                type: "String"
+                                value: "Distance"
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Standard"
+                                olp_property: []
+                              - name: "PathType"
+                                type: "String"
+                                value: "Contour"
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Standard"
+                                olp_property: []
+                          - name: "Speed"
+                            group: "Motionprofile"
+                            insert_position: "InsertBefore"
+                            event_type: "Speed"
+                            attributes:
+                              - name: "Value"
+                                type: "Double"
+                                value: 0.200000
+                                min: -179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                                max: 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                                step_size: 0.100000
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Speed"
+                                olp_property: []
+                              - name: "PathType"
+                                type: "String"
+                                value: "Contour"
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Standard"
+                                olp_property: []
+                        position:
+                          name: "PG02_SE_P0023"
+                          process_type: "Cycle"
+                          target_type: "Cartesian"
+                          xyz_m: [-0.102317, 1.092735, 1.058360]
+                          orientation_deg: [135.000000, 0.000000, 0.000000]
+                          config: "RAD"
+                          turn: "0,0,0"
+                          main_joints:
+                            - name: "D1"
+                              value: -4.839586
+                            - name: "D2"
+                              value: 6.027139
+                            - name: "D3"
+                              value: -75.492011
+                            - name: "D4"
+                              value: -0.000276
+                            - name: "D5"
+                              value: -98.480873
+                            - name: "D6"
+                              value: 4.839872
+                          external_joints:
+                            - name: "JT7"
+                              value: 0.000000
+                            - name: "JT8"
+                              value: 180.000000
+                          attributes:
+                        via_position: ~
+                        events_after:
+                      - name: "PG02_SE_P0024"
+                        motion_type: "Linear"
+                        is_ptp: false
+                        is_linear: true
+                        is_circular: false
+                        is_reference: false
+                        attributes:
+                        events_before:
+                          - name: "TouchPointCollisionEvent"
+                            group: "OlpEvent"
+                            insert_position: "InsertBefore"
+                            event_type: "Olp"
+                            attributes:
+                          - name: "Speed"
+                            group: "Motionprofile"
+                            insert_position: "InsertBefore"
+                            event_type: "Speed"
+                            attributes:
+                              - name: "Value"
+                                type: "Double"
+                                value: 0.015000
+                                min: -179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                                max: 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                                step_size: 0.100000
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Speed"
+                                olp_property: []
+                              - name: "PathType"
+                                type: "String"
+                                value: "Contour"
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Standard"
+                                olp_property: []
+                        position:
+                          name: "PG02_SE_P0024"
+                          process_type: "Cycle"
+                          target_type: "Cartesian"
+                          xyz_m: [-0.102317, 1.092735, 1.028360]
+                          orientation_deg: [135.000000, -0.000000, 0.000000]
+                          config: "RAD"
+                          turn: "0,0,0"
+                          main_joints:
+                            - name: "D1"
+                              value: -4.839586
+                            - name: "D2"
+                              value: 5.271471
+                            - name: "D3"
+                              value: -78.039684
+                            - name: "D4"
+                              value: -0.000275
+                            - name: "D5"
+                              value: -96.688868
+                            - name: "D6"
+                              value: 4.839881
+                          external_joints:
+                            - name: "JT7"
+                              value: 0.000000
+                            - name: "JT8"
+                              value: 180.000000
+                          attributes:
+                        via_position: ~
+                        events_after:
+                      - name: "PG02_SE_P0025"
+                        motion_type: "Linear"
+                        is_ptp: false
+                        is_linear: true
+                        is_circular: false
+                        is_reference: false
+                        attributes:
+                        events_before:
+                          - name: "TouchPointStartRetEvent"
+                            group: "OlpEvent"
+                            insert_position: "InsertBefore"
+                            event_type: "Olp"
+                            attributes:
+                          - name: "Speed"
+                            group: "Motionprofile"
+                            insert_position: "InsertBefore"
+                            event_type: "Speed"
+                            attributes:
+                              - name: "Value"
+                                type: "Double"
+                                value: 0.200000
+                                min: -179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                                max: 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                                step_size: 0.100000
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Speed"
+                                olp_property: []
+                              - name: "PathType"
+                                type: "String"
+                                value: "Contour"
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Standard"
+                                olp_property: []
+                        position:
+                          name: "PG02_SE_P0025"
+                          process_type: "Cycle"
+                          target_type: "Cartesian"
+                          xyz_m: [-0.102317, 1.092735, 1.058360]
+                          orientation_deg: [135.000000, 0.000000, 0.000000]
+                          config: "RAD"
+                          turn: "0,0,0"
+                          main_joints:
+                            - name: "D1"
+                              value: -4.839586
+                            - name: "D2"
+                              value: 6.027139
+                            - name: "D3"
+                              value: -75.492011
+                            - name: "D4"
+                              value: -0.000276
+                            - name: "D5"
+                              value: -98.480873
+                            - name: "D6"
+                              value: 4.839872
+                          external_joints:
+                            - name: "JT7"
+                              value: 0.000000
+                            - name: "JT8"
+                              value: 180.000000
+                          attributes:
+                        via_position: ~
+                        events_after:
+                position:
+                  name: "PG02_SE_P0026"
+                  process_type: "ProcessCurve"
+                  target_type: "Cartesian"
+                  xyz_m: [-0.102317, 1.092735, 1.026359]
+                  orientation_deg: [135.000000, -0.000000, 0.000000]
+                  config: "RAD"
+                  turn: "0,0,0"
+                  main_joints:
+                    - name: "D1"
+                      value: -4.839586
+                    - name: "D2"
+                      value: 5.224011
+                    - name: "D3"
+                      value: -78.205474
+                    - name: "D4"
+                      value: -0.000275
+                    - name: "D5"
+                      value: -96.570538
+                    - name: "D6"
+                      value: 4.839882
+                  external_joints:
+                    - name: "JT7"
+                      value: 0.000000
+                    - name: "JT8"
+                      value: 180.000000
+                  attributes:
+                via_position: ~
+                events_after:
+          - name: "WG1_Seam7"
+            type: "Normal"
+            base_profile: "B0"
+            tool_profile: "TOOL1"
+            attributes:
+              - name: "ChainBegin"
+                type: "Bool"
+                value: false
+                group_name: ""
+                read_only: true
+                value_unit_type: "Standard"
+                olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute"]
+              - name: "ChainEnd"
+                type: "Bool"
+                value: false
+                group_name: ""
+                read_only: true
+                value_unit_type: "Standard"
+                olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute"]
+              - name: "ArcWeldingOperationWorkMethodName"
+                type: "String"
+                value: "StitchWeldingWorkMethod"
+                group_name: ""
+                read_only: false
+                value_unit_type: "Standard"
+                olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute"]
+            motions:
+              - name: "PG02_SE_P0028"
+                motion_type: "Linear"
+                is_ptp: false
+                is_linear: true
+                is_circular: false
+                is_reference: false
+                attributes:
+                events_before:
+                  - name: "ApproachArcWeldingStitch"
+                    group: "ApproachRetract"
+                    insert_position: "InsertBefore"
+                    event_type: "Approach"
+                    attributes:
+                      - name: "SpeedViaApproach"
+                        type: "Double"
+                        value: 0.500000
+                        min: 0.010000
+                        max: 2.000000
+                        step_size: 0.100000
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Speed"
+                        olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute"]
+                    motions:
+                      - name: "PG02_SE_P0027"
+                        motion_type: "Pt2Pt"
+                        is_ptp: true
+                        is_linear: false
+                        is_circular: false
+                        is_reference: false
+                        attributes:
+                        events_before:
+                          - name: "ConnectTouchProcessPointEvent"
+                            group: "OlpEvent"
+                            insert_position: "InsertBefore"
+                            event_type: "Olp"
+                            attributes:
+                              - name: "TouchId"
+                                type: "String"
+                                value: "1"
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Standard"
+                                olp_property: ["UserAttribute", "ProcessAttribute"]
+                              - name: "Touch_Cntr"
+                                type: "Int"
+                                value: 3
+                                min: 0
+                                max: 99
+                                step_size: 1
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Standard"
+                                olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute"]
+                        position:
+                          name: "PG02_SE_P0027"
+                          process_type: "Approach"
+                          target_type: "Cartesian"
+                          xyz_m: [0.118750, 1.191111, 1.093611]
+                          orientation_deg: [135.000000, 0.000000, -0.000000]
+                          config: "RAD"
+                          turn: "0,0,0"
+                          main_joints:
+                            - name: "D1"
+                              value: 4.997488
+                            - name: "D2"
+                              value: 14.696738
+                            - name: "D3"
+                              value: -63.446245
+                            - name: "D4"
+                              value: -0.000279
+                            - name: "D5"
+                              value: -101.856994
+                            - name: "D6"
+                              value: -4.997219
+                          external_joints:
+                            - name: "JT7"
+                              value: 0.000000
+                            - name: "JT8"
+                              value: 180.000000
+                          attributes:
+                        via_position: ~
+                        events_after:
+                          - name: "Speed"
+                            group: "Motionprofile"
+                            insert_position: "InsertAfter"
+                            event_type: "Speed"
+                            attributes:
+                              - name: "Value"
+                                type: "Double"
+                                value: 0.500000
+                                min: -179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                                max: 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                                step_size: 0.100000
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Speed"
+                                olp_property: []
+                              - name: "PathType"
+                                type: "String"
+                                value: "Contour"
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Standard"
+                                olp_property: []
+                          - name: "Accuracy"
+                            group: "Motionprofile"
+                            insert_position: "InsertAfter"
+                            event_type: "Accuracy"
+                            attributes:
+                              - name: "Value"
+                                type: "Double"
+                                value: 0.000000
+                                min: -179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                                max: 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                                step_size: 0.100000
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Standard"
+                                olp_property: []
+                              - name: "Criteria"
+                                type: "String"
+                                value: "Off"
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Standard"
+                                olp_property: []
+                              - name: "PathType"
+                                type: "String"
+                                value: "Contour"
+                                group_name: ""
+                                read_only: false
+                                value_unit_type: "Standard"
+                                olp_property: []
+                  - name: "TpeAtStartEvent"
+                    group: "TpdbIgnore"
+                    insert_position: "InsertBefore"
+                    event_type: "Process"
+                    attributes:
+                      - name: "TSContourTpeUUID"
+                        type: "String"
+                        value: "9110301-7d85e156"
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                position:
+                  name: "PG02_SE_P0028"
+                  process_type: "ProcessCurve"
+                  target_type: "Cartesian"
+                  xyz_m: [0.118750, 1.120400, 1.022900]
+                  orientation_deg: [135.000000, 0.000000, -0.000000]
+                  config: "RAD"
+                  turn: "0,0,0"
+                  main_joints:
+                    - name: "D1"
+                      value: 5.275937
+                    - name: "D2"
+                      value: 7.227560
+                    - name: "D3"
+                      value: -76.221977
+                    - name: "D4"
+                      value: -0.000275
+                    - name: "D5"
+                      value: -96.550438
+                    - name: "D6"
+                      value: -5.275641
+                  external_joints:
+                    - name: "JT7"
+                      value: 0.000000
+                    - name: "JT8"
+                      value: 180.000000
+                  attributes:
+                via_position: ~
+                events_after:
+                  - name: "ArcOnEvent"
+                    group: "OlpEvent"
+                    insert_position: "InsertAfter"
+                    event_type: "Olp"
+                    attributes:
+                      - name: "DLSetArcWeldMode"
+                        type: "Literal"
+                        value: "None"
+                        values: ["None", "2", "3"]
+                        index: 0
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWeldConditionMode"
+                        type: "Int"
+                        value: 0
+                        min: 0
+                        max: 2
+                        step_size: 1
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWeldConditionNumber"
+                        type: "Int"
+                        value: 1
+                        min: 1
+                        max: 199
+                        step_size: 1
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLJobNumber"
+                        type: "Int"
+                        value: 1
+                        min: 1
+                        max: 65535
+                        step_size: 1
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWC1WeldSpeed"
+                        type: "Int"
+                        value: 35
+                        min: 1
+                        max: 999
+                        step_size: 1
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWC1WireFeedSpeed"
+                        type: "Double"
+                        value: 0.000000
+                        min: 1.000000
+                        max: 100.000000
+                        step_size: 1.000000
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWC1WeldCurrent"
+                        type: "Double"
+                        value: 0.000000
+                        min: -999.900000
+                        max: 999.900000
+                        step_size: 1.000000
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWC1ArcLengthCorr"
+                        type: "Double"
+                        value: 0.000000
+                        min: -100.000000
+                        max: 100.000000
+                        step_size: 1.000000
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWC1WeldVoltage"
+                        type: "Double"
+                        value: 0.000000
+                        min: -999.900000
+                        max: 999.900000
+                        step_size: 1.000000
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWC1PulseDynamicCorr"
+                        type: "Double"
+                        value: 0.000000
+                        min: -100.000000
+                        max: 100.000000
+                        step_size: 1.000000
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWC1WireRetractCorr"
+                        type: "Double"
+                        value: 0.000000
+                        min: -100.000000
+                        max: 100.000000
+                        step_size: 1.000000
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWC2Crater"
+                        type: "Bool"
+                        value: false
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLCraterSpotConditionNumber"
+                        type: "Int"
+                        value: 1
+                        min: 1
+                        max: 299
+                        step_size: 1
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLCraterSpotJobNumber"
+                        type: "Int"
+                        value: 1
+                        min: 1
+                        max: 65535
+                        step_size: 1
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWC2Time"
+                        type: "Double"
+                        value: 0.200000
+                        min: 0.000000
+                        max: 9.900000
+                        step_size: 0.100000
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWC2WireFeedSpeed"
+                        type: "Double"
+                        value: 0.000000
+                        min: 1.000000
+                        max: 100.000000
+                        step_size: 1.000000
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWC2WeldCurrent"
+                        type: "Double"
+                        value: 0.000000
+                        min: -999.900000
+                        max: 999.900000
+                        step_size: 1.000000
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWC2ArcLengthCorr"
+                        type: "Double"
+                        value: 0.000000
+                        min: -100.000000
+                        max: 100.000000
+                        step_size: 1.000000
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWC2WeldVoltage"
+                        type: "Double"
+                        value: 0.000000
+                        min: -999.900000
+                        max: 999.900000
+                        step_size: 1.000000
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWC2PulseDynamicCorr"
+                        type: "Double"
+                        value: 0.000000
+                        min: -100.000000
+                        max: 100.000000
+                        step_size: 1.000000
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWC2WireRetractCorr"
+                        type: "Double"
+                        value: 0.000000
+                        min: -100.000000
+                        max: 100.000000
+                        step_size: 1.000000
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWeavePattern"
+                        type: "Literal"
+                        value: "None"
+                        values: ["None", "harmonic", "harmonic with end stop", "reciprocating triangular", "circular clockwise", "circular counterclockwise", "user pattern 1", "user pattern 2", "user pattern 3", "user pattern 4", "user pattern 5"]
+                        index: 0
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWeavePatternNumber"
+                        type: "Int"
+                        value: 0
+                        min: 0
+                        max: 10
+                        step_size: 1
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWeaveFrequenz"
+                        type: "Double"
+                        value: 0.000000
+                        min: 0.000000
+                        max: 4.000000
+                        step_size: 0.100000
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWeaveWidth"
+                        type: "Double"
+                        value: 0.000000
+                        min: 0.000000
+                        max: 0.040000
+                        step_size: 0.001000
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Length"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLPatternSPS"
+                        type: "Literal"
+                        value: "None"
+                        values: ["None", "Disabled", "horizontal fillet", "flat fillet", "V groove", "flat bevel groove", "bevel groove", "horizontal bevel groove", "user pattern 1", "user pattern 2", "user pattern 3", "user pattern 4", "user pattern 5"]
+                        index: 0
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLPatternNum"
+                        type: "Int"
+                        value: 0
+                        min: 1
+                        max: 10
+                        step_size: 1
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLStartDist"
+                        type: "Double"
+                        value: 0.000000
+                        min: 0.000000
+                        max: 99.000000
+                        step_size: 0.100000
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLReliefDist"
+                        type: "Double"
+                        value: 0.000000
+                        min: 0.000000
+                        max: 99.000000
+                        step_size: 0.100000
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLDistInGroove"
+                        type: "Double"
+                        value: 0.000000
+                        min: 0.000000
+                        max: 99.000000
+                        step_size: 0.100000
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLRTPM"
+                        type: "Literal"
+                        value: "None"
+                        values: ["None", "Disabled", "Enabled"]
+                        index: 0
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWCRTPMNum"
+                        type: "Int"
+                        value: 0
+                        min: 0
+                        max: 3
+                        step_size: 1
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWCWireStick"
+                        type: "Int"
+                        value: 0
+                        min: 0
+                        max: 65535
+                        step_size: 1
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWCVerticalGain"
+                        type: "Int"
+                        value: 0
+                        min: -1000
+                        max: 1000
+                        step_size: 1
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWCHorizontalGain"
+                        type: "Int"
+                        value: 0
+                        min: -1000
+                        max: 1000
+                        step_size: 1
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWCVerticalBIAS"
+                        type: "Int"
+                        value: 0
+                        min: -1000
+                        max: 1000
+                        step_size: 1
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWCHorizontalBIAS"
+                        type: "Int"
+                        value: 0
+                        min: -1000
+                        max: 1000
+                        step_size: 1
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWCDelayTime"
+                        type: "Int"
+                        value: 0
+                        min: 0
+                        max: 10
+                        step_size: 1
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWCStartGain"
+                        type: "Bool"
+                        value: false
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWCInitialGainTime"
+                        type: "Double"
+                        value: 0.000000
+                        min: 0.100000
+                        max: 9.900000
+                        step_size: 0.100000
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWCInitialVerticalCurrent"
+                        type: "Int"
+                        value: 0
+                        min: -1000
+                        max: 1000
+                        step_size: 1
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWCInitialHorizontalCurrent"
+                        type: "Int"
+                        value: 0
+                        min: -1000
+                        max: 1000
+                        step_size: 1
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWCInitialChangeCurrent"
+                        type: "Int"
+                        value: 0
+                        min: -1000
+                        max: 1000
+                        step_size: 1
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLSSDown"
+                        type: "Literal"
+                        value: "None"
+                        values: ["None", "Disabled", "Enabled"]
+                        index: 0
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWCSSDown"
+                        type: "Int"
+                        value: 0
+                        min: 1
+                        max: 3
+                        step_size: 1
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWCPreHeatTime"
+                        type: "Double"
+                        value: 0.000000
+                        min: 0.000000
+                        max: 9.900000
+                        step_size: 0.100000
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWCWeavePattern"
+                        type: "Literal"
+                        value: "no weaving"
+                        values: ["no weaving", "harmonic", "harmonic with end stop", "reciprocating triangular", "circular clockwise", "circular counterclockwise", "user pattern 1", "user pattern 2", "user pattern 3", "user pattern 4", "user pattern 5"]
+                        index: 0
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWCWeaveNum"
+                        type: "Int"
+                        value: 0
+                        min: 0
+                        max: 10
+                        step_size: 1
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWCWeaveFreq"
+                        type: "Double"
+                        value: 0.000000
+                        min: 0.000000
+                        max: 4.000000
+                        step_size: 0.100000
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "DLWCWeaveWidth"
+                        type: "Double"
+                        value: 0.000000
+                        min: 0.000000
+                        max: 40.000000
+                        step_size: 0.100000
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                  - name: "Tool"
+                    group: "BuiltInEvent"
+                    insert_position: "InsertAfter"
+                    event_type: "Tool"
+                    attributes:
+                  - name: "Speed"
+                    group: "Motionprofile"
+                    insert_position: "InsertAfter"
+                    event_type: "Speed"
+                    attributes:
+                      - name: "Value"
+                        type: "Double"
+                        value: 0.005833
+                        min: -179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                        max: 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                        step_size: 0.100000
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Speed"
+                        olp_property: []
+                      - name: "PathType"
+                        type: "String"
+                        value: "Contour"
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: []
+                  - name: "Accuracy"
+                    group: "Motionprofile"
+                    insert_position: "InsertAfter"
+                    event_type: "Accuracy"
+                    attributes:
+                      - name: "Value"
+                        type: "Double"
+                        value: 0.010000
+                        min: -179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                        max: 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                        step_size: 0.100000
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Length"
+                        olp_property: []
+                      - name: "Criteria"
+                        type: "String"
+                        value: "Distance"
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: []
+                      - name: "PathType"
+                        type: "String"
+                        value: "Contour"
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: []
+              - name: "PG02_SE_P0029"
+                motion_type: "Linear"
+                is_ptp: false
+                is_linear: true
+                is_circular: false
+                is_reference: false
+                attributes:
+                events_before:
+                  - name: "TpeAtEndEvent"
+                    group: "TpdbIgnore"
+                    insert_position: "InsertBefore"
+                    event_type: "Process"
+                    attributes:
+                      - name: "TSContourTpeUUID"
+                        type: "String"
+                        value: "9110301-7d85e156"
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                  - name: "Accuracy"
+                    group: "Motionprofile"
+                    insert_position: "InsertBefore"
+                    event_type: "Accuracy"
+                    attributes:
+                      - name: "Value"
+                        type: "Double"
+                        value: 0.000000
+                        min: -179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                        max: 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                        step_size: 0.100000
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: []
+                      - name: "Criteria"
+                        type: "String"
+                        value: "Off"
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: []
+                      - name: "PathType"
+                        type: "String"
+                        value: "Contour"
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: []
+                  - name: "ConnectTouchProcessPointEvent"
+                    group: "OlpEvent"
+                    insert_position: "InsertBefore"
+                    event_type: "Olp"
+                    attributes:
+                      - name: "TouchId"
+                        type: "String"
+                        value: "2"
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute"]
+                      - name: "Touch_Cntr"
+                        type: "Int"
+                        value: 3
+                        min: 0
+                        max: 99
+                        step_size: 1
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute"]
+                position:
+                  name: "PG02_SE_P0029"
+                  process_type: "ProcessCurve"
+                  target_type: "Cartesian"
+                  xyz_m: [-0.118000, 1.120400, 1.022900]
+                  orientation_deg: [135.000000, 0.000000, -0.000000]
+                  config: "RAD"
+                  turn: "0,0,0"
+                  main_joints:
+                    - name: "D1"
+                      value: -5.440353
+                    - name: "D2"
+                      value: 7.252630
+                    - name: "D3"
+                      value: -76.194314
+                    - name: "D4"
+                      value: -0.000275
+                    - name: "D5"
+                      value: -96.553082
+                    - name: "D6"
+                      value: 5.440648
+                  external_joints:
+                    - name: "JT7"
+                      value: 0.000000
+                    - name: "JT8"
+                      value: 180.000000
+                  attributes:
+                via_position: ~
+                events_after:
+                  - name: "ArcOffEvent"
+                    group: "OlpEvent"
+                    insert_position: "InsertAfter"
+                    event_type: "Olp"
+                    attributes:
+                  - name: "Tool"
+                    group: "BuiltInEvent"
+                    insert_position: "InsertAfter"
+                    event_type: "Tool"
+                    attributes:
+                  - name: "Accuracy"
+                    group: "Motionprofile"
+                    insert_position: "InsertAfter"
+                    event_type: "Accuracy"
+                    attributes:
+                      - name: "Value"
+                        type: "Double"
+                        value: 0.005000
+                        min: -179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                        max: 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                        step_size: 0.100000
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Length"
+                        olp_property: []
+                      - name: "Criteria"
+                        type: "String"
+                        value: "Distance"
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: []
+                      - name: "PathType"
+                        type: "String"
+                        value: "Contour"
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: []
+                  - name: "Speed"
+                    group: "Motionprofile"
+                    insert_position: "InsertAfter"
+                    event_type: "Speed"
+                    attributes:
+                      - name: "Value"
+                        type: "Double"
+                        value: 0.500000
+                        min: -179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                        max: 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
+                        step_size: 0.100000
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Speed"
+                        olp_property: []
+                      - name: "PathType"
+                        type: "String"
+                        value: "Contour"
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Standard"
+                        olp_property: []
+                  - name: "RetractArcWeldingStitch"
+                    group: "ApproachRetract"
+                    insert_position: "InsertAfter"
+                    event_type: "Retract"
+                    attributes:
+                      - name: "SpeedViaRetract"
+                        type: "Double"
+                        value: 0.500000
+                        min: 0.010000
+                        max: 2.000000
+                        step_size: 0.100000
+                        group_name: ""
+                        read_only: false
+                        value_unit_type: "Speed"
+                        olp_property: ["UserAttribute", "ProcessAttribute", "OperationAttribute"]
+                    motions:
+                      - name: "PG02_SE_P0030"
+                        motion_type: "Linear"
+                        is_ptp: false
+                        is_linear: true
+                        is_circular: false
+                        is_reference: false
+                        attributes:
+                        events_before:
+                        position:
+                          name: "PG02_SE_P0030"
+                          process_type: "Retract"
+                          target_type: "Cartesian"
+                          xyz_m: [-0.118000, 1.191111, 1.093611]
+                          orientation_deg: [135.000000, 0.000000, 0.000000]
+                          config: "RAD"
+                          turn: "0,0,0"
+                          main_joints:
+                            - name: "D1"
+                              value: -5.153322
+                            - name: "D2"
+                              value: 14.723078
+                            - name: "D3"
+                              value: -63.414220
+                            - name: "D4"
+                              value: -0.000279
+                            - name: "D5"
+                              value: -101.862726
+                            - name: "D6"
+                              value: 5.153591
+                          external_joints:
+                            - name: "JT7"
+                              value: 0.000000
+                            - name: "JT8"
+                              value: 180.000000
+                          attributes:
+                        via_position: ~
+                        events_after:
+
+summary:
+  program_count: 1
+  operation_group_count: 1
+  operation_count: 7
+  motion_count: 30
+  event_count: 67
+  event_types_found: ["Olp", "Approach", "Retract", "Process", "Speed", "Accuracy", "Tool", "Insert"]
+  technologies_found: ["ArcWeldingTechnology"]
+  attribute_counts:
+    controller: 0
+    program: 17
+    group: 0
+    operation: 51
+    event: 148
+    motion: 0
+    position: 0
+    resource: 1

@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<NamingRules>
+
+   <!-- Documentation see below-->
+
+   <!-- operation group naming -->
+   <OperationGroupNaming>
+      <Rule>
+         <String Value="GRP" Order="1"/>
+         <Counter CounterName ="GRPCOUNT" CounterLevel="Program" Digits="3" Order="2"/>
+      </Rule>
+   </OperationGroupNaming>
+
+   <!-- operation naming -->
+   <OperationNaming>
+      <Rule>
+		 <OperationAttribute Name="WeldingGroup" Order="1" />
+		 <TechnologyString Order="2" />
+         <Counter CounterName ="OPCOUNT" CounterLevel="Program" Digits="1" Order="3"/>
+      </Rule>
+   </OperationNaming>
+
+   <!-- toolpath naming -->
+   <ToolpathNaming>
+      <RuleGroup>
+         <UsedTypes>
+            <ProcessPoint></ProcessPoint>
+            <TeachInsert></TeachInsert>
+            <ProcessCurve></ProcessCurve>
+            <Approach></Approach>
+            <Retract></Retract>
+            <TrackLink></TrackLink>
+            <Cycle></Cycle>
+            <Auxiliary></Auxiliary>
+            <ToolChange></ToolChange>
+            <LeadIn></LeadIn>
+            <LeadOut></LeadOut>
+            <Gap></Gap>
+            <ExplodedCycle></ExplodedCycle>
+            <ProcessSurface></ProcessSurface>
+            <TPLink></TPLink>				
+         </UsedTypes>
+         <Rule>
+            <String Value="P" Order="0"/>
+            <Counter CounterName ="ProcCount" CounterLevel="Program" Digits="3" StartIndex="1" Order="1"/>
+         </Rule>
+      </RuleGroup>
+   </ToolpathNaming>
+
+   <!-- swept volume naming -->
+   <SweptVolumeNaming>
+      <Rule>
+         <ControllerName Order="0"/>
+         <String Value="_SV_" Order="1"/>
+         <ProgramName Order="2"/>
+      </Rule>
+   </SweptVolumeNaming>
+
+
+   <!--  ***Documentation***
+   
+   Toolpath naming:
+   ****************
+   
+      Each NamingRules.xml configuration file does contain one or more “RuleGroup”. 
+      These rule groups define which kind of toolpath element types belong to this rule. Also the rule itself is described here, and which modules are used for output.
+   
+      UsedTypes in ToolpathNaming can be:
+         - ProcessPoint
+         - TeachInsert
+         - ProcessCurve
+         - Approach
+         - Retract
+         - TrackLink
+         - Cycle
+         - Auxiliary
+         - ToolChange
+         - LeadIn
+         - LeadOut
+         - Gap
+         - ExplodedCycle
+         - ProcessSurface
+         - ProcessInsert
+   
+      The toolpath naming rule can consist of the following modules; it is possible to use each module several times. To ensure the correct order each module has an attribute “order”:
+         - ProgramName     -> name of program
+         - OPGroupName     -> name of operation group
+         - OPName          -> name of operation
+         - ProcGeoName     -> name of process geometry
+         - String
+            - Value        -> value of the string
+         - Counter
+            - CounterName  -> name of counter, should be unique
+            - CounterLevel -> ["Program", "OperationGroup", "Operation"] defines the "region" where the counter will be incremented without resetting
+            - Digits       -> the number of digits
+            - StartIndex   -> starting index
+         - Technology      -> name of the current technology
+         - ControllerName  -> name of the current controller
+         - ControllerUserString  -> user defined string from controller
+         
+      Example for toolpath naming rules:
+         
+            <RuleGroup>
+               <UsedTypes>
+                  <Approach></Approach>
+               </UsedTypes>
+               <Rule>
+                  <OPGroupName Order="0"/>
+                  <String Value="_approach." Order="1"/>
+                  <Counter CounterName ="ApproachCount" CounterLevel="OperationGroup" Digits="3" StartIndex="1" Order="2"/>
+               </Rule>
+            </RuleGroup>
+            <RuleGroup>
+               <UsedTypes>
+                  <ProcessPoint></ProcessPoint>
+                  <ProcessCurve></ProcessCurve>
+               </UsedTypes>
+               <Rule>
+                  <OPName Order="0"/>
+                  <String Value="_pt." Order="1"/>
+                  <Counter CounterName ="ProcCount" CounterLevel="OperationGroup" Digits="5" StartIndex="10" Order="2"/>
+               </Rule>
+            </RuleGroup>
+         
+      Toolpath output example within one operation group:
+      
+      OPGroup.1_approach.001
+      OPGroup.1_approach.002
+      Operation.1_pt.00010
+      Operation.1_pt.00011
+      Operation.1_pt.00012
+      
+      In the next operation group the toolpath element index will be reset to StartIndex, because the CounterLevel is "OperationGroup"
+         
+         
+
+   OLP objects naming:
+   *******************
+   
+      Within the NamingRules.xml also the names of operation groups and operations can be set. The groups are called "OperationGroupNaming" and "OperationNaming"
+   
+      The naming of operation group and operation can consist of the following modules; it is possible to use each module several times
+         - String
+            - Value        -> value of the string
+         - Counter
+            - CounterName  -> name of counter, should be unique
+            - CounterLevel -> ["Program", "OperationGroup", "Operation"] defines the "region" where the counter will be incremented without resetting
+            - Digits       -> the number of digits
+         - Technology      -> name of the current technology
+         - TechnologyString -> technology string which is defined in the technology
+         - OperationAttribute (only for Operation!)
+            - Name         -> Name of any operation attribute whose value is to be output
+         - ProcGeoName     -> name of process geometry (possible only at operation)   
+         - ControllerName  -> name of the current controller 
+         - ControllerUserString  -> user defined string from controller
+      
+      Example for operation group naming:
+      
+            <OperationGroupNaming>
+               <Rule>
+                  <Technology Order="0"/>
+                  <String Value="_GRP" Order="1"/>
+                  <Counter CounterName ="GRPCOUNT" CounterLevel="Program" Digits="3" Order="2"/>
+               </Rule>
+            </OperationGroupNaming>
+      
+      Output:
+      
+      LaserCutting_GRP001
+      LaserCutting_GRP002
+      
+      
+      
+   Swept volume naming:
+   ********************
+   
+      Here the names of swept volumes can be defined.
+      
+      The naming of swept volumes can consist of the following modules; it is possible to use each module several times:
+         - String
+            - Value        -> value of the string
+         - ProgramName     -> name of the corresponding program   
+         - Counter
+            - CounterName  -> name of counter, should be unique
+            - CounterLevel -> ["Program", "OperationGroup", "Operation"] defines the "region" where the counter will be incremented without resetting
+            - Digits       -> the number of digits
+         - Technology      -> name of the current technology
+         - ControllerName  -> name of the current controller
+         - ControllerUserString  -> user defined string from controller
+      
+      Example for swept volume naming:
+          
+         <SweptVolumeNaming>
+            <Rule>
+               <ControllerName Order="0"/>
+               <String Value="_" Order="1"/>
+               <ProgramName Order="2"/>
+            </Rule>
+         </SweptVolumeNaming>
+      
+      Output:
+      
+      R100_PROG001
+      
+   -->
+
+
+</NamingRules>
+

@@ -1,0 +1,10 @@
+{
+  "schema": "ABB_IRC5_TECH",
+  "version": 1,
+  "defaults": {
+    "Seamdata Number": 1,
+    "Welddata Number": 1,
+    "Weavedata Number": 1,
+    "Trackdata Number": 1
+  }
+}

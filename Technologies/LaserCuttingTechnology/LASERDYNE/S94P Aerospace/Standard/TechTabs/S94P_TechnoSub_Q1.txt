@@ -1,0 +1,18 @@
+;-------------------- START - PULSE PIERCE, SUBROUTINE #1  --------------------------------------
+M5S1
+G5
+MV5                               ;SELECT GAS FOR PIERCE
+PRV6                              ;SET PRESSURE FOR PIERCE
+M51M52XV1M53XV2PKV3               ;SET PIERCE LASER PARAMETERS
+G20R                              ;SET PLANE ROTATION
+G91                               ;SET INCREMENTAL
+G00ZV7                            ;DEFOCUS
+M100                              ;SHUTTER OPEN
+G4X0.1                            ;DELAY FOR SHUTTER    
+M54XV4                            ;PIERCE
+G00Z-V7                           ;SET BACK TO FOCUS
+G20                               ;CANCEL PLANE ROTATION
+G90                               ;SET ABSOLUTE
+MV5+1                             ;SHUT OFF PIERCE GAS
+M6
+;-------------------- END - PULSE PIERCE, SUBROUTINE #1 -----------------------------------------

@@ -1,0 +1,88 @@
+{
+  "version": "1.0",
+  "data_type": "welddata",
+  "last_modified": "2026-02-06T10:16:37",
+  "default_id": 0,
+  "next_id": 3,
+  "instances": [
+    {
+      "id": 0,
+      "name": "wd_default",
+      "description": "Default weld parameters",
+      "created": "2026-01-27T00:00:00",
+      "modified": "2026-01-27T00:00:00",
+      "values": {
+        "voltage": 20.0,
+        "current": 150.0,
+        "wire_feed": 5.0,
+        "gas_flow": 12.0
+      }
+    },
+    {
+      "id": 1,
+      "name": "wd_thin",
+      "description": "Thin material welding",
+      "created": "2026-01-27T00:00:00",
+      "modified": "2026-02-06T08:49:12",
+      "values": {
+        "weld_speed": 9,
+        "org_weld_speed": 0,
+        "main_arc": [
+          31,
+          0,
+          0,
+          0,
+          0,
+          230,
+          0,
+          0,
+          0
+        ],
+        "reserved": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "name": "wd_thick",
+      "description": "Thick material welding",
+      "created": "2026-01-27T00:00:00",
+      "modified": "2026-02-06T10:16:37",
+      "values": {
+        "weld_speed": 7,
+        "org_weld_speed": 0,
+        "main_arc": [
+          29,
+          0,
+          0,
+          0,
+          0,
+          250,
+          0,
+          0,
+          0
+        ],
+        "reserved": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    }
+  ]
+}

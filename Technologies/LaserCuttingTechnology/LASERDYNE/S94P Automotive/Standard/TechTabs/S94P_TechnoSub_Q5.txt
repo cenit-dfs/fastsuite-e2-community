@@ -1,0 +1,6 @@
+;-------------------- START - PULSE WELD WITHOUT WIRE, SUBROUTINE #5 ----------------------------
+M5S5
+$PECK
+$CUT
+M6
+;-------------------- END - PULSE WELD WITHOUT WIRE, SUBROUTINE #5 ------------------------------

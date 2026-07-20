@@ -1,0 +1,136 @@
+{
+  "version": "1.0",
+  "data_type": "seamdata",
+  "rapid_type": "seamdata",
+  "rapid_template": "LOCAL PERS {rapid_type} {name}:=[{values}];",
+  "fields": [
+    {
+      "name": "purge_time",
+      "type": "Double",
+      "output_index": 0,
+      "default": 0.5,
+      "min": 0.0,
+      "decimals": 1,
+      "description": "Purge time (s)"
+    },
+    {
+      "name": "preflow_time",
+      "type": "Double",
+      "output_index": 1,
+      "default": 0.2,
+      "min": 0.0,
+      "decimals": 1,
+      "description": "Preflow time (s)"
+    },
+    {
+      "name": "reserved1",
+      "type": "Array",
+      "array_type": "Integer",
+      "array_size": 9,
+      "output_index": 2,
+      "default": [0, 0, 0, 0, 0, 0, 0, 0, 0],
+      "description": "Reserved array 1"
+    },
+    {
+      "name": "field3",
+      "type": "Integer",
+      "output_index": 3,
+      "default": 0,
+      "description": "Field 3"
+    },
+    {
+      "name": "scrape_start",
+      "type": "Integer",
+      "output_index": 4,
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "description": "Scrape start (0/1)"
+    },
+    {
+      "name": "field5",
+      "type": "Integer",
+      "output_index": 5,
+      "default": 0,
+      "description": "Field 5"
+    },
+    {
+      "name": "field6",
+      "type": "Integer",
+      "output_index": 6,
+      "default": 0,
+      "description": "Field 6"
+    },
+    {
+      "name": "field7",
+      "type": "Integer",
+      "output_index": 7,
+      "default": 0,
+      "description": "Field 7"
+    },
+    {
+      "name": "reserved2",
+      "type": "Array",
+      "array_type": "Integer",
+      "array_size": 9,
+      "output_index": 8,
+      "default": [0, 0, 0, 0, 0, 0, 0, 0, 0],
+      "description": "Reserved array 2"
+    },
+    {
+      "name": "field9",
+      "type": "Integer",
+      "output_index": 9,
+      "default": 0,
+      "description": "Field 9"
+    },
+    {
+      "name": "field10",
+      "type": "Integer",
+      "output_index": 10,
+      "default": 0,
+      "description": "Field 10"
+    },
+    {
+      "name": "reserved3",
+      "type": "Array",
+      "array_type": "Integer",
+      "array_size": 9,
+      "output_index": 11,
+      "default": [0, 0, 0, 0, 0, 0, 0, 0, 0],
+      "description": "Reserved array 3"
+    },
+    {
+      "name": "field12",
+      "type": "Integer",
+      "output_index": 12,
+      "default": 0,
+      "description": "Field 12"
+    },
+    {
+      "name": "field13",
+      "type": "Integer",
+      "output_index": 13,
+      "default": 0,
+      "description": "Field 13"
+    },
+    {
+      "name": "reserved4",
+      "type": "Array",
+      "array_type": "Integer",
+      "array_size": 9,
+      "output_index": 14,
+      "default": [0, 0, 0, 0, 0, 0, 0, 0, 0],
+      "description": "Reserved array 4"
+    },
+    {
+      "name": "postflow_time",
+      "type": "Double",
+      "output_index": 15,
+      "default": 0.2,
+      "min": 0.0,
+      "decimals": 1,
+      "description": "Postflow time (s)"
+    }
+  ]
+}

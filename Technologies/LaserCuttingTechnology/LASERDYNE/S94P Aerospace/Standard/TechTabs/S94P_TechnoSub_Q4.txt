@@ -1,0 +1,18 @@
+;-------------------- START - CW CUT, SUBROUTINE #4 ---------------------------------------------
+M5S4
+G5
+MV24                              ;TURN ON CUT GAS
+PRV25                             ;SET PRESSURE FOR CUTTING
+IF V5!=V24 G4X2.0                 ;IF PIERCE GAS IS DIFFERENT FROM CUT GAS DELAY TWO SECONDS
+G20R                              ;SET PLANE ROTATION
+G91                               ;SET INCREMENTAL
+G00ZV27                           ;DEFOCUS
+G20                               ;CANCEL PLANE ROTATION
+G90                               ;SET ABSOLUTE
+M50PV23                           ;SET CUTTING PARAMETERS
+M100                              ;SHUTTER OPEN
+G4X0.1                            ;DELAY FOR SHUTTER    
+M60                               ;BEAM ON
+FV26                              ;SET FEED RATE
+M6
+;-------------------- END - CW CUT, SUBROUTINE #4 -----------------------------------------------

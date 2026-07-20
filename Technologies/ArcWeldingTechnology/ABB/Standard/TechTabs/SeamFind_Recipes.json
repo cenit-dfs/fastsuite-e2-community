@@ -1,0 +1,198 @@
+[
+  {
+    "name": "Scan 1: Z-only",
+    "scan_ops": [
+      "ATTR1"
+    ],
+    "header": "X:( . )  Y-A:( . )  Z-BC:(1:ATTR1.<HEIGHT> 2: .  3: . )",
+    "ilf_params": {
+      "XCorre": "EMPTY",
+      "XcdParam": "EMPTY",
+      "YCorr": "EMPTY",
+      "YcdParam": "EMPTY",
+      "ZCorr": "ATTR1",
+      "ZcdParam": "<HEIGHT>",
+      "Y2Corr": "EMPTY",
+      "Y2cdParam": "EMPTY",
+      "Z2Corr": "EMPTY",
+      "Z2cdParam": "EMPTY",
+      "Z3Corr": "EMPTY",
+      "Z3cdParam": "EMPTY"
+    }
+  },
+  {
+    "name": "Scan 1: Z+Y (across)",
+    "scan_ops": [
+      "ATTR1"
+    ],
+    "header": "X:( . )  Y-A:(1:ATTR1.<LATERAL>)  Z-BC:(1:ATTR1.<HEIGHT> 2: .  3: . )",
+    "ilf_params": {
+      "XCorre": "EMPTY",
+      "XcdParam": "EMPTY",
+      "YCorr": "ATTR1",
+      "YcdParam": "<LATERAL>",
+      "ZCorr": "ATTR1",
+      "ZcdParam": "<HEIGHT>",
+      "Y2Corr": "EMPTY",
+      "Y2cdParam": "EMPTY",
+      "Z2Corr": "EMPTY",
+      "Z2cdParam": "EMPTY",
+      "Z3Corr": "EMPTY",
+      "Z3cdParam": "EMPTY"
+    }
+  },
+  {
+    "name": "Scan 1: Z+Y Scan 2: Z+X (across + along)",
+    "scan_ops": [
+      "ATTR1",
+      "ATTR2"
+    ],
+    "header": "X:(1:ATTR2.<ALONG>)  Y-A:(1:ATTR1.<LATERAL>)  Z-BC:(1:ATTR1.<HEIGHT> 2:ATTR2.<HEIGHT>  3: . )",
+    "ilf_params": {
+      "XCorre": "ATTR2",
+      "XcdParam": "<ALONG>",
+      "YCorr": "ATTR1",
+      "YcdParam": "<LATERAL>",
+      "ZCorr": "ATTR1",
+      "ZcdParam": "<HEIGHT>",
+      "Y2Corr": "EMPTY",
+      "Y2cdParam": "EMPTY",
+      "Z2Corr": "ATTR2",
+      "Z2cdParam": "<HEIGHT>",
+      "Z3Corr": "EMPTY",
+      "Z3cdParam": "EMPTY"
+    }
+  },
+  {
+    "name": "Scan 1: Z+X Scan 2: Z+Y (along + across)",
+    "scan_ops": [
+      "ATTR1",
+      "ATTR2"
+    ],
+    "header": "X:(1:ATTR1.<ALONG>)  Y-A:(1:ATTR2.<LATERAL>)  Z-BC:(1:ATTR1.<HEIGHT> 2:ATTR2.<HEIGHT>  3: . )",
+    "ilf_params": {
+      "XCorre": "ATTR1",
+      "XcdParam": "<ALONG>",
+      "YCorr": "ATTR2",
+      "YcdParam": "<LATERAL>",
+      "ZCorr": "ATTR1",
+      "ZcdParam": "<HEIGHT>",
+      "Y2Corr": "EMPTY",
+      "Y2cdParam": "EMPTY",
+      "Z2Corr": "ATTR2",
+      "Z2cdParam": "<HEIGHT>",
+      "Z3Corr": "EMPTY",
+      "Z3cdParam": "EMPTY"
+    }
+  },
+  {
+    "name": "Scan 1: Z+Y Scan 2: Z+Y (across + across)",
+    "scan_ops": [
+      "ATTR1",
+      "ATTR2"
+    ],
+    "header": "X:( . )  Y-A:(1:ATTR1.<LATERAL> 2:ATTR2.<LATERAL>)  Z-BC:(1:ATTR1.<HEIGHT> 2:ATTR2.<HEIGHT>  3: . )",
+    "ilf_params": {
+      "XCorre": "EMPTY",
+      "XcdParam": "EMPTY",
+      "YCorr": "ATTR1",
+      "YcdParam": "<LATERAL>",
+      "Y2Corr": "ATTR2",
+      "Y2cdParam": "<LATERAL>",
+      "ZCorr": "ATTR1",
+      "ZcdParam": "<HEIGHT>",
+      "Z2Corr": "ATTR2",
+      "Z2cdParam": "<HEIGHT>",
+      "Z3Corr": "EMPTY",
+      "Z3cdParam": "EMPTY"
+    }
+  },
+  {
+    "name": "Scan 1+2: Z+Y Scan 3: Z+X (across + across + along)",
+    "scan_ops": [
+      "ATTR1",
+      "ATTR2",
+      "ATTR3"
+    ],
+    "header": "X:(1:ATTR3.<ALONG>)  Y-A:(1:ATTR1.<LATERAL> 2:ATTR2.<LATERAL>)  Z-BC:(1:ATTR1.<HEIGHT> 2:ATTR2.<HEIGHT>  3:ATTR3.<HEIGHT>)",
+    "ilf_params": {
+      "XCorre": "ATTR3",
+      "XcdParam": "<ALONG>",
+      "YCorr": "ATTR1",
+      "YcdParam": "<LATERAL>",
+      "Y2Corr": "ATTR2",
+      "Y2cdParam": "<LATERAL>",
+      "ZCorr": "ATTR1",
+      "ZcdParam": "<HEIGHT>",
+      "Z2Corr": "ATTR2",
+      "Z2cdParam": "<HEIGHT>",
+      "Z3Corr": "ATTR3",
+      "Z3cdParam": "<HEIGHT>"
+    }
+  },
+  {
+    "name": "Scan 1: Z+X Scan 2+3: Z+Y (along + across + across)",
+    "scan_ops": [
+      "ATTR1",
+      "ATTR2",
+      "ATTR3"
+    ],
+    "header": "X:(1:ATTR1.<ALONG>)  Y-A:(1:ATTR2.<LATERAL> 2:ATTR3.<LATERAL>)  Z-BC:(1:ATTR1.<HEIGHT> 2:ATTR2.<HEIGHT>  3:ATTR3.<HEIGHT>)",
+    "ilf_params": {
+      "XCorre": "ATTR1",
+      "XcdParam": "<ALONG>",
+      "YCorr": "ATTR2",
+      "YcdParam": "<LATERAL>",
+      "Y2Corr": "ATTR3",
+      "Y2cdParam": "<LATERAL>",
+      "ZCorr": "ATTR1",
+      "ZcdParam": "<HEIGHT>",
+      "Z2Corr": "ATTR2",
+      "Z2cdParam": "<HEIGHT>",
+      "Z3Corr": "ATTR3",
+      "Z3cdParam": "<HEIGHT>"
+    }
+  },
+  {
+    "name": "Scan: Z+Y (Across only)",
+    "scan_ops": [
+      "ATTR1"
+    ],
+    "header": "X:( . )  Y-A:(1:ATTR1.<LATERAL>)  Z-BC:(1:ATTR1.<HEIGHT> 2: .  3: . )",
+    "ilf_params": {
+      "XCorre": "EMPTY",
+      "XcdParam": "EMPTY",
+      "YCorr": "ATTR1",
+      "YcdParam": "<LATERAL>",
+      "ZCorr": "ATTR1",
+      "ZcdParam": "<HEIGHT>",
+      "Y2Corr": "EMPTY",
+      "Y2cdParam": "EMPTY",
+      "Z2Corr": "EMPTY",
+      "Z2cdParam": "EMPTY",
+      "Z3Corr": "EMPTY",
+      "Z3cdParam": "EMPTY"
+    }
+  },
+  {
+    "name": "Scan: Z+X (Along only)",
+    "scan_ops": [
+      "ATTR1"
+    ],
+    "header": "X:(1:ATTR1.<ALONG>)  Y-A:( . )  Z-BC:(1:ATTR1.<HEIGHT> 2: .  3: . )",
+    "ilf_params": {
+      "XCorre": "ATTR1",
+      "XcdParam": "<ALONG>",
+      "YCorr": "EMPTY",
+      "YcdParam": "EMPTY",
+      "ZCorr": "ATTR1",
+      "ZcdParam": "<HEIGHT>",
+      "Y2Corr": "EMPTY",
+      "Y2cdParam": "EMPTY",
+      "Z2Corr": "EMPTY",
+      "Z2cdParam": "EMPTY",
+      "Z3Corr": "EMPTY",
+      "Z3cdParam": "EMPTY"
+    }
+  }
+]

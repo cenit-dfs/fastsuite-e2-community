@@ -1,0 +1,53 @@
+{
+  "version": "1.0",
+  "data_type": "trackdata",
+  "rapid_type": "trackdata",
+  "rapid_template": "LOCAL PERS {rapid_type} {name}:=[{values}];",
+  "fields": [
+    {
+      "name": "track_system",
+      "type": "Integer",
+      "output_index": 0,
+      "default": 0,
+      "min": 0,
+      "max": 99,
+      "description": "Tracking system selector"
+    },
+    {
+      "name": "store_path",
+      "type": "Bool",
+      "output_index": 1,
+      "default": false,
+      "description": "Store path flag"
+    },
+    {
+      "name": "max_corr",
+      "type": "Integer",
+      "output_index": 2,
+      "min": 0.0,
+      "max": 9999,
+      "default": 0,
+      "description": "Max correction"
+    },
+    {
+      "name": "arctrack",
+      "type": "Array",
+      "array_type": "Integer",
+      "array_size": 9,
+      "output_index": 3,
+      "default": [0, 25, 30, 0, 0, 0, 0, 0, 0],
+      "column_headers": ["track_type", "p1", "p2", "p3", "p4", "p5", "p6", "p7", "p8"],
+      "description": "Arc tracking parameters [9 elements]"
+    },
+    {
+      "name": "reserved",
+      "type": "Array",
+      "array_type": "Integer",
+      "array_size": 7,
+      "output_index": 4,
+      "default": [0, 0, 0, 0, 0, 0, 0],
+      "column_headers": ["r1", "r2", "r3", "r4", "r5", "r6", "r7"],
+      "description": "Reserved parameters [7 elements]"
+    }
+  ]
+}

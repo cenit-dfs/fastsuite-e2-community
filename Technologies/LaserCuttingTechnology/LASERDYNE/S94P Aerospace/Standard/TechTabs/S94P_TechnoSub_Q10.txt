@@ -1,0 +1,10 @@
+;-------------------- START - LASER OFF, SUBROUTINE #10 -----------------------------------------
+M5S10
+G5                                ;EXACT POSITION
+M61                               ;BEAM OFF
+T0                                ;DEACTIVATE TOOLSELECTION
+M101                              ;CLOSE SHUTTER
+G4X0.1                            ;DELAY FOR SHUTTER
+M301M303M305M307M309              ;GAS OFF
+M6
+;-------------------- END - LASER OFF, SUBROUTINE #10 ------------------------------------------

@@ -1,0 +1,19 @@
+;-------------------- START - PULSE WELD WITHOUT WIRE, SUBROUTINE #5 ----------------------------
+M5S5
+G5
+MV14                              ;TURN ON WELD GAS
+M300                              ;TURN ON AIR KNIFE
+PRV15                             ;SET PRESSURE FOR WELDING
+G4X5.0                            ;DELAY FOR SHIELD GAS
+G20R                              ;SET PLANE ROTATION
+G91                               ;SET INCREMENTAL
+G00ZV17                           ;DEFOCUS
+G20                               ;CANCEL PLANE ROTATION
+G90                               ;SET ABSOLUTE
+M51M52XV11M53XV12PKV13            ;SET WELDING PARAMETERS
+M100                              ;SHUTTER OPEN
+G4X0.1                            ;DELAY FOR SHUTTER    
+M60                               ;BEAM ON
+FV16                              ;SET FEED RATE
+M6
+;-------------------- END - PULSE WELD WITHOUT WIRE, SUBROUTINE #5 ------------------------------

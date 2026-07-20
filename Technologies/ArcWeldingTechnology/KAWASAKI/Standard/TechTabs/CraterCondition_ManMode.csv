@@ -1,0 +1,13 @@
+WC2_Number;WC2_Name;WC2_Time;WC2_WeldCurrent;WC2_WeldVoltage;WC2_PulseDynamicCorr;WC2_WireRetractCorr;
+1;Standard steel;0.2;60;15.5;0;0;0
+2;Standard steel;0.2;78;15.7;0;0;0
+3;Standard steel;0.5;60;15.5;0;0;0
+4;Standard steel;0.5;78;15.7;0;0;0
+5;PULSE steel;0.2;64;19.3;0;0;0
+6;PULSE steel;0.2;76;19.8;0;0;0
+7;PULSE steel;0.5;64;19.3;0;0;0
+8;PULSE steel;0.5;76;19.8;0;0;0
+9;CMT steel;0.2;65;14.2;0;0;0
+10;CMT steel;0.2;78;14.3;0;0;0
+11;CMT steel;0.5;65;14.2;0;0;0
+12;CMT steel;0.5;78;14.3;0;0;0

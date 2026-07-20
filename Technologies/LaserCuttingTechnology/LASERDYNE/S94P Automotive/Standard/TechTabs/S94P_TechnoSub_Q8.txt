@@ -1,0 +1,6 @@
+;-------------------- START - PULSE WELD WITH WIRE, SUBROUTINE #8 -------------------------------
+M5S8
+$PECK
+$CUT
+M6
+;-------------------- END - PULSE WELD WITH WIRE, SUBROUTINE #8 ---------------------------------

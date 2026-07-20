@@ -1,0 +1,1384 @@
+<?xml-stylesheet type="text/xsl" href="stylesheet.xsl"?>
+<ControllerSettings Version="1.0">
+  <Technology Name="ArcWeldingTechnology">
+    <TechTabs>
+      <TechTab Name="ProgramBaseTechTab" Order="1" Visibility="true" Icon="ProgramBase" >
+        <Containers>
+          <Container Name="StartConditions" Order="1" Visibility="true" Icon="ProgrammingDefaults">
+            <Groups>
+              <Group Name="StartConditionsAttribs" Order="1">
+                <Attributes>
+                  <Attribute Name="SetStartConditions" Order="1" Value="true" Visibility="false" Icon="" />
+                </Attributes>
+              </Group>
+              <Group Name="StartConditionsPTP" Order="2">
+                <Attributes>
+                  <Attribute Name="StartPtpFeedRate" Order="1" Value="50.0" Visibility="true" Icon="Velocity" />
+                  <Attribute Name="StartPtpAccuracyMode" Order="2" Visibility="true" Icon="OLP_FlybyMode" />
+                  <Attribute Name="StartPtpAccuracy" Order="3" Value="0.0" Visibility="true" Icon="FlybyDistance" />
+                  <Attribute Name="StartPtpAcceleration" Order="4" Value="1.000" Visibility="false" Icon="Acceleration" />
+                </Attributes>
+              </Group>
+              <Group Name="StartConditionsLIN" Order="3">
+                <Attributes>
+                  <Attribute Name="StartLinFeedRate" Order="1" Value="0.050" Visibility="true" Icon="Velocity" />
+                  <Attribute Name="StartLinAccuracyMode" Order="2" Visibility="true" Icon="OLP_FlybyMode" />
+                  <Attribute Name="StartLinAccuracy" Order="3" Value="0.010" Visibility="true" Icon="FlybyDistance" />
+                  <Attribute Name="StartLinAcceleration" Order="4" Value="1.000" Visibility="false" Icon="Acceleration" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+        </Containers>
+      </TechTab>
+      <TechTab Name="ToolDataTechTab" Order="2" Visibility="true" Icon="Tool">
+        <Containers>
+          <Container Name="Alignment" Order="2" Visibility="true" Icon="ToolAlignment">
+            <Groups>
+              <Group Name="ToolAlignment" Order="1">
+                <Attributes>
+                  <Attribute Name="AlignmentToolVector" Order="1" Value="-Z" Visibility="true" Icon="ToolAlignmentNormal" />
+                  <Attribute Name="AlignmentTangentVectorZ" Order="2" Value="+X" Visibility="true" Icon="ToolAlignmentTangent" />
+                  <Attribute Name="AlignmentTangentVectorX" Order="3" Value="+Y" Visibility="false" Icon="ToolAlignmentTangent" />
+                  <Attribute Name="AlignmentTangentVectorY" Order="4" Value="+Z" Visibility="false" Icon="ToolAlignmentTangent" />
+                  <Attribute Name="Sys_Att_AlignmentRx" Order="5" Visibility="false" Icon="ToolAlignmentX" />
+                  <Attribute Name="Sys_Att_AlignmentRy" Order="6" Visibility="false" Icon="ToolAlignmentY" />
+                  <Attribute Name="Sys_Att_AlignmentRz" Order="7" Visibility="false" Icon="ToolAlignmentZ" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+        </Containers>
+      </TechTab>
+      <TechTab Name="ManufacturingGeometryTechTab" Order="3" Visibility="true" Icon="Preparations">
+        <Containers>
+          <Container Name="Transformation" Order="1" Visibility="true" Icon="GeoTransformations">
+            <Groups>
+              <Group Name="Translation" Order="1">
+                <Attributes>
+                  <Attribute Name="Sys_Att_TranslationX" Order="1" Visibility="true" Icon="TranslationX" />
+                  <Attribute Name="Sys_Att_TranslationY" Order="2" Visibility="true" Icon="TranslationY" />
+                  <Attribute Name="Sys_Att_TranslationZ" Order="3" Visibility="true" Icon="TranslationZ" />
+                </Attributes>
+              </Group>
+              <Group Name="Rotation" Order="2">
+                <Attributes>
+                  <Attribute Name="Sys_Att_RotationRx" Order="1" Visibility="true" Icon="RotationX" />
+                  <Attribute Name="Sys_Att_RotationRy" Order="2" Visibility="true" Icon="RotationY" />
+                  <Attribute Name="Sys_Att_RotationRz" Order="3" Visibility="true" Icon="RotationZ" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <Container Name="BoundaryConditions" Order="2" Visibility="true" Icon="ToolpathConditions">
+            <Groups>
+              <Group Name="Start/End" Order="1">
+                <Attributes>
+                  <Attribute Name="Sys_Att_StartPoint_ForUI" Order="1" Visibility="true" Icon="PositionStart" />
+                  <Attribute Name="Sys_Att_StartPoint" Order="2" Visibility="false" Icon="PositionStart" />
+                  <Attribute Name="Sys_Att_EndPoint_ForUI" Order="3" Visibility="true" Icon="PositionEnd" />
+                  <Attribute Name="Sys_Att_EndPoint" Order="4" Visibility="false" Icon="PositionEnd" />
+                  <Attribute Name="Sys_Att_ApproachDirection" Order="5" Visibility="true" Icon="MGApproach" />
+                  <Attribute Name="Sys_Att_ProcessFlowDirection" Order="6" Visibility="true" Icon="MGDirection" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+        </Containers>
+      </TechTab>
+      <TechTab Name="ToolpathCalculationTechTab" Order="4" Visibility="true" Icon="ToolpathCalculate">
+        <Containers>
+          <Container Name="Approximation" Order="1" Visibility="true" Icon="ApproximationGlobal">
+            <Groups>
+              <Group Name="Approximation" Order="1">
+                <Attributes>
+                  <Attribute Name="Sys_Att_ApproximType" Order="1" Visibility="true" Icon="Approximation" />
+                  <Attribute Name="Sys_Att_MaxSag" Order="2" Visibility="true" Icon="ApproximationSAG" />
+                  <Attribute Name="Sys_Att_MaxDist" Order="3" Visibility="true" Icon="ApproximationDistance" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <Container Name="LocalOffsets" Order="2" Visibility="true" Icon="Compensations">
+            <Groups>
+              <Group Name="Offsets" Order="1">
+                <Attributes>
+                  <Attribute Name="Sys_Att_OffsetY" Order="1" Visibility="true" Icon="OffsetContour" />
+                  <Attribute Name="Sys_Att_SheetOffset" Order="2" Visibility="true" Icon="OffsetSurface" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+        </Containers>
+      </TechTab>
+      <TechTab Name="TechnologyBaseTechTab" Order="5" Visibility="true" Icon="ArcWelding">
+        <Containers>
+          <Container Name="ProcessOnOff" Order="1" Visibility="true" Icon="">
+            <Groups>
+              <Group Name="ProcessOnOffAttributes" Order="1">
+                <Attributes>
+                  <Attribute Name="ProcessOnOff_Force_Exact_Stop" Order="1" Visibility="false" Icon="" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <Container Name="Recipes" Order="2" Visibility="true" Icon="Recipes">
+            <Groups>
+              <Group Name="Recipes" Order="1">
+                <Attributes>
+                  <Attribute Name="ArcWeldingActiveWorkMethod" Order="1" Visibility="false" Icon="WeldMethod" />
+                </Attributes>
+              </Group>
+              <Group Name="NewRecipes" Order="2">
+                <Attributes>
+                  <Attribute Name="WeldContour" Order="1" Value="true" Visibility="true" Icon="WeldingContinuous" />
+                  <Attribute Name="SeamCalibrationMethod" Order="2" Value="None" Visibility="true" Icon="ArcWeldCalibration_Calibration" />
+                  <Attribute Name="TSOperationsSorted" Order="3" Value="false" Visibility="false" Icon="COM_TreeStructureReorder" />
+                  <Attribute Name="SeamTrackingDistancePD" Order="4" Value="0.030" Visibility="false" Icon="ArcWeldCalibration_TrackingOffset" />
+                </Attributes>
+              </Group>
+              <Group Name="ArcWeldWPS" Order="3">
+                <Attributes>
+                  <Attribute Name="WPSAutomatic" Order="1" Visibility="true" Icon="ArcWeld_WPSAutomatic" />
+                  <Attribute Name="WPSAutomaticNames" Order="2" Visibility="false" Icon="ArcWeld_WPS" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <Container Name="WeldingMotion" Order="3" Visibility="true" Icon="TorchMotion">
+            <Groups>
+              <Group Name="TorchMotion" Order="1">
+                <Attributes>
+                  <Attribute Name="Speed" Order="1" Visibility="true" Icon="Velocity" />
+                  <Attribute Name="FlybyWelding" Order="2" Visibility="true" Icon="FlybyDistance" />
+                  <Attribute Name="UseSearch" Order="3" Visibility="true" Icon="" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <Container Name="WeldingSetup" Order="4" Visibility="true" Icon="TorchAngles">
+            <Groups>
+              <Group Name="TorchAngles" Order="1">
+                <Attributes>
+                  <Attribute Name="UseProcessAngles" Order="1" Value="true" Visibility="false" Icon="Param_ProcessAngles" />
+                  <Attribute Name="LocalOffsetRx" Order="2" Value="45.0" Visibility="true" Icon="ArcweldAngleWork" />
+                  <Attribute Name="LocalOffsetRy" Order="3" Value="0.0" Visibility="true" Icon="ArcweldAngleTravel" />
+                  <Attribute Name="LocalOffsetRz" Order="4" Value="90.0" Visibility="true" Icon="ArcweldAngleTool" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <Container Name="Automatedprogramming" Order="5" Visibility="true" Icon="OLP_Param_AutomatedProgramming">
+            <Groups>
+              <Group Name="Downhand" Order="1">
+                <Attributes>
+                  <Attribute Name="ArcWeldDownhand" Order="1" Visibility="true" Value="false" Icon="OLP_Param_ArcweldDownhand" />
+                  <Attribute Name="ArcWeldDownhandToolVectorAngleX" Order="2" Visibility="true" Value="0.0" Icon="COM_AngleX" />
+                  <Attribute Name="ArcWeldDownhandToolVectorAngleY" Order="3" Visibility="true" Value="180.0" Icon="COM_AngleY" />
+                </Attributes>
+              </Group>
+              <Group Name="TangentAbsolute" Order="2">
+                <Attributes>
+                  <Attribute Name="Sys_Att_AUTO_CREATE_TANGENT_ABSOLUTE" Order="1" Visibility="true" Value="false" Icon="InterpolationTangentAbsolute" />
+                </Attributes>
+              </Group>
+              <Group Name="ExtAxesBackProp" Order="3">
+                <Attributes>
+                  <Attribute Name="ExternalAxesBackPropagationInApproach" Order="1" Visibility="true" Value="True" Icon="OLP_Param_BackPropagationExternal" />
+                  <Attribute Name="ConfigTurnSingularityBackPropagationInApproach" Order="2" Visibility="true" Value="True" Icon="OLP_Param_BackPropagationConfig" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <Container Name="Process" Order="6" Visibility="true" Icon="Process">
+            <Groups>
+              <Group Name="Recipes" Order="1">
+                <Attributes>
+                  <Attribute Name="ProgNumberDefine" Order="1" Visibility="true" Icon="ProgramNumber" />
+                  <Attribute Name="ProgNumber2Define" Order="2" Visibility="true" Icon="ProgramNumber" />
+                  <Attribute Name="Arc Data Set" Order="3" Visibility="true" Icon="ProgramFlowChart" />
+                </Attributes>
+              </Group>
+              <Group Name="ArcOnProgNumberAttributes1" Order="2">
+                <Attributes>
+                  <Attribute Name="ArcWeldingWireFeed" Order="1" Visibility="false" Icon="ArcWeld_WireFeedSpeed" />
+                  <Attribute Name="ArcWeldingWireConsumption" Order="2" Visibility="false" Icon="ArcWeld_WireConsumption" />
+                  <Attribute Name="ArcWeldingVoltage" Order="3" Visibility="false" Icon="COM_ElectricalPower" />
+                  <Attribute Name="ArcWeldingCurrent" Order="4" Visibility="false" Icon="COM_ElectricalCurrent" />
+                </Attributes>
+              </Group>
+              <Group Name="ArcOnProgNumberAttributes2" Order="3">
+                <Attributes>
+                  <Attribute Name="ArcWeldingGasFlow" Order="1" Visibility="false" Icon="ArcWeld_GasFlow" />
+                  <Attribute Name="ArcWeldingGasConsumption" Order="2" Visibility="false" Icon="ArcWeld_GasConsumption" />
+                </Attributes>
+              </Group>
+              <Group Name="Recipes2" Order="4">
+                <Attributes>
+                  <Attribute Name="ArcSet Amp (A)" Order="1" Visibility="true" Icon="" />
+                  <Attribute Name="ArcSet Volt (V)" Order="2" Visibility="true" Icon="" />
+                  <Attribute Name="ArcSet Speed (m/min)" Order="3" Visibility="true" Icon="Speed" />
+                </Attributes>
+              </Group>
+              <Group Name="Recipes3" Order="5">
+                <Attributes>
+                  <Attribute Name="Crater Amp (A)" Order="1" Visibility="true" Icon="" />
+                  <Attribute Name="Crater Volt (V)" Order="2" Visibility="true" Icon="" />
+                  <Attribute Name="Crater Time (s)" Order="3" Visibility="true" Icon="Dwell" />
+                </Attributes>
+              </Group>
+              <Group Name="Weave" Order="6">
+                <Attributes>
+                  <Attribute Name="UseWeaveDefine" Order="1" Visibility="true" Icon="ArcweldWeave" />
+                  <Attribute Name="ArcWeldingWeaveOnDefine" Order="2" Visibility="true" Icon="ProgramNumber" />
+                </Attributes>
+              </Group>
+              <Group Name="Weave1" Order="7">
+                <Attributes>
+                  <Attribute Name="WeaveFrequenzDefine" Order="1" Visibility="true" Icon="ArcweldWeaveFrequency" />
+                  <Attribute Name="WeaveWidthDefine" Order="2" Visibility="true" Icon="ArcweldWeaveAmplitudeAttribute" />
+                </Attributes>
+              </Group>
+              <Group Name="Weave2" Order="8">
+                <Attributes>
+                  <Attribute Name="WeaveTime1Define" Order="1" Visibility="true" Icon="ArcweldWeaveDwellLeft" />
+                  <Attribute Name="WeaveTime2Define" Order="2" Visibility="true" Icon="ArcweldWeaveDwellRight" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <!-- This Containers are only for ActiveProgram Dashboard. This are used for old Programs.-->
+          <Container Name="ApproachRule" Order="7" Visibility="true" Icon="ToolpathApproach">
+            <Groups>
+              <Group Name="EventRule" Order="1">
+                <Rule Name="ApproachRule" Visibility="true" Icon="ToolpathApproach">
+                  <Events>
+                    <Event Name="ApproachArcWelding" />
+                  </Events>
+                </Rule>
+              </Group>
+              <Group Name="GeneralAttributes" Order="2">
+                <Attributes>
+                  <Attribute Name="ApproachMotionType" Order="1" Visibility="true" Icon="MotionType" Rule="ApproachRule" Event="ApproachArcWelding" />
+                  <Attribute Name="SpeedViaApproach" Order="2" Visibility="true" Icon="Velocity" Rule="ApproachRule" Event="ApproachArcWelding" />
+                  <Attribute Name="OPAMotionType" Order="3" Visibility="false" Icon="MotionType" Rule="ApproachRule" Event="ApproachArcWelding" />
+                  <Attribute Name="AppOffsetRefCoordSys" Order="4" Visibility="false" Icon="ReferenceAttribute" Rule="ApproachRule" Event="ApproachArcWelding" />
+                </Attributes>
+              </Group>
+              <Group Name="ApproachLength" Order="3">
+                <Attributes>
+                  <Attribute Name="ApproachLengthX" Order="1" Visibility="true" Icon="OffsetX" Rule="ApproachRule" Event="ApproachArcWelding" />
+                  <Attribute Name="ApproachLengthY" Order="2" Visibility="true" Icon="OffsetY" Rule="ApproachRule" Event="ApproachArcWelding" />
+                  <Attribute Name="ApproachLengthZ" Order="3" Visibility="true" Icon="OffsetZ" Rule="ApproachRule" Event="ApproachArcWelding" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <Container Name="RetractRule" Order="8" Visibility="true" Icon="ToolpathRetract">
+            <Groups>
+              <Group Name="EventRule" Order="1">
+                <Rule Name="RetractRule" Visibility="true" Icon="ToolpathRetract">
+                  <Events>
+                    <Event Name="RetractArcWelding" />
+                  </Events>
+                </Rule>
+              </Group>
+              <Group Name="GeneralAttributes" Order="2">
+                <Attributes>
+                  <Attribute Name="SpeedViaRetract" Order="1" Visibility="true" Icon="Velocity" Rule="RetractRule" Event="RetractArcWelding" />
+                  <Attribute Name="FlybyRetract" Order="2" Visibility="true" Icon="FlybyDistance" Rule="RetractRule" Event="RetractArcWelding" />
+                  <Attribute Name="OPRMotionType" Order="3" Visibility="false" Icon="MotionType" Rule="RetractRule" Event="RetractArcWelding" />
+                  <Attribute Name="RetOffsetReference" Order="4" Visibility="false" Icon="ReferenceAttribute" Rule="RetractRule" Event="RetractArcWelding" />
+                </Attributes>
+              </Group>
+              <Group Name="RetractLength" Order="3">
+                <Attributes>
+                  <Attribute Name="RetractLengthX" Order="1" Visibility="true" Icon="OffsetX" Rule="RetractRule" Event="RetractArcWelding" />
+                  <Attribute Name="RetractLengthY" Order="2" Visibility="true" Icon="OffsetY" Rule="RetractRule" Event="RetractArcWelding" />
+                  <Attribute Name="RetractLengthZ" Order="3" Visibility="true" Icon="OffsetZ" Rule="RetractRule" Event="RetractArcWelding" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+        </Containers>
+      </TechTab>
+      <!-- ************************StitchWeldingWorkMethod************************ -->
+      <TechTab Name="StitchWeldingWorkMethod" Order="7" Visibility="true" Icon="WeldingContinuous">
+        <Containers>
+          <Container Name="WeldingMethod" Order="1" Visibility="true" Icon="WeldMethod">
+            <Groups>
+              <Group Name="Strategy" Order="1">
+                <Attributes>
+                  <Attribute Name="AW_WM_ACTIVE" Order="1" Visibility="true" Icon="WeldMethod" />
+                </Attributes>
+              </Group>
+              <Group Name="SeamDimensions" Order="2">
+                <Attributes>
+                  <Attribute Name="SeamLengthSW" Order="1" Visibility="false" Icon="SeamLength" />
+                  <Attribute Name="NumberOfSeamsSW" Order="2" Visibility="false" Icon="SeamNumber" />
+                  <Attribute Name="RecipeModeSW" Order="3" Visibility="false" Icon="Distribution" />
+                  <Attribute Name="GapLengthSW" Order="4" Visibility="false" Icon="GapLength" />
+                </Attributes>
+              </Group>
+              <Group Name="PitchTrack" Order="3">
+                <Attributes>
+                  <Attribute Name="LinkDistanceSW" Order="2" Visibility="false" Icon="ConnectionHeight" />
+                  <Attribute Name="LinkViaSpeedSW" Order="3" Visibility="false" Icon="Velocity" />
+                  <Attribute Name="LinkTypeSW" Order="1" Visibility="false" Icon="StitchWeld_Connection" />
+                  <Attribute Name="LinkFlybySW" Order="4" Visibility="false" Icon="FlybyDistance" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <Container Name="MulitLayerWeldingWork" Order="2" Visibility="false" Icon="WeldMethod">
+            <Groups>
+              <Group Name="MultiLayerStrategy" Order="1">
+                <Attributes>
+                  <Attribute Name="UseMultiLayer" Order="1" Visibility="false" Icon="PDM_AddToList" />
+                  <Attribute Name="StrategyID" Order="2" Visibility="false" Icon="ChangeRecipe" />
+                  <Attribute Name="AlternateDirection" Order="3" Visibility="false" Icon="SwitchSides" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <Container Name="SeamTrackingDB" Order="3" Visibility="true" Icon="ArcWeldCalibration_SeamTracking">
+            <Groups>
+              <Group Name="SeamTracking" Order="1">
+                <Attributes>
+                  <Attribute Name="SeamTrackingOnOff" Order="1" Visibility="false" Icon="ArcWeldCalibration_SeamTracking" />
+                  <Attribute Name="SeamTrackingDistance" Order="2" Value="0.030" Visibility="false" Icon="ArcWeldCalibration_TrackingOffset" />
+                  <Attribute Name="SeamTrackingAdditionalToolAngle" Order="5" Value="90.0" Visibility="false" Icon="Comment" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <Container Name="Transitions" Order="4" Visibility="true" Icon="Transitions">
+            <Groups>
+              <Group Name="BoxWelding" Order="1">
+                <Attributes>
+                  <Attribute Name="UseBoxWelding" Order="1" Visibility="true" Icon="ArcweldBox" />
+                </Attributes>
+              </Group>
+              <Group Name="BoxWeldingStart" Order="2">
+                <Attributes>
+                  <Attribute Name="StartpointOffsetAW" Order="1" Visibility="false" Icon="ArcweldBox_StartOffset" />
+                  <Attribute Name="ApproachAngleBW" Order="2" Visibility="false" Icon="ArcweldBox_StartAngle" />
+                  <Attribute Name="StartpointDistanceBW" Order="3" Visibility="false" Icon="ArcweldBox_StartLength" />
+                </Attributes>
+              </Group>
+              <Group Name="BoxWeldingEnd" Order="3">
+                <Attributes>
+                  <Attribute Name="EndpointOffsetAW" Order="1" Visibility="false" Icon="ArcweldBox_EndOffset" />
+                  <Attribute Name="RetractAngleBW" Order="2" Visibility="false" Icon="ArcweldBox_EndAngle" />
+                  <Attribute Name="EndpointDistanceBW" Order="3" Visibility="false" Icon="ArcweldBox_EndLength" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <Container Name="ToolpathCreation" Order="5" Visibility="true" Icon="ToolpathCreate">
+            <Groups>
+              <Group Name="ToolpathCreation1" Order="1">
+                <Attributes>
+                  <Attribute Name="TrackExtensionStart" Order="1" Icon="OLP_TrackOverrunStart" />
+                  <Attribute Name="TrackExtensionEnd" Order="2" Visibility="true" Icon="OLP_TrackOverrunEnd" />
+                  <Attribute Name="TrackExtensionAddStartEndTPE" Order="3" Visibility="true" Icon="OLP_TrackOverrunAddPoint" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <Container Name="ApproachRule" Order="6" Visibility="true" Icon="ToolpathApproach">
+            <Groups>
+              <Group Name="EventRule" Order="1">
+                <Rule Name="ApproachRule" Visibility="true" Icon="ToolpathApproach">
+                  <Events>
+                    <Event Name="ApproachArcWeldingStitch" />
+                  </Events>
+                </Rule>
+              </Group>
+              <Group Name="GeneralAttributes" Order="2">
+                <Attributes>
+                  <Attribute Name="ApproachMotionType" Order="1" Visibility="true" Icon="MotionType" Rule="ApproachRule" Event="ApproachArcWeldingStitch" />
+                  <Attribute Name="SpeedViaApproach" Order="2" Visibility="true" Icon="Velocity" Rule="ApproachRule" Event="ApproachArcWeldingStitch" />
+                  <Attribute Name="OPAMotionType" Order="3" Visibility="false" Icon="MotionType" Rule="ApproachRule" Event="ApproachArcWeldingStitch" />
+                  <Attribute Name="AppOffsetRefCoordSys" Order="4" Visibility="false" Icon="ReferenceAttribute" Rule="ApproachRule" Event="ApproachArcWeldingStitch" />
+                </Attributes>
+              </Group>
+              <Group Name="ApproachLength" Order="3">
+                <Attributes>
+                  <Attribute Name="ApproachLengthX" Order="1" Value="0.0" Visibility="true" Icon="OffsetX" Rule="ApproachRule" Event="ApproachArcWeldingStitch" />
+                  <Attribute Name="ApproachLengthY" Order="2" Value="0.0" Visibility="true" Icon="OffsetY" Rule="ApproachRule" Event="ApproachArcWeldingStitch" />
+                  <Attribute Name="ApproachLengthZ" Order="3" Value="0.05" Visibility="true" Icon="OffsetZ" Rule="ApproachRule" Event="ApproachArcWeldingStitch" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <Container Name="RetractRule" Order="7" Visibility="true" Icon="ToolpathRetract">
+            <Groups>
+              <Group Name="EventRule" Order="1">
+                <Rule Name="RetractRule" Visibility="true" Icon="ToolpathRetract">
+                  <Events>
+                    <Event Name="RetractArcWeldingStitch" />
+                  </Events>
+                </Rule>
+              </Group>
+              <Group Name="GeneralAttributes" Order="2">
+                <Attributes>
+                  <Attribute Name="SpeedViaRetract" Order="1" Visibility="true" Icon="Velocity" Rule="RetractRule" Event="RetractArcWeldingStitch" />
+                  <Attribute Name="UseFlybyRetract" Order="2" Visibility="true" Icon="OLP_FlybyOn" Rule="RetractRule" Event="RetractArcWeldingStitch" />
+                  <Attribute Name="FlybyRetract" Order="3" Visibility="true" Icon="FlybyDistance" Rule="RetractRule" Event="RetractArcWeldingStitch" />
+                  <Attribute Name="OPRMotionType" Order="4" Visibility="false" Icon="MotionType" Rule="RetractRule" Event="RetractArcWeldingStitch" />
+                  <Attribute Name="RetOffsetReference" Order="5" Visibility="false" Icon="ReferenceAttribute" Rule="RetractRule" Event="RetractArcWeldingStitch" />
+                </Attributes>
+              </Group>
+              <Group Name="RetractLength" Order="3">
+                <Attributes>
+                  <Attribute Name="RetractLengthX" Order="1" Value="0.0" Visibility="true" Icon="OffsetX" Rule="RetractRule" Event="RetractArcWeldingStitch" />
+                  <Attribute Name="RetractLengthY" Order="2" Value="0.0" Visibility="true" Icon="OffsetY" Rule="RetractRule" Event="RetractArcWeldingStitch" />
+                  <Attribute Name="RetractLengthZ" Order="3" Value="0.05" Visibility="true" Icon="OffsetZ" Rule="RetractRule" Event="RetractArcWeldingStitch" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+        </Containers>
+      </TechTab>
+      <!-- ************************ContourPointWorkMethod (legacy SeamSearch, visi false) ************************ -->
+      <TechTab Name="ContourPointWorkMethod" Order="8" Visibility="false" Icon="TouchSensingRecipe">
+        <Containers>
+          <Container Name="SeamSearch" Order="1" Visibility="true" Icon="TouchSensing">
+            <Groups>
+              <Group Name="SearchMotionType" Order="1">
+                <Attributes>
+                  <Attribute Name="ContourPointMotionType" Order="2" Visibility="false" Icon="MotionType" />
+                </Attributes>
+              </Group>
+              <Group Name="SearchDistanceOnCurve" Order="2">
+                <Attributes>
+                  <Attribute Name="ContourPointDistanceLengthOrPercent" Order="1" Visibility="true" Icon="OLP_Param_SearchCyclePosition" />
+                  <Attribute Name="ContourPointDistanceLength" Order="2" Value="0.025" Visibility="true" Icon="OLP_Param_SearchCycleDistance" />
+                  <Attribute Name="ContourPointDistancePercent" Order="3" Visibility="false" Icon="OLP_Param_SearchCycleDistance" />
+                </Attributes>
+              </Group>
+              <Group Name="SearchTranslation" Order="3">
+                <Attributes>
+                  <Attribute Name="ContourPointLocalOffsetX" Order="1" Value="0.0" Visibility="true" Icon="OffsetX" />
+                  <Attribute Name="ContourPointLocalOffsetY" Order="2" Value="0.022" Visibility="true" Icon="OffsetY" />
+                  <Attribute Name="ContourPointLocalOffsetZ" Order="3" Value="0.022" Visibility="true" Icon="OffsetZ" />
+                </Attributes>
+              </Group>
+              <Group Name="SearchRotation" Order="4">
+                <Attributes>
+                  <Attribute Name="ContourPointLocalOffsetRx" Order="1" Value="0.0" Visibility="true" Icon="ArcweldAngleWork" />
+                  <Attribute Name="ContourPointLocalOffsetRy" Order="2" Value="20.0" Visibility="true" Icon="ArcweldAngleTravel" />
+                  <Attribute Name="ContourPointLocalOffsetRz" Order="3" Value="90.0" Visibility="true" Icon="ArcweldAngleTool" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <Container Name="ApproachRule" Order="3" Visibility="true" Icon="ToolpathApproach">
+            <Groups>
+              <Group Name="EventRule" Order="1">
+                <Rule Name="ApproachRule" Visibility="true" Icon="ToolpathApproach">
+                  <Events>
+                    <Event Name="OnePointApproach" />
+                  </Events>
+                </Rule>
+              </Group>
+              <Group Name="GeneralAttributes" Order="2">
+                <Attributes>
+                  <Attribute Name="OPAMotionType" Order="1" Visibility="false" Icon="MotionType" Rule="ApproachRule" Event="OnePointApproach" />
+                  <Attribute Name="AppOffsetRefCoordSys" Order="2" Visibility="false" Icon="ReferenceAttribute" Rule="ApproachRule" Event="OnePointApproach" />
+                </Attributes>
+              </Group>
+              <Group Name="ApproachLength" Order="3">
+                <Attributes>
+                  <Attribute Name="ApproachLengthX" Order="1" Visibility="true" Icon="OffsetX" Rule="ApproachRule" Event="OnePointApproach" />
+                  <Attribute Name="ApproachLengthY" Order="2" Visibility="true" Icon="OffsetY" Rule="ApproachRule" Event="OnePointApproach" />
+                  <Attribute Name="ApproachLengthZ" Order="3" Visibility="true" Icon="OffsetZ" Rule="ApproachRule" Event="OnePointApproach" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <Container Name="RetractRule" Order="4" Visibility="true" Icon="ToolpathRetract">
+            <Groups>
+              <Group Name="EventRule" Order="1">
+                <Rule Name="RetractRule" Visibility="true" Icon="ToolpathRetract">
+                  <Events>
+                    <Event Name="OnePointRetract" />
+                  </Events>
+                </Rule>
+              </Group>
+              <Group Name="GeneralAttributes" Order="2">
+                <Attributes>
+                  <Attribute Name="OPRMotionType" Order="1" Visibility="false" Icon="MotionType" Rule="RetractRule" Event="OnePointRetract" />
+                  <Attribute Name="RetOffsetReference" Order="2" Visibility="false" Icon="ReferenceAttribute" Rule="RetractRule" Event="OnePointRetract" />
+                </Attributes>
+              </Group>
+              <Group Name="RetractLength" Order="3">
+                <Attributes>
+                  <Attribute Name="RetractLengthX" Order="1" Visibility="true" Icon="OffsetX" Rule="RetractRule" Event="OnePointRetract" />
+                  <Attribute Name="RetractLengthY" Order="2" Visibility="true" Icon="OffsetY" Rule="RetractRule" Event="OnePointRetract" />
+                  <Attribute Name="RetractLengthZ" Order="3" Visibility="true" Icon="OffsetZ" Rule="RetractRule" Event="OnePointRetract" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+        </Containers>
+      </TechTab>
+      <!-- ************************TouchSensingWorkMethod************************ -->
+      <TechTab Name="TouchSensingWorkMethod" Order="9" Visibility="true" Icon="ArcWeldCalibration_TouchSensing">
+        <Containers>
+          <Container Name="TouchMethods" Order="1" Visibility="true" Icon="ArcWeldCalibration_TouchSensing">
+            <Groups>
+              <Group Name="TouchSensingAttributes" Order="1">
+                <Attributes>
+                  <Attribute Name="TSTouchMethod" Order="1" Visibility="true" Value="Nozzle" Icon="OLP_Param_TouchType" />
+                  <Attribute Name="CalibrationFrameSelection" Order="1" Visibility="true" Icon="COM_FramesToolCalibration" />
+                  <Attribute Name="TSSensingToolType" Order="2" Visibility="true" Icon="OLP_Param_TouchType" />
+                  <Attribute Name="TouchDifferenceAngle" Order="2" Value="45.0" Visibility="false" Icon="ArcweldAngleWork" />
+                  <Attribute Name="TouchDifferenceAngleNozzle" Order="2" Value="8.0" Visibility="true" Icon="ArcweldAngleWork" />
+                  <Attribute Name="MaximumLengthForTouchSensingCollisionCheck" Order="3" Value="0.090" Visibility="false" Icon="OLP_Param_TouchMaxDistance" />
+                  <Attribute Name="TSWeldingConditions" Order="3" Visibility="false" Icon="WeldType" />
+                  <Attribute Name="SensingLength" Order="3" Value="0.030" Visibility="true" Icon="OLP_Param_TouchStartOffset" />
+                  <Attribute Name="OperationGroupMotionType" Order="5" Visibility="false" Icon="MotionType" />
+                  <Attribute Name="TSWireDiam" Order="6" Value="0.001" Visibility="false" Icon="OLP_ArcWeld_WireDiameter" />
+                  <Attribute Name="AvoidTouchIdWithoutTouchOp" Order="11" Value="true" Visibility="false" Icon="Dummy" />
+                </Attributes>
+              </Group>
+              <Group Name="AdditionalAngles" Order="2">
+                <Attributes>
+                  <Attribute Name="AngleForNozzleTouch" Order="1" Value="30.0" Visibility="false" Icon="ArcweldAngleWork" />
+                  <Attribute Name="AngleForSideTouch" Order="2" Value="0.0" Visibility="false" Icon="ArcweldAngleWork" />
+                  <Attribute Name="OtherSideTouch" Order="3" Value="false" Visibility="false" Icon="ArcweldBox_StartLength" />
+                  <Attribute Name="TouchSensMotionTypeFirstTpe" Order="4" Visibility="true" Icon="MotionType" />
+                  <Attribute Name="SensingSpeed" Order="5" Visibility="true" Icon="Velocity" />
+                </Attributes>
+              </Group>
+              <Group Name="TouchLengths" Order="3">
+                <Attributes>
+                  <Attribute Name="OvertravelLength" Order="2" Value="0.030" Visibility="false" Icon="OLP_Param_TouchAtStart" />
+                  <Attribute Name="TSTouchDirection" Order="3" Visibility="false" Icon="BaseFrame" />
+                  <Attribute Name="TouchId" Order="4" Visibility="true" Icon="COM_Index" />
+                </Attributes>
+              </Group>
+              <Group Name="WhichTouches" Order="4">
+                <Attributes>
+                  <Attribute Name="TSTouchAtStart" Order="2" Value="false" Visibility="false" Icon="OLP_Param_TouchAtStart" />
+                  <Attribute Name="TSTouchAtEnd" Order="3" Value="false" Visibility="false" Icon="OLP_Param_TouchAtEnd" />
+                </Attributes>
+              </Group>
+              <Group Name="WireCheck" Order="5">
+                <Attributes>
+                  <Attribute Name="TSTouchID" Order="1" Visibility="false" Icon="COM_Index" />
+                  <Attribute Name="TSWireCheck" Order="2" Value="false" Visibility="false" Icon="OLP_Param_TouchWireCheck" />
+                  <Attribute Name="TSWireCheckOperation" Order="2" Value="false" Visibility="false" Icon="OLP_Param_TouchWireCheck" />
+                  <!-- does the Controller has WireCheck anyway : TSWireCheckAvailability Value=true -->
+                  <Attribute Name="TSWireCheckAvailability" Order="3" Value="true" Visibility="false" Icon="OLP_Param_TouchWireCheck" />
+                  <Attribute Name="TouchSensCycleExplode" Order="4" Value="false" Visibility="false" Icon="Collision" />
+                  <Attribute Name="TouchSensCycleExplodeAvailability" Order="5" Value="false" Visibility="false" Icon="Collision" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <Container Name="TouchMotionAtStart" Order="3" Visibility="true" Icon="OLP_Param_TouchAtStart">
+            <Groups>
+              <Group Name="TouchMotionAtStart" Order="1">
+                <Attributes>
+                  <Attribute Name="TSMotionVerticalAtStart" Order="1" Value="true" Visibility="false" Icon="OLP_Param_TouchDirTool" />
+                  <Attribute Name="TSMotionHorizontalAtStart" Order="2" Value="true" Visibility="false" Icon="OLP_Param_TouchDirWork" />
+                  <Attribute Name="TSMotionWeldDirAtStart" Order="3" Value="true" Visibility="false" Icon="OLP_Param_TouchDirTravel" />
+                  <Attribute Name="TSMotionBoxAtStart" Order="4" Value="false" Visibility="false" Icon="OLP_Param_TouchDirBox" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <Container Name="TouchMotionAtEnd" Order="4" Visibility="true" Icon="OLP_Param_TouchAtEnd">
+            <Groups>
+              <Group Name="TouchMotionAtEnd" Order="1">
+                <Attributes>
+                  <Attribute Name="TSMotionVerticalAtEnd" Order="1" Value="true" Visibility="false" Icon="OLP_Param_TouchDirTool" />
+                  <Attribute Name="TSMotionHorizontalAtEnd" Order="2" Value="true" Visibility="false" Icon="OLP_Param_TouchDirWork" />
+                  <Attribute Name="TSMotionWeldDirAtEnd" Order="3" Value="true" Visibility="false" Icon="OLP_Param_TouchDirTravel" />
+                  <Attribute Name="TSMotionBoxAtEnd" Order="4" Value="false" Visibility="false" Icon="OLP_Param_TouchDirBox" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <Container Name="ApproachRule" Order="6" Visibility="true" Icon="ToolpathApproach">
+            <Groups>
+              <Group Name="EventRule" Order="1">
+                <Rule Name="ApproachRule" Visibility="true" Icon="ToolpathApproach">
+                  <Events>
+                    <Event Name="TouchSensingOnePointApproach" />
+                  </Events>
+                </Rule>
+              </Group>
+              <Group Name="GeneralAttributes" Order="2">
+                <Attributes>
+                  <Attribute Name="OPAMotionType" Order="1" Visibility="false" Icon="MotionType" Rule="ApproachRule" Event="TouchSensingOnePointApproach" />
+                  <Attribute Name="AppOffsetRefCoordSys" Order="2" Visibility="false" Icon="ReferenceAttribute" Rule="ApproachRule" Event="TouchSensingOnePointApproach" />
+                </Attributes>
+              </Group>
+              <Group Name="ApproachLength" Order="3">
+                <Attributes>
+                  <Attribute Name="ApproachLengthX" Order="1" Visibility="true" Icon="OffsetX" Rule="ApproachRule" Event="TouchSensingOnePointApproach" />
+                  <Attribute Name="ApproachLengthY" Order="2" Visibility="true" Icon="OffsetY" Rule="ApproachRule" Event="TouchSensingOnePointApproach" />
+                  <Attribute Name="ApproachLengthZ" Order="3" Visibility="true" Icon="OffsetZ" Rule="ApproachRule" Event="TouchSensingOnePointApproach" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <Container Name="RetractRule" Order="7" Visibility="true" Icon="ToolpathRetract">
+            <Groups>
+              <Group Name="EventRule" Order="1">
+                <Rule Name="RetractRule" Visibility="true" Icon="ToolpathRetract">
+                  <Events>
+                    <Event Name="TouchSensingOnePointRetract" />
+                  </Events>
+                </Rule>
+              </Group>
+              <Group Name="GeneralAttributes" Order="2">
+                <Attributes>
+                  <Attribute Name="OPRMotionType" Order="1" Visibility="false" Icon="MotionType" Rule="RetractRule" Event="TouchSensingOnePointRetract" />
+                  <Attribute Name="RetOffsetReference" Order="2" Visibility="false" Icon="ReferenceAttribute" Rule="RetractRule" Event="TouchSensingOnePointRetract" />
+                </Attributes>
+              </Group>
+              <Group Name="RetractLength" Order="3">
+                <Attributes>
+                  <Attribute Name="RetractLengthX" Order="1" Visibility="true" Icon="OffsetX" Rule="RetractRule" Event="TouchSensingOnePointRetract" />
+                  <Attribute Name="RetractLengthY" Order="2" Visibility="true" Icon="OffsetY" Rule="RetractRule" Event="TouchSensingOnePointRetract" />
+                  <Attribute Name="RetractLengthZ" Order="3" Visibility="true" Icon="OffsetZ" Rule="RetractRule" Event="TouchSensingOnePointRetract" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+        </Containers>
+      </TechTab>
+      <!-- ************************SeamSearchWorkMethod************************ -->
+      <TechTab Name="SeamSearchWorkMethod" Order="15" Visibility="true" Icon="ArcWeldCalibration_SeamSearch">
+        <Containers>
+          <Container Name="SeamSearchWorkMethod" Order="1" Visibility="true" Icon="ArcWeldCalibration_SeamSearch">
+            <Groups>
+              <Group Name="SeamSearchAttributes" Order="1">
+                <Attributes>
+                  <Attribute Name="CalibrationFrameSelection" Order="1" Visibility="true" Icon="COM_FramesToolCalibration" />
+                  <Attribute Name="MaximumLengthForTouchSensingCollisionCheck" Order="2" Value="0.090" Visibility="false" Icon="OLP_Param_TouchMaxDistance" />
+                  <Attribute Name="TSWeldingConditions" Order="3" Visibility="false" Icon="WeldType" />
+                  <Attribute Name="SeamSearchSensingLength" Order="4" Value="0.030" Visibility="false" Icon="OLP_Param_TouchStartOffset" />
+                  <Attribute Name="OperationGroupMotionType" Order="5" Visibility="false" Icon="MotionType" />
+                </Attributes>
+              </Group>
+              <Group Name="AdditionalAngles" Order="2">
+                <Attributes>
+                  <Attribute Name="AngleForSideTouch" Order="2" Value="0.0" Visibility="false" Icon="ArcweldAngleWork" />
+                  <Attribute Name="OtherSideTouch" Order="3" Value="false" Visibility="false" Icon="ArcweldBox_StartLength" />
+                  <Attribute Name="TouchSensMotionTypeFirstTpe" Order="4" Visibility="true" Icon="MotionType" />
+                  <Attribute Name="SeamSearchSensingSpeed" Order="5" Visibility="true" Icon="Velocity" />
+                </Attributes>
+              </Group>
+              <Group Name="TouchLengths" Order="3">
+                <Attributes>
+                  <Attribute Name="SeamSearchOvertravelLength" Order="2" Value="0.030" Visibility="false" Icon="OLP_Param_TouchAtStart" />
+                  <Attribute Name="TSTouchDirection" Order="3" Visibility="false" Icon="BaseFrame" />
+                  <Attribute Name="TouchId" Order="4" Visibility="true" Icon="COM_Index" />
+                </Attributes>
+              </Group>
+              <Group Name="WireCheck" Order="4">
+                <Attributes>
+                  <Attribute Name="TSTouchID" Order="1" Visibility="false" Icon="COM_Index" />
+                  <Attribute Name="SeamSearchCycleExplode" Order="4" Value="false" Visibility="false" Icon="Collision" />
+                  <Attribute Name="SeamSearchCycleExplodeAvailability" Order="5" Value="false" Visibility="false" Icon="Collision" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <Container Name="WeldingSetup" Order="2" Visibility="true" Icon="TorchAngles">
+            <Groups>
+              <Group Name="TorchAngles" Order="1">
+                <Attributes>
+                  <Attribute Name="SeamSearchWorkAngle" Order="1" Value="0.0" Visibility="true" Icon="ArcweldAngleWork" />
+                  <Attribute Name="SeamSearchTravelAngle" Order="2" Value="0.0" Visibility="true" Icon="ArcweldAngleTravel" />
+                  <Attribute Name="SeamSearchToolAngle" Order="3" Value="0.0" Visibility="true" Icon="ArcweldAngleTool" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <Container Name="TouchMotionAtStart" Order="3" Visibility="true" Icon="OLP_Param_TouchAtStart">
+            <Groups>
+              <Group Name="TouchMotionAtStart" Order="1">
+                <Attributes>
+                  <Attribute Name="TSMotionVerticalAtStart" Order="1" Value="true" Visibility="false" Icon="OLP_Param_TouchDirTool" />
+                  <Attribute Name="TSMotionHorizontalAtStart" Order="2" Value="true" Visibility="false" Icon="OLP_Param_TouchDirWork" />
+                  <Attribute Name="TSMotionWeldDirAtStart" Order="3" Value="true" Visibility="false" Icon="OLP_Param_TouchDirTravel" />
+                  <Attribute Name="TSMotionBoxAtStart" Order="4" Value="false" Visibility="false" Icon="OLP_Param_TouchDirBox" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <Container Name="TouchMotionAtEnd" Order="4" Visibility="true" Icon="OLP_Param_TouchAtEnd">
+            <Groups>
+              <Group Name="TouchMotionAtEnd" Order="1">
+                <Attributes>
+                  <Attribute Name="TSMotionVerticalAtEnd" Order="1" Value="true" Visibility="false" Icon="OLP_Param_TouchDirTool" />
+                  <Attribute Name="TSMotionHorizontalAtEnd" Order="2" Value="true" Visibility="false" Icon="OLP_Param_TouchDirWork" />
+                  <Attribute Name="TSMotionWeldDirAtEnd" Order="3" Value="true" Visibility="false" Icon="OLP_Param_TouchDirTravel" />
+                  <Attribute Name="TSMotionBoxAtEnd" Order="4" Value="false" Visibility="false" Icon="OLP_Param_TouchDirBox" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <Container Name="ApproachRule" Order="6" Visibility="true" Icon="ToolpathApproach">
+            <Groups>
+              <Group Name="EventRule" Order="1">
+                <Rule Name="ApproachRule" Visibility="true" Icon="ToolpathApproach">
+                  <Events>
+                    <Event Name="SeamSearchingOnePointApproach" />
+                  </Events>
+                </Rule>
+              </Group>
+              <Group Name="GeneralAttributes" Order="2">
+                <Attributes>
+                  <Attribute Name="OPAMotionType" Order="1" Visibility="false" Icon="MotionType" Rule="ApproachRule" Event="SeamSearchingOnePointApproach" />
+                  <Attribute Name="AppOffsetRefCoordSys" Order="2" Visibility="false" Icon="ReferenceAttribute" Rule="ApproachRule" Event="SeamSearchingOnePointApproach" />
+                </Attributes>
+              </Group>
+              <Group Name="ApproachLength" Order="3">
+                <Attributes>
+                  <Attribute Name="ApproachLengthX" Order="1" Visibility="true" Icon="OffsetX" Rule="ApproachRule" Event="SeamSearchingOnePointApproach" />
+                  <Attribute Name="ApproachLengthY" Order="2" Visibility="true" Icon="OffsetY" Rule="ApproachRule" Event="SeamSearchingOnePointApproach" />
+                  <Attribute Name="ApproachLengthZ" Order="3" Visibility="true" Icon="OffsetZ" Rule="ApproachRule" Event="SeamSearchingOnePointApproach" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <Container Name="RetractRule" Order="7" Visibility="true" Icon="ToolpathRetract">
+            <Groups>
+              <Group Name="EventRule" Order="1">
+                <Rule Name="RetractRule" Visibility="true" Icon="ToolpathRetract">
+                  <Events>
+                    <Event Name="SeamSearchingOnePointRetract" />
+                  </Events>
+                </Rule>
+              </Group>
+              <Group Name="GeneralAttributes" Order="2">
+                <Attributes>
+                  <Attribute Name="OPRMotionType" Order="1" Visibility="false" Icon="MotionType" Rule="RetractRule" Event="SeamSearchingOnePointRetract" />
+                  <Attribute Name="RetOffsetReference" Order="2" Visibility="false" Icon="ReferenceAttribute" Rule="RetractRule" Event="SeamSearchingOnePointRetract" />
+                </Attributes>
+              </Group>
+              <Group Name="RetractLength" Order="3">
+                <Attributes>
+                  <Attribute Name="RetractLengthX" Order="1" Visibility="true" Icon="OffsetX" Rule="RetractRule" Event="SeamSearchingOnePointRetract" />
+                  <Attribute Name="RetractLengthY" Order="2" Visibility="true" Icon="OffsetY" Rule="RetractRule" Event="SeamSearchingOnePointRetract" />
+                  <Attribute Name="RetractLengthZ" Order="3" Visibility="true" Icon="OffsetZ" Rule="RetractRule" Event="SeamSearchingOnePointRetract" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+        </Containers>
+      </TechTab>
+      <!-- ************************SeamFindingWorkMethod************************ -->
+      <TechTab Name="SeamFindingWorkMethod" Order="10" Visibility="true" Icon="ArcWeldCalibration_SeamFinding">
+        <Containers>
+          <Container Name="SeamFindingParameters" Order="1" Visibility="true" Icon="ArcWeldCalibration_SeamFinding">
+            <Groups>
+              <Group Name="SeamFindingAttributes" Order="1">
+                <Attributes>
+                  <Attribute Name="CalibrationFrameSelection" Order="1" Visibility="true" Icon="COM_FramesToolCalibration" />
+                  <Attribute Name="SeamFindingDistance" Order="1" Value="0.030" Visibility="true" Icon="ArcWeldCalibration_FindingOffset" />
+                  <Attribute Name="SeamFindingOptionalDirection" Order="2" Value="false" Visibility="true" Icon="ArcWeldCalibration_TrackingDirectionInverse" />
+                  <Attribute Name="SeamFindingOperationNaming" Order="5" Value="FindingAt" Visibility="false" Icon="Comment" />
+                </Attributes>
+              </Group>
+              <Group Name="SeamFindingSpeeds" Order="2">
+                <Attributes>
+                  <Attribute Name="SeamFindingSensingSpeed" Order="1" Value="0.020" Visibility="true" Icon="ArcWeldCalibration_TrackingSpeed" />
+                  <Attribute Name="SeamFindingLinkingSpeed" Order="2" Value="0.060" Visibility="true" Icon="ArcWeldCalibration_LinkingSpeed" />
+                  <Attribute Name="SeamFindingAdditionalToolAngle" Order="5" Value="90.0" Visibility="false" Icon="Comment" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <Container Name="ApproachRule" Order="2" Visibility="true" Icon="ToolpathApproach">
+            <Groups>
+              <Group Name="EventRule" Order="1">
+                <Rule Name="ApproachRule" Visibility="true" Icon="ToolpathApproach">
+                  <Events>
+                    <Event Name="SeamFindingApproach" />
+                  </Events>
+                </Rule>
+              </Group>
+              <Group Name="GeneralAttributes" Order="2">
+                <Attributes>
+                  <Attribute Name="SFApproachMotionType" Order="1" Visibility="true" Icon="MotionType" Rule="ApproachRule" Event="SeamFindingApproach" />
+                </Attributes>
+              </Group>
+              <Group Name="ApproachLength" Order="3">
+                <Attributes>
+                  <Attribute Name="ApproachOnePointDistanceZ" Order="1" Visibility="true" Value="0.100" Icon="OffsetZ" Rule="ApproachRule" Event="SeamFindingApproach" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <Container Name="RetractRule" Order="3" Visibility="true" Icon="ToolpathRetract">
+            <Groups>
+              <Group Name="EventRule" Order="1">
+                <Rule Name="RetractRule" Visibility="true" Icon="ToolpathRetract">
+                  <Events>
+                    <Event Name="SeamFindingRetract" />
+                  </Events>
+                </Rule>
+              </Group>
+              <Group Name="RetractLength" Order="3">
+                <Attributes>
+                  <Attribute Name="RetractOnePointDistanceX" Order="1" Visibility="true" Value="-0.025" Icon="OffsetX" Rule="RetractRule" Event="SeamFindingRetract" />
+                  <Attribute Name="RetractOnePointDistanceZ" Order="2" Visibility="true" Value="0.100" Icon="OffsetZ" Rule="RetractRule" Event="SeamFindingRetract" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+        </Containers>
+      </TechTab>
+      <!-- ************************ArcSpotWorkMethod************************ -->
+      <TechTab Name="ArcSpotWorkMethod" Order="11" Visibility="true" Icon="OLP_ArcWeld_Spot">
+        <Containers>
+          <Container Name="ArcSpotParameters" Order="1" Visibility="true" Icon="TorchMotion">
+            <Groups>
+              <Group Name="ArcSpotAttributes" Order="1">
+                <Attributes>
+                  <Attribute Name="ArcSpotOperationGroupMotionType" Order="1" Value="PTP" Visibility="true" Icon="MotionType" />
+                  <Attribute Name="ArcSpotApproachRetractOption" Order="2" Value="false" Visibility="false" Icon="OLP_ArcWeld_SpotApproach" />
+                  <Attribute Name="ArcSpotOperationNaming" Order="5" Value="ArcSpot" Visibility="false" Icon="Comment" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <Container Name="ApproachRule" Order="2" Visibility="true" Icon="ToolpathApproach">
+            <Groups>
+              <Group Name="EventRule" Order="1">
+                <Rule Name="ApproachRule" Visibility="true" Icon="ToolpathApproach">
+                  <Events>
+                    <Event Name="ArcSpotOnePointApproach" />
+                  </Events>
+                </Rule>
+              </Group>
+              <Group Name="GeneralAttributes" Order="2">
+                <Attributes>
+                  <Attribute Name="OPAMotionType" Order="1" Visibility="false" Icon="MotionType" Rule="ApproachRule" Event="ArcSpotOnePointApproach" />
+                  <Attribute Name="AppOffsetRefCoordSys" Order="2" Visibility="false" Icon="ReferenceAttribute" Rule="ApproachRule" Event="ArcSpotOnePointApproach" />
+                </Attributes>
+              </Group>
+              <Group Name="ApproachLength" Order="3">
+                <Attributes>
+                  <Attribute Name="ApproachLengthX" Order="1" Visibility="true" Icon="OffsetX" Rule="ApproachRule" Event="ArcSpotOnePointApproach" />
+                  <Attribute Name="ApproachLengthY" Order="2" Visibility="true" Icon="OffsetY" Rule="ApproachRule" Event="ArcSpotOnePointApproach" />
+                  <Attribute Name="ApproachLengthZ" Order="3" Visibility="true" Icon="OffsetZ" Rule="ApproachRule" Event="ArcSpotOnePointApproach" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <Container Name="RetractRule" Order="3" Visibility="true" Icon="ToolpathRetract">
+            <Groups>
+              <Group Name="EventRule" Order="1">
+                <Rule Name="RetractRule" Visibility="true" Icon="ToolpathRetract">
+                  <Events>
+                    <Event Name="ArcSpotOnePointRetract" />
+                  </Events>
+                </Rule>
+              </Group>
+              <Group Name="GeneralAttributes" Order="2">
+                <Attributes>
+                  <Attribute Name="OPRMotionType" Order="1" Visibility="false" Icon="MotionType" Rule="RetractRule" Event="ArcSpotOnePointRetract" />
+                  <Attribute Name="RetOffsetReference" Order="2" Visibility="false" Icon="ReferenceAttribute" Rule="RetractRule" Event="ArcSpotOnePointRetract" />
+                </Attributes>
+              </Group>
+              <Group Name="RetractLength" Order="3">
+                <Attributes>
+                  <Attribute Name="RetractLengthX" Order="1" Visibility="true" Icon="OffsetX" Rule="RetractRule" Event="ArcSpotOnePointRetract" />
+                  <Attribute Name="RetractLengthY" Order="2" Visibility="true" Icon="OffsetY" Rule="RetractRule" Event="ArcSpotOnePointRetract" />
+                  <Attribute Name="RetractLengthZ" Order="3" Visibility="true" Icon="OffsetZ" Rule="RetractRule" Event="ArcSpotOnePointRetract" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+        </Containers>
+      </TechTab>
+      <!-- ========================= SURFACE WORK METHOD ========================= -->
+      <TechTab Name="SurfaceWorkMethod" Order="12" Visibility="false" Icon="NDTParallelCurve">
+      <!-- ========================= SURFACEADVANCED WORK METHOD ========================= -->
+      <!-- <TechTab Name="SurfaceAdvancedWorkMethod" Order="12" Visibility="false" Icon="Workpiece"> -->
+      <!-- ============ en/disable desired Workmethod-<TechTab> and set Visibility=true ============== -->
+        <Containers>
+          <!-- ========================= Tool/Speed/Accuracy-Control (only SurfaceAdvanced) ========================= -->
+          <Container Name="EventRules" Order="1" Visibility="true" Icon="Param_EventRules">
+            <Groups>
+              <Group Name="RuleControl" Order="1">
+                <Attributes>
+                  <Attribute Name="ToolActivationMode" Order="1" Visibility="true" Icon="Param_SprayGunActivation" />
+                  <Attribute Name="AdvancedSurfaceApprAndRetr" Order="9" Value="6" Visibility="false" Icon="Param_SprayGunActivation" />
+                </Attributes>
+              </Group>
+              <Group Name="SpeedControl" Order="2">
+                <Attributes>
+                  <Attribute Name="WorkSpeedMode" Order="1" Visibility="true" Icon="Param_EventRulesVelocity" />
+                  <Attribute Name="ProcessSpeed" Order="2" Visibility="true" Value="0.200" Icon="Param_SprayOnVelocity" />
+                  <Attribute Name="OffProcessSpeed" Order="3" Visibility="true" Value="1.000" Icon="Param_SprayOffVelocity" />
+                </Attributes>
+              </Group>
+              <Group Name="AccurracyControl" Order="3">
+                <Attributes>
+                  <Attribute Name="AccuracyMode" Order="1" Visibility="true" Icon="Param_EventRulesAccuracy" />
+                  <Attribute Name="DefaultAccuracy" Order="2" Visibility="true" Value="0.010" Icon="RollHemAccuracy" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <!-- ========================= Default Attributes Common ========================= -->
+          <Container Name="GuideCurve" Order="2" Visibility="true" Icon="OLP_Param_TrackStrategy">
+            <Groups>
+              <Group Name="GuideCurveMode" Order="1">
+                <Attributes>
+                  <Attribute Name="Sys_Att_SRF_GUIDECURVEMODE" Order="1" Visibility="true" Icon="OLP_Param_TrackMode" />
+                  <Attribute Name="Sys_Att_CuttingPlaneAxisShortcut" Order="2" Visibility="true" Icon="PlaneNormalAlignment" />
+                  <Attribute Name="SurfaceOperationNaming" Order="5" Value="Applying" Visibility="false" Icon="Comment" />
+                </Attributes>
+              </Group>
+              <Group Name="CuttingPlanePosition" Order="2">
+                <Attributes>
+                  <Attribute Name="Sys_Att_Cutting_Plane_XPos" Order="1" Visibility="true" Icon="TranslationX" />
+                  <Attribute Name="Sys_Att_Cutting_Plane_YPos" Order="2" Visibility="true" Icon="TranslationY" />
+                  <Attribute Name="Sys_Att_Cutting_Plane_ZPos" Order="3" Visibility="true" Icon="TranslationZ" />
+                </Attributes>
+              </Group>
+              <Group Name="CuttingPlaneRotation" Order="3">
+                <Attributes>
+                  <Attribute Name="Sys_Att_Cutting_Plane_XRot" Order="1" Visibility="true" Icon="RotationX" />
+                  <Attribute Name="Sys_Att_Cutting_Plane_YRot" Order="2" Visibility="true" Icon="RotationY" />
+                  <Attribute Name="Sys_Att_Cutting_Plane_ZRot" Order="3" Visibility="true" Icon="RotationZ" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <Container Name="ToolpathCreation" Order="3" Visibility="true" Icon="ToolpathCreate">
+            <Groups>
+              <Group Name="ToolpathCreation1" Order="1">
+                <Attributes>
+                  <Attribute Name="TrackDistance" Order="1" Visibility="true" Value="0.064" Icon="TrackDistance" />
+                  <Attribute Name="maxPointDistance" Order="2" Visibility="false" Icon="MaxPointDistance" />
+                  <Attribute Name="guidCurveOffset" Order="3" Visibility="true" Icon="GuideCurveOffset" />
+                  <Attribute Name="ignoreGaps" Order="4" Visibility="true" Icon="OLP_Param_TrackGapIgnore" />
+                  <Attribute Name="SizeIgnoreGap" Order="5" Visibility="false" Icon="OLP_Param_TrackGapSize" />
+                </Attributes>
+              </Group>
+              <Group Name="ToolpathCreation2" Order="2">
+                <Attributes>
+                  <Attribute Name="surfaceExtension" Order="1" Visibility="true" Icon="SurfaceBoundaryOffset" />
+                  <Attribute Name="tweakTrackCalculation" Order="2" Visibility="true" Icon="TweakTrackCalculation" />
+                  <Attribute Name="meshExtension" Order="3" Visibility="false" Icon="MeshExtension" />
+                </Attributes>
+              </Group>
+              <Group Name="ToolpathCreation3" Order="3">
+                <Attributes>
+                  <Attribute Name="trackExtension1" Order="1" Visibility="true" Icon="OLP_Param_TrackExtensionFront" />
+                  <Attribute Name="trackExtension2" Order="2" Visibility="true" Icon="OLP_Param_TrackExtensionRear" />
+                  <Attribute Name="extendOnGaps" Order="3" Visibility="true" Icon="OLP_Param_TrackGapExtend" />
+                </Attributes>
+              </Group>
+              <Group Name="ToolpathCreation4" Order="4">
+                <Attributes>
+                  <Attribute Name="AddRemoveTracksAtStart" Order="1" Visibility="true" Icon="OLP_Param_TrackAddFront" />
+                  <Attribute Name="AddRemoveTracksAtEnd" Order="2" Visibility="true" Icon="OLP_Param_TrackAddRear" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <Container Name="ToolpathReshape" Order="4" Visibility="true" Icon="ToolpathUpdate">
+            <Groups>
+              <Group Name="ToolpathReshape" Order="1">
+                <Attributes>
+                  <Attribute Name="approachSide" Order="1" Visibility="true" Icon="TrackApproach" />
+                  <Attribute Name="Sys_Att_TrackInversion" Order="2" Visibility="true" Icon="TrackDirection" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <Container Name="TrackOff_Process" Order="5" Visibility="true" Icon="Param_TrackOffProcess">
+            <Groups>
+              <Group Name="OffProcess1" Order="1">
+                <Attributes>
+                  <Attribute Name="TrackConnectMode" Order="2" Visibility="true" Value="Circular" Icon="Param_TrackLink" />
+                </Attributes>
+              </Group>
+              <Group Name="OffProcess2" Order="2">
+                <Attributes>
+                  <Attribute Name="TrackLeadInMode" Order="1" Visibility="true" Icon="Param_TrackLeadIn" />
+                  <Attribute Name="TrackLeadIn" Order="2" Visibility="true" Value="0.050" Icon="OffsetX" />
+                  <Attribute Name="TrackRetractLeadIn" Order="3" Visibility="true" Value="0.0" Icon="OffsetZ" />
+                  <Attribute Name="leadInOnGaps" Order="4" Visibility="true" Value="false" Icon="OLP_Param_TrackGapLeadIn" />
+                </Attributes>
+              </Group>
+              <Group Name="OffProcess3" Order="3">
+                <Attributes>
+                  <Attribute Name="TrackLeadOutMode" Order="1" Visibility="true" Icon="Param_TrackLeadOut" />
+                  <Attribute Name="TrackLeadOut" Order="2" Visibility="true" Value="0.050" Icon="OffsetX" />
+                  <Attribute Name="TrackRetractLeadOut" Order="3" Visibility="true" Value="0.0" Icon="OffsetZ" />
+                  <Attribute Name="leadOutOnGaps" Order="4" Visibility="true" Value="false" Icon="OLP_Param_TrackGapLeadOut" />
+                </Attributes>
+              </Group>
+              <Group Name="GapAttributes" Order="5">
+                <Attributes>
+                  <Attribute Name="GapMode" Order="1" Visibility="true" Value="Direct" Icon="OLP_Param_NDTGap" />
+                  <Attribute Name="RETRACT_HEIGHT" Order="2" Visibility="true" Value="0.010" Icon="OLP_Param_GapRetractHeight" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <!-- ========================= Common Surface(+Advanced) ApproachRetract RuleEvents ========================= -->
+          <Container Name="ApproachRule" Order="6" Visibility="true" Icon="ToolpathApproach">
+            <Groups>
+              <Group Name="EventRule" Order="1">
+                <Rule Name="ApproachRule" Visibility="true" Icon="ToolpathApproach">
+                  <Events>
+                    <Event Name="OnePointApproachCommonSurface" />
+                    <Event Name="TwoPointApproachCommonSurface" />
+                  </Events>
+                </Rule>
+              </Group>
+              <Group Name="GeneralAttributes" Order="2">
+                <Attributes>
+                  <Attribute Name="OPAMotionType" Order="1" Visibility="true" Value="LIN" Icon="MotionType" Rule="ApproachRule" Event="OnePointApproachCommonSurface" />
+                  <Attribute Name="AppOffsetRefCoordSys" Order="2" Visibility="true" Icon="ReferenceAttribute" Rule="ApproachRule" Event="OnePointApproachCommonSurface" />
+                  <Attribute Name="ApproachMotionType" Order="3" Visibility="false" Icon="MotionType" Rule="ApproachRule" Event="OnePointApproachCommonSurface" />
+                  <Attribute Name="SpeedViaApproach" Order="4" Visibility="false" Icon="Velocity" Rule="ApproachRule" Event="OnePointApproachCommonSurface" />
+                  <Attribute Name="TPAMotionTyp" Order="1" Visibility="true" Value="LIN_LIN" Icon="MotionType" Rule="ApproachRule" Event="TwoPointApproachCommonSurface" />
+                  <Attribute Name="TPARefCoordinateSys" Order="2" Visibility="true" Icon="ReferenceAttribute" Rule="ApproachRule" Event="TwoPointApproachCommonSurface" />
+                </Attributes>
+              </Group>
+              <Group Name="ApproachLength" Order="3">
+                <Attributes>
+                  <Attribute Name="ApproachLengthX" Order="1" Visibility="true" Value="0.000" Icon="OffsetX" Rule="ApproachRule" Event="OnePointApproachCommonSurface" />
+                  <Attribute Name="ApproachLengthY" Order="2" Visibility="true" Value="0.000" Icon="OffsetY" Rule="ApproachRule" Event="OnePointApproachCommonSurface" />
+                  <Attribute Name="ApproachLengthZ" Order="3" Visibility="true" Value="0.120" Icon="OffsetZ" Rule="ApproachRule" Event="OnePointApproachCommonSurface" />
+                </Attributes>
+              </Group>
+              <Group Name="ApproachLengthP1" Order="3">
+                <Attributes>
+                  <Attribute Name="TPALengthP1X" Order="1" Visibility="true" Value="0.040" Icon="OffsetX" Rule="ApproachRule" Event="TwoPointApproachCommonSurface" />
+                  <Attribute Name="TPALengthP1Y" Order="2" Visibility="true" Value="0.000" Icon="OffsetY" Rule="ApproachRule" Event="TwoPointApproachCommonSurface" />
+                  <Attribute Name="TPALengthP1Z" Order="3" Visibility="true" Value="0.120" Icon="OffsetZ" Rule="ApproachRule" Event="TwoPointApproachCommonSurface" />
+                </Attributes>
+              </Group>
+              <Group Name="ApproachLengthP2" Order="4">
+                <Attributes>
+                  <Attribute Name="TPALengthP2X" Order="1" Visibility="true" Value="0.000" Icon="OffsetX" Rule="ApproachRule" Event="TwoPointApproachCommonSurface" />
+                  <Attribute Name="TPALengthP2Y" Order="2" Visibility="true" Value="0.000" Icon="OffsetY" Rule="ApproachRule" Event="TwoPointApproachCommonSurface" />
+                  <Attribute Name="TPALengthP2Z" Order="3" Visibility="true" Value="0.040" Icon="OffsetZ" Rule="ApproachRule" Event="TwoPointApproachCommonSurface" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <Container Name="RetractRule" Order="7" Visibility="true" Icon="ToolpathRetract">
+            <Groups>
+              <Group Name="EventRule" Order="1">
+                <Rule Name="RetractRule" Visibility="true" Icon="ToolpathRetract">
+                  <Events>
+                    <Event Name="OnePointRetractCommonSurface" />
+                    <Event Name="TwoPointRetractCommonSurface" />
+                  </Events>
+                </Rule>
+              </Group>
+              <Group Name="GeneralAttributes" Order="2">
+                <Attributes>
+                  <Attribute Name="OPRMotionType" Order="1" Visibility="true" Value="LIN" Icon="MotionType" Rule="RetractRule" Event="OnePointRetractCommonSurface" />
+                  <Attribute Name="RetOffsetReference" Order="2" Visibility="true" Icon="ReferenceAttribute" Rule="RetractRule" Event="OnePointRetractCommonSurface" />
+                  <Attribute Name="SpeedViaRetract" Order="3" Visibility="false" Icon="Velocity" Rule="RetractRule" Event="OnePointRetractCommonSurface" />
+                  <Attribute Name="FlybyRetract" Order="4" Visibility="false" Icon="FlybyDistance" Rule="RetractRule" Event="OnePointRetractCommonSurface" />
+                  <Attribute Name="TPRMotionTyp" Order="1" Visibility="true" Value="LIN_LIN" Icon="MotionType" Rule="RetractRule" Event="TwoPointRetractCommonSurface" />
+                  <Attribute Name="TPRRefCoordinateSys" Order="2" Visibility="true" Icon="ReferenceAttribute" Rule="RetractRule" Event="TwoPointRetractCommonSurface" />
+                </Attributes>
+              </Group>
+              <Group Name="RetractLength" Order="3">
+                <Attributes>
+                  <Attribute Name="RetractLengthX" Order="1" Visibility="true" Value="0.000" Icon="OffsetX" Rule="RetractRule" Event="OnePointRetractCommonSurface" />
+                  <Attribute Name="RetractLengthY" Order="2" Visibility="true" Value="0.000" Icon="OffsetY" Rule="RetractRule" Event="OnePointRetractCommonSurface" />
+                  <Attribute Name="RetractLengthZ" Order="3" Visibility="true" Value="0.120" Icon="OffsetZ" Rule="RetractRule" Event="OnePointRetractCommonSurface" />
+                </Attributes>
+              </Group>
+              <Group Name="RetractLengthP1" Order="4">
+                <Attributes>
+                  <Attribute Name="TPRLengthP1X" Order="1" Visibility="true" Value="0.040" Icon="OffsetX" Rule="RetractRule" Event="TwoPointRetractCommonSurface" />
+                  <Attribute Name="TPRLengthP1Y" Order="2" Visibility="true" Value="0.000" Icon="OffsetY" Rule="RetractRule" Event="TwoPointRetractCommonSurface" />
+                  <Attribute Name="TPRLengthP1Z" Order="3" Visibility="true" Value="0.120" Icon="OffsetZ" Rule="RetractRule" Event="TwoPointRetractCommonSurface" />
+                </Attributes>
+              </Group>
+              <Group Name="RetractLengthP2" Order="5">
+                <Attributes>
+                  <Attribute Name="TPRLengthP2X" Order="1" Visibility="true" Value="0.000" Icon="OffsetX" Rule="RetractRule" Event="TwoPointRetractCommonSurface" />
+                  <Attribute Name="TPRLengthP2Y" Order="2" Visibility="true" Value="0.000" Icon="OffsetY" Rule="RetractRule" Event="TwoPointRetractCommonSurface" />
+                  <Attribute Name="TPRLengthP2Z" Order="3" Visibility="true" Value="0.040" Icon="OffsetZ" Rule="RetractRule" Event="TwoPointRetractCommonSurface" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+        </Containers>
+      </TechTab>
+      <!-- ========================= End of SURFACEADVANCED Workmethod ========================= -->
+      <!-- ========================= End of SURFACE Workmethod ========================= -->
+      <!-- =========================  LINKING ========================= -->
+      <TechTab Name="Linking" Order="13" Visibility="true" Icon="OLP_Param_OPLink">
+        <Containers>
+          <Container Name="Linking" Order="1" Visibility="true" Icon="OLP_Param_OPLink">
+            <Groups>
+              <Group Name="Link_Operation_Attribute_Group" Order="1">
+                <Attributes>
+                  <Attribute Name="Linking_Type" Order="1" Visibility="true" Icon="OLP_Param_LinkType" />
+                  <Attribute Name="Circular_Link_Height" Order="2" Value="0.015" Icon="OLP_Param_OPLinkHeight" />
+                  <Attribute Name="AlgLinkingMotionType" Order="3" Icon="MotionType" />
+                  <Attribute Name="AlgKineoCollisionTolerance" Order="4" Icon="COM_CollisionTolerance" />
+                </Attributes>
+              </Group>
+              <Group Name="Link_Operation_Attribute_GroupB" Order="2">
+                <Attributes>
+                  <Attribute Name="AlgKineoUnlockExternals" Order="1" Value="true" Icon="RB_ExternalAxis_Unlock" UserSkillLevel="Expert" />
+                  <Attribute Name="AlgKineoOptimizerLoops" Order="2" Icon="Iterations" UserSkillLevel="Expert" />
+                </Attributes>
+              </Group>
+              <Group Name="Link_Operation_Attribute_GroupC" Order="3">
+                <Attributes>
+                  <Attribute Name="AlgKineoSmartPlannerSteps" Order="1" Icon="OLP_Param_OPLink" />
+                  <Attribute Name="AlgKineoOptimizerMinGain" Order="3" Icon="COM_ValueMid" />
+                </Attributes>
+              </Group>
+              <Group Name="Link_Operation_Attribute_GroupDebug" Order="4">
+                <Attributes>
+                  <Attribute Name="AlgDummyJoints" Order="1" Icon="OLP_Param_OPLink" UserSkillLevel="Expert" />
+                  <Attribute Name="AlgUseEksIk" Order="2" Visibility="false" Icon="OLP_Param_OPLink" UserSkillLevel="Expert" />
+                  <Attribute Name="AlgDebugNumberOfIntermediatePoints" Order="3" Visibility="false" Icon="OLP_Param_OPLink" UserSkillLevel="Expert" />
+                  <Attribute Name="AlgDebugShowAlgoPoints" Order="4" Visibility="false" Icon="OLP_Param_OPLink" UserSkillLevel="Expert" />
+                  <Attribute Name="AlgDebugUseKineoProblem" Order="5" Visibility="false" Icon="OLP_Param_OPLink" UserSkillLevel="Expert" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <Container Name="LinkingMotions" Order="2" Visibility="true" Icon="OLP_OPLink_Motion">
+            <Groups>
+              <Group Name="LinkingPTPMotions" Order="1">
+                <Attributes>
+                  <Attribute Name="AlgPtpMotionSpeedMode" Order="1" Icon="OLP_MotionPTP_SpeedMode" />
+                  <Attribute Name="AlgPtpMotionSpeedValue" Order="2" Icon="Velocity" />
+                  <Attribute Name="AlgPtpMotionFlybyMode" Order="3" Icon="OLP_FlybyMode" />
+                  <Attribute Name="AlgPtpMotionFlybyValue" Order="4" Icon="FlybyDistance" />
+                </Attributes>
+              </Group>
+              <Group Name="LinkingLINMotions" Order="2">
+                <Attributes>
+                  <Attribute Name="AlgLinMotionSpeedMode" Order="1" Icon="OLP_MotionLin_SpeedMode" />
+                  <Attribute Name="AlgLinMotionSpeedValue" Order="2" Icon="Velocity" />
+                  <Attribute Name="AlgLinMotionFlybyMode" Order="3" Icon="OLP_FlybyMode" />
+                  <Attribute Name="AlgLinMotionFlybyValue" Order="4" Icon="FlybyDistance" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+        </Containers>
+      </TechTab>
+      <!-- =========================  TOOLPATH QUALITY EVALUATION ========================= -->
+      <TechTab Name="ToolPathQuality" Order="14" Visibility="true" Icon="OLP_ToolpathQuality">
+        <Containers>
+          <Container Name="EvaluationCriteria" Order="1" Visibility="true" Icon="OLP_ToolpathQualityCriteria">
+            <Groups>
+              <Group Name="ToolPath_Quality_Attribute_Group" Order="1">
+                <Attributes>
+                  <!-- The following attributes: Reachability, Collision and Singularity will always have the value ON(cannot be overwritten) -->
+                  <Attribute Name="TargetCriteriaReachability" Order="1" Visibility="true" Value="true" Icon="RB_ResourceGlobalReach" UserSkillLevel="Expert" />
+                  <Attribute Name="TargetCriteriaCollision" Order="2" Visibility="true" Value="true" Icon="Collision" UserSkillLevel="Expert" />
+                  <Attribute Name="TargetCriteriaSingularity" Order="3" Visibility="true" Value="true" Icon="OLP_ToolSingularity" UserSkillLevel="Expert" />
+                  <Attribute Name="TargetCriteriaNormalDeviation" Order="4" Visibility="false" Value="" Icon="RB_NormalAngleDeviation" />
+                  <Attribute Name="TargetCriteriaUseNormalDeviationAttribute" Order="5" Visibility="false" Value="false" Icon="OLP_ToolSingularity" />
+                  <Attribute Name="TargetCriteriaWorkAngleDeviation" Order="6" Visibility="true" Value="" Icon="RB_ArcWorkAngleDeviation" />
+                  <Attribute Name="TargetCriteriaTravelAngleDeviation" Order="7" Visibility="true" Value="" Icon="RB_ArcTravelAngleDeviation" />
+                  <Attribute Name="TargetCriteriaToolAngleDeviation" Order="8" Visibility="true" Value="true" Icon="RB_ArcToolRotationDeviation" />
+                  <Attribute Name="TargetCriteriaAxisValue" Order="9" Visibility="true" Value="" Icon="RB_LimitsAxis" />
+                  <Attribute Name="TargetCriteriaAxisChange" Order="10" Visibility="true" Value="" Icon="OLP_Param_Velocity" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+        </Containers>
+      </TechTab>
+      <TechTab Name="AutomaticPathOptimization" Order="15" Visibility="true" Icon="OLP_ToolpathQualityEvaluation">
+        <Containers>
+          <Container Name="OptimizationControl" Order="1" Visibility="true" Icon="COM_OptimizeControl">
+            <Groups>
+              <Group Name="AStarGroup" Order="1">
+                <Attributes>
+                  <Attribute Name="ApoHeuristicAStarValue" Order="1" Visibility="true" Value="4" Icon="COM_ValueMid" />
+                </Attributes>
+              </Group>
+              <Group Name="ApoCollisionToleranceGroup" Order="2">
+                <Attributes>
+                  <Attribute Name="ApoCollisionToleranceOn" Order="1" Visibility="true" Value="" Icon="COM_CollisionOverrideSettings" />
+                  <Attribute Name="ApoCollisionToleranceVal" Order="2" Value="" Icon="COM_CollisionTolerance" />
+                </Attributes>
+              </Group>
+              <Group Name="ApoKeepAwayGroup" Order="3">
+                <Attributes>
+                  <Attribute Name="ApoKeepAwayKeepDistance" Order="1" Visibility="true" Icon="RB_KeepAway" />
+                  <Attribute Name="ApoKeepAwayIntensity" Order="2" Visibility="true" Value="KA_Moderate" Icon="COM_Tier" />
+                  <Attribute Name="ApoKeepAwayMinimumDistance" Order="3" Visibility="true" Icon="RB_KeepAway_MinAngle" UserSkillLevel="Expert" />
+                </Attributes>
+              </Group>
+              <Group Name="ApoInsertProcessPointsGroup" Order="4">
+                <Attributes>
+                  <Attribute Name="ApoInsertProcessPointsSwitch" Order="1" Visibility="true" Value="true" Icon="OLP_Param_ApoInsertProcessPointsSwitch" />
+                  <Attribute Name="ApoInsertProcessPointsMinimumDistance" Order="2" Visibility="true" Value="0.01" Icon="OLP_Param_ApoInsertProcessPointsMinimumDistance" UserSkillLevel="Expert" />
+                  <Attribute Name="ApoInsertProcessPointsMinimumDistanceFactor" Order="3" Visibility="true" Value="0.25" Icon="OLP_Param_ApoInsertProcessPointsMinimumDistanceFactor" UserSkillLevel="Expert" />
+                </Attributes>
+              </Group>
+              <Group Name="ApoVariationBehaviourGroup" Order="5">
+                <Attributes>
+                  <Attribute Name="ApoVariationTurnVariations1stProcessTpe" Order="1" Visibility="true" Value="true" Icon="OLP_Param_Joint_Turn" UserSkillLevel="Expert" />
+                  <Attribute Name="ApoVariationStopForTPENotSolvable" Order="2" Visibility="true" Value="true" Icon="Cancel" UserSkillLevel="Expert" />
+                  <Attribute Name="ApoCycleUpdateOnlyOrientation" Order="3" Visibility="true" Value="false" Icon="GeoTransformations" UserSkillLevel="Expert" />				  
+                </Attributes>
+              </Group>
+              <Group Name="ApoVariationLimitPerDofGroup" Order="6">
+                <Attributes>
+                  <Attribute Name="ApoVariationLimitPerDofOn" Order="1" Visibility="false" Value="" Icon="Iterations" UserSkillLevel="Expert" />
+                  <Attribute Name="ApoVariationLimitPerDofVal" Order="2" Visibility="true" Value="5" Icon="COM_DiscretizationNumber" UserSkillLevel="Expert" />
+                  <Attribute Name="ApoVariationLimitPerDofMaximumStepDegree" Order="3" Visibility="true" Value="45" Icon="COM_DiscretizationRotStep" UserSkillLevel="Expert" />
+                  <Attribute Name="ApoVariationLimitPerDofMaximumStepLinear" Order="4" Visibility="false" Value="0.5" Icon="COM_DiscretizationTransStep" UserSkillLevel="Expert" />
+                  <Attribute Name="ApoVariationMaximumNumberOfVariations" Order="5" Visibility="false" Value="15000" Icon="ApoVariationMaximumNumberOfVariations" UserSkillLevel="Expert" />
+                  <Attribute Name="ApoVariationValidVariantsMinimumPercentage" Order="6" Visibility="false" Value="50" Icon="ApoVariationValidVariantsMinimumPercentage" UserSkillLevel="Expert" />
+                </Attributes>
+              </Group>
+              <Group Name="EksMotionTableGroup" Order="7">
+                <Attributes>
+                  <Attribute Name="EksMotionTableCheck" Order="1" Visibility="false" Value="true" Icon="OLP_Param_ToolpathMotionCheck" />
+                  <Attribute Name="EksMotionTableMaxDistTcp" Order="2" Visibility="true" Value="0.001" Icon="OLP_Param_ToolpathMaxDistance" UserSkillLevel="Expert" />
+                  <Attribute Name="EksMotionTableMaxOrientDelta" Order="3" Visibility="true" Value="1" Icon="OLP_Param_ToolpathMaxAngle" UserSkillLevel="Expert" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <Container Name="VariationSpace" Order="2" Visibility="true" Icon="COM_OptimizeVariation">
+            <Groups>
+              <Group Name="ApoVariationParameter" ShowGroupName="true" Order="1">
+                <Attributes>
+                  <Attribute Name="ApoRotationAroundTangent" Order="1" Visibility="true" Value="" Icon="OlpParamRotationTangent" UserSkillLevel="Expert" />
+                  <Attribute Name="ApoTangentDescretization" Order="2" Visibility="true" Value="" Icon="COM_DiscretizationStep" UserSkillLevel="Expert" />
+                </Attributes>
+              </Group>
+              <Group Name="VariationParameter2" Order="2">
+                <Attributes>
+                  <Attribute Name="ApoRotationAroundBiTangent" Order="1" Visibility="true" Value="" Icon="OlpParamRotationBiTangent" UserSkillLevel="Expert" />
+                  <Attribute Name="ApoBiTangentDescretization" Order="2" Visibility="true" Value="" Icon="COM_DiscretizationStep" UserSkillLevel="Expert" />
+                </Attributes>
+              </Group>
+              <Group Name="VariationParameter3" Order="3">
+                <Attributes>
+                  <Attribute Name="ApoRotationAroundNormal" Order="1" Visibility="true" Value="" Icon="OlpParamRotationNormal" UserSkillLevel="Expert" />
+                  <Attribute Name="ApoMaxRotationAroundNormal" Order="2" Visibility="false" Value="" Icon="COM_OptimizeVariationRange" UserSkillLevel="Expert" />
+                  <Attribute Name="ApoNormalDescretization" Order="3" Visibility="true" Value="" Icon="COM_DiscretizationStep" UserSkillLevel="Expert" />
+                  <Attribute Name="ApoNormalDeviationCone" Order="4" Value="" Icon="OLP_ToolSingularityCone" UserSkillLevel="Expert" />
+                </Attributes>
+              </Group>
+              <Group Name="VariationParameter4" Order="4">
+                <Attributes>
+                  <Attribute Name="ApoWppRevoluteAxis1Name" Order="1" Visibility="true" Value="" Icon="" />
+                  <Attribute Name="ApoWppRevoluteAxis1" Order="2" Visibility="true" Value="" Icon="" />
+                  <Attribute Name="ApoWppRevoluteAxis1Descretization" Order="3" Visibility="true" Value="" Icon="" />
+                  <Attribute Name="ApoWppRevoluteAxis1Deviation" Order="4" Visibility="true" Value="" Icon="" />
+                </Attributes>
+              </Group>
+              <Group Name="VariationParameter5" Order="5">
+                <Attributes>
+                  <Attribute Name="ApoWppRevoluteAxis2Name" Order="1" Visibility="true" Value="" Icon="" />
+                  <Attribute Name="ApoWppRevoluteAxis2" Order="2" Visibility="true" Value="" Icon="" />
+                  <Attribute Name="ApoWppRevoluteAxis2Descretization" Order="3" Visibility="true" Value="" Icon="" />
+                  <Attribute Name="ApoWppRevoluteAxis2Deviation" Order="4" Visibility="true" Value="" Icon="" />
+                </Attributes>
+              </Group>
+              <Group Name="VariationParameter6" Order="6">
+                <Attributes>
+                  <Attribute Name="ApoWppRevoluteAxis3Name" Order="1" Visibility="true" Value="" Icon="" />
+                  <Attribute Name="ApoWppRevoluteAxis3" Order="2" Visibility="true" Value="" Icon="" />
+                  <Attribute Name="ApoWppRevoluteAxis3Descretization" Order="3" Visibility="true" Value="" Icon="" />
+                </Attributes>
+              </Group>
+              <Group Name="ApoBoundaryConditions" ShowGroupName="true" Order="7">
+                <Attributes>
+                  <Attribute Name="ApoMaxWorkAngleDeviation" Order="1" Visibility="true" Value="" Icon="RB_ArcWorkAngleMaxDeviation" />
+                  <Attribute Name="ApoMaxTravelAngleDeviation" Order="2" Visibility="true" Value="" Icon="RB_ArcTravelAngleMaxDeviation" />
+                  <Attribute Name="ApoMaxToolAngleDeviation" Order="3" Visibility="true" Value="" Icon="RB_ArcToolRotationMaxDeviation" />
+                  <Attribute Name="ApoMaxProcessAngleDeviation" Order="4" Visibility="false" Value="" Icon="RB_NormalAngleMaxDeviation" />
+                  <Attribute Name="ApoMaxProcessOrientationDeviation" Order="5" Visibility="true" Value="" Icon="" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <Container Name="Aaro_ApproachRetract" Order="3" Visibility="true" Icon="ToolpathApproach">
+            <Groups>
+              <Group Name="ApproachRetract_Kineo" Order="1">
+                <Attributes>
+                  <Attribute Name="AaroKineoCollisionTolerance" Order="1" Visibility="true"  Icon="COM_CollisionTolerance" />
+                  <Attribute Name="AaroKineoUnlockExternals" Order="2" Visibility="true" Icon="RB_ExternalAxis_Unlock" UserSkillLevel="Expert" />
+                  <Attribute Name="AaroKineoOptimizerLoops" Order="3" Visibility="true" Icon="Iterations" UserSkillLevel="Expert" />
+                  <Attribute Name="AaroKineoOptimizerMinGain" Order="4" Visibility="false" Icon="COM_ValueMid" UserSkillLevel="Expert" />
+                </Attributes>
+              </Group>
+              <Group Name="ApproachRetract_Kineo_Modify" Order="2">
+                <Attributes>
+                  <Attribute Name="AaroKineoModifyPointsAllowed" Order="1" Visibility="true"  Icon="Unlock" UserSkillLevel="Expert" />
+                  <Attribute Name="AaroKineoModifyPointsPosition" Order="2" Visibility="true" Icon="Transformation_Simple" UserSkillLevel="Expert" />
+                  <Attribute Name="AaroKineoModifyPointsOrientation" Order="3" Visibility="true" Icon="Transformation_Rotation" UserSkillLevel="Expert" />
+                </Attributes>
+              </Group>			  
+              <Group Name="ApproachRetract_Attribute_GroupDebug" Order="3">
+                <Attributes>
+                  <Attribute Name="AaroDummyJoints" Order="1" Icon="ToolpathApproach" UserSkillLevel="Expert" />
+                  <Attribute Name="AaroUseEksIk" Order="2" Visibility="false" Icon="ToolpathApproach" UserSkillLevel="Expert" />
+                  <Attribute Name="AaroDebugNumberOfIntermediatePoints" Order="3" Visibility="false" Icon="ToolpathApproach" UserSkillLevel="Expert" />
+                  <Attribute Name="AaroDebugShowAlgoPoints" Order="4" Visibility="false" Icon="ToolpathApproach" UserSkillLevel="Expert" />
+                  <Attribute Name="AaroHandling" Order="5" Visibility="false" Icon="ToolpathApproach" UserSkillLevel="Expert" />
+                  <Attribute Name="AaroDebugSkipAaro" Order="5" Visibility="false" Icon="ToolpathApproach" UserSkillLevel="Expert" />
+                  <Attribute Name="ApoDebugSkipApo" Order="5" Visibility="false" Icon="ToolpathApproach" UserSkillLevel="Expert" />				  
+				  <Attribute Name="AaroHandling" Order="5" Visibility="false" Icon="ToolpathApproach" UserSkillLevel="Expert" />								
+                </Attributes>
+              </Group>			  
+            </Groups>	
+          </Container>	
+        </Containers>
+      </TechTab>
+      <TechTab Name="AuxiliaryCommands" Order="16" Visibility="true" Icon="COM_ScriptsRun">
+        <Containers>
+          <Container Name="AutoExecuteAuxiliaryCommandContainerName" Order="1" Visibility="true" Icon="COM_ScriptsRun">
+            <Groups>
+              <Group Name="ProcessGeometry" Order="1">
+                <Attributes>
+                  <Attribute Name="ProcessGeometryAutoExecuteAuxiliaryCommandName" Order="1" Visibility="true" Value="NoScript" Icon="Preparations" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+        </Containers>
+      </TechTab>
+      <!-- =========================  PANASONIC ========================= -->
+      <TechTab Name="Panasonic" Order="15" Visibility="true" Icon="About">
+        <Containers>
+          <Container Name="Mechanism" Order="1" Visibility="true" Icon="About">
+            <Groups>
+              <Group Name="Mechanism for Output" Order="1">
+                <Attributes>
+                  <Attribute Name="Mechanism" Order="1" Visibility="true" Icon="About" />
+                  <Attribute Name="SlaveProgram" Order="2" Visibility="false" Icon="About" />
+                  <Attribute Name="SlaveRobotName" Order="3" Visibility="false" Icon="About" />
+                  <Attribute Name="IsSlaveProgram" Order="4" Visibility="false" Icon="About" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+        </Containers>
+      </TechTab>
+    </TechTabs>
+  </Technology>
+</ControllerSettings>

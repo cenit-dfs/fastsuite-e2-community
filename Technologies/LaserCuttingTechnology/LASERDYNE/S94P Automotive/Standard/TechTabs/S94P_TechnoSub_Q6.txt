@@ -1,0 +1,6 @@
+;-------------------- START - CW WELD WITHOUT WIRE, SUBROUTINE #6 -------------------------------
+M5S6
+$PECK
+$CUT
+M6
+;-------------------- END - CW WELD WITHOUT WIRE, SUBROUTINE #6 ---------------------------------

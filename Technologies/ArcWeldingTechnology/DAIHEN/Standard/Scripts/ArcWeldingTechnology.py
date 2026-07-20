@@ -252,7 +252,7 @@ def PostTechInitAttributes(Operator: CENPyOlpTech_AttribInitOperator):
       print('Error Reading CSV File')
 
    # Create DAIHEN WELD Power SOurce ENUM attribute
-   att1 = attribCreator.AddInteger(OTC_WELD_PRGNR_DEF, 1, 0, 999, GLOBAL_ATTRIBUTE | OPERATION_GROUP_ATTRIBUTE | OPERATION_ATTRIBUTE | PROCESS_ATTRIBUTE | USER_ATTRIBUTE, OTC_WELD_PRGNR)
+   att1 = attribCreator.AddInteger(OTC_WELD_PRGNR_DEF, 2, 0, 999, GLOBAL_ATTRIBUTE | OPERATION_GROUP_ATTRIBUTE | OPERATION_ATTRIBUTE | PROCESS_ATTRIBUTE | USER_ATTRIBUTE, OTC_WELD_PRGNR)
    att1.SetReComputeEnterState(ENTERSTATE_STARTWITHRULEEVENTS)
    att2 = attribCreator.AddInteger(OTC_WELD_OFF_PRGNR_DEF, 1, 0, 999, GLOBAL_ATTRIBUTE | OPERATION_GROUP_ATTRIBUTE | OPERATION_ATTRIBUTE | PROCESS_ATTRIBUTE | USER_ATTRIBUTE, OTC_WELD_OFF_PRGNR)
    att2.SetReComputeEnterState(ENTERSTATE_STARTWITHRULEEVENTS)
@@ -522,6 +522,8 @@ def PostTechOnAttribChanged(Operator: CENPyOlpTech_AttribChangedOperator):
    attribGetter = Operator.GetAttribGetter()
    # get attribute setter
    attribSetter = Operator.GetAttribSetter()
+   # get attribute setter
+   controller = Operator.GetController()
    # get changed attribute
    changedAttrib = Operator.GetChangedAttribute()
 
@@ -810,6 +812,12 @@ def PostTechOnAttribChanged(Operator: CENPyOlpTech_AttribChangedOperator):
    # Weld Program or Manual Entries
    if (attribName == OTC_WELD_PRGNR_DEF):
       OtcWeldPrgnrDef = attribGetter.GetInteger(OTC_WELD_PRGNR_DEF)
+      dataSet = getRelatedDataSet(Operator, OtcWeldPrgnrDef)
+      if len(dataSet) > 13:
+         feed = dataSet[10]
+         attribSetter.SetDouble("Speed", feed)
+      else:
+         attribSetter.SetDouble("Speed", 0.03)
       OtcWeldCharacter = attribGetter.GetAttributeByName(OTC_WELD_CHARACTER_DEF)
       OtcWireFeed = attribGetter.GetAttributeByName(OTC_WIRE_FEED_DEF)
       OtcCurrent = attribGetter.GetAttributeByName(OTC_CURRENT_DEF)
@@ -1302,3 +1310,26 @@ def RemoveAttributeFromWM(Operator: CENPyOlpTech_UpdateOperator, component, Name
 
    for childComponent in component.GetChildComponents():      
       RemoveAttributeFromWM(Operator, childComponent, Name, CreatorName)
+
+   # ==               ==========================================================================================
+def getRelatedDataSet(Operator, pgmnr):
+   '''
+   Check and returns if there is a related DataSet where the Program number fits.
+   
+   Args:
+      Operator: the CENPyOlpProgramModifyOperator
+      pgmnr : the Welding Program Number
+      
+   Returns:
+      list: the List of the related DataSet or default
+   '''
+   controller = Operator.GetController()
+   techTableList = controller.GetWeldingDataSetsFromDataBase()
+   
+   row = []
+   if len(techTableList) > 0:
+      for tableRow in techTableList:
+         #self.__logging.LogInfo("....................tableRow:" + str(tableRow))
+         if pgmnr == tableRow[0]:
+            return tableRow
+   return row

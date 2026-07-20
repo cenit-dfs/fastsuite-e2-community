@@ -1,0 +1,39 @@
+{
+  "version": "1.0",
+  "data_type": "machiningpose",
+  "last_modified": "2026-03-06T19:10:56",
+  "default_id": 0,
+  "next_id": 2,
+  "instances": [
+    {
+      "id": 0,
+      "name": "relDefault",
+      "description": "Identity machining pose (no displacement or rotation)",
+      "created": "2026-06-12T00:00:00",
+      "modified": "2026-06-12T00:00:00",
+      "values": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "Rx": 0.0,
+        "Ry": 0.0,
+        "Rz": 0.0
+      }
+    },
+    {
+      "id": 1,
+      "name": "ma_new",
+      "description": "",
+      "created": "2026-03-06T19:10:56",
+      "modified": "2026-03-06T19:10:56",
+      "values": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 2.0,
+        "Rx": 0.0,
+        "Ry": -5.0,
+        "Rz": 0.0
+      }
+    }
+  ]
+}

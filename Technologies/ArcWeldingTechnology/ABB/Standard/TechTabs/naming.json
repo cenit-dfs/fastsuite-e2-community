@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "description": "Default naming configuration for ABB data types. Touch shift pose naming moved here from downloader JSON.",
+  "naming": {
+    "touch_shift_base": "pose"
+  },
+  "comments": {
+    "seamdata": "Operation attribute SEAM_DATA_NAME is used",
+    "welddata": "Operation attribute WELD_DATA_NAME is used",
+    "weavedata": "Operation attribute WEAVE_DATA_NAME is used",
+    "trackdata": "Operation attribute TRACK_DATA_NAME is used",
+    "touch_shift_base": "Base name for legacy touch sensing shift variables (pose1, pose2, etc.)"
+  }
+}
