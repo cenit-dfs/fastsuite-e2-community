@@ -1,0 +1,1146 @@
+<?xml-stylesheet type="text/xsl" href="stylesheet.xsl"?>
+<ControllerSettings Version="1.0">
+  <Technology Name="LaserCuttingTechnology">
+    <TechTabs>
+      <TechTab Name="ProgramBaseTechTab" Order="1" Visibility="true" Icon="ProgramBase" >
+        <Containers>
+          <Container Name="StartConditions" Order="1" Visibility="true" Icon="ProgrammingDefaults">
+            <Groups>
+              <Group Name="StartConditionsAttribs" Order="1">
+                <Attributes>
+                  <Attribute Name="SetStartConditions" Order="1" Value="false" Visibility="false" Icon="" />
+                </Attributes>
+              </Group>
+              <Group Name="StartConditionsPTP" Order="2">
+                <Attributes>
+                  <Attribute Name="StartPtpFeedRate" Order="1" Value="50.0" Visibility="true" Icon="Velocity" />
+                  <Attribute Name="StartPtpAccuracyMode" Order="2" Visibility="true" Icon="OLP_FlybyMode" />
+                  <Attribute Name="StartPtpAccuracy" Order="3" Value="0.0" Visibility="true" Icon="FlybyDistance" />
+                  <Attribute Name="StartPtpAcceleration" Order="4" Value="1.000" Visibility="false" Icon="Acceleration" />
+                </Attributes>
+              </Group>
+              <Group Name="StartConditionsLIN" Order="3">
+                <Attributes>
+                  <Attribute Name="StartLinFeedRate" Order="1" Value="0.050" Visibility="true" Icon="Velocity" />
+                  <Attribute Name="StartLinAccuracyMode" Order="2" Visibility="true" Icon="OLP_FlybyMode" />
+                  <Attribute Name="StartLinAccuracy" Order="3" Value="0.010" Visibility="true" Icon="FlybyDistance" />
+                  <Attribute Name="StartLinAcceleration" Order="4" Value="1.000" Visibility="false" Icon="Acceleration" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+        </Containers>
+      </TechTab>
+      <TechTab Name="ToolDataTechTab" Order="2" Visibility="true" Icon="Tool">
+        <Containers>
+          <Container Name="Alignment" Order="2" Visibility="true" Icon="ToolAlignment">
+            <Groups>
+              <Group Name="ToolAlignment" Order="1">
+                <Attributes>
+                  <Attribute Name="AlignmentToolVector" Order="1" Visibility="true" Icon="ToolAlignmentNormal" />
+                  <Attribute Name="AlignmentTangentVectorZ" Order="2" Visibility="true" Icon="ToolAlignmentTangent" />
+                  <Attribute Name="AlignmentTangentVectorX" Order="3" Visibility="false" Icon="ToolAlignmentTangent" />
+                  <Attribute Name="AlignmentTangentVectorY" Order="4" Visibility="false" Icon="ToolAlignmentTangent" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+        </Containers>
+      </TechTab>
+      <TechTab Name="ManufacturingGeometryTechTab" Order="3" Visibility="true" Icon="Preparations">
+        <Containers>
+          <Container Name="Transformation" Order="1" Visibility="true" Icon="GeoTransformations">
+            <Groups>
+              <Group Name="Translation" Order="1">
+                <Attributes>
+                  <Attribute Name="Sys_Att_TranslationX" Order="1" Visibility="true" Icon="TranslationX" />
+                  <Attribute Name="Sys_Att_TranslationY" Order="2" Visibility="true" Icon="TranslationY" />
+                  <Attribute Name="Sys_Att_TranslationZ" Order="3" Visibility="true" Icon="TranslationZ" />
+                </Attributes>
+              </Group>
+              <Group Name="Rotation" Order="2">
+                <Attributes>
+                  <Attribute Name="Sys_Att_RotationRx" Order="1" Visibility="true" Icon="RotationX" />
+                  <Attribute Name="Sys_Att_RotationRy" Order="2" Visibility="true" Icon="RotationY" />
+                  <Attribute Name="Sys_Att_RotationRz" Order="3" Visibility="true" Icon="RotationZ" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <Container Name="BoundaryConditions" Order="2" Visibility="true" Icon="ToolpathConditions">
+            <Groups>
+              <Group Name="Start/End" Order="1">
+                <Attributes>
+                  <Attribute Name="Sys_Att_StartPoint_ForUI" Order="1" Visibility="true" Icon="PositionStart" />
+                  <Attribute Name="Sys_Att_StartPoint" Order="2" Visibility="false" Icon="PositionStart" />
+                  <Attribute Name="Sys_Att_EndPoint_ForUI" Order="3" Visibility="true" Icon="PositionEnd" />
+                  <Attribute Name="Sys_Att_EndPoint" Order="4" Visibility="false" Icon="PositionEnd" />
+                  <Attribute Name="Sys_Att_ApproachDirection" Order="5" Visibility="true" Icon="MGApproach" />
+                  <Attribute Name="Sys_Att_ProcessFlowDirection" Order="6" Visibility="true" Icon="MGDirection" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+        </Containers>
+      </TechTab>
+      <TechTab Name="ToolpathCalculationTechTab" Order="4" Visibility="true" Icon="ToolpathCalculate">
+        <Containers>
+          <Container Name="Approximation" Order="1" Visibility="true" Icon="ApproximationGlobal">
+            <Groups>
+              <Group Name="Approximation" Order="1">
+                <Attributes>
+                  <Attribute Name="Sys_Att_ApproximType" Order="1" Visibility="true" Icon="Approximation" />
+                  <Attribute Name="Sys_Att_MaxSag" Order="2" Visibility="true" Icon="ApproximationSAG" />
+                  <Attribute Name="Sys_Att_MaxDist" Order="3" Visibility="true" Icon="ApproximationDistance" />
+                  <Attribute Name="MaxTangentAngle" Order="4" Visibility="false" Value="180.0" Icon="Merge_AngleMax" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <Container Name="LocalOffsets" Order="2" Visibility="true" Icon="Compensations">
+            <Groups>
+              <Group Name="Offsets" Order="1">
+                <Attributes>
+                  <Attribute Name="Sys_Att_SheetOffset" Order="1" Visibility="true" Icon="OffsetSurface" />
+                  <Attribute Name="Sys_Att_OffsetX" Order="2" Visibility="false" Icon="OlpParamTranslationTangent" />
+                  <Attribute Name="Sys_Att_OffsetY" Order="3" Visibility="true" Icon="OffsetContour" />
+                  <Attribute Name="Sys_Att_OffsetZ" Order="4" Visibility="false" Icon="OlpParamTranslationNormal" />
+                </Attributes>
+              </Group>
+              <!-- This group can be used to define static angles which are INDEPENDENT to process direction and approach direction.-->
+              <!-- If you want to use this, search for ProcessAnglesOrStaticAngles, set UseProcessAngles to false and make that group invisible. -->
+              <Group Name="OffsetsAround" Order="2">
+                <Attributes>
+                  <Attribute Name="Sys_Att_OffsetRx" Order="1" Visibility="false" Icon="RotationTangent" />
+                  <Attribute Name="Sys_Att_OffsetRy" Order="2" Visibility="false" Icon="RotationBiTangent" />
+                  <Attribute Name="Sys_Att_OffsetRz" Order="3" Visibility="false" Icon="RotationNormal" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <Container Name="MachineSingularity" Order="3" Visibility="true" Icon="OLP_ToolSingularityStatus">
+            <Groups>
+              <Group Name="Optimize" Order="1">
+                <Attributes>
+                  <Attribute Name="SingularityOptimize" Order="1" Visibility="true" Icon="OLP_ToolSingularity" />
+                  <Attribute Name="DeviationCone" Order="2" Visibility="false" Icon="OLP_ToolSingularityCone" />
+                  <Attribute Name="OptimizeAlgorithmSelection" Order="3" Visibility="false" Icon="OLP_ToolSingularityChange" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+        </Containers>
+      </TechTab>
+      <TechTab Name="TechnologyBaseTechTab" Order="5" Visibility="true" Icon="LaserCutting">
+        <Containers>
+          <Container Name="ProcessOnOff" Order="1" Visibility="true" Icon="">
+            <Groups>
+              <Group Name="ProcessOnOffAttributes" Order="1">
+                <Attributes>
+                  <Attribute Name="ProcessOnOff_Force_Exact_Stop" Order="1" Visibility="false" Icon="" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <Container Name="ProcessAngles" Order="2" Visibility="true" Icon="Param_ProcessAngles">
+            <Groups>
+              <!-- This group can be used to define process angles which are DEPENDENT to process direction and approach direction.-->
+              <!-- If you want to use this, set UseProcessAngles to true ans make this group visible. And search for ProcessAnglesOrStaticAngles to switch off the other ones -->
+              <Group Name="ProcessAngles" Order="1">
+                <Attributes>
+                  <Attribute Name="UseProcessAngles" Order="1" Value="true" Visibility="false" Icon="Param_ProcessAngles" />
+                  <Attribute Name="LocalOffsetRx" Order="2" Value="0.0" Visibility="false" Icon="Param_ProcessAngleWork" />
+                  <Attribute Name="LocalOffsetRy" Order="3" Value="0.0" Visibility="false" Icon="Param_ProcessAngleTravel" />
+                  <Attribute Name="LocalOffsetRz" Order="4" Value="0.0" Visibility="false" Icon="Param_ProcessAngleTool" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <Container Name="Recipes" Order="3" Visibility="true" Icon="Recipes">
+            <Groups>
+              <Group Name="" Order="1">
+                <Attributes>
+                  <Attribute Name="UseRegshape" Order="1" Visibility="true" Icon="UseRegShape" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <Container Name="CuttingMotionLC" Order="4" Visibility="true" Icon="Velocity">
+            <Groups>
+              <Group Name="FeedrateToApproach" Order="1">
+                <Attributes>
+                  <Attribute Name="ContourCuttingFeedrate" Order="1" Visibility="true" Value="0.008" Icon="Velocity" />
+                  <Attribute Name="ApproachFeedrate" Order="2" Visibility="true" Value="0.012" Icon="Velocity" />
+                  <Attribute Name="RetractFeedrate" Order="3" Visibility="true" Value="0.016" Icon="Velocity" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <Container Name="Automatedprogramming" Order="5" Visibility="true" Icon="OLP_Param_AutomatedProgramming">
+            <Groups>
+              <Group Name="Downhand" Order="1">
+                <Attributes>
+                  <Attribute Name="ArcWeldDownhand" Order="1" Visibility="true" Value="False" Icon="OLP_Param_ProcessDirection" />
+                  <Attribute Name="ArcWeldDownhandToolVectorAngleX" Order="2" Visibility="true" Value="0.0" Icon="COM_AngleX" />
+                  <Attribute Name="ArcWeldDownhandToolVectorAngleY" Order="3" Visibility="true" Value="0.0" Icon="COM_AngleY" />
+                </Attributes>
+              </Group>
+              <Group Name="ExtAxesBackProp" Order="2">
+                <Attributes>
+                  <Attribute Name="ExternalAxesBackPropagationInApproach" Order="1" Visibility="true" Value="True" Icon="OLP_Param_BackPropagationExternal" />
+                  <Attribute Name="ConfigTurnSingularityBackPropagationInApproach" Order="2" Visibility="true" Value="True" Icon="OLP_Param_BackPropagationConfig" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <!-- This Containers are only for ActiveProgram Dashboard. This are used for old Programs.-->
+          <Container Name="ApproachRule" Order="6" Visibility="true" Icon="ToolpathApproach">
+            <Groups>
+              <Group Name="EventRule" Order="1">
+                <Rule Name="ApproachRule" Visibility="true" Icon="ToolpathApproach">
+                  <Events>
+                    <Event Name="OnePointApproach" />
+                    <Event Name="TwoPointApproach" />
+                  </Events>
+                </Rule>
+              </Group>
+              <Group Name="GeneralAttributes" Order="2">
+                <Attributes>
+                  <Attribute Name="OPAMotionType" Order="1" Visibility="true" Icon="MotionType" Rule="ApproachRule" Event="OnePointApproach" />
+                  <Attribute Name="AppOffsetRefCoordSys" Order="2" Visibility="true" Icon="ReferenceAttribute" Rule="ApproachRule" Event="OnePointApproach" />
+                  <Attribute Name="ApproachMotionType" Order="3" Visibility="false" Icon="MotionType" Rule="ApproachRule" Event="OnePointApproach" />
+                  <Attribute Name="SpeedViaApproach" Order="4" Visibility="false" Icon="Velocity" Rule="ApproachRule" Event="OnePointApproach" />
+                  <Attribute Name="TPAMotionTyp" Order="1" Visibility="true" Icon="MotionType" Rule="ApproachRule" Event="TwoPointApproach" />
+                  <Attribute Name="TPARefCoordinateSys" Order="2" Visibility="true" Icon="ReferenceAttribute" Rule="ApproachRule" Event="TwoPointApproach" />
+                </Attributes>
+              </Group>
+              <Group Name="MotionRadius" Order="3">
+                <Attributes>
+                  <Attribute Name="TPAFinalMotionType" Order="1" Visibility="true" Icon="MotionType" Rule="ApproachRule" Event="OnePointApproach" />
+                  <Attribute Name="TPAFinalMotionRadius" Order="2" Visibility="true" Icon="OLP_Param_MotionTypeCircular" Rule="ApproachRule" Event="OnePointApproach" />
+                  <Attribute Name="TPAFinalMotionType" Order="1" Visibility="true" Icon="MotionType" Rule="ApproachRule" Event="TwoPointApproach" />
+                  <Attribute Name="TPAFinalMotionRadius" Order="2" Visibility="true" Icon="OLP_Param_MotionTypeCircular" Rule="ApproachRule" Event="TwoPointApproach" />
+                </Attributes>
+              </Group>
+              <Group Name="ApproachLength" Order="4">
+                <Attributes>
+                  <Attribute Name="ApproachLengthX" Order="1" Visibility="true" Icon="OffsetX" Rule="ApproachRule" Event="OnePointApproach" />
+                  <Attribute Name="ApproachLengthY" Order="2" Visibility="true" Icon="OffsetY" Rule="ApproachRule" Event="OnePointApproach" />
+                  <Attribute Name="ApproachLengthZ" Order="3" Visibility="true" Icon="OffsetZ" Rule="ApproachRule" Event="OnePointApproach" />
+                </Attributes>
+              </Group>
+              <Group Name="ApproachLengthP1" Order="5">
+                <Attributes>
+                  <Attribute Name="TPALengthP1X" Order="1" Visibility="true" Icon="OffsetX" Rule="ApproachRule" Event="TwoPointApproach" />
+                  <Attribute Name="TPALengthP1Y" Order="2" Visibility="true" Icon="OffsetY" Rule="ApproachRule" Event="TwoPointApproach" />
+                  <Attribute Name="TPALengthP1Z" Order="3" Visibility="true" Icon="OffsetZ" Rule="ApproachRule" Event="TwoPointApproach" />
+                </Attributes>
+              </Group>
+              <Group Name="ApproachLengthP2" Order="6">
+                <Attributes>
+                  <Attribute Name="TPALengthP2X" Order="1" Visibility="true" Icon="OffsetX" Rule="ApproachRule" Event="TwoPointApproach" />
+                  <Attribute Name="TPALengthP2Y" Order="2" Visibility="true" Icon="OffsetY" Rule="ApproachRule" Event="TwoPointApproach" />
+                  <Attribute Name="TPALengthP2Z" Order="3" Visibility="true" Icon="OffsetZ" Rule="ApproachRule" Event="TwoPointApproach" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <!-- ........................RETRACT Rule Definitions........................ -->
+          <Container Name="RetractRule" Order="7" Visibility="true" Icon="ToolpathRetract">
+            <Groups>
+              <Group Name="EventRule" Order="1">
+                <Rule Name="RetractRule" Visibility="true" Icon="ToolpathRetract">
+                  <Events>
+                    <Event Name="OnePointRetract" />
+                    <Event Name="TwoPointRetract" />
+                  </Events>
+                </Rule>
+              </Group>
+              <Group Name="GeneralAttributes" Order="2">
+                <Attributes>
+                  <Attribute Name="OPRMotionType" Order="1" Visibility="true" Icon="MotionType" Rule="RetractRule" Event="OnePointRetract" />
+                  <Attribute Name="RetOffsetReference" Order="2" Visibility="true" Icon="ReferenceAttribute" Rule="RetractRule" Event="OnePointRetract" />
+                  <Attribute Name="SpeedViaRetract" Order="3" Visibility="false" Icon="Velocity" Rule="RetractRule" Event="OnePointRetract" />
+                  <Attribute Name="FlybyRetract" Order="4" Visibility="false" Icon="FlybyDistance" Rule="RetractRule" Event="OnePointRetract" />
+                  <Attribute Name="TPRMotionTyp" Order="1" Visibility="true" Icon="MotionType" Rule="RetractRule" Event="TwoPointRetract" />
+                  <Attribute Name="TPRRefCoordinateSys" Order="2" Visibility="true" Icon="ReferenceAttribute" Rule="RetractRule" Event="TwoPointRetract" />
+                </Attributes>
+              </Group>
+              <Group Name="MotionRadius" Order="3">
+                <Attributes>
+                  <Attribute Name="TPRFinalMotionType" Order="1" Visibility="false" Icon="MotionType" Rule="RetractRule" Event="OnePointRetract" />
+                  <Attribute Name="TPRRetractRadius" Order="2" Visibility="false" Icon="OLP_Param_MotionTypeCircular" Rule="RetractRule" Event="OnePointRetract" />
+                  <Attribute Name="TPRFinalMotionType" Order="1" Visibility="true" Icon="MotionType" Rule="RetractRule" Event="TwoPointRetract" />
+                  <Attribute Name="TPRRetractRadius" Order="2" Visibility="true" Icon="OLP_Param_MotionTypeCircular" Rule="RetractRule" Event="TwoPointRetract" />
+                </Attributes>
+              </Group>
+              <Group Name="RetractLength" Order="4">
+                <Attributes>
+                  <Attribute Name="RetractLengthX" Order="1" Visibility="true" Icon="OffsetX" Rule="RetractRule" Event="OnePointRetract" />
+                  <Attribute Name="RetractLengthY" Order="2" Visibility="true" Icon="OffsetY" Rule="RetractRule" Event="OnePointRetract" />
+                  <Attribute Name="RetractLengthZ" Order="3" Visibility="true" Icon="OffsetZ" Rule="RetractRule" Event="OnePointRetract" />
+                </Attributes>
+              </Group>
+              <Group Name="RetractLengthP1" Order="5">
+                <Attributes>
+                  <Attribute Name="TPRLengthP1X" Order="1" Visibility="true" Icon="OffsetX" Rule="RetractRule" Event="TwoPointRetract" />
+                  <Attribute Name="TPRLengthP1Y" Order="2" Visibility="true" Icon="OffsetY" Rule="RetractRule" Event="TwoPointRetract" />
+                  <Attribute Name="TPRLengthP1Z" Order="3" Visibility="true" Icon="OffsetZ" Rule="RetractRule" Event="TwoPointRetract" />
+                </Attributes>
+              </Group>
+              <Group Name="RetractLengthP2" Order="6">
+                <Attributes>
+                  <Attribute Name="TPRLengthP2X" Order="1" Visibility="true" Icon="OffsetX" Rule="RetractRule" Event="TwoPointRetract" />
+                  <Attribute Name="TPRLengthP2Y" Order="2" Visibility="true" Icon="OffsetY" Rule="RetractRule" Event="TwoPointRetract" />
+                  <Attribute Name="TPRLengthP2Z" Order="3" Visibility="true" Icon="OffsetZ" Rule="RetractRule" Event="TwoPointRetract" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+        </Containers>
+      </TechTab>
+      <!-- ========================= CONTOUR WORK METHOD ========================= -->
+      <TechTab Name="ContourWorkMethod" Order="6" Visibility="true" Icon="ContourRecipe">
+        <Containers>
+          <Container Name="Automatedprogramming" Order="1" Visibility="true" Icon="OLP_Param_AutomatedProgramming">
+            <Groups>
+              <Group Name="TangentAbsolute" Order="1">
+                <Attributes>
+                  <Attribute Name="Sys_Att_AUTO_CREATE_TANGENT_ABSOLUTE" Order="1" Visibility="true" Value="false" Icon="InterpolationTangentAbsolute" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <Container Name="ToolpathCreation" Order="2" Visibility="true" Icon="ToolpathCreate">
+            <Groups>
+              <Group Name="ToolpathCreation1" Order="1">
+                <Attributes>
+                  <Attribute Name="TrackExtensionStart" Order="1" Icon="OLP_TrackOverrunStart" />
+                  <Attribute Name="TrackExtensionEnd" Order="2" Visibility="true" Icon="OLP_TrackOverrunEnd" />
+                  <Attribute Name="TrackExtensionAddStartEndTPE" Order="3" Visibility="true" Icon="OLP_TrackOverrunAddPoint" />
+                  <Attribute Name="ContourApproachAndRetract" Order="9" Value="6" Visibility="false" Icon="ToolpathApproach" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <!-- ........................APPROACH Rule Definition........................ -->
+          <Container Name="ApproachRule" Order="3" Visibility="true" Icon="ToolpathApproach">
+            <Groups>
+              <Group Name="EventRule" Order="1">
+                <Rule Name="ApproachRule" Visibility="true" Icon="ToolpathApproach">
+                  <Events>
+                    <!-- EventDefinitions for UniversalLC -->
+                    <Event Name="UniApproachLin" />
+                    <Event Name="UniApproachLinLin" />
+                    <Event Name="ApproachLinLinLin" />
+                    <!-- EventDefinitions for any others (not Trumpf, Prima, Mitsu, Laserdyne) -->
+                    <Event Name="OnePointApproach" />
+                    <Event Name="TwoPointApproach" />
+                  </Events>
+                </Rule>
+              </Group>
+              <Group Name="GeneralAttributes" Order="2">
+                <Attributes>
+                  <Attribute Name="OPAMotionType" Order="1" Visibility="true" Icon="MotionType" Rule="ApproachRule" Event="OnePointApproach" />
+                  <Attribute Name="AppOffsetRefCoordSys" Order="2" Visibility="false" Icon="ReferenceAttribute" Rule="ApproachRule" Event="OnePointApproach" />
+                  <Attribute Name="ApproachMotionType" Order="3" Visibility="false" Icon="MotionType" Rule="ApproachRule" Event="OnePointApproach" />
+                  <Attribute Name="SpeedViaApproach" Order="4" Visibility="false" Icon="Velocity" Rule="ApproachRule" Event="OnePointApproach" />
+                  <Attribute Name="TPAMotionTyp" Order="1" Visibility="true" Icon="MotionType" Rule="ApproachRule" Event="TwoPointApproach" />
+                  <Attribute Name="TPARefCoordinateSys" Order="2" Visibility="false" Icon="ReferenceAttribute" Rule="ApproachRule" Event="TwoPointApproach" />
+                </Attributes>
+              </Group>
+              <Group Name="MotionRadius" Order="3">
+                <Attributes>
+                  <Attribute Name="TPAFinalMotionType" Order="1" Visibility="true" Icon="MotionType" Rule="ApproachRule" Event="UniApproachLin" />
+                  <Attribute Name="TPAFinalMotionRadius" Order="2" Visibility="true" Icon="OLP_Param_MotionTypeCircular" Rule="ApproachRule" Event="UniApproachLin" />
+                  <Attribute Name="TPAFinalMotionType" Order="1" Visibility="true" Icon="MotionType" Rule="ApproachRule" Event="UniApproachLinLin" />
+                  <Attribute Name="TPAFinalMotionRadius" Order="2" Visibility="true" Icon="OLP_Param_MotionTypeCircular" Rule="ApproachRule" Event="UniApproachLinLin" />
+                  <Attribute Name="ApproachLinLinLinFinalMotionType" Order="1" Visibility="true" Icon="MotionType" Rule="ApproachRule" Event="ApproachLinLinLin" />
+                  <Attribute Name="ApproachLinLinLinFinalMotionRadius" Order="2" Visibility="true" Icon="OLP_Param_MotionTypeCircular" Rule="ApproachRule" Event="ApproachLinLinLin" />
+                  <Attribute Name="TPAFinalMotionType" Order="1" Visibility="true" Icon="MotionType" Rule="ApproachRule" Event="OnePointApproach" />
+                  <Attribute Name="TPAFinalMotionRadius" Order="2" Visibility="true" Icon="OLP_Param_MotionTypeCircular" Rule="ApproachRule" Event="OnePointApproach" />
+                  <Attribute Name="TPAFinalMotionType" Order="1" Visibility="true" Icon="MotionType" Rule="ApproachRule" Event="TwoPointApproach" />
+                  <Attribute Name="TPAFinalMotionRadius" Order="2" Visibility="true" Icon="OLP_Param_MotionTypeCircular" Rule="ApproachRule" Event="TwoPointApproach" />
+                </Attributes>
+              </Group>
+              <Group Name="ApproachLengthP1" Order="4">
+                <Attributes>
+                  <Attribute Name="ApproachLinOffsetX" Order="1" Visibility="true" Icon="OffsetX" Rule="ApproachRule" Event="UniApproachLin" />
+                  <Attribute Name="ApproachLinOffsetY" Order="2" Visibility="true" Icon="OffsetY" Rule="ApproachRule" Event="UniApproachLin" />
+                  <Attribute Name="ApproachLinOffsetZ" Order="3" Visibility="true" Icon="OffsetZ" Rule="ApproachRule" Event="UniApproachLin" />
+                  <Attribute Name="ApproachLeadinFeedrate1" Order="4" Visibility="true" Icon="Velocity" Rule="ApproachRule" Event="UniApproachLin" />
+                  <Attribute Name="ApproachLinLinOffset1X" Order="1" Visibility="true" Icon="OffsetX" Rule="ApproachRule" Event="UniApproachLinLin" />
+                  <Attribute Name="ApproachLinLinOffset1Y" Order="2" Visibility="true" Icon="OffsetY" Rule="ApproachRule" Event="UniApproachLinLin" />
+                  <Attribute Name="ApproachLinLinOffset1Z" Order="3" Visibility="true" Icon="OffsetZ" Rule="ApproachRule" Event="UniApproachLinLin" />
+                  <Attribute Name="ApproachLinLinFeedrate1" Order="4" Visibility="true" Icon="Velocity" Rule="ApproachRule" Event="UniApproachLinLin" />
+                  <Attribute Name="ApproachLinLinLinOffset1X" Order="1" Visibility="true" Icon="OffsetX" Rule="ApproachRule" Event="ApproachLinLinLin" />
+                  <Attribute Name="ApproachLinLinLinOffset1Y" Order="2" Visibility="true" Icon="OffsetY" Rule="ApproachRule" Event="ApproachLinLinLin" />
+                  <Attribute Name="ApproachLinLinLinOffset1Z" Order="3" Visibility="true" Icon="OffsetZ" Rule="ApproachRule" Event="ApproachLinLinLin" />
+                  <Attribute Name="ApproachLinLinLinFeedrate1" Order="4" Visibility="true" Icon="Velocity" Rule="ApproachRule" Event="ApproachLinLinLin" />
+                  <Attribute Name="ApproachLengthX" Order="1" Visibility="true" Value="0.0" Icon="OffsetX" Rule="ApproachRule" Event="OnePointApproach" />
+                  <Attribute Name="ApproachLengthY" Order="2" Visibility="true" Value="0.0" Icon="OffsetY" Rule="ApproachRule" Event="OnePointApproach" />
+                  <Attribute Name="ApproachLengthZ" Order="3" Visibility="true" Value="0.040" Icon="OffsetZ" Rule="ApproachRule" Event="OnePointApproach" />
+                  <Attribute Name="TPALengthP1X" Order="1" Visibility="true" Value="0.0" Icon="OffsetX" Rule="ApproachRule" Event="TwoPointApproach" />
+                  <Attribute Name="TPALengthP1Y" Order="2" Visibility="true" Value="0.002" Icon="OffsetY" Rule="ApproachRule" Event="TwoPointApproach" />
+                  <Attribute Name="TPALengthP1Z" Order="3" Visibility="true" Value="0.0" Icon="OffsetZ" Rule="ApproachRule" Event="TwoPointApproach" />
+                </Attributes>
+              </Group>
+              <Group Name="ApproachLengthP2" Order="5">
+                <Attributes>
+                  <Attribute Name="ApproachLinLinOffset2X" Order="1" Visibility="true" Icon="OffsetX" Rule="ApproachRule" Event="UniApproachLinLin" />
+                  <Attribute Name="ApproachLinLinOffset2Y" Order="2" Visibility="true" Icon="OffsetY" Rule="ApproachRule" Event="UniApproachLinLin" />
+                  <Attribute Name="ApproachLinLinOffset2Z" Order="3" Visibility="true" Icon="OffsetZ" Rule="ApproachRule" Event="UniApproachLinLin" />
+                  <Attribute Name="ApproachLinLinFeedrate2" Order="4" Visibility="true" Icon="Velocity" Rule="ApproachRule" Event="UniApproachLinLin" />
+                  <Attribute Name="ApproachLinLinLinOffset2X" Order="1" Visibility="true" Icon="OffsetX" Rule="ApproachRule" Event="ApproachLinLinLin" />
+                  <Attribute Name="ApproachLinLinLinOffset2Y" Order="2" Visibility="true" Icon="OffsetY" Rule="ApproachRule" Event="ApproachLinLinLin" />
+                  <Attribute Name="ApproachLinLinLinOffset2Z" Order="3" Visibility="true" Icon="OffsetZ" Rule="ApproachRule" Event="ApproachLinLinLin" />
+                  <Attribute Name="ApproachLinLinLinFeedrate2" Order="4" Visibility="true" Icon="Velocity" Rule="ApproachRule" Event="ApproachLinLinLin" />
+                  <Attribute Name="TPALengthP2X" Order="1" Visibility="true" Value="0.0" Icon="OffsetX" Rule="ApproachRule" Event="TwoPointApproach" />
+                  <Attribute Name="TPALengthP2Y" Order="2" Visibility="true" Value="0.0" Icon="OffsetY" Rule="ApproachRule" Event="TwoPointApproach" />
+                  <Attribute Name="TPALengthP2Z" Order="3" Visibility="true" Value="0.040" Icon="OffsetZ" Rule="ApproachRule" Event="TwoPointApproach" />
+                </Attributes>
+              </Group>
+              <Group Name="ApproachLengthP3" Order="6">
+                <Attributes>
+                  <Attribute Name="ApproachLinLinLinOffset3X" Order="1" Visibility="true" Icon="OffsetX" Rule="ApproachRule" Event="ApproachLinLinLin" />
+                  <Attribute Name="ApproachLinLinLinOffset3Y" Order="2" Visibility="true" Icon="OffsetY" Rule="ApproachRule" Event="ApproachLinLinLin" />
+                  <Attribute Name="ApproachLinLinLinOffset3Z" Order="3" Visibility="true" Icon="OffsetZ" Rule="ApproachRule" Event="ApproachLinLinLin" />
+                  <Attribute Name="ApproachLinLinLinFeedrate3" Order="4" Visibility="true" Icon="Velocity" Rule="ApproachRule" Event="ApproachLinLinLin" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <Container Name="RetractRule" Order="4" Visibility="true" Icon="ToolpathRetract">
+            <Groups>
+              <Group Name="EventRule" Order="1">
+                <Rule Name="RetractRule" Visibility="true" Icon="ToolpathRetract">
+                  <Events>
+                    <!-- EventDefinitions for UniversalLC -->
+                    <Event Name="UniRetractLin" />
+                    <Event Name="UniRetract2Points" />
+                    <Event Name="RetractLeadout" />
+                    <!-- EventDefinitions for any others (not Trumpf, Prima, Mitsu, Laserdyne) -->
+                    <Event Name="OnePointRetract" />
+                    <Event Name="TwoPointRetract" />
+                  </Events>
+                </Rule>
+              </Group>
+              <Group Name="GeneralAttributes" Order="2">
+                <Attributes>
+                  <Attribute Name="OPRMotionType" Order="1" Visibility="true" Icon="MotionType" Rule="RetractRule" Event="OnePointRetract" />
+                  <Attribute Name="RetOffsetReference" Order="2" Visibility="false" Icon="ReferenceAttribute" Rule="RetractRule" Event="OnePointRetract" />
+                  <Attribute Name="SpeedViaRetract" Order="3" Visibility="false" Icon="Velocity" Rule="RetractRule" Event="OnePointRetract" />
+                  <Attribute Name="FlybyRetract" Order="4" Visibility="false" Icon="FlybyDistance" Rule="RetractRule" Event="OnePointRetract" />
+                  <Attribute Name="TPRMotionTyp" Order="1" Visibility="true" Icon="MotionType" Rule="RetractRule" Event="TwoPointRetract" />
+                  <Attribute Name="TPRRefCoordinateSys" Order="2" Visibility="false" Icon="ReferenceAttribute" Rule="RetractRule" Event="TwoPointRetract" />
+                </Attributes>
+              </Group>
+              <Group Name="MotionRadius" Order="3">
+                <Attributes>
+                  <Attribute Name="TPRFinalMotionType" Order="1" Visibility="true" Icon="MotionType" Rule="RetractRule" Event="UniRetract2Points" />
+                  <Attribute Name="TPRRetractRadius" Order="2" Visibility="false" Icon="OLP_Param_MotionTypeCircular" Rule="RetractRule" Event="UniRetract2Points" />
+                  <Attribute Name="TPRFinalMotionType" Order="1" Visibility="false" Icon="MotionType" Rule="RetractRule" Event="OnePointRetract" />
+                  <Attribute Name="TPRRetractRadius" Order="2" Visibility="false" Icon="OLP_Param_MotionTypeCircular" Rule="RetractRule" Event="OnePointRetract" />
+                  <Attribute Name="TPRFinalMotionType" Order="1" Visibility="true" Icon="MotionType" Rule="RetractRule" Event="TwoPointRetract" />
+                  <Attribute Name="TPRRetractRadius" Order="2" Visibility="true" Icon="OLP_Param_MotionTypeCircular" Rule="RetractRule" Event="TwoPointRetract" />
+                </Attributes>
+              </Group>
+              <Group Name="RetractLengthP1" Order="4">
+                <Attributes>
+                  <Attribute Name="RetractLinOffsetX" Order="1" Visibility="true" Icon="OffsetX" Rule="RetractRule" Event="UniRetractLin" />
+                  <Attribute Name="RetractLinOffsetY" Order="2" Visibility="true" Icon="OffsetY" Rule="RetractRule" Event="UniRetractLin" />
+                  <Attribute Name="RetractLinOffsetZ" Order="3" Visibility="true" Icon="OffsetZ" Rule="RetractRule" Event="UniRetractLin" />
+                  <Attribute Name="RetractLinFeedrate" Order="4" Visibility="true" Icon="Velocity" Rule="RetractRule" Event="UniRetractLin" />
+                  <Attribute Name="Retract2PointsOffset1X" Order="1" Visibility="true" Icon="OffsetX" Rule="RetractRule" Event="UniRetract2Points" />
+                  <Attribute Name="Retract2PointsOffset1Y" Order="2" Visibility="true" Icon="OffsetY" Rule="RetractRule" Event="UniRetract2Points" />
+                  <Attribute Name="Retract2PointsOffset1Z" Order="3" Visibility="true" Icon="OffsetZ" Rule="RetractRule" Event="UniRetract2Points" />
+                  <Attribute Name="Retract2PointsFeedrate" Order="4" Visibility="true" Icon="Velocity" Rule="RetractRule" Event="UniRetract2Points" />
+                  <Attribute Name="RetractLeadoutOffsetX" Order="1" Visibility="true" Icon="OffsetX" Rule="RetractRule" Event="RetractLeadout" />
+                  <Attribute Name="RetractLeadoutOffsetY" Order="2" Visibility="true" Icon="OffsetY" Rule="RetractRule" Event="RetractLeadout" />
+                  <Attribute Name="RetractLeadoutOffsetZ" Order="3" Visibility="true" Icon="OffsetZ" Rule="RetractRule" Event="RetractLeadout" />
+                  <Attribute Name="RetractLeadoutFeedrate" Order="4" Visibility="true" Icon="Velocity" Rule="RetractRule" Event="RetractLeadout" />
+                  <Attribute Name="RetractLengthX" Order="1" Visibility="true" Value="0.0" Icon="OffsetX" Rule="RetractRule" Event="OnePointRetract" />
+                  <Attribute Name="RetractLengthY" Order="2" Visibility="true" Value="0.0" Icon="OffsetY" Rule="RetractRule" Event="OnePointRetract" />
+                  <Attribute Name="RetractLengthZ" Order="3" Visibility="true" Value="0.040" Icon="OffsetZ" Rule="RetractRule" Event="OnePointRetract" />
+                  <Attribute Name="TPRLengthP1X" Order="1" Visibility="true" Value="0.0" Icon="OffsetX" Rule="RetractRule" Event="TwoPointRetract" />
+                  <Attribute Name="TPRLengthP1Y" Order="2" Visibility="true" Value="0.002" Icon="OffsetY" Rule="RetractRule" Event="TwoPointRetract" />
+                  <Attribute Name="TPRLengthP1Z" Order="3" Visibility="true" Value="0.0" Icon="OffsetZ" Rule="RetractRule" Event="TwoPointRetract" />
+                </Attributes>
+              </Group>
+              <Group Name="RetractLengthP2" Order="5">
+                <Attributes>
+                  <Attribute Name="Retract2PointsOffset2X" Order="1" Visibility="true" Icon="OffsetX" Rule="RetractRule" Event="UniRetract2Points" />
+                  <Attribute Name="Retract2PointsOffset2Y" Order="2" Visibility="true" Icon="OffsetY" Rule="RetractRule" Event="UniRetract2Points" />
+                  <Attribute Name="Retract2PointsOffset2Z" Order="3" Visibility="true" Icon="OffsetZ" Rule="RetractRule" Event="UniRetract2Points" />
+                  <Attribute Name="TPRLengthP2X" Order="1" Visibility="true" Value="0.0" Icon="OffsetX" Rule="RetractRule" Event="TwoPointRetract" />
+                  <Attribute Name="TPRLengthP2Y" Order="2" Visibility="true" Value="0.0" Icon="OffsetY" Rule="RetractRule" Event="TwoPointRetract" />
+                  <Attribute Name="TPRLengthP2Z" Order="3" Visibility="true" Value="0.040" Icon="OffsetZ" Rule="RetractRule" Event="TwoPointRetract" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+        </Containers>
+      </TechTab>
+      <!-- ========================= REGSHAPE WORK METHOD ========================= -->
+      <TechTab Name="RegshapeWorkMethod" Order="7" Visibility="true" Icon="RegShapeRecipe">
+        <Containers>
+          <!-- .................... Regshape Parameters .................... -->
+          <Container Name="RegularShapeDimensions" Order="1" Visibility="true" Icon="Dimensions">
+            <Groups>
+              <Group Name="RegShapeEvent" Order="1">
+                <Rule Name="InProcess" Visibility="true" Icon="ToolpathApproach">
+                  <Events>
+                    <Event Name="CIRCLE" />
+                    <Event Name="HEXAGON" />
+                    <Event Name="KEYHOLE" />
+                    <Event Name="RECTANGLE" />
+                    <Event Name="SLOT" />
+                  </Events>
+                </Rule>
+              </Group>
+              <Group Name="RegShapeParams" Order="2">
+                <Attributes>
+                  <Attribute Name="Radius" Order="1" Visibility="true" Icon="Dimensions_CircleRadius" Rule="InProcess" Event="CIRCLE" />
+                  <Attribute Name="ExplodeRegshape" Order="2" Visibility="true" Icon="RegshapeExplode" Rule="InProcess" Event="CIRCLE" />
+                  <Attribute Name="Width" Order="1" Visibility="true" Icon="Dimensions_HexWidth" Rule="InProcess" Event="HEXAGON" />
+                  <Attribute Name="Radius" Order="2" Visibility="true" Icon="Dimensions_CornerRadius" Rule="InProcess" Event="HEXAGON" />
+                  <Attribute Name="ExplodeRegshape" Order="3" Visibility="true" Icon="RegshapeExplode" Rule="InProcess" Event="HEXAGON" />
+                  <Attribute Name="Length" Order="1" Visibility="true" Icon="Dimensions_KeyLength" Rule="InProcess" Event="KEYHOLE" />
+                  <Attribute Name="Width" Order="2" Visibility="true" Icon="Dimensions_KeyWidth" Rule="InProcess" Event="KEYHOLE" />
+                  <Attribute Name="Radius" Order="3" Visibility="true" Icon="Dimensions_KeyRadius" Rule="InProcess" Event="KEYHOLE" />
+                  <Attribute Name="CornerRadius" Order="4" Visibility="true" Icon="Dimensions_CornerRadius" Rule="InProcess" Event="KEYHOLE" />
+                  <Attribute Name="ExplodeRegshape" Order="5" Visibility="true" Icon="RegshapeExplode" Rule="InProcess" Event="KEYHOLE" />
+                  <Attribute Name="Length" Order="1" Visibility="true" Icon="Dimensions_RectLength" Rule="InProcess" Event="RECTANGLE" />
+                  <Attribute Name="Width" Order="2" Visibility="true" Icon="Dimensions_RectWidth" Rule="InProcess" Event="RECTANGLE" />
+                  <Attribute Name="Radius" Order="3" Visibility="true" Icon="Dimensions_CornerRadius" Rule="InProcess" Event="RECTANGLE" />
+                  <Attribute Name="ExplodeRegshape" Order="4" Visibility="true" Icon="RegshapeExplode" Rule="InProcess" Event="RECTANGLE" />
+                  <Attribute Name="Length" Order="1" Visibility="true" Icon="Dimensions_SlotLength" Rule="InProcess" Event="SLOT" />
+                  <Attribute Name="Radius" Order="2" Visibility="true" Icon="Dimensions_SlotRadius" Rule="InProcess" Event="SLOT" />
+                  <Attribute Name="ExplodeRegshape" Order="3" Visibility="true" Icon="RegshapeExplode" Rule="InProcess" Event="SLOT" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <!-- .................... Regshape Parameters .................... -->
+          <Container Name="ApproachRule" Order="2" Visibility="true" Icon="ToolpathApproach">
+            <Groups>
+              <!-- One/TwoPointApproach = no RegShapeStyle, RegshapeApproach=UniversalLC-Style -->
+              <Group Name="EventRule" Order="1">
+                <Rule Name="ApproachRule" Visibility="true" Icon="ToolpathApproach">
+                  <Events>
+                    <!-- EventDefinitions for NotDefined-RegShapeStyle -->
+                    <Event Name="OnePointApproach" />
+                    <Event Name="TwoPointApproach" />
+                    <!-- EventDefinitions for UniversalLC-RegShapeStyle -->
+                    <Event Name="RegshapeApproach" />
+                  </Events>
+                </Rule>
+              </Group>
+              <!-- Motion LIN/CIR ENUM & Motion Radius -->
+              <Group Name="GlobalAttributes" Order="2">
+                <Attributes>
+                  <Attribute Name="OPAMotionType" Order="1" Visibility="true" Icon="MotionType" Rule="ApproachRule" Event="OnePointApproach" />
+                  <Attribute Name="AppOffsetRefCoordSys" Order="2" Visibility="true" Icon="ReferenceAttribute" Rule="ApproachRule" Event="OnePointApproach" />
+                  <Attribute Name="TPAMotionTyp" Order="1" Visibility="true" Icon="MotionType" Rule="ApproachRule" Event="TwoPointApproach" />
+                  <Attribute Name="TPARefCoordinateSys" Order="2" Visibility="true" Icon="ReferenceAttribute" Rule="ApproachRule" Event="TwoPointApproach" />
+                  <Attribute Name="OPAMotionType" Order="1" Visibility="true" Icon="MotionType" Rule="ApproachRule" Event="RegshapeApproach" />
+                  <Attribute Name="AppOffsetRefCoordSys" Order="2" Visibility="true" Icon="ReferenceAttribute" Rule="ApproachRule" Event="RegshapeApproach" />
+                </Attributes>
+              </Group>
+              <Group Name="GlobalAttributes2" Order="3">
+                <Attributes>
+                  <Attribute Name="TPAFinalMotionType" Order="1" Visibility="true" Icon="MotionType" Rule="ApproachRule" Event="TwoPointApproach" />
+                  <Attribute Name="TPAFinalMotionRadius" Order="2" Visibility="true" Icon="OLP_Param_MotionTypeCircular" Rule="ApproachRule" Event="TwoPointApproach" />
+                </Attributes>
+              </Group>
+              <!-- Attributes Length/Radius for 1. Approach -->
+              <Group Name="ApproachLengthP1" Order="4">
+                <Attributes>
+                  <Attribute Name="ApproachLengthX" Order="1" Visibility="true" Value="0.000" Icon="OffsetX" Rule="ApproachRule" Event="OnePointApproach" />
+                  <Attribute Name="ApproachLengthY" Order="2" Visibility="true" Value="0.000" Icon="OffsetY" Rule="ApproachRule" Event="OnePointApproach" />
+                  <Attribute Name="ApproachLengthZ" Order="3" Visibility="true" Value="0.050" Icon="OffsetZ" Rule="ApproachRule" Event="OnePointApproach" />
+                  <Attribute Name="TPALengthP1X" Order="1" Visibility="true" Value="0.000" Icon="OffsetX" Rule="ApproachRule" Event="TwoPointApproach" />
+                  <Attribute Name="TPALengthP1Y" Order="2" Visibility="true" Value="0.000" Icon="OffsetY" Rule="ApproachRule" Event="TwoPointApproach" />
+                  <Attribute Name="TPALengthP1Z" Order="3" Visibility="true" Value="0.050" Icon="OffsetZ" Rule="ApproachRule" Event="TwoPointApproach" />
+                  <Attribute Name="ApproachLengthX" Order="1" Visibility="true" Value="0.000" Icon="OffsetX" Rule="ApproachRule" Event="RegshapeApproach" />
+                  <Attribute Name="ApproachLengthY" Order="2" Visibility="true" Value="0.000" Icon="OffsetY" Rule="ApproachRule" Event="RegshapeApproach" />
+                  <Attribute Name="ApproachLengthZ" Order="3" Visibility="true" Value="0.050" Icon="OffsetZ" Rule="ApproachRule" Event="RegshapeApproach" />
+                </Attributes>
+              </Group>
+              <Group Name="ApproachLengthP2" Order="5">
+                <Attributes>
+                  <Attribute Name="TPALengthP2X" Order="1" Visibility="true" Value="0.000" Icon="OffsetX" Rule="ApproachRule" Event="TwoPointApproach" />
+                  <Attribute Name="TPALengthP2Y" Order="2" Visibility="true" Value="0.000" Icon="OffsetY" Rule="ApproachRule" Event="TwoPointApproach" />
+                  <Attribute Name="TPALengthP2Z" Order="3" Visibility="true" Value="0.050" Icon="OffsetZ" Rule="ApproachRule" Event="TwoPointApproach" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <!-- ........................RegshapeWorkMethod RETRACT Rule Definitions........................ -->
+          <Container Name="RetractRule" Order="3" Visibility="true" Icon="ToolpathRetract">
+            <Groups>
+              <!-- One/TwoPointApproach = no RegShapeStyle, RegshapeApproach=UniversalLC-Style -->
+              <Group Name="EventRule" Order="1">
+                <Rule Name="RetractRule" Visibility="true" Icon="ToolpathRetract">
+                  <Events>
+                    <!-- EventDefinitions for NotDefined-RegShapeStyle -->
+                    <Event Name="OnePointRetract" />
+                    <Event Name="TwoPointRetract" />
+                    <!-- EventDefinitions for UniversalLC-RegShapeStyle -->
+                    <Event Name="RegshapeRetract" />
+                  </Events>
+                </Rule>
+              </Group>
+              <Group Name="GlobalAttributes" Order="2">
+                <Attributes>
+                  <Attribute Name="OPRMotionType" Order="1" Visibility="true" Icon="MotionType" Rule="RetractRule" Event="OnePointRetract" />
+                  <Attribute Name="RetOffsetReference" Order="2" Visibility="true" Icon="ReferenceAttribute" Rule="RetractRule" Event="OnePointRetract" />
+                  <Attribute Name="TPRMotionTyp" Order="1" Visibility="true" Icon="MotionType" Rule="RetractRule" Event="TwoPointRetract" />
+                  <Attribute Name="TPRRefCoordinateSys" Order="2" Visibility="true" Icon="ReferenceAttribute" Rule="RetractRule" Event="TwoPointRetract" />
+                  <Attribute Name="OPRMotionType" Order="1" Visibility="true" Icon="MotionType" Rule="RetractRule" Event="RegshapeRetract" />
+                  <Attribute Name="RetOffsetReference" Order="2" Visibility="true" Icon="ReferenceAttribute" Rule="RetractRule" Event="RegshapeRetract" />
+                </Attributes>
+              </Group>
+              <Group Name="GlobalAttributes2" Order="3">
+                <Attributes>
+                  <Attribute Name="TPRRetractRadius" Order="1" Visibility="true" Icon="OLP_Param_MotionTypeCircular" Rule="ApproachRule" Event="TwoPointRetract" />
+                </Attributes>
+              </Group>
+              <!-- Attributes Length/Radius for 1. Retract -->
+              <Group Name="RetractLength" Order="4">
+                <Attributes>
+                  <Attribute Name="RetractLengthX" Order="1" Visibility="true" Value="0.000" Icon="OffsetX" Rule="RetractRule" Event="OnePointRetract" />
+                  <Attribute Name="RetractLengthY" Order="2" Visibility="true" Value="0.000" Icon="OffsetY" Rule="RetractRule" Event="OnePointRetract" />
+                  <Attribute Name="RetractLengthZ" Order="3" Visibility="true" Value="0.050" Icon="OffsetZ" Rule="RetractRule" Event="OnePointRetract" />
+                  <Attribute Name="TPRLengthP1X" Order="1" Visibility="true" Value="0.000" Icon="OffsetX" Rule="RetractRule" Event="TwoPointRetract" />
+                  <Attribute Name="TPRLengthP1Y" Order="2" Visibility="true" Value="0.000" Icon="OffsetY" Rule="RetractRule" Event="TwoPointRetract" />
+                  <Attribute Name="TPRLengthP1Z" Order="3" Visibility="true" Value="0.050" Icon="OffsetZ" Rule="RetractRule" Event="TwoPointRetract" />
+                  <Attribute Name="RetractLengthX" Order="1" Visibility="true" Value="0.000" Icon="OffsetX" Rule="RetractRule" Event="RegshapeRetract" />
+                  <Attribute Name="RetractLengthY" Order="2" Visibility="true" Value="0.000" Icon="OffsetY" Rule="RetractRule" Event="RegshapeRetract" />
+                  <Attribute Name="RetractLengthZ" Order="3" Visibility="true" Value="0.050" Icon="OffsetZ" Rule="RetractRule" Event="RegshapeRetract" />
+                </Attributes>
+              </Group>
+              <Group Name="RetractLength2" Order="5">
+                <Attributes>
+                  <Attribute Name="TPRLengthP2X" Order="1" Visibility="true" Value="0.000" Icon="OffsetX" Rule="RetractRule" Event="TwoPointRetract" />
+                  <Attribute Name="TPRLengthP2Y" Order="2" Visibility="true" Value="0.000" Icon="OffsetY" Rule="RetractRule" Event="TwoPointRetract" />
+                  <Attribute Name="TPRLengthP2Z" Order="3" Visibility="true" Value="0.050" Icon="OffsetZ" Rule="RetractRule" Event="TwoPointRetract" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+        </Containers>
+      </TechTab>
+      <!-- ========================= SIDE TANGENT CUTTING WORK METHOD ========================= -->
+      <TechTab Name="SideTangentWorkMethod" Order="8" Visibility="true" Icon="OLP_SideTangent_Recipe">
+        <Containers>
+          <Container Name="SideTangentParameters" Order="1" Visibility="true" Icon="OLP_SideTangent_Main">
+            <Groups>
+              <Group Name="CuttingStrategy" Order="1">
+                <Attributes>
+                  <Attribute Name="SideTangentStrategy" Order="1" Visibility="true" Icon="OLP_SideTangent_Strategy" />
+                  <Attribute Name="SideTangentToolRadius" Order="2" Visibility="false" Icon="OLP_ToolRadius" />
+                  <Attribute Name="SideTangentMaxAngle" Order="3" Visibility="false" Value="15.0" Icon="OLP_SideTangent_AngleMax" />
+                  <Attribute Name="SideTangentMinimizeRotation" Order="4" Visibility="false" Icon="OLP_SideTangent_RotationMin" />
+                </Attributes>
+              </Group>
+              <Group Name="SideTangentFeedrate" Order="2">
+                <Attributes>
+                  <Attribute Name="SideTangentFeedrate" Order="1" Visibility="true" Value="0.5" Icon="Velocity" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <!-- ........................APPROACH Rule Definition........................ -->
+          <Container Name="ApproachRule" Order="2" Visibility="true" Icon="ToolpathApproach">
+            <Groups>
+              <Group Name="EventRule" Order="1">
+                <Rule Name="ApproachRule" Visibility="true" Icon="ToolpathApproach">
+                  <Events>
+                    <!-- EventDefinitions for UniversalLC -->
+                    <Event Name="UniSideTangentApproachLin" />
+                    <Event Name="UniSideTangentApproachLinLin" />
+                    <Event Name="SideTangentApproachLinLinLin" />
+                    <!-- EventDefinitions for any others (not Trumpf, Prima, Mitsu, Laserdyne) -->
+                    <Event Name="SideTangentOnePointApproach" />
+                    <Event Name="SideTangentTwoPointApproach" />
+                  </Events>
+                </Rule>
+              </Group>
+              <Group Name="GeneralAttributes" Order="2">
+                <Attributes>
+                  <Attribute Name="TPAFinalMotionType" Order="1" Visibility="true" Icon="MotionType" Rule="ApproachRule" Event="UniSideTangentApproachLin" />
+                  <Attribute Name="TPAFinalMotionRadius" Order="2" Visibility="true" Icon="OLP_Param_MotionTypeCircular" Rule="ApproachRule" Event="UniSideTangentApproachLin" />
+                  <Attribute Name="TPAFinalMotionType" Order="1" Visibility="true" Icon="MotionType" Rule="ApproachRule" Event="UniSideTangentApproachLinLin" />
+                  <Attribute Name="TPAFinalMotionRadius" Order="2" Visibility="true" Icon="OLP_Param_MotionTypeCircular" Rule="ApproachRule" Event="UniSideTangentApproachLinLin" />
+                  <Attribute Name="ApproachLinLinLinFinalMotionType" Order="1" Visibility="true" Icon="MotionType" Rule="ApproachRule" Event="SideTangentApproachLinLinLin" />
+                  <Attribute Name="ApproachLinLinLinFinalMotionRadius" Order="2" Visibility="true" Icon="OLP_Param_MotionTypeCircular" Rule="ApproachRule" Event="SideTangentApproachLinLinLin" />
+                  <Attribute Name="OPAMotionType" Order="1" Visibility="true" Icon="MotionType" Rule="ApproachRule" Event="SideTangentOnePointApproach" />
+                  <Attribute Name="AppOffsetRefCoordSys" Order="2" Visibility="true" Icon="ReferenceAttribute" Rule="ApproachRule" Event="SideTangentOnePointApproach" />
+                  <Attribute Name="ApproachMotionType" Order="3" Visibility="false" Icon="MotionType" Rule="ApproachRule" Event="SideTangentOnePointApproach" />
+                  <Attribute Name="SpeedViaApproach" Order="4" Visibility="false" Icon="Velocity" Rule="ApproachRule" Event="SideTangentOnePointApproach" />
+                  <Attribute Name="TPAMotionTyp" Order="1" Visibility="true" Icon="MotionType" Rule="ApproachRule" Event="SideTangentTwoPointApproach" />
+                  <Attribute Name="TPARefCoordinateSys" Order="2" Visibility="false" Icon="ReferenceAttribute" Rule="ApproachRule" Event="SideTangentTwoPointApproach" />
+                </Attributes>
+              </Group>
+              <Group Name="ApproachLengthP1" Order="3">
+                <Attributes>
+                  <Attribute Name="ApproachLinOffsetX" Order="1" Visibility="true" Icon="OffsetX" Rule="ApproachRule" Event="UniSideTangentApproachLin" />
+                  <Attribute Name="ApproachLinOffsetY" Order="2" Visibility="true" Icon="OffsetY" Rule="ApproachRule" Event="UniSideTangentApproachLin" />
+                  <Attribute Name="ApproachLinOffsetZ" Order="3" Visibility="true" Icon="OffsetZ" Rule="ApproachRule" Event="UniSideTangentApproachLin" />
+                  <Attribute Name="ApproachLeadinFeedrate1" Order="4" Visibility="true" Icon="Velocity" Rule="ApproachRule" Event="UniSideTangentApproachLin" />
+                  <Attribute Name="ApproachLinLinOffset1X" Order="1" Visibility="true" Icon="OffsetX" Rule="ApproachRule" Event="UniSideTangentApproachLinLin" />
+                  <Attribute Name="ApproachLinLinOffset1Y" Order="2" Visibility="true" Icon="OffsetY" Rule="ApproachRule" Event="UniSideTangentApproachLinLin" />
+                  <Attribute Name="ApproachLinLinOffset1Z" Order="3" Visibility="true" Icon="OffsetZ" Rule="ApproachRule" Event="UniSideTangentApproachLinLin" />
+                  <Attribute Name="ApproachLinLinFeedrate1" Order="4" Visibility="true" Icon="Velocity" Rule="ApproachRule" Event="UniSideTangentApproachLinLin" />
+                  <Attribute Name="ApproachLinLinLinOffset1X" Order="1" Visibility="true" Icon="OffsetX" Rule="ApproachRule" Event="SideTangentApproachLinLinLin" />
+                  <Attribute Name="ApproachLinLinLinOffset1Y" Order="2" Visibility="true" Icon="OffsetY" Rule="ApproachRule" Event="SideTangentApproachLinLinLin" />
+                  <Attribute Name="ApproachLinLinLinOffset1Z" Order="3" Visibility="true" Icon="OffsetZ" Rule="ApproachRule" Event="SideTangentApproachLinLinLin" />
+                  <Attribute Name="ApproachLinLinLinFeedrate1" Order="4" Visibility="true" Icon="Velocity" Rule="ApproachRule" Event="SideTangentApproachLinLinLin" />
+                  <Attribute Name="ApproachLengthX" Order="1" Visibility="true" Icon="OffsetX" Rule="ApproachRule" Event="SideTangentOnePointApproach" />
+                  <Attribute Name="ApproachLengthY" Order="2" Visibility="true" Icon="OffsetY" Rule="ApproachRule" Event="SideTangentOnePointApproach" />
+                  <Attribute Name="ApproachLengthZ" Order="3" Visibility="true" Icon="OffsetZ" Rule="ApproachRule" Event="SideTangentOnePointApproach" />
+                  <Attribute Name="TCApproachFeedrate" Order="4" Visibility="true" Value="0.880" Icon="Velocity" Rule="ApproachRule" Event="SideTangentOnePointApproach" />
+                  <Attribute Name="TPALengthP1X" Order="1" Visibility="true" Icon="OffsetX" Rule="ApproachRule" Event="SideTangentTwoPointApproach" />
+                  <Attribute Name="TPALengthP1Y" Order="2" Visibility="true" Icon="OffsetY" Rule="ApproachRule" Event="SideTangentTwoPointApproach" />
+                  <Attribute Name="TPALengthP1Z" Order="3" Visibility="true" Icon="OffsetZ" Rule="ApproachRule" Event="SideTangentTwoPointApproach" />
+                </Attributes>
+              </Group>
+              <Group Name="ApproachLengthP2" Order="4">
+                <Attributes>
+                  <Attribute Name="ApproachLinLinOffset2X" Order="1" Visibility="true" Icon="OffsetX" Rule="ApproachRule" Event="UniSideTangentApproachLinLin" />
+                  <Attribute Name="ApproachLinLinOffset2Y" Order="2" Visibility="true" Icon="OffsetY" Rule="ApproachRule" Event="UniSideTangentApproachLinLin" />
+                  <Attribute Name="ApproachLinLinOffset2Z" Order="3" Visibility="true" Icon="OffsetZ" Rule="ApproachRule" Event="UniSideTangentApproachLinLin" />
+                  <Attribute Name="ApproachLinLinFeedrate2" Order="4" Visibility="true" Icon="Velocity" Rule="ApproachRule" Event="UniSideTangentApproachLinLin" />
+                  <Attribute Name="ApproachLinLinLinOffset2X" Order="1" Visibility="true" Icon="OffsetX" Rule="ApproachRule" Event="SideTangentApproachLinLinLin" />
+                  <Attribute Name="ApproachLinLinLinOffset2Y" Order="2" Visibility="true" Icon="OffsetY" Rule="ApproachRule" Event="SideTangentApproachLinLinLin" />
+                  <Attribute Name="ApproachLinLinLinOffset2Z" Order="3" Visibility="true" Icon="OffsetZ" Rule="ApproachRule" Event="SideTangentApproachLinLinLin" />
+                  <Attribute Name="ApproachLinLinLinFeedrate2" Order="4" Visibility="true" Icon="Velocity" Rule="ApproachRule" Event="SideTangentApproachLinLinLin" />
+                  <Attribute Name="TPALengthP2X" Order="1" Visibility="true" Icon="OffsetX" Rule="ApproachRule" Event="SideTangentTwoPointApproach" />
+                  <Attribute Name="TPALengthP2Y" Order="2" Visibility="true" Icon="OffsetY" Rule="ApproachRule" Event="SideTangentTwoPointApproach" />
+                  <Attribute Name="TPALengthP2Z" Order="3" Visibility="true" Icon="OffsetZ" Rule="ApproachRule" Event="SideTangentTwoPointApproach" />
+                  <Attribute Name="TCApproachFeedrate" Order="4" Visibility="true" Value="0.800" Icon="Velocity" Rule="ApproachRule" Event="SideTangentTwoPointApproach" />
+                </Attributes>
+              </Group>
+              <Group Name="ApproachLengthP3" Order="5">
+                <Attributes>
+                  <Attribute Name="ApproachLinLinLinOffset3X" Order="1" Visibility="true" Icon="OffsetX" Rule="ApproachRule" Event="SideTangentApproachLinLinLin" />
+                  <Attribute Name="ApproachLinLinLinOffset3Y" Order="2" Visibility="true" Icon="OffsetY" Rule="ApproachRule" Event="SideTangentApproachLinLinLin" />
+                  <Attribute Name="ApproachLinLinLinOffset3Z" Order="3" Visibility="true" Icon="OffsetZ" Rule="ApproachRule" Event="SideTangentApproachLinLinLin" />
+                  <Attribute Name="ApproachLinLinLinFeedrate3" Order="4" Visibility="true" Icon="Velocity" Rule="ApproachRule" Event="SideTangentApproachLinLinLin" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <Container Name="RetractRule" Order="3" Visibility="true" Icon="ToolpathRetract">
+            <Groups>
+              <Group Name="EventRule" Order="1">
+                <Rule Name="RetractRule" Visibility="true" Icon="ToolpathRetract">
+                  <Events>
+                    <!-- EventDefinitions for UniversalLC -->
+                    <Event Name="UniSideTangentRetractLin" />
+                    <Event Name="UniSideTangentRetract2Points" />
+                    <Event Name="SideTangentRetractLeadout" />
+                    <!-- EventDefinitions for any others (not Trumpf, Prima, Mitsu, Laserdyne) -->
+                    <Event Name="SideTangentOnePointRetract" />
+                    <Event Name="SideTangentTwoPointRetract" />
+                  </Events>
+                </Rule>
+              </Group>
+              <Group Name="GeneralAttributes" Order="2">
+                <Attributes>
+                  <Attribute Name="TPRFinalMotionType" Order="1" Visibility="true" Icon="MotionType" Rule="RetractRule" Event="UniSideTangentRetract2Points" />
+                  <Attribute Name="TPRRetractRadius" Order="2" Visibility="false" Icon="OLP_Param_MotionTypeCircular" Rule="RetractRule" Event="UniSideTangentRetract2Points" />
+                  <Attribute Name="OPRMotionType" Order="1" Visibility="true" Icon="MotionType" Rule="RetractRule" Event="SideTangentOnePointRetract" />
+                  <Attribute Name="RetOffsetReference" Order="2" Visibility="true" Icon="ReferenceAttribute" Rule="RetractRule" Event="SideTangentOnePointRetract" />
+                  <Attribute Name="SpeedViaRetract" Order="3" Visibility="false" Icon="Velocity" Rule="RetractRule" Event="SideTangentOnePointRetract" />
+                  <Attribute Name="FlybyRetract" Order="4" Visibility="false" Icon="FlybyDistance" Rule="RetractRule" Event="SideTangentOnePointRetract" />
+                  <Attribute Name="TPRMotionTyp" Order="1" Visibility="true" Icon="MotionType" Rule="RetractRule" Event="SideTangentTwoPointRetract" />
+                  <Attribute Name="TPRRefCoordinateSys" Order="2" Visibility="false" Icon="ReferenceAttribute" Rule="RetractRule" Event="SideTangentTwoPointRetract" />
+                </Attributes>
+              </Group>
+              <Group Name="RetractLengthP1" Order="3">
+                <Attributes>
+                  <Attribute Name="RetractLinOffsetX" Order="1" Visibility="true" Icon="OffsetX" Rule="RetractRule" Event="UniSideTangentRetractLin" />
+                  <Attribute Name="RetractLinOffsetY" Order="2" Visibility="true" Icon="OffsetY" Rule="RetractRule" Event="UniSideTangentRetractLin" />
+                  <Attribute Name="RetractLinOffsetZ" Order="3" Visibility="true" Icon="OffsetZ" Rule="RetractRule" Event="UniSideTangentRetractLin" />
+                  <Attribute Name="RetractLinFeedrate" Order="4" Visibility="true" Icon="Velocity" Rule="RetractRule" Event="UniSideTangentRetractLin" />
+                  <Attribute Name="Retract2PointsOffset1X" Order="1" Visibility="true" Icon="OffsetX" Rule="RetractRule" Event="UniSideTangentRetract2Points" />
+                  <Attribute Name="Retract2PointsOffset1Y" Order="2" Visibility="true" Icon="OffsetY" Rule="RetractRule" Event="UniSideTangentRetract2Points" />
+                  <Attribute Name="Retract2PointsOffset1Z" Order="3" Visibility="true" Icon="OffsetZ" Rule="RetractRule" Event="UniSideTangentRetract2Points" />
+                  <Attribute Name="Retract2PointsFeedrate" Order="4" Visibility="true" Icon="Velocity" Rule="RetractRule" Event="UniSideTangentRetract2Points" />
+                  <Attribute Name="RetractLeadoutOffsetX" Order="1" Visibility="true" Icon="OffsetX" Rule="RetractRule" Event="SideTangentRetractLeadout" />
+                  <Attribute Name="RetractLeadoutOffsetY" Order="2" Visibility="true" Icon="OffsetY" Rule="RetractRule" Event="SideTangentRetractLeadout" />
+                  <Attribute Name="RetractLeadoutOffsetZ" Order="3" Visibility="true" Icon="OffsetZ" Rule="RetractRule" Event="SideTangentRetractLeadout" />
+                  <Attribute Name="RetractLeadoutFeedrate" Order="4" Visibility="true" Icon="Velocity" Rule="RetractRule" Event="SideTangentRetractLeadout" />
+                  <Attribute Name="RetractLengthX" Order="1" Visibility="true" Icon="OffsetX" Rule="RetractRule" Event="SideTangentOnePointRetract" />
+                  <Attribute Name="RetractLengthY" Order="2" Visibility="true" Icon="OffsetY" Rule="RetractRule" Event="SideTangentOnePointRetract" />
+                  <Attribute Name="RetractLengthZ" Order="3" Visibility="true" Icon="OffsetZ" Rule="RetractRule" Event="SideTangentOnePointRetract" />
+                  <Attribute Name="TCRetractFeedrate" Order="4" Visibility="true" Value="0.800" Icon="Velocity" Rule="RetractRule" Event="SideTangentOnePointRetract" />
+                  <Attribute Name="TPRLengthP1X" Order="1" Visibility="true" Icon="OffsetX" Rule="RetractRule" Event="SideTangentTwoPointRetract" />
+                  <Attribute Name="TPRLengthP1Y" Order="2" Visibility="true" Icon="OffsetY" Rule="RetractRule" Event="SideTangentTwoPointRetract" />
+                  <Attribute Name="TPRLengthP1Z" Order="3" Visibility="true" Icon="OffsetZ" Rule="RetractRule" Event="SideTangentTwoPointRetract" />
+                </Attributes>
+              </Group>
+              <Group Name="RetractLengthP2" Order="4">
+                <Attributes>
+                  <Attribute Name="Retract2PointsOffset2X" Order="1" Visibility="true" Icon="OffsetX" Rule="RetractRule" Event="UniSideTangentRetract2Points" />
+                  <Attribute Name="Retract2PointsOffset2Y" Order="2" Visibility="true" Icon="OffsetY" Rule="RetractRule" Event="UniSideTangentRetract2Points" />
+                  <Attribute Name="Retract2PointsOffset2Z" Order="3" Visibility="true" Icon="OffsetZ" Rule="RetractRule" Event="UniSideTangentRetract2Points" />
+                  <Attribute Name="TPRLengthP2X" Order="1" Visibility="true" Icon="OffsetX" Rule="RetractRule" Event="SideTangentTwoPointRetract" />
+                  <Attribute Name="TPRLengthP2Y" Order="2" Visibility="true" Icon="OffsetY" Rule="RetractRule" Event="SideTangentTwoPointRetract" />
+                  <Attribute Name="TPRLengthP2Z" Order="3" Visibility="true" Icon="OffsetZ" Rule="RetractRule" Event="SideTangentTwoPointRetract" />
+                  <Attribute Name="TCRetractFeedrate" Order="4" Visibility="true" Value="0.800" Icon="Velocity" Rule="RetractRule" Event="SideTangentTwoPointRetract" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+        </Containers>
+      </TechTab>
+      <!-- ========================= End of SIDE TANGENT CUTTING ========================= -->
+      <!-- ========================= POINT WORK METHOD ========================= -->
+      <TechTab Name="PointWorkMethod" Order="9" Visibility="false" Icon="OLP_Param_LaserMarking">
+        <Containers>
+          <!-- ========================= Default Attributes ========================= -->
+          <Container Name="GeometricParameters" Order="1" Visibility="false" Icon="OLP_Param_LaserMarking">
+            <Groups>
+              <Group Name="Hole Parameters" Order="1">
+                <Attributes>
+                  <Attribute Name="PercussionDrillingDepth" Order="1" Visibility="true" Icon="Routing" />
+                  <Attribute Name="UseTipOrShoulder" Order="2" Visibility="true" Icon="Tool" />
+                  <Attribute Name="OperationGroupMotionType" Order="3" Visibility="false" Icon="MotionType" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <!-- ========================= Default Attributes ========================= -->
+          <Container Name="ApproachRule" Order="2" Visibility="true" Icon="ToolpathApproach">
+            <Groups>
+              <Group Name="EventRule" Order="1">
+                <Rule Name="ApproachRule" Visibility="true" Icon="ToolpathApproach">
+                  <Events>
+                    <Event Name="PointOnePointApproach" />
+                    <Event Name="PointTwoPointApproach" />
+                  </Events>
+                </Rule>
+              </Group>
+              <Group Name="GeneralAttributes" Order="2">
+                <Attributes>
+                  <Attribute Name="OPAMotionType" Order="1" Visibility="true" Icon="MotionType" Rule="ApproachRule" Event="PointOnePointApproach" />
+                  <Attribute Name="AppOffsetRefCoordSys" Order="2" Visibility="true" Icon="ReferenceAttribute" Rule="ApproachRule" Event="PointOnePointApproach" />
+                  <Attribute Name="ApproachMotionType" Order="3" Visibility="false" Icon="MotionType" Rule="ApproachRule" Event="PointOnePointApproach" />
+                  <Attribute Name="SpeedViaApproach" Order="4" Visibility="false" Icon="Velocity" Rule="ApproachRule" Event="PointOnePointApproach" />
+                  <Attribute Name="TPAMotionTyp" Order="1" Visibility="true" Icon="MotionType" Rule="ApproachRule" Event="PointTwoPointApproach" />
+                  <Attribute Name="TPARefCoordinateSys" Order="2" Visibility="false" Icon="ReferenceAttribute" Rule="ApproachRule" Event="PointTwoPointApproach" />
+                </Attributes>
+              </Group>
+              <Group Name="ApproachLength" Order="3">
+                <Attributes>
+                  <Attribute Name="ApproachLengthX" Order="1" Visibility="true" Icon="OffsetX" Rule="ApproachRule" Event="PointOnePointApproach" />
+                  <Attribute Name="ApproachLengthY" Order="2" Visibility="true" Icon="OffsetY" Rule="ApproachRule" Event="PointOnePointApproach" />
+                  <Attribute Name="ApproachLengthZ" Order="3" Visibility="true" Icon="OffsetZ" Rule="ApproachRule" Event="PointOnePointApproach" />
+                </Attributes>
+              </Group>
+              <Group Name="ApproachLengthP1" Order="3">
+                <Attributes>
+                  <Attribute Name="TPALengthP1X" Order="1" Visibility="true" Icon="OffsetX" Rule="ApproachRule" Event="PointTwoPointApproach" />
+                  <Attribute Name="TPALengthP1Y" Order="2" Visibility="true" Icon="OffsetY" Rule="ApproachRule" Event="PointTwoPointApproach" />
+                  <Attribute Name="TPALengthP1Z" Order="3" Visibility="true" Icon="OffsetZ" Rule="ApproachRule" Event="PointTwoPointApproach" />
+                </Attributes>
+              </Group>
+              <Group Name="ApproachLengthP2" Order="4">
+                <Attributes>
+                  <Attribute Name="TPALengthP2X" Order="1" Visibility="true" Icon="OffsetX" Rule="ApproachRule" Event="PointTwoPointApproach" />
+                  <Attribute Name="TPALengthP2Y" Order="2" Visibility="true" Icon="OffsetY" Rule="ApproachRule" Event="PointTwoPointApproach" />
+                  <Attribute Name="TPALengthP2Z" Order="3" Visibility="true" Icon="OffsetZ" Rule="ApproachRule" Event="PointTwoPointApproach" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <Container Name="RetractRule" Order="3" Visibility="true" Icon="ToolpathRetract">
+            <Groups>
+              <Group Name="EventRule" Order="1">
+                <Rule Name="RetractRule" Visibility="true" Icon="ToolpathRetract">
+                  <Events>
+                    <Event Name="PointOnePointRetract" />
+                    <Event Name="PointTwoPointRetract" />
+                  </Events>
+                </Rule>
+              </Group>
+              <Group Name="GeneralAttributes" Order="2">
+                <Attributes>
+                  <Attribute Name="OPRMotionType" Order="1" Visibility="true" Icon="MotionType" Rule="RetractRule" Event="PointOnePointRetract" />
+                  <Attribute Name="RetOffsetReference" Order="2" Visibility="true" Icon="ReferenceAttribute" Rule="RetractRule" Event="PointOnePointRetract" />
+                  <Attribute Name="SpeedViaRetract" Order="3" Visibility="false" Icon="Velocity" Rule="RetractRule" Event="PointOnePointRetract" />
+                  <Attribute Name="FlybyRetract" Order="4" Visibility="false" Icon="FlybyDistance" Rule="RetractRule" Event="PointOnePointRetract" />
+                  <Attribute Name="TPRMotionTyp" Order="1" Visibility="true" Icon="MotionType" Rule="RetractRule" Event="PointTwoPointRetract" />
+                  <Attribute Name="TPRRefCoordinateSys" Order="2" Visibility="false" Icon="ReferenceAttribute" Rule="RetractRule" Event="PointTwoPointRetract" />
+                </Attributes>
+              </Group>
+              <Group Name="RetractLength" Order="3">
+                <Attributes>
+                  <Attribute Name="RetractLengthX" Order="1" Visibility="true" Icon="OffsetX" Rule="RetractRule" Event="PointOnePointRetract" />
+                  <Attribute Name="RetractLengthY" Order="2" Visibility="true" Icon="OffsetY" Rule="RetractRule" Event="PointOnePointRetract" />
+                  <Attribute Name="RetractLengthZ" Order="3" Visibility="true" Icon="OffsetZ" Rule="RetractRule" Event="PointOnePointRetract" />
+                </Attributes>
+              </Group>
+              <Group Name="RetractLengthP1" Order="4">
+                <Attributes>
+                  <Attribute Name="TPRLengthP1X" Order="1" Visibility="true" Icon="OffsetX" Rule="RetractRule" Event="PointTwoPointRetract" />
+                  <Attribute Name="TPRLengthP1Y" Order="2" Visibility="true" Icon="OffsetY" Rule="RetractRule" Event="PointTwoPointRetract" />
+                  <Attribute Name="TPRLengthP1Z" Order="3" Visibility="true" Icon="OffsetZ" Rule="RetractRule" Event="PointTwoPointRetract" />
+                </Attributes>
+              </Group>
+              <Group Name="RetractLengthP2" Order="5">
+                <Attributes>
+                  <Attribute Name="TPRLengthP2X" Order="1" Visibility="true" Icon="OffsetX" Rule="RetractRule" Event="PointTwoPointRetract" />
+                  <Attribute Name="TPRLengthP2Y" Order="2" Visibility="true" Icon="OffsetY" Rule="RetractRule" Event="PointTwoPointRetract" />
+                  <Attribute Name="TPRLengthP2Z" Order="3" Visibility="true" Icon="OffsetZ" Rule="RetractRule" Event="PointTwoPointRetract" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+        </Containers>
+      </TechTab>
+      <!-- ========================= End of POINT Workmethod ========================= -->
+      <TechTab Name="Linking" Order="10" Visibility="true" Icon="OLP_Param_OPLink">
+        <Containers>
+          <Container Name="Linking" Order="1" Visibility="true" Icon="OLP_Param_OPLink">
+            <Groups>
+              <Group Name="Link_Operation_Attribute_Group" Order="1">
+                <Attributes>
+                  <Attribute Name="Linking_Type" Order="1" Visibility="true" Icon="OLP_Param_LinkType" />
+                  <Attribute Name="Circular_Link_Height" Order="2" Value="0.015" Icon="OLP_Param_OPLinkHeight" />
+                  <Attribute Name="AlgLinkingMotionType" Order="3" Icon="MotionType" />
+                  <Attribute Name="AlgKineoCollisionTolerance" Order="4" Icon="COM_CollisionTolerance" />
+                </Attributes>
+              </Group>
+              <Group Name="Link_Operation_Attribute_GroupB" Order="2">
+                <Attributes>
+                  <Attribute Name="AlgKineoUnlockExternals" Order="1" Value="true" Icon="RB_ExternalAxis_Unlock" UserSkillLevel="Expert" />
+                  <Attribute Name="AlgKineoOptimizerLoops" Order="2" Icon="Iterations" UserSkillLevel="Expert" />
+                </Attributes>
+              </Group>
+              <Group Name="Link_Operation_Attribute_GroupC" Order="3">
+                <Attributes>
+                  <Attribute Name="AlgKineoSmartPlannerSteps" Order="1" Icon="OLP_Param_OPLink" />
+                  <Attribute Name="AlgKineoOptimizerMinGain" Order="3" Icon="COM_ValueMid" />
+                </Attributes>
+              </Group>
+              <Group Name="Link_Operation_Attribute_GroupDebug" Order="4">
+                <Attributes>
+                  <Attribute Name="AlgDummyJoints" Order="1" Icon="OLP_Param_OPLink" UserSkillLevel="Expert" />
+                  <Attribute Name="AlgUseEksIk" Order="2" Visibility="false" Icon="OLP_Param_OPLink" UserSkillLevel="Expert" />
+                  <Attribute Name="AlgDebugNumberOfIntermediatePoints" Order="3" Visibility="false" Icon="OLP_Param_OPLink" UserSkillLevel="Expert" />
+                  <Attribute Name="AlgDebugShowAlgoPoints" Order="4" Visibility="false" Icon="OLP_Param_OPLink" UserSkillLevel="Expert" />
+                  <Attribute Name="AlgDebugUseKineoProblem" Order="5" Visibility="false" Icon="OLP_Param_OPLink" UserSkillLevel="Expert" />		
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <Container Name="LinkingMotions" Order="2" Visibility="true" Icon="OLP_OPLink_Motion">
+            <Groups>
+              <Group Name="LinkingPTPMotions" Order="1">
+                <Attributes>
+                  <Attribute Name="AlgPtpMotionSpeedMode" Order="1" Icon="OLP_MotionPTP_SpeedMode" />
+                  <Attribute Name="AlgPtpMotionSpeedValue" Order="2" Icon="Velocity" />
+                  <Attribute Name="AlgPtpMotionFlybyMode" Order="3" Icon="OLP_FlybyMode" />
+                  <Attribute Name="AlgPtpMotionFlybyValue" Order="4" Icon="FlybyDistance" />
+                </Attributes>
+              </Group>
+              <Group Name="LinkingLINMotions" Order="2">
+                <Attributes>
+                  <Attribute Name="AlgLinMotionSpeedMode" Order="1" Icon="OLP_MotionLin_SpeedMode" />
+                  <Attribute Name="AlgLinMotionSpeedValue" Order="2" Icon="Velocity" />
+                  <Attribute Name="AlgLinMotionFlybyMode" Order="3" Icon="OLP_FlybyMode" />
+                  <Attribute Name="AlgLinMotionFlybyValue" Order="4" Icon="FlybyDistance" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+        </Containers>
+      </TechTab>
+      <!-- =========================  TOOLPATH QUALITY ========================= -->
+      <TechTab Name="ToolPathQuality" Order="11" Visibility="true" Icon="OLP_ToolpathQuality">
+        <Containers>
+          <Container Name="EvaluationCriteria" Order="1" Visibility="true" Icon="OLP_ToolpathQualityCriteria">
+            <Groups>
+              <Group Name="ToolPath_Quality_Attribute_Group" Order="1">
+                <Attributes>
+                  <!-- The following attributes: Reachability, Collision and Singularity will always have the value ON(cannot be overwritten) -->
+                  <Attribute Name="TargetCriteriaReachability" Order="1" Visibility="true" Value="true" Icon="RB_ResourceGlobalReach" UserSkillLevel="Expert" />
+                  <Attribute Name="TargetCriteriaCollision" Order="2" Visibility="true" Value="true" Icon="Collision" UserSkillLevel="Expert" />
+                  <Attribute Name="TargetCriteriaSingularity" Order="3" Visibility="true" Value="true" Icon="OLP_ToolSingularity" UserSkillLevel="Expert" />
+                  <Attribute Name="TargetCriteriaNormalDeviation" Order="4" Visibility="true" Value="" Icon="RB_NormalAngleDeviation" />
+                  <Attribute Name="TargetCriteriaUseNormalDeviationAttribute" Order="5" Visibility="false" Value="true" Icon="OLP_ToolSingularity" />
+                  <Attribute Name="TargetCriteriaWorkAngleDeviation" Order="6" Visibility="false" Value="" Icon="RB_WorkAngleDeviation" />
+                  <Attribute Name="TargetCriteriaTravelAngleDeviation" Order="7" Visibility="false" Value="" Icon="RB_TravelAngleDeviation" />
+                  <Attribute Name="TargetCriteriaToolAngleDeviation" Order="8" Icon="RB_ArcToolRotationDeviation" />
+                  <Attribute Name="TargetCriteriaAxisValue" Order="9" Visibility="true" Value="" Icon="RB_LimitsAxis" />
+                  <Attribute Name="TargetCriteriaAxisChange" Order="10" Visibility="true" Value="" Icon="OLP_Param_Velocity" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+        </Containers>
+      </TechTab>
+      <TechTab Name="AutomaticPathOptimization" Order="12" Visibility="true" Icon="OLP_ToolpathQualityEvaluation">
+        <Containers>
+          <Container Name="OptimizationControl" Order="1" Visibility="true" Icon="COM_OptimizeControl">
+            <Groups>
+              <Group Name="AStarGroup" Order="1">
+                <Attributes>
+                  <Attribute Name="ApoHeuristicAStarValue" Order="1" Visibility="true" Value="" Icon="COM_ValueMid" />
+                </Attributes>
+              </Group>
+              <Group Name="ApoCollisionToleranceGroup" Order="2">
+                <Attributes>
+                  <Attribute Name="ApoCollisionToleranceOn" Order="1" Visibility="true" Value="" Icon="COM_CollisionOverrideSettings" />
+                  <Attribute Name="ApoCollisionToleranceVal" Order="2" Value="" Icon="COM_CollisionTolerance" />
+                </Attributes>
+              </Group>
+              <Group Name="ApoKeepAwayGroup" Order="3">
+                <Attributes>
+                  <Attribute Name="ApoKeepAwayKeepDistance" Order="1" Visibility="true" Icon="RB_KeepAway" />
+                  <Attribute Name="ApoKeepAwayIntensity" Order="2" Visibility="true" Value="KA_Moderate" Icon="COM_Tier" />
+                  <Attribute Name="ApoKeepAwayMinimumDistance" Order="3" Visibility="true" Icon="RB_KeepAway_MinAngle" UserSkillLevel="Expert" />
+                </Attributes>
+              </Group>
+              <Group Name="ApoInsertProcessPointsGroup" Order="4">
+                <Attributes>
+                  <Attribute Name="ApoInsertProcessPointsSwitch" Order="1" Visibility="true" Value="true" Icon="OLP_Param_ApoInsertProcessPointsSwitch" />
+                  <Attribute Name="ApoInsertProcessPointsMinimumDistance" Order="2" Visibility="true" Value="0.01" Icon="OLP_Param_ApoInsertProcessPointsMinimumDistance" UserSkillLevel="Expert" />
+                  <Attribute Name="ApoInsertProcessPointsMinimumDistanceFactor" Order="3" Visibility="true" Value="0.25" Icon="OLP_Param_ApoInsertProcessPointsMinimumDistanceFactor" UserSkillLevel="Expert" />
+                </Attributes>
+              </Group>
+              <Group Name="ApoVariationBehaviourGroup" Order="5">
+                <Attributes>
+                  <Attribute Name="ApoVariationTurnVariations1stProcessTpe" Order="1" Visibility="true" Value="true" Icon="OLP_Param_Joint_Turn" UserSkillLevel="Expert" />
+                  <Attribute Name="ApoVariationStopForTPENotSolvable" Order="2" Visibility="true" Value="true" Icon="Cancel" UserSkillLevel="Expert" />
+                  <Attribute Name="ApoCycleUpdateOnlyOrientation" Order="3" Visibility="true" Value="true" Icon="GeoTransformations" UserSkillLevel="Expert" />				  
+                </Attributes>
+              </Group>
+              <Group Name="ApoVariationLimitPerDofGroup" Order="6">
+                <Attributes>
+                  <Attribute Name="ApoVariationLimitPerDofOn" Order="1" Visibility="false" Value="" Icon="Iterations" UserSkillLevel="Expert" />
+                  <Attribute Name="ApoVariationLimitPerDofVal" Order="2" Visibility="true" Value="5" Icon="COM_DiscretizationNumber" UserSkillLevel="Expert" />
+                  <Attribute Name="ApoVariationLimitPerDofMaximumStepDegree" Order="3" Visibility="true" Value="45" Icon="COM_DiscretizationRotStep" UserSkillLevel="Expert" />
+                  <Attribute Name="ApoVariationLimitPerDofMaximumStepLinear" Order="4" Visibility="false" Value="0.5" Icon="COM_DiscretizationTransStep" UserSkillLevel="Expert" />
+                  <Attribute Name="ApoVariationMaximumNumberOfVariations" Order="5" Visibility="false" Value="15000" Icon="ApoVariationMaximumNumberOfVariations" UserSkillLevel="Expert" />
+                  <Attribute Name="ApoVariationValidVariantsMinimumPercentage" Order="6" Visibility="false" Value="50" Icon="ApoVariationValidVariantsMinimumPercentage" UserSkillLevel="Expert" />
+                </Attributes>
+              </Group>
+              <Group Name="EksMotionTableGroup" Order="7">
+                <Attributes>
+                  <Attribute Name="EksMotionTableCheck" Order="1" Visibility="false" Value="true" Icon="OLP_Param_ToolpathMotionCheck" />
+                  <Attribute Name="EksMotionTableMaxDistTcp" Order="2" Visibility="true" Value="0.001" Icon="OLP_Param_ToolpathMaxDistance" UserSkillLevel="Expert" />
+                  <Attribute Name="EksMotionTableMaxOrientDelta" Order="3" Visibility="true" Value="1" Icon="OLP_Param_ToolpathMaxAngle" UserSkillLevel="Expert" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <Container Name="VariationSpace" Order="2" Visibility="true" Icon="COM_OptimizeVariation">
+            <Groups>
+              <Group Name="ApoVariationParameter" ShowGroupName="true" Order="1">
+                <Attributes>
+                  <Attribute Name="ApoRotationAroundTangent" Order="1" Visibility="true" Value="" Icon="OlpParamRotationTangent" UserSkillLevel="Expert" />
+                  <Attribute Name="ApoTangentDescretization" Order="2" Visibility="true" Value="" Icon="COM_DiscretizationStep" UserSkillLevel="Expert" />
+                </Attributes>
+              </Group>
+              <Group Name="VariationParameter2" Order="2">
+                <Attributes>
+                  <Attribute Name="ApoRotationAroundBiTangent" Order="1" Visibility="true" Value="" Icon="OlpParamRotationBiTangent" UserSkillLevel="Expert" />
+                  <Attribute Name="ApoBiTangentDescretization" Order="2" Visibility="true" Value="" Icon="COM_DiscretizationStep" UserSkillLevel="Expert" />
+                </Attributes>
+              </Group>
+              <Group Name="VariationParameter3" Order="3">
+                <Attributes>
+                  <Attribute Name="ApoRotationAroundNormal" Order="1" Visibility="true" Value="" Icon="OLP_ToolSingularity" UserSkillLevel="Expert" />
+                  <Attribute Name="ApoMaxRotationAroundNormal" Order="2" Visibility="false" Value="" Icon="COM_OptimizeVariationRange" UserSkillLevel="Expert" />
+                  <Attribute Name="ApoNormalDescretization" Order="3" Visibility="true" Value="" Icon="COM_DiscretizationStep" UserSkillLevel="Expert" />
+                  <Attribute Name="ApoNormalDeviationCone" Order="4" Value="" Icon="OLP_ToolSingularityCone" UserSkillLevel="Expert" />
+                </Attributes>
+              </Group>
+              <Group Name="VariationParameter4" Order="4">
+                <Attributes>
+                  <Attribute Name="ApoWppRevoluteAxis1Name" Order="1" Visibility="true" Value="" Icon="" />
+                  <Attribute Name="ApoWppRevoluteAxis1" Order="2" Visibility="true" Value="" Icon="" />
+                  <Attribute Name="ApoWppRevoluteAxis1Descretization" Order="3" Visibility="true" Value="" Icon="" />
+                  <Attribute Name="ApoWppRevoluteAxis1Deviation" Order="4" Visibility="true" Value="" Icon="" />
+                </Attributes>
+              </Group>
+              <Group Name="VariationParameter5" Order="5">
+                <Attributes>
+                  <Attribute Name="ApoWppRevoluteAxis2Name" Order="1" Visibility="true" Value="" Icon="" />
+                  <Attribute Name="ApoWppRevoluteAxis2" Order="2" Visibility="true" Value="" Icon="" />
+                  <Attribute Name="ApoWppRevoluteAxis2Descretization" Order="3" Visibility="true" Value="" Icon="" />
+                  <Attribute Name="ApoWppRevoluteAxis2Deviation" Order="4" Visibility="true" Value="" Icon="" />
+                </Attributes>
+              </Group>
+              <Group Name="VariationParameter6" Order="6">
+                <Attributes>
+                  <Attribute Name="ApoWppRevoluteAxis3Name" Order="1" Visibility="true" Value="" Icon="" />
+                  <Attribute Name="ApoWppRevoluteAxis3" Order="2" Visibility="true" Value="" Icon="" />
+                  <Attribute Name="ApoWppRevoluteAxis3Descretization" Order="3" Visibility="true" Value="" Icon="" />
+                </Attributes>
+              </Group>
+              <Group Name="ApoBoundaryConditions" ShowGroupName="true" Order="7">
+                <Attributes>
+                  <Attribute Name="ApoMaxWorkAngleDeviation" Order="1" Visibility="false" Value="" Icon="RB_WorkAngleMaxDeviation" />
+                  <Attribute Name="ApoMaxTravelAngleDeviation" Order="2" Visibility="false" Value="" Icon="RB_TravelAngleMaxDeviation" />
+                  <Attribute Name="ApoMaxToolAngleDeviation" Order="3" Value="" Icon="RB_ToolRotationMaxDeviation" />
+                  <Attribute Name="ApoMaxProcessAngleDeviation" Order="4" Visibility="true" Value="" Icon="RB_NormalAngleMaxDeviation" />
+                  <Attribute Name="ApoMaxProcessOrientationDeviation" Order="5" Visibility="true" Value="" Icon="" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+          <Container Name="Aaro_ApproachRetract" Order="3" Visibility="true" Icon="ToolpathApproach">
+            <Groups>
+              <Group Name="ApproachRetract_Kineo" Order="1">
+                <Attributes>
+                  <Attribute Name="AaroKineoCollisionTolerance" Order="1" Visibility="true"  Icon="COM_CollisionTolerance" />
+                  <Attribute Name="AaroKineoUnlockExternals" Order="2" Visibility="true" Icon="RB_ExternalAxis_Unlock" UserSkillLevel="Expert" />
+                  <Attribute Name="AaroKineoOptimizerLoops" Order="3" Visibility="true" Icon="Iterations" UserSkillLevel="Expert" />
+                  <Attribute Name="AaroKineoOptimizerMinGain" Order="4" Visibility="false" Icon="COM_ValueMid" UserSkillLevel="Expert" />
+                </Attributes>
+              </Group>
+              <Group Name="ApproachRetract_Kineo_Modify" Order="2">
+                <Attributes>
+                  <Attribute Name="AaroKineoModifyPointsAllowed" Order="1" Visibility="true"  Icon="Unlock" UserSkillLevel="Expert" />
+                  <Attribute Name="AaroKineoModifyPointsPosition" Order="2" Visibility="true" Icon="RB_ExternalAxis_Unlock" UserSkillLevel="Expert" />
+                  <Attribute Name="AaroKineoModifyPointsOrientation" Order="3" Visibility="true" Icon="Iterations" UserSkillLevel="Expert" />
+                </Attributes>
+              </Group>			  
+              <Group Name="ApproachRetract_Attribute_GroupDebug" Order="3">
+                <Attributes>
+                  <Attribute Name="AaroDummyJoints" Order="1" Icon="ToolpathApproach" UserSkillLevel="Expert" />
+                  <Attribute Name="AaroUseEksIk" Order="2" Visibility="false" Icon="ToolpathApproach" UserSkillLevel="Expert" />
+                  <Attribute Name="AaroDebugNumberOfIntermediatePoints" Order="3" Visibility="false" Icon="ToolpathApproach" UserSkillLevel="Expert" />
+                  <Attribute Name="AaroDebugShowAlgoPoints" Order="4" Visibility="false" Icon="ToolpathApproach" UserSkillLevel="Expert" />
+                  <Attribute Name="AaroHandling" Order="5" Visibility="false" Icon="ToolpathApproach" UserSkillLevel="Expert" />
+                  <Attribute Name="AaroDebugSkipAaro" Order="5" Visibility="false" Icon="ToolpathApproach" UserSkillLevel="Expert" />
+                  <Attribute Name="ApoDebugSkipApo" Order="5" Visibility="false" Icon="ToolpathApproach" UserSkillLevel="Expert" />				  
+				  <Attribute Name="AaroHandling" Order="5" Visibility="false" Icon="ToolpathApproach" UserSkillLevel="Expert" />								
+                </Attributes>
+              </Group>			  
+            </Groups>	
+          </Container>
+        </Containers>
+      </TechTab>
+      <TechTab Name="AuxiliaryCommands" Order="13" Visibility="true" Icon="COM_ScriptsRun">
+        <Containers>
+          <Container Name="AutoExecuteAuxiliaryCommandContainerName" Order="1" Visibility="true" Icon="COM_ScriptsRun">
+            <Groups>
+              <Group Name="ProcessGeometry" Order="1">
+                <Attributes>
+                  <Attribute Name="ProcessGeometryAutoExecuteAuxiliaryCommandName" Order="1" Visibility="true" Value="NoScript" Icon="Preparations" />
+                </Attributes>
+              </Group>
+            </Groups>
+          </Container>
+        </Containers>
+      </TechTab>
+    </TechTabs>
+  </Technology>
+</ControllerSettings>
